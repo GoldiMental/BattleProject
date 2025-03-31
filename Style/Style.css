@@ -1,7 +1,7 @@
 body {
     background-color: black;
     color: azure;
-    min-height: 650px;
+    min-height: 850px;
     min-width: 600px;
     text-align: center;
     display: flex;
@@ -10,50 +10,122 @@ body {
     flex-direction: column;
 }
 
-#movement_game{
+#movement_game {
     visibility: visible;
 }
 
-#battle_game{
+#battle_game {
     visibility: hidden;
 }
 
-.Playground{
+.Playground {
     position: relative;
-    width:500px;
-    height:500px;
-    border: 5px ridge silver;
+    width: 500px;
+    height: 500px;
+    border: 15px ridge silver;
+    border-radius: 15px;
     overflow: hidden;
 }
 
-.Player{
+.usable_box {
+    width: 500px;
+    height: 150px;
+    border: 15px ridge silver;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#battle_box, #attack_box, #moving_box {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 5px;
+}
+#moving_box{
+    visibility: visible;
+}
+#battle_box{
+    visibility: hidden;
+}
+#attack_box{
+    visibility: hidden;
+}
+
+#attack_1,
+#attack_2,
+#attack_3,
+#attack_4,
+#Tulpas,
+#Items_Main,
+#Save,
+#Quit,
+#Fight,
+#Items_Fight,
+#Change,
+#Escape {
+    width: 240px;
+    padding: 20px;
+    text-align: center;
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: azure;
+    border: 5px groove silver;
+    border-radius: 5px;
+}
+
+#Tulpas:hover,
+#Items_Main:hover,
+#Save:hover,
+#Quit:hover,
+#Fight:hover,
+#Items_Fight:hover,
+#Change:hover,
+#Escape:hover,
+#attack_1:hover,
+#attack_2:hover,
+#attack_3:hover,
+#attack_4:hover {
+    border:groove gold;
+}
+
+.Player {
     position: absolute;
     top: 225px;
-    left:225px;
-    width:50px;
-    height:50px;
+    left: 225px;
+    width: 50px;
+    height: 50px;
     border-radius: 10px;
+    background-size: 175%;
+    background-position: 50% 50%;
 }
 
-.down{
+.down {
     background-image: url(../img/textures/char\ front.png);
 }
-.up{
+
+.up {
     background-image: url(../img/textures/char\ back.png);
 }
-.left{
-    background-image: url(../img/textures/char\ side.png);
-}
-.right{
-    background-color: red;
+
+.left {
+    background-image: url(../img/textures/char\ side\ left.png);
 }
 
-.map{
+.right {
+    background-image: url(../img/textures/char\ side.png);
+}
+
+.map {
     position: absolute;
     top: 0px;
-    left:0px;
+    left: 0px;
     background-image: url(../img/Gemini_Generated_Image_k3eik0k3eik0k3ei.jpeg);
-    width:2048px;
-    height:2048px;
+    width: 2048px;
+    height: 2048px;
     transition: left 0.3s linear, top 0.3s linear;
 }
