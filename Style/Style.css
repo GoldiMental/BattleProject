@@ -10,6 +10,14 @@ body {
     flex-direction: column;
 }
 
+#movement_game{
+    visibility: visible;
+}
+
+#batte_game{
+    visibility: hidden;
+}
+
 .Playground{
     position: relative;
     width:500px;
