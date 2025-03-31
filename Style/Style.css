@@ -1,4 +1,39 @@
 body {
     background-color: black;
     color: azure;
+    min-height: 650px;
+    min-width: 600px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Playground{
+    position: relative;
+    width:500px;
+    height:500px;
+    border: 5px ridge silver;
+    overflow: hidden;
+}
+
+.Player{
+    position: absolute;
+    top: 225px;
+    left:225px;
+    width:50px;
+    height:50px;
+    border-radius: 10px;
+    background-color: green;
+}
+
+.map{
+    position: absolute;
+    top: 0px;
+    left:0px;
+    background-image: url(../img/Gemini_Generated_Image_k3eik0k3eik0k3ei.jpeg);
+    width:2048px;
+    height:2048px;
+    transition: left 0.3s linear, top 0.3s linear;
 }
