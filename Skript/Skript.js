@@ -2,33 +2,45 @@ let mapX = 0;
 let mapY = 0;
 const moveSpeed = 50;
 const moveInterval = 300;
-
-const pressedKeys = {};
+let activeDirection = null;
 
 function moveMap() {
     const bg = document.querySelector('.map');
-    if (pressedKeys['w']) {
+    const player = document.getElementById('user');
+    let direction = "";
+    if (activeDirection==="w") {
+        direction = "up";
         mapY += moveSpeed;
     }
-    if (pressedKeys['s']) {
+    else if (activeDirection==='s') {
+        direction = "down";
         mapY -= moveSpeed;
     }
-    if (pressedKeys['a']) {
+    if (activeDirection==='a') {
+        direction = "left";
         mapX += moveSpeed;
     }
-    if (pressedKeys['d']) {
+    if (activeDirection==='d') {
+        direction = "right";
         mapX -= moveSpeed;
+    }
+    if(direction) {
+        player.className = 'Player '+direction;
     }
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
 }
 
 document.addEventListener('keydown', (event) => {
-    pressedKeys[event.key] = true;
+    if(event.key === 'w' || event.key === 's' || event.key==='d' || event.key ==='a') {
+        activeDirection = event.key;
+    }
 });
 
 document.addEventListener('keyup', (event) => {
-    pressedKeys[event.key] = false;
+    if (event.key === activeDirection){
+        activeDirection = null;
+    }
 });
 
 setInterval(moveMap, moveInterval);
