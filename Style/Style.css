@@ -14,7 +14,7 @@ body {
     visibility: visible;
 }
 
-#batte_game{
+#battle_game{
     visibility: hidden;
 }
 
@@ -33,7 +33,19 @@ body {
     width:50px;
     height:50px;
     border-radius: 10px;
-    background-color: green;
+}
+
+.down{
+    background-color: darkgreen;
+}
+.up{
+    background-color: lightgreen;
+}
+.left{
+    background-color: blue;
+}
+.right{
+    background-color: red;
 }
 
 .map{
