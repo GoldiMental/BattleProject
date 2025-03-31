@@ -1,0 +1,26 @@
+Allemeines Ziel: 
+    Ein Pokemonähnliches lokales 2D-Spiel zu erstellen.
+
+Dazu erforderliche Aufgaben:
+    - Erstellung Grundstruktur (Ordner; Basisskripte wie HTML,CSS,JS; Git-Repo)
+    - Ideensammlung von Charakteren (Spielfigur, Gegner, Freunde usw.) und Items
+    - Erstellung von Bildmaterial für Hintergründe und Figuren
+    - Erstellung von Stats der einzelnen Charaktere bzw. Figuren und Items
+    - Erstellung eines Levelsystems
+    - Erstellung der Spielfunktionen zur Spielfigurbewegung und Umgebungsinteraktion
+    - Erstellung von Schaltflächen (UI)
+    - Erstellung der Steuerung mit der Tastatur
+    - Erstellung von Zufallsbegegnungen
+    - Erstellung eines Kampfsystems (Angriffe, Erfolgsquote und Lebenspunkten)
+    - Erstellung der Kampfsequenzen mit Animation
+    - Erstellung der Fangfunktion (Erfolgsquote bei sinkender Anzahl der Lebenspunkte)
+    - Erstellung der Speicherfunktion
+    - Erstellung von Dialogen mit anderen Charakteren
+
+Optionale Aufgaben:
+    - Erstellung von Audio (Hintergrundmusik, Soundeffekte)
+    - Erstellung von Typen (Stärken und Schwächen)
+    - Erstellung eines Intros
+    - Erstellung eines Tutorials
+    - Erstellung von Cheats
+    - Allgemeine Spielerweiterung durch erweitern des begehbaren Gebiets, erstellen von Quests usw.
