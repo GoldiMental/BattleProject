@@ -11,11 +11,11 @@ body {
 }
 
 #movement_game {
-    visibility: hidden;
+    visibility: visible;
 }
 
 #battle_game {
-    visibility: visible;
+    visibility: hidden;
 }
 
 #opponent {
@@ -153,7 +153,7 @@ body {
 }
 
 #moving_box {
-    visibility: hidden;
+    visibility: visible;
 }
 
 #battle_box {
@@ -161,7 +161,7 @@ body {
 }
 
 #attack_box {
-    visibility: visible;
+    visibility: hidden;
 }
 
 #attack_1,
