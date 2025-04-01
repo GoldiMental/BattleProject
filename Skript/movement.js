@@ -7,10 +7,21 @@ let activeDirection = null;
 let map_size = window.getComputedStyle(document.querySelector(".map"));
 
 
-let minX = -1550;  //Linke Grenze
+let minX = -(parseInt(map_size.width)-500)  //Linke Grenze
 let maxX = 0;   // Rechte Grenze
-let minY = -1550;  // Obere Grenze
+let minY = -(parseInt(map_size.height)-500)  // Obere Grenze
 let maxY = 0;   // Untere Grenze
+
+function refreshMap() {
+    map_size = window.getComputedStyle(document.querySelector(".map"));
+
+
+    minX = -(parseInt(map_size.width)-500);  //Linke Grenze
+    maxX = 0;   // Rechte Grenze
+    minY = -(parseInt(map_size.height)-500);  // Obere Grenze
+    maxY = 0;   // Untere Grenze
+
+}
 
 function moveMap() {
     const bg = document.querySelector('.map');
