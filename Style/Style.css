@@ -249,8 +249,8 @@ body {
 
 .map {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: -25px;
+    left: -25px;
     background-image: url(../img/Gemini_Generated_Image_k3eik0k3eik0k3ei.jpeg);
     width: 2048px;
     height: 2048px;
