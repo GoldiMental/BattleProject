@@ -32,7 +32,7 @@ function moveMap() {
 }
 
 document.addEventListener('keydown', (event) => {
-    if(event.key === 'w' || event.key === 's' || event.key==='d' || event.key ==='a') {
+    if(event.key==='w'||event.key==='s'||event.key==='d'||event.key ==='a'){
         activeDirection = event.key;
     }
 });
