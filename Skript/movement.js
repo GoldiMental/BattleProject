@@ -4,23 +4,31 @@ const moveSpeed = 50;
 const moveInterval = 300;
 let activeDirection = null;
 
+let map_size = window.getComputedStyle(document.querySelector(".map"));
+
+
+let minX = -1550;  //Linke Grenze
+let maxX = 0;   // Rechte Grenze
+let minY = -1550;  // Obere Grenze
+let maxY = 0;   // Untere Grenze
+
 function moveMap() {
     const bg = document.querySelector('.map');
     const player = document.getElementById('user');
     let direction = "";
-    if (activeDirection==="w") {
+    if (activeDirection==="w" && mapY + moveSpeed <= maxY) {
         direction = "up";
         mapY += moveSpeed;
     }
-    else if (activeDirection==='s') {
+    else if (activeDirection==='s' && mapY - moveSpeed >= minY) {
         direction = "down";
         mapY -= moveSpeed;
     }
-    if (activeDirection==='a') {
+    if (activeDirection==='a' && mapX + moveSpeed <= maxX) {
         direction = "left";
         mapX += moveSpeed;
     }
-    if (activeDirection==='d') {
+    if (activeDirection==='d' && mapX - moveSpeed >= minX) {
         direction = "right";
         mapX -= moveSpeed;
     }
