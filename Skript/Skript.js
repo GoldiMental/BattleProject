@@ -25,10 +25,18 @@ function moveMap() {
         mapX -= moveSpeed;
     }
     if(direction) {
-        player.className = 'Player '+direction;
+        player.className = 'Player m_'+direction;
     }
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
+}
+
+function stopMovement(){
+    const player = document.getElementById('user');
+    if(player.className.startsWith('Player m_')){
+        let lastDir = player.className.split('_')[1];
+        player.className = 'Player '+lastDir;
+    } else {player.className = 'Player down';}
 }
 
 document.addEventListener('keydown', (event) => {
@@ -40,7 +48,10 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener('keyup', (event) => {
     if (event.key === activeDirection){
         activeDirection = null;
+        stopMovement();
     }
 });
 
-setInterval(moveMap, moveInterval);
+setInterval(()=>{
+    if(activeDirection){moveMap()};
+},moveInterval);

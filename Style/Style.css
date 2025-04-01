@@ -104,21 +104,17 @@ body {
     background-position: 50% 50%;
 }
 
-.down {
-    background-image: url(../img/textures/char\ front.png);
-}
+.down{background-image: url(../img/textures/char\ front.png);}
+.m_down{background-image: url(../img/textures/char\ front.gif);}
 
-.up {
-    background-image: url(../img/textures/char\ back.png);
-}
+.up{background-image: url(../img/textures/char\ back.png);}
+.m_up{background-image: url(../img/textures/char\ back.gif);}
 
-.left {
-    background-image: url(../img/textures/char\ side\ left.png);
-}
+.left{background-image: url(../img/textures/char\ side\ left.png);}
+.m_left{background-image: url(../img/textures/char\ side\ left.gif);}
 
-.right {
-    background-image: url(../img/textures/char\ side.png);
-}
+.right{background-image: url(../img/textures/char\ side.png);}
+.m_right{background-image: url(../img/textures/char\ side\ rightt.gif);}
 
 .map {
     position: absolute;
