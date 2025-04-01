@@ -11,11 +11,117 @@ body {
 }
 
 #movement_game {
-    visibility: visible;
+    visibility: hidden;
 }
 
 #battle_game {
-    visibility: hidden;
+    visibility: visible;
+}
+
+#opponent {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+}
+
+#LP-opp {
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    width: 200px;
+    height: 5px;
+    border: 2px outset azure;
+    border-radius: 5px;
+}
+
+#Name-opp {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    width: 200px;
+    height: 20px;
+    text-align: left;
+    font-family: 'Lucida Console', monospace;
+    font-weight: 750;
+}
+
+#fill-opp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    transition: width 1s ease-in-out;
+    border-radius: 5px;
+}
+
+#Tulpa-opp{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    height:200px;
+    width:200px;
+    background-color: red;
+}
+
+#self {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 50%;
+}
+
+#Name-self {
+    position: absolute;
+    bottom: 110px;
+    right: 25px;
+    width: 200px;
+    height: 20px;
+    text-align: right;
+    font-family: 'Lucida Console', monospace;
+    font-weight: 750;
+}
+
+#LP-self {
+    position: absolute;
+    Bottom: 100px;
+    right: 25px;
+    width: 200px;
+    height: 5px;
+    border: 2px outset silver;
+    border-radius: 5px;
+}
+
+#fill-self {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    transition: width 1s ease-in-out;
+    border-radius: 5px;
+}
+
+#Tulpa-self{
+    position: absolute;
+    top:10px;
+    left: 10px;
+    height:200px;
+    width:200px;
+    background-color: green;
+}
+
+#battle-info{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    width: 480px;
+    height: 70px;
+    border: 5px inset silver;
+    border-radius: 5px;
+    background-color: silver;
 }
 
 .Playground {
@@ -35,7 +141,9 @@ body {
     padding: 5px;
 }
 
-#battle_box, #attack_box, #moving_box {
+#battle_box,
+#attack_box,
+#moving_box {
     position: absolute;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -43,14 +151,17 @@ body {
     gap: 10px;
     padding: 5px;
 }
-#moving_box{
+
+#moving_box {
+    visibility: hidden;
+}
+
+#battle_box {
+    visibility: hidden;
+}
+
+#attack_box {
     visibility: visible;
-}
-#battle_box{
-    visibility: hidden;
-}
-#attack_box{
-    visibility: hidden;
 }
 
 #attack_1,
@@ -90,7 +201,7 @@ body {
 #attack_2:hover,
 #attack_3:hover,
 #attack_4:hover {
-    border:groove gold;
+    border: groove gold;
 }
 
 .Player {
@@ -104,17 +215,37 @@ body {
     background-position: 50% 50%;
 }
 
-.down{background-image: url(../img/textures/char\ front.png);}
-.m_down{background-image: url(../img/textures/char\ front.gif);}
+.down {
+    background-image: url(../img/textures/char\ front.png);
+}
 
-.up{background-image: url(../img/textures/char\ back.png);}
-.m_up{background-image: url(../img/textures/char\ back.gif);}
+.m_down {
+    background-image: url(../img/textures/char\ front.gif);
+}
 
-.left{background-image: url(../img/textures/char\ side\ left.png);}
-.m_left{background-image: url(../img/textures/char\ side\ left.gif);}
+.up {
+    background-image: url(../img/textures/char\ back.png);
+}
 
-.right{background-image: url(../img/textures/char\ side.png);}
-.m_right{background-image: url(../img/textures/char\ side\ rightt.gif);}
+.m_up {
+    background-image: url(../img/textures/char\ back.gif);
+}
+
+.left {
+    background-image: url(../img/textures/char\ side\ left.png);
+}
+
+.m_left {
+    background-image: url(../img/textures/char\ side\ left.gif);
+}
+
+.right {
+    background-image: url(../img/textures/char\ side.png);
+}
+
+.m_right {
+    background-image: url(../img/textures/char\ side\ rightt.gif);
+}
 
 .map {
     position: absolute;
