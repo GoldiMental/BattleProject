@@ -24,10 +24,10 @@ function getCookie(name){
 let PlayerCookie = getCookie("PlayerData");
 
 if(PlayerCookie){
-    let Player = JSON.parse(PlayerCookie);
+    var Player = JSON.parse(PlayerCookie);
 }
 else{
-    let Player={
+    var Player={
         name: "Max",
         Gold:500,
         Tulpas:{
