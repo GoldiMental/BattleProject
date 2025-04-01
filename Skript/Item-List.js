@@ -8,7 +8,7 @@ const Item_List = {
     "Hyper_Tulpaball":{name:"Hyper Tulpaball",HP:0,MP:0,CR:60,XPB:0,des:"Fängt starke Tulpas.",type:"Ball",price:100,price_sell:100,},
     //Blau/Weiss
     "Ultra_Tulpaball":{name:"Ultra Tulpaball",HP:0,MP:0,CR:80,XPB:0,des:"Fängt sehr starke Tulpas.",type:"Ball",price:150,price_sell:150,},
-
+    //glaube pink oder so
 
     //Tränke
 
