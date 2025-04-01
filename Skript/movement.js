@@ -1,5 +1,5 @@
-let mapX = 0;
-let mapY = 0;
+let mapX = -25;
+let mapY = -25;
 const moveSpeed = 50;
 const moveInterval = 300;
 let activeDirection = null;
