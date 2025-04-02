@@ -30,6 +30,7 @@ else {
     var Player = {
         name: "Max",
         Gold: 500,
+        Cheats: 0,
         Tulpas: {
             Slot_1: { name: "", Lv: 0, XP: 0, ID: 0 },
             Slot_2: { name: "", Lv: 0, XP: 0, ID: 0 },

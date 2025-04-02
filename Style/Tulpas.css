@@ -5,6 +5,7 @@
 .Kleiner_Wolf, .Wolf, .Böser_Wolf,
 .Zosse, .Treues_Ross,.Streitross {
     background-color: black;
+    margin-right:3px;
     height: 80px;
     width:80px;
     float: left;

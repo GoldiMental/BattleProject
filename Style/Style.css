@@ -133,22 +133,22 @@ body {
     overflow: hidden;
 }
 
-#Menu{
+#Menu {
     position: absolute;
-    height:35px;
-    width:35px;
-    left:10px;
-    bottom:10px;
+    height: 35px;
+    width: 35px;
+    left: 10px;
+    bottom: 10px;
     font-size: 27px;
     font-weight: bolder;
-    background-color: rgba(150,150,150);
+    background-color: rgba(150, 150, 150);
     opacity: 0.65;
     border: none;
     border-radius: 12px;
 }
 
-#Menu:hover{
-    background-color:rgba(255,215,0,0.65);
+#Menu:hover {
+    background-color: rgba(255, 215, 0, 0.65);
     opacity: 1;
 }
 
@@ -255,42 +255,42 @@ body {
     border-color: gold;
 }
 
-#Tulpa_Dex{
+#Tulpa_Dex {
     visibility: hidden;
     position: absolute;
-    top:10px;
-    left:10px;
-    height:450px;
-    width:450px;
-    padding:10px;
+    top: 10px;
+    left: 10px;
+    height: 450px;
+    width: 450px;
+    padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color:black;
+    color: black;
     background-color: silver;
     border: 5px outset azure;
     border-radius: 10px;
 }
 
-.Tulpa_Name{
+.Tulpa_Name {
     text-align: left;
     float: inline;
 }
 
-#Tulpa_Dex_List{
+#Tulpa_Dex_List {
     position: absolute;
-    top:50px;
+    top: 50px;
     height: 370px;
-    width:450px;
+    width: 450px;
     overflow: auto;
 }
 
-.description{
+.description {
     text-align: left;
 }
 
-#Exit_Button{
+.Exit_Button {
     position: absolute;
-    bottom:10px;
-    right:10px;
+    bottom: 10px;
+    right: 10px;
     background-color: silver;
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
@@ -298,11 +298,9 @@ body {
     border-radius: 10px 5px;
 }
 
-#Exit_Button:hover {
+.Exit_Button:hover {
     border-color: gold;
 }
-
-/* EXIT BUTTON // PHILIPP */
 
 .retro-popup {
     position: fixed;
@@ -310,7 +308,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -326,9 +324,68 @@ body {
     text-align: center;
 }
 
-/* NEUE KLASSE FÜR SCHWARZEN TEXT */
+#Info {
+    visibility: hidden;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 450px;
+    width: 450px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color: silver;
+    border: 5px outset azure;
+    border-radius: 10px;
+}
+
+#Tulpas {
+    visibility: hidden;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 450px;
+    width: 450px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color: silver;
+    border: 5px outset azure;
+    border-radius: 10px;
+}
+
+#Karte {
+    visibility: hidden;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 450px;
+    width: 450px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color: silver;
+    border: 5px outset azure;
+    border-radius: 10px;
+}
+
+#Items {
+    visibility: hidden;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 450px;
+    width: 450px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color: silver;
+    border: 5px outset azure;
+    border-radius: 10px;
+}
+
 .retro-popup-text {
-    color: #000; /* Explizit schwarze Textfarbe */
+    color: #000;
     margin-bottom: 15px;
 }
 

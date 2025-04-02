@@ -19,17 +19,37 @@
             <button id="Menu" onclick="MenuList()">≡</button>
             <div id="MenuList">
                 <button class="MenuList" onclick="Tulpa_Dex()">Tulpa-Dex</button>
-                <button class="MenuList">Tulpa's</button>
-                <button class="MenuList">Info</button>
-                <button class="MenuList">Karte</button>
-                <button class="MenuList">Item's</button>
+                <button class="MenuList" onclick="Tulpas_List()">Tulpa's</button>
+                <button class="MenuList" onclick="Info()">Info</button>
+                <button class="MenuList" onclick="Karte()">Karte</button>
+                <button class="MenuList" onclick="Items()">Item's</button>
                 <button class="MenuList" onclick="Cheat()">Cheats</button>
                 <button class="MenuList" onclick="Exit_Game()">Spiel verlassen</button>
             </div>
             <div id="Tulpa_Dex">
                 <div>Tulpa-Dex</div>
                 <div id="Tulpa_Dex_List"></div>
-                <button id="Exit_Button" onclick="close_Tulpa_Dex()">Exit</button>
+                <button class="Exit_Button" onclick="close_Tulpa_Dex()">Exit</button>
+            </div>
+            <div id="Tulpas">
+                <div>Tulpa's</div><br>
+                <div id="Tulpa_List"></div>
+                <button class="Exit_Button" onclick="close_Tulpas()">Exit</button>
+            </div>
+            <div id="Info">
+                <div>Info</div><br>
+                <div id="Info_List"></div>
+                <button class="Exit_Button" onclick="close_Info()">Exit</button>
+            </div>
+            <div id="Karte">
+                <div>Karte</div><br>
+                <div id="Karte_info"></div>
+                <button class="Exit_Button" onclick="close_Karte()">Exit</button>
+            </div>
+            <div id="Items">
+                <div>Item's</div><br>
+                <div id="Item_List"></div>
+                <button class="Exit_Button" onclick="close_Items()">Exit</button>
             </div>
         </div>
         <div id="battle_game">
@@ -50,8 +70,6 @@
             <div id="battle-info"></div>
         </div>
     </div>
-
-
 
     <script src="Skript/Mapzones.js"></script>
     <script src="Skript/Tulpa-List.js"></script>
