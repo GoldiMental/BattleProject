@@ -10,7 +10,7 @@ Spielfigur-Bewegung:
     - Erstellung einer einfachen 2D-Umgebung/Karte ✅
 
 Umgebungsinteraktion:
-    - Implementierung der grundlegenden Umgebungsinteraktion (z.B. begehbare/nicht begehbare Bereiche)
+    - Implementierung der grundlegenden Umgebungsinteraktion (z.B. begehbare/nicht begehbare Bereiche) ✅
 
 Zufallsbegegnungen:
     - Implementierung von zufälligen Begegnungen in bestimmten Bereichen
