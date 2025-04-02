@@ -1,5 +1,5 @@
 document.getElementById('MenuList').style.visibility = 'hidden';
-document.getElementById('Tupla_Dex').style.visibility = 'hidden';
+document.getElementById('Tulpa_Dex').style.visibility = 'hidden';
 function MenuList() {
     if (document.getElementById('MenuList').style.visibility == 'hidden') {
         document.getElementById('MenuList').style.visibility = 'visible';
@@ -28,7 +28,7 @@ function Tulpa_Dex(){
     let html = '';
     for(Tulpa in Tulpas){
         html += '<div style="float:left;margin:5px;"><div class="Tulpa_Name">'+Tulpas[Tulpa].name+'</div>'+
-                '<div class="'+Tulpas[Tulpa]+'"></div>'+
+                '<div class="'+Tulpas[Tulpa].className+'"></div>'+
                 '<div class="description">'+Tulpas[Tulpa].des+'</div></div>';
     }
     document.getElementById('Tulpa_Dex_List').innerHTML = html;
