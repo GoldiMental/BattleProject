@@ -302,6 +302,23 @@ body {
     border-radius: 10px;
 }
 
+.Tulpa_Name{
+    text-align: left;
+    float: inline;
+}
+
+#Tulpa_Dex_List{
+    position: absolute;
+    top:50px;
+    height: 370px;
+    width:450px;
+    overflow: auto;
+}
+
+.description{
+    text-align: left;
+}
+
 #Exit_Button{
     position: absolute;
     bottom:10px;

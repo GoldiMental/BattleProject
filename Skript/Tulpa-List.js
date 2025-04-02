@@ -16,11 +16,11 @@ const Tulpas = {
     //Im grunde darf es auch nur schlicht und weiss sein. Vielleicht mir feueroten augen
     
     
-    Streuner:{name:"Streuner",HP:80,HP_Total:80,ANG:7,VER:7, attacks:{1:"Tackle", 2:"Biss", 3:"-", 4:"-"},res: "Ein Streuner, der immer auf der Suche nach einem neuen Zuhause ist. Es sieht aus als würde er bei dir bleiben wollen.",}, 
+    Streuner:{name:"Streuner",HP:80,HP_Total:80,ANG:7,VER:7, attacks:{1:"Tackle", 2:"Biss", 3:"-", 4:"-"},des: "Ein Streuner, der immer auf der Suche nach einem neuen Zuhause ist. Es sieht aus als würde er bei dir bleiben wollen.",}, 
     //Ein netter brauner Hund/Mischling aus Schäferhund und Doberman.
-    Wachhund:{name:"Wachhund",HP:90,HP_Total:90,ANG:8,VER:8, attacks:{1:"Tackle", 2:"Biss", 3:"Blutlust", 4:"-"},res: "Ein Wachhund, der immer auf der Hut ist. Er ist sehr treu und greift das an was sein Herrchen bedroht.",}, 
+    Wachhund:{name:"Wachhund",HP:90,HP_Total:90,ANG:8,VER:8, attacks:{1:"Tackle", 2:"Biss", 3:"Blutlust", 4:"-"},des: "Ein Wachhund, der immer auf der Hut ist. Er ist sehr treu und greift das an was sein Herrchen bedroht.",}, 
     //Ein Doberman mit Nietenhalsband
-    Schutzhund:{name:"Schutzhund",HP:105,HP_Total:105,ANG:9,VER:9, attacks:{1:"Tackle", 2:"Biss", 3:"Blutlust", 4:"Schild"},res: "Ein Engel... vom Spagettimonster geschickt um sein Herrchen zu schützen. Freut sich wenn er lob bekommt."}, 
+    Schutzhund:{name:"Schutzhund",HP:105,HP_Total:105,ANG:9,VER:9, attacks:{1:"Tackle", 2:"Biss", 3:"Blutlust", 4:"Schild"},des: "Ein Engel... vom Spagettimonster geschickt um sein Herrchen zu schützen. Freut sich wenn er lob bekommt."}, 
     //Ein Schäferhund mit Rüstung um den Hals
     
    
