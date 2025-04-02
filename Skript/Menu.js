@@ -1,5 +1,5 @@
 document.getElementById('MenuList').style.visibility = 'hidden';
-document.getElementById('Tupla_Dex').style.visibility = 'hidden';
+document.getElementById('Tulpa_Dex').style.visibility = 'hidden';
 function MenuList() {
     if (document.getElementById('MenuList').style.visibility == 'hidden') {
         document.getElementById('MenuList').style.visibility = 'visible';
