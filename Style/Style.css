@@ -41,7 +41,7 @@ body {
     width: 200px;
     height: 20px;
     text-align: left;
-    font-family: 'Lucida Console', monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 750;
 }
 
@@ -56,12 +56,12 @@ body {
     border-radius: 5px;
 }
 
-#Tulpa-opp{
+#Tulpa-opp {
     position: absolute;
-    top:10px;
+    top: 10px;
     right: 10px;
-    height:200px;
-    width:200px;
+    height: 200px;
+    width: 200px;
     background-color: red;
 }
 
@@ -79,7 +79,7 @@ body {
     width: 200px;
     height: 20px;
     text-align: right;
-    font-family: 'Lucida Console', monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 750;
 }
 
@@ -104,16 +104,16 @@ body {
     border-radius: 5px;
 }
 
-#Tulpa-self{
+#Tulpa-self {
     position: absolute;
-    top:10px;
+    top: 10px;
     left: 10px;
-    height:200px;
-    width:200px;
+    height: 200px;
+    width: 200px;
     background-color: green;
 }
 
-#battle-info{
+#battle-info {
     position: absolute;
     bottom: 5px;
     left: 5px;
@@ -168,16 +168,17 @@ body {
 #attack_2,
 #attack_3,
 #attack_4,
-#Tulpas,
-#Items_Main,
-#Save,
-#Quit,
+#Menu,
+#Interact,
+.button,
 #Fight,
 #Items_Fight,
 #Change,
 #Escape {
     width: 240px;
-    padding: 20px;
+    min-height: 65px;
+    padding: 10px;
+    font-size: 20px;
     text-align: center;
     vertical-align: center;
     display: flex;
@@ -187,12 +188,12 @@ body {
     color: azure;
     border: 5px groove silver;
     border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-#Tulpas:hover,
-#Items_Main:hover,
-#Save:hover,
-#Quit:hover,
+.button:hover,
+#Menu:hover,
+#Interact:hover,
 #Fight:hover,
 #Items_Fight:hover,
 #Change:hover,
@@ -201,7 +202,7 @@ body {
 #attack_2:hover,
 #attack_3:hover,
 #attack_4:hover {
-    border: groove gold;
+    border-color: gold;
 }
 
 .Player {
@@ -255,4 +256,33 @@ body {
     width: 1700px;
     height: 1200px;
     transition: left 0.3s linear, top 0.3s linear;
+}
+
+#MenuList {
+    visibility: hidden;
+    position: absolute;
+    background-color: gray;
+    height: 450px;
+    width: 180px;
+    top: 10px;
+    right: 10px;
+    border: 5px outset azure;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.MenuList {
+    min-height: 30px;
+    margin: 5px;
+    width: 170px;
+    background-color: silver;
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 5px outset azure;
+    border-radius: 10px 5px;
+}
+
+.MenuList:hover {
+    border-color: gold;
 }

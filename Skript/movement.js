@@ -49,17 +49,15 @@ function moveMap() {
         newMapX = mapX - moveSpeed;
     }
 
-    for (let i=0; i < maps[activeMap].blockedArea.length; i++){
+    for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
         const area = maps[activeMap].blockedArea[i];
-        if(newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY){
-            console.log("Collision detected! Yeah;)");
+        if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
             return;
         }
     }
 
     mapX = newMapX;
     mapY = newMapY;
-    console.log(mapX,mapY);
 
     if (direction) {
         player.className = 'Player m_' + direction;
