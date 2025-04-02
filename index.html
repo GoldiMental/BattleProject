@@ -15,13 +15,18 @@
             <div class="map"></div>
             <div id="user" class="Player down"></div>
             <div id="MenuList">
-                <button class="MenuList">Tulpa-Dex</button>
+                <button class="MenuList" onclick="Tulpa_Dex()">Tulpa-Dex</button>
                 <button class="MenuList">Tulpa's</button>
                 <button class="MenuList">Info</button>
                 <button class="MenuList">Karte</button>
                 <button class="MenuList">Item's</button>
                 <button class="MenuList" onclick="Cheat()">Cheats</button>
-                <button class="MenuList">Spiel verlassen</button>
+                <button class="MenuList" onclick="Exit_Game()">Spiel verlassen</button>
+            </div>
+            <div id="Tulpa_Dex">
+                <div>Tulpa-Dex</div>
+                <div id="Tupla_Dex_List"></div>
+                <button id="Exit_Button">Exit</button>
             </div>
         </div>
         <div id="battle_game">

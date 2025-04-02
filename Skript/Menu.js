@@ -21,3 +21,7 @@ function Cheat() {
         alert("Cheat ungültig")
     }
 }
+
+function Tulpa_Dex(){
+    
+}
