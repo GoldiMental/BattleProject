@@ -6,9 +6,9 @@ function Exit_Game() {
     // Popup-Inhalt
     popup.innerHTML = `
         <div class="retro-popup-window">
-            <div class="retro-popup-title">SPIEL VERLASSEN?</div>
-            <div>Bist du sicher?</div>
-            <div>
+        <div class="retro-popup-title">SPIEL VERLASSEN?</div>
+        <div class="retro-popup-text">Bist du sicher?</div> <!-- Mit neuer Klasse -->
+        <div>
                 <button class="retro-popup-btn retro-popup-btn-yes" id="retroPopupYes">JA</button>
                 <button class="retro-popup-btn retro-popup-btn-no" id="retroPopupNo">NEIN</button>
             </div>

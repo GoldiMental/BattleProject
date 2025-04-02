@@ -358,6 +358,12 @@ body {
     text-align: center;
 }
 
+/* NEUE KLASSE FÜR SCHWARZEN TEXT */
+.retro-popup-text {
+    color: #000; /* Explizit schwarze Textfarbe */
+    margin-bottom: 15px;
+}
+
 .retro-popup-title {
     background: #f83838;
     color: white;
