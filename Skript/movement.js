@@ -75,13 +75,13 @@ function stopMovement() {
 }
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'w' || event.key === 's' || event.key === 'd' || event.key === 'a') {
-        activeDirection = event.key;
+    if (event.key.toLocaleLowerCase() === 'w' || event.key.toLocaleLowerCase() === 's' || event.key.toLocaleLowerCase() === 'd' || event.key.toLocaleLowerCase() === 'a') {
+        activeDirection = event.key.toLocaleLowerCase();
     }
 });
 
 document.addEventListener('keyup', (event) => {
-    if (event.key === activeDirection) {
+    if (event.key.toLocaleLowerCase() === activeDirection) {
         activeDirection = null;
         stopMovement();
     }
