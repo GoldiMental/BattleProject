@@ -6,8 +6,8 @@ Grundstruktur:
     - Initialisierung eines Git-Repositorys für die Versionskontrolle ✅
 
 Spielfigur-Bewegung:
-    - Implementierung der Spielfigur-Bewegung (WASD-Steuerung)
-    - Erstellung einer einfachen 2D-Umgebung/Karte
+    - Implementierung der Spielfigur-Bewegung (WASD-Steuerung) ✅
+    - Erstellung einer einfachen 2D-Umgebung/Karte ✅
 
 Umgebungsinteraktion:
     - Implementierung der grundlegenden Umgebungsinteraktion (z.B. begehbare/nicht begehbare Bereiche)
