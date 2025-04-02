@@ -11,11 +11,12 @@
 </head>
 
 <body>
-    <img src="img/TulpaTopLogo.png" height="200px" alt="Tulpa-King-Logo">
+    <img src="img/TulpaTopLogo.png" height="300px" alt="Tulpa-King-Logo">
     <div class="Playground">
         <div id="movement_game">
             <div class="map"></div>
             <div id="user" class="Player down"></div>
+            <button id="Menu" onclick="MenuList()">≡</button>
             <div id="MenuList">
                 <button class="MenuList" onclick="Tulpa_Dex()">Tulpa-Dex</button>
                 <button class="MenuList">Tulpa's</button>
@@ -49,24 +50,7 @@
             <div id="battle-info"></div>
         </div>
     </div>
-    <div class="usable_box">
-        <div id="moving_box">
-            <button id="Interact">Interaktion</button>
-            <button id="Menu" onclick="MenuList()">Menü</button>
-        </div>
-        <div id="battle_box">
-            <button id="Fight">Kämpfen</button>
-            <button id="Items_Fight">Item's</button>
-            <button id="Change">Tulpa wechseln</button>
-            <button id="Escape">Flucht</button>
-        </div>
-        <div id="attack_box">
-            <button id="attack_1">Tackle</button>
-            <button id="attack_2">Biss</button>
-            <button id="attack_3">Knirscher</button>
-            <button id="attack_4">Kratzer</button>
-        </div>
-    </div>
+
 
 
     <script src="Skript/Mapzones.js"></script>
