@@ -251,8 +251,8 @@ body {
     position: absolute;
     top: -25px;
     left: -25px;
-    background-image: url(../img/Gemini_Generated_Image_k3eik0k3eik0k3ei.jpeg);
-    width: 2048px;
-    height: 2048px;
+    background-image: url(../img/textures/Map\ anfang.png);
+    width: 1700px;
+    height: 1200px;
     transition: left 0.3s linear, top 0.3s linear;
 }
