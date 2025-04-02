@@ -249,9 +249,9 @@ body {
 
 .map {
     position: absolute;
-    top: -25px;
+    top: -75px;
     left: -25px;
-    background-image: url(../img/textures/Map\ anfang.png);
+    background-image: url(../img/textures/Map_Anfang.png);
     width: 1700px;
     height: 1200px;
     transition: left 0.3s linear, top 0.3s linear;

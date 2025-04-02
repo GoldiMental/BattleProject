@@ -1,76 +1,94 @@
-let mapX = -25;
-let mapY = -25;
 const moveSpeed = 50;
 const moveInterval = 300;
 let activeDirection = null;
 
-let map_size = window.getComputedStyle(document.querySelector(".map"));
+const documentMap = document.querySelector('.map');
+let activeMap = "Map_Anfang";
 
+let mapX = maps[activeMap].startX;
+let mapY = maps[activeMap].startY;
 
-let minX = -(parseInt(map_size.width)-500)  //Linke Grenze
-let maxX = 0;   // Rechte Grenze
-let minY = -(parseInt(map_size.height)-500)  // Obere Grenze
-let maxY = 0;   // Untere Grenze
+let minX = -(parseInt(maps[activeMap].Width) - 250);
+let maxX = 250;
+let minY = -(parseInt(maps[activeMap].Height) - 250);
+let maxY = 250;
+
+function changeMap(mapname) {
+    activeMap = maps[mapname].name;
+}
 
 function refreshMap() {
-    map_size = window.getComputedStyle(document.querySelector(".map"));
-
-
-    minX = -(parseInt(map_size.width)-500);  //Linke Grenze
-    maxX = 0;   // Rechte Grenze
-    minY = -(parseInt(map_size.height)-500);  // Obere Grenze
-    maxY = 0;   // Untere Grenze
-
+    minX = -(parseInt(maps[activeMap].Width) - 250);
+    maxX = 250;
+    minY = -(parseInt(maps[activeMap].Height) - 250);
+    maxY = 250;
 }
 
 function moveMap() {
     const bg = document.querySelector('.map');
     const player = document.getElementById('user');
     let direction = "";
-    if (activeDirection==="w" && mapY + moveSpeed <= maxY) {
+
+    let newMapX = mapX;
+    let newMapY = mapY;
+
+    if (activeDirection === "w" && mapY + moveSpeed <= maxY) {
         direction = "up";
-        mapY += moveSpeed;
+        newMapY = mapY + moveSpeed;
     }
-    else if (activeDirection==='s' && mapY - moveSpeed >= minY) {
+    else if (activeDirection === 's' && mapY - moveSpeed >= minY) {
         direction = "down";
-        mapY -= moveSpeed;
+        newMapY = mapY - moveSpeed;
     }
-    if (activeDirection==='a' && mapX + moveSpeed <= maxX) {
+    if (activeDirection === 'a' && mapX + moveSpeed <= maxX) {
         direction = "left";
-        mapX += moveSpeed;
+        newMapX = mapX + moveSpeed;
     }
-    if (activeDirection==='d' && mapX - moveSpeed >= minX) {
+    if (activeDirection === 'd' && mapX - moveSpeed >= minX) {
         direction = "right";
-        mapX -= moveSpeed;
+        newMapX = mapX - moveSpeed;
     }
-    if(direction) {
-        player.className = 'Player m_'+direction;
+
+    for (let i=0; i < maps[activeMap].blockedArea.length; i++){
+        const area = maps[activeMap].blockedArea[i];
+        if(newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY){
+            console.log("Collision detected! Yeah;)");
+            return;
+        }
+    }
+
+    mapX = newMapX;
+    mapY = newMapY;
+    console.log(mapX,mapY);
+
+    if (direction) {
+        player.className = 'Player m_' + direction;
     }
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
 }
 
-function stopMovement(){
+function stopMovement() {
     const player = document.getElementById('user');
-    if(player.className.startsWith('Player m_')){
+    if (player.className.startsWith('Player m_')) {
         let lastDir = player.className.split('_')[1];
-        player.className = 'Player '+lastDir;
-    } else {player.className = 'Player down';}
+        player.className = 'Player ' + lastDir;
+    } else { player.className = 'Player down'; }
 }
 
 document.addEventListener('keydown', (event) => {
-    if(event.key==='w'||event.key==='s'||event.key==='d'||event.key ==='a'){
+    if (event.key === 'w' || event.key === 's' || event.key === 'd' || event.key === 'a') {
         activeDirection = event.key;
     }
 });
 
 document.addEventListener('keyup', (event) => {
-    if (event.key === activeDirection){
+    if (event.key === activeDirection) {
         activeDirection = null;
         stopMovement();
     }
 });
 
-setInterval(()=>{
-    if(activeDirection){moveMap()};
-},moveInterval);
+setInterval(() => {
+    if (activeDirection) { moveMap() };
+}, moveInterval);
