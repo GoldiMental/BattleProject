@@ -1,5 +1,5 @@
   
-.Mäusschen, .Maus, .Kampfmaus,
+.Maus, .Kampfmaus,
 .Kaninchen, .Hase, .Kaninchen_des_Todes,
 .Streuner, .Wachhund, .Schutzhund,
 .Kleiner_Wolf, .Wolf, .Böser_Wolf,
@@ -11,8 +11,10 @@
     float: left;
 }
 
-.Mäuschen {
-    background-image: url(../);
+.Mäusschen {
+    background-image: url(../img/tulpaPic/mausi_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     margin-right:3px;
     height: 80px;
     width:80px;
