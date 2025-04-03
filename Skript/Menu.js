@@ -51,19 +51,27 @@ let Tulpa_Team = new Array(6).fill(null);
 function Tulpas_List() {
     document.getElementById('Tulpas').style.visibility = 'visible';
     let html = '';
-    Tulpa_Team.forEach((Tulpa, index) => {
-        html += `<div style="float:left;margin:5px;width:100px;height:100px;border:2px dashed gray;" 
-                  onclick="selectTulpa(${index})">
-                  ${Tulpa ? Tulpa.name : "My Team"}
-                 </div>`;
-    });
-    
+    for (Slot in Player.Tulpas) {
+        if (Slot.startsWith('Slot')) {
+            let tulpa = Player.Tulpas[Slot];
+            if (tulpa.name != "") {
+                html += '<div class="'+tulpa.name+'"></div><br>' +
+                        '<div style="position:absolute;left:120px;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' +tulpa.HP+ '/'+tulpa.HP_Total+'</div>' +
+                        '<div class="LP_Bar">' +
+                            '<div class="LP_Fill" style="width:'+Math.round((tulpa.HP/tulpa.HP_Total)*100)+'%"></div>' +
+                        '</div>' +
+                        '<button class="Change_Tulpa">🔄️</button>' +
+                        '<button class="Delete_Tulpa">🗑️</button>';
+            }
+        }
+    };
     document.getElementById('Tulpa_List').innerHTML = html;
+}
 
 function selectTulpa(slotIndex) {
     let tulpaNames = Object.keys(Tulpas);
     let choice = prompt("Choose a Tulpa: " + tulpaNames.join(", "));
-    
+
     if (Tulpas[choice]) {
         Tulpa_Team[slotIndex] = Tulpas[choice];
         Tulpas_List();
@@ -76,7 +84,7 @@ function removeTulpa(slotIndex) {
         let confirmRemoval = confirm("Do you want to remove " + tulpaTeam[slotIndex].name + "?");
         if (confirmRemoval) {
             tulpaTeam[slotIndex] = null;
-            Tulpas_List(); 
+            Tulpas_List();
         }
     } else {
         alert("This slot is already empty!");
@@ -90,11 +98,11 @@ function swapTulpa(slotIndex) {
         alert("Select another slot to swap with!");
     } else {
         [Tulpa_Team[selectedSlot], Tulpa_Team[slotIndex]] = [Tulpa_Team[slotIndex], Tulpa_Team[selectedSlot]];
-        selectedSlot = null; 
-        Tulpas_List(); 
+        selectedSlot = null;
+        Tulpas_List();
     }
 }
-}
+
 // Team Funktionen Ende! ;)
 
 function close_Tulpas() {
@@ -124,19 +132,19 @@ function close_Karte() {
 
 function Items() {
     document.getElementById('Items').style.visibility = 'visible';
-    let html = "<div>Bälle: </div><br>"; 
-    for (ball in Player.inventory.balls){
+    let html = "<div>Bälle: </div><br>";
+    for (ball in Player.inventory.balls) {
         html += '<div style="float:left;margin:5px;"><div class="Item_list">' + Item_List[ball].name + ': ' + Player.inventory.balls[ball] + '</div>';
     }
-    html += "<div>Tränke: </div><br>"; 
-    for (drink in Player.inventory.drinks){
+    html += "<div>Tränke: </div><br>";
+    for (drink in Player.inventory.drinks) {
         html += '<div style="float:left;margin:5px;"><div class="Item_list">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</div>';
     }
     html += "<div>Bonbons: </div><br>";
-    for (bonbon in Player.inventory.bonbons){
+    for (bonbon in Player.inventory.bonbons) {
         html += '<div style="float:left;margin:5px;"><div class="Item_list">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</div>';
     }
-    document.getElementById('Item_List').innerHTML=html;
+    document.getElementById('Item_List').innerHTML = html;
 }
 
 function close_Items() {

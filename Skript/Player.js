@@ -32,12 +32,12 @@ else {
         Gold: 500,
         Cheats: 0,
         Tulpas: {
-            Slot_1: { name: "", Lv: 0, HP: 0, XP: 0, ID: 0 },
-            Slot_2: { name: "", Lv: 0, HP: 0, XP: 0, ID: 0 },
-            Slot_3: { name: "", Lv: 0, HP: 0, XP: 0, ID: 0 },
-            Slot_4: { name: "", Lv: 0, HP: 0, XP: 0, ID: 0 },
-            Slot_5: { name: "", Lv: 0, HP: 0, XP: 0, ID: 0 },
-            Slot_6: { name: "", Lv: 0, HP: 0, XP: 0, ID: 0 },
+            Slot_1: { name: "Mäusschen", Lv: 1, HP: 60, HP_Total:60, XP: 0, ID: "000001" },
+            Slot_2: { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "0" },
+            Slot_3: { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "0" },
+            Slot_4: { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "0" },
+            Slot_5: { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "0" },
+            Slot_6: { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "0" },
             PC: [],
         },
         inventory: {
