@@ -45,9 +45,57 @@ function close_Tulpa_Dex() {
     document.getElementById('Tulpa_Dex').style.visibility = 'hidden';
 }
 
+// Dein Team !!!
+let Tulpa_Team = new Array(6).fill(null);
+
 function Tulpas_List() {
     document.getElementById('Tulpas').style.visibility = 'visible';
+    let html = '';
+    Tulpa_Team.forEach((Tulpa, index) => {
+        html += `<div style="float:left;margin:5px;width:100px;height:100px;border:2px dashed gray;" 
+                  onclick="selectTulpa(${index})">
+                  ${Tulpa ? Tulpa.name : "My Team"}
+                 </div>`;
+    });
+    
+    document.getElementById('Tulpa_List').innerHTML = html;
+
+function selectTulpa(slotIndex) {
+    let tulpaNames = Object.keys(Tulpas);
+    let choice = prompt("Choose a Tulpa: " + tulpaNames.join(", "));
+    
+    if (Tulpas[choice]) {
+        Tulpa_Team[slotIndex] = Tulpas[choice];
+        Tulpas_List();
+    } else {
+        alert("Invalid choice. Try again!");
+    }
 }
+function removeTulpa(slotIndex) {
+    if (Tulpa_Team[slotIndex]) {
+        let confirmRemoval = confirm("Do you want to remove " + tulpaTeam[slotIndex].name + "?");
+        if (confirmRemoval) {
+            tulpaTeam[slotIndex] = null;
+            Tulpas_List(); 
+        }
+    } else {
+        alert("This slot is already empty!");
+    }
+}
+let selectedSlot = null;
+
+function swapTulpa(slotIndex) {
+    if (selectedSlot === null) {
+        selectedSlot = slotIndex;
+        alert("Select another slot to swap with!");
+    } else {
+        [Tulpa_Team[selectedSlot], Tulpa_Team[slotIndex]] = [Tulpa_Team[slotIndex], Tulpa_Team[selectedSlot]];
+        selectedSlot = null; 
+        Tulpas_List(); 
+    }
+}
+}
+// Team Funktionen Ende! ;)
 
 function close_Tulpas() {
     document.getElementById('Tulpas').style.visibility = 'hidden';
