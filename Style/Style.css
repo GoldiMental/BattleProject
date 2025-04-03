@@ -384,6 +384,21 @@ body {
     border-radius: 10px;
 }
 
+/*#Item_List {
+    visibility: hidden;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 450px;
+    width: 450px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color: silver;
+    border: 5px outset azure;
+    border-radius: 10px;
+}*/
+
 .retro-popup-text {
     color: #000;
     margin-bottom: 15px;

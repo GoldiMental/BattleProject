@@ -76,6 +76,19 @@ function close_Karte() {
 
 function Items() {
     document.getElementById('Items').style.visibility = 'visible';
+    let html = "<div>Bälle: </div><br>"; 
+    for (ball in Player.inventory.balls){
+        html += '<div style="float:left;margin:5px;"><div class="Item_list">' + Item_List[ball].name + ': ' + Player.inventory.balls[ball] + '</div>';
+    }
+    html += "<div>Tränke: </div><br>"; 
+    for (drink in Player.inventory.drinks){
+        html += '<div style="float:left;margin:5px;"><div class="Item_list">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</div>';
+    }
+    html += "<div>Bonbons: </div><br>";
+    for (bonbon in Player.inventory.bonbons){
+        html += '<div style="float:left;margin:5px;"><div class="Item_list">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</div>';
+    }
+    document.getElementById('Item_List').innerHTML=html;
 }
 
 function close_Items() {

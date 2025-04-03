@@ -50,7 +50,7 @@ else {
             drinks: {
                 Heiltrank: 0,
                 Super_Heiltrank: 0,
-                Manarank: 0,
+                Manatrank: 0,
                 Super_Manatrank: 0,
             },
             bonbons: {
