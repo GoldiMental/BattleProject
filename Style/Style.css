@@ -442,7 +442,7 @@ body {
 
 #battle_menu {
     position: absolute;
-    visibility: visible;
+    visibility: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
