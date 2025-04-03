@@ -55,13 +55,13 @@ function Tulpas_List() {
         if (Slot.startsWith('Slot')) {
             let tulpa = Player.Tulpas[Slot];
             if (tulpa.name != "") {
-                html += '<div style="display:block;margin-bottom:5px;"><div class="'+tulpa.name+'"></div><br>' +
-                        '<div style="position:relative;left:60px;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' +tulpa.HP+ '/'+tulpa.HP_Total+'</div>' +
-                        '<div class="LP_Bar">' +
-                            '<div class="LP_Fill" style="width:'+Math.round((tulpa.HP/tulpa.HP_Total)*100)+'%"></div>' +
-                        '</div>' +
-                        '<button class="Change_Tulpa">🔄️</button>' +
-                        '<button class="Delete_Tulpa" onclick="removeTulpa(\''+Slot.toLocaleString()+'\')">🗑️</button></div>';
+                html += '<div style="display:block;margin-bottom:5px;"><div class="' + tulpa.name + '"></div><br>' +
+                    '<div style="position:relative;left:60px;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + '</div>' +
+                    '<div class="LP_Bar">' +
+                    '<div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div>' +
+                    '</div>' +
+                    '<button class="Change_Tulpa" onclick="swapTulpa(\'' + Slot + '\')">🔄️</button>' +
+                    '<button class="Delete_Tulpa" onclick="removeTulpa(\'' + Slot + '\')">🗑️</button></div>';
             }
         }
     };
@@ -69,27 +69,28 @@ function Tulpas_List() {
 }
 
 function removeTulpa(Slot) {
-    let antwort = confirm("Soll " +Player.Tulpas[Slot].name+" wirklich gelöscht werden?");
-    if(antwort){
-        alert(Player.Tulpas[Slot].name+" wurde gelöscht.");
-        Player.Tulpas[Slot] = { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "" };
+    let antwort = confirm("Soll " + Player.Tulpas[Slot].name + " wirklich gelöscht werden?");
+    if (antwort) {
+        alert(Player.Tulpas[Slot].name + " wurde gelöscht.");
+        Player.Tulpas[Slot] = { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" };
         setCookie("PlayerData", JSON.stringify(Player), 30);
         Tulpas_List();
     }
 }
 
-function swapTulpa(slotIndex) {
-    if (selectedSlot === null) {
-        selectedSlot = slotIndex;
-        alert("Select another slot to swap with!");
-    } else {
-        [Tulpa_Team[selectedSlot], Tulpa_Team[slotIndex]] = [Tulpa_Team[slotIndex], Tulpa_Team[selectedSlot]];
-        selectedSlot = null;
+function swapTulpa(Slot) {
+    let antwort = prompt("Mit welchem Slot soll " + Slot + " getauscht werden? Gib dazu die Slotnummer (1-6) an:", "0 beendet den Tausch");
+    if (antwort != 0 && antwort <= 6 && Player.Tulpas["Slot_" + antwort].name != "" && Slot != "Slot_" + antwort) {
+        let tulpa_1 = Player.Tulpas[Slot];
+        let tulpa_2 = Player.Tulpas["Slot_" + antwort];
+        Player.Tulpas[Slot] = tulpa_2;
+        Player.Tulpas["Slot_" + antwort] = tulpa_1;
+        setCookie("PlayerData", JSON.stringify(Player), 30);
         Tulpas_List();
+    } else {
+        alert("Tausch nicht möglich! \n Falsche Eingabe oder Slot nicht belegt.");
     }
 }
-
-// Team Funktionen Ende! ;)
 
 function close_Tulpas() {
     document.getElementById('Tulpas').style.visibility = 'hidden';

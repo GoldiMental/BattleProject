@@ -33,11 +33,11 @@ else {
         Cheats: 0,
         Tulpas: {
             Slot_1: { name: "Mäusschen", Lv: 1, HP: 60, HP_Total:60, XP: 0, ID: "000001" },
-            Slot_2: { name: "Mäusschen", Lv: 1, HP: 60, HP_Total:60, XP: 0, ID: "000002" },
-            Slot_3: { name: "Mäusschen", Lv: 1, HP: 60, HP_Total:60, XP: 0, ID: "000002" },
-            Slot_4: { name: "Mäusschen", Lv: 1, HP: 60, HP_Total:60, XP: 0, ID: "000002" },
-            Slot_5: { name: "Mäusschen", Lv: 1, HP: 60, HP_Total:60, XP: 0, ID: "000002" },
-            Slot_6: { name: "Mäusschen", Lv: 1, HP: 60, HP_Total:60, XP: 0, ID: "000002" },
+            Slot_2: { name: "Mäusschen", Lv: 2, HP: 60, HP_Total:60, XP: 0, ID: "000002" },
+            Slot_3: { name: "Mäusschen", Lv: 3, HP: 60, HP_Total:60, XP: 0, ID: "000003" },
+            Slot_4: { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "" },
+            Slot_5: { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "" },
+            Slot_6: { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "" },
             PC: [],
         },
         inventory: {
