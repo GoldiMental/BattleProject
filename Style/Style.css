@@ -118,7 +118,8 @@ body {
     bottom: 5px;
     left: 5px;
     width: 480px;
-    height: 70px;
+    height: 75px;
+    text-align: left;
     border: 5px inset silver;
     border-radius: 5px;
     background-color: silver;
@@ -428,4 +429,49 @@ body {
 
 .retro-popup-btn-no {
     background: white;
+}
+
+#battle_box {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border: 2px inset silver;
+    width: 230px;
+    height: 100%;
+}
+
+#battle_menu {
+    position: absolute;
+    visibility: visible;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px;
+}
+
+#attack_menu {
+    position: absolute;
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px;
+}
+
+.battle_Button {
+    height: 37.5px;
+    width: 115px;
+    background-color: silver;
+    border: none;
+    border-radius: 5px;
+}
+
+.battle_Button:hover {
+    background-color: gray;
+}
+
+#battle_text {
+    color: black;
+    margin: 3px;
+    max-width: 230px;
 }
