@@ -1,18 +1,149 @@
   
-.Maus, .Kampfmaus,
-.Kaninchen, .Hase, .Kaninchen_des_Todes,
-.Streuner, .Wachhund, .Schutzhund,
-.Kleiner_Wolf, .Wolf, .Böser_Wolf,
-.Zosse, .Treues_Ross,.Streitross {
-    background-color: black;
-    margin-right:3px;
-    height: 150px;
-    width:150px;
-    float: left;
-}
+
+
 
 .Mäusschen {
     background-image: url(../img/tulpaPic/mausi_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Maus {
+    background-image: url(../img/tulpaPic/maus_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Kampfmaus {
+    background-image: url(../img/tulpaPic/kmaus_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Kaninchen {
+    background-image: url(../img/tulpaPic/kaninchen_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Hase {
+    background-image: url(../img/tulpaPic/hase_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Kaninchen_des_Todes {
+    background-image: url(../img/tulpaPic/kk_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Streuner {
+    background-image: url(../img/tulpaPic/streuner_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Wachhund {
+    background-image: url(../img/tulpaPic/wachhund_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Schutzhund {
+    background-image: url(../img/tulpaPic/schutzhund_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Kleiner_Wolf {
+    background-image: url(../img/tulpaPic/k_wolf_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Wolf {
+    background-image: url(../img/tulpaPic/wolf_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Böser_Wolf {
+    background-image: url(../img/tulpaPic/b_wolf_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Zosse {
+    background-image: url(../img/tulpaPic/zossen_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Treues_Ross {
+    background-image: url(../img/tulpaPic/treuers_ross_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right:3px;
+    height: 80px;
+    width:80px;
+    float: left;
+}
+
+.Streitross {
+    background-image: url(../img/tulpaPic/streitross_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin-right:3px;
