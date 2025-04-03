@@ -481,6 +481,9 @@ button{
 
 #Tulpa_List {
     text-align: left;
+    max-height: 380px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .LP_Bar {
@@ -502,7 +505,7 @@ button{
 
 .Delete_Tulpa {
     position: relative;
-    left: 290px;
+    left: 265px;
     height: 30px;
     width: auto;
     background-color: transparent;
@@ -513,7 +516,7 @@ button{
 
 .Change_Tulpa {
     position: relative;
-    left: 285px;
+    left: 265px;
     height: 30px;
     width: auto;
     background-color: transparent;
