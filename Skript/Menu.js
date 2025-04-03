@@ -73,6 +73,13 @@ function removeTulpa(Slot) {
     if (antwort) {
         alert(Player.Tulpas[Slot].name + " wurde gelöscht.");
         Player.Tulpas[Slot] = { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" };
+        for(i in Player.Tulpas){
+            if (i.startsWith("Slot")){
+                if(i.name == ""){
+                    
+                }
+            }
+        }
         setCookie("PlayerData", JSON.stringify(Player), 30);
         Tulpas_List();
     }
