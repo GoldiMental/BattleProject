@@ -61,36 +61,22 @@ function Tulpas_List() {
                             '<div class="LP_Fill" style="width:'+Math.round((tulpa.HP/tulpa.HP_Total)*100)+'%"></div>' +
                         '</div>' +
                         '<button class="Change_Tulpa">🔄️</button>' +
-                        '<button class="Delete_Tulpa">🗑️</button></div>';
+                        '<button class="Delete_Tulpa" onclick="removeTulpa(\''+Slot.toLocaleString()+'\')">🗑️</button></div>';
             }
         }
     };
     document.getElementById('Tulpa_List').innerHTML = html;
 }
 
-function selectTulpa(slotIndex) {
-    let tulpaNames = Object.keys(Tulpas);
-    let choice = prompt("Choose a Tulpa: " + tulpaNames.join(", "));
-
-    if (Tulpas[choice]) {
-        Tulpa_Team[slotIndex] = Tulpas[choice];
+function removeTulpa(Slot) {
+    let antwort = confirm("Soll " +Player.Tulpas[Slot].name+" wirklich gelöscht werden?");
+    if(antwort){
+        alert(Player.Tulpas[Slot].name+" wurde gelöscht.");
+        Player.Tulpas[Slot] = { name: "", Lv: 0, HP: 0, HP_Total:0, XP: 0, ID: "" };
+        setCookie("PlayerData", JSON.stringify(Player), 30);
         Tulpas_List();
-    } else {
-        alert("Invalid choice. Try again!");
     }
 }
-function removeTulpa(slotIndex) {
-    if (Tulpa_Team[slotIndex]) {
-        let confirmRemoval = confirm("Do you want to remove " + tulpaTeam[slotIndex].name + "?");
-        if (confirmRemoval) {
-            tulpaTeam[slotIndex] = null;
-            Tulpas_List();
-        }
-    } else {
-        alert("This slot is already empty!");
-    }
-}
-let selectedSlot = null;
 
 function swapTulpa(slotIndex) {
     if (selectedSlot === null) {
