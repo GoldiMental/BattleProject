@@ -6,7 +6,15 @@
 .Zosse, .Treues_Ross,.Streitross {
     background-color: black;
     margin-right:3px;
+    height: 150px;
+    width:150px;
+    float: left;
+}
+
+.Mäuschen {
+    background-image: url(../);
+    margin-right:3px;
     height: 80px;
     width:80px;
     float: left;
-} 
+}
