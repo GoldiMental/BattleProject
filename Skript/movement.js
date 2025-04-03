@@ -25,7 +25,7 @@ function refreshMap() {
 }
 
 function moveMap() {
-    const bg = document.querySelector('.map');
+    const bg = documentMap;
     const player = document.getElementById('user');
     let direction = "";
 

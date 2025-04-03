@@ -45,9 +45,6 @@ function close_Tulpa_Dex() {
     document.getElementById('Tulpa_Dex').style.visibility = 'hidden';
 }
 
-// Dein Team !!!
-let Tulpa_Team = new Array(6).fill(null);
-
 function Tulpas_List() {
     document.getElementById('Tulpas').style.visibility = 'visible';
     let html = '';
@@ -70,18 +67,28 @@ function Tulpas_List() {
 
 function removeTulpa(Slot) {
     let antwort = confirm("Soll " + Player.Tulpas[Slot].name + " wirklich gelöscht werden?");
-    if (antwort) {
+    if (antwort && Slot != "Slot_1") {
         alert(Player.Tulpas[Slot].name + " wurde gelöscht.");
         Player.Tulpas[Slot] = { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" };
-        for(i in Player.Tulpas){
-            if (i.startsWith("Slot")){
-                if(i.name == ""){
-                    
+        if (Slot != "Slot_6") {
+            for (i in Player.Tulpas) {
+                if (i.startsWith("Slot") && i != "Slot_6") {
+                    if (Player.Tulpas[i].name == "") {
+                        let nextPos = parseInt(i.split('_')[1]) + 1;
+                        let nextSlot = "Slot_" + nextPos;
+                        if (Player.Tulpas[nextSlot].name != "") {
+                            let nextTulpa = Player.Tulpas[nextSlot];
+                            Player.Tulpas[nextSlot] = { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" };
+                            Player.Tulpas[i] = nextTulpa;
+                        }
+                    }
                 }
             }
         }
         setCookie("PlayerData", JSON.stringify(Player), 30);
         Tulpas_List();
+    } else if (Slot == "Slot_1") {
+        alert("Der erste Slot muss immer belegt sein!");
     }
 }
 
