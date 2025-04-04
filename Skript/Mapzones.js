@@ -6,6 +6,7 @@ var maps = {
         startX:-25,
         startY:-75,
         blockedArea: [
+            //HomeTown
             {minX: -250, maxX: 0, minY: -50, maxY: 100},
             {minX: -650, maxX: -400, minY: -50, maxY: 100},
             {minX: -1050, maxX: -800, minY: -50, maxY: 100},
@@ -21,7 +22,9 @@ var maps = {
             {minX: -1450, maxX: -1075, minY: -475, maxY: -375},            
             {minX: -1275, maxX: 25, minY: -925, maxY: -775},
             {minX: 25, maxX: 125, minY: -725, maxY: -575},
-            {minX: -625, maxX: -575, minY: -325, maxY: -275},
+            {minX: -625, maxX: -575, minY: -325, maxY: -275},            
+            {minX: 75, maxX: 75, minY: 25, maxY: 25},
+            {minX: -225, maxX: 225, minY: 125, maxY: 225},
             //Map anhang. 
             {minX: -1475, maxX: -1475, minY: -250, maxY: 250},
             {minX: -1575, maxX: -1525, minY: -125, maxY: 250},
