@@ -9,8 +9,8 @@ function Exit_Game() {
         <div class="retro-popup-title">SPIEL VERLASSEN?</div>
         <div class="retro-popup-text">Bist du sicher?</div> <!-- Mit neuer Klasse -->
         <div>
-                <button class="retro-popup-btn retro-popup-btn-yes" id="retroPopupYes">JA</button>
-                <button class="retro-popup-btn retro-popup-btn-no" id="retroPopupNo">NEIN</button>
+                <button class="retro-popup-btn retro-popup-btn-yes" id="retroPopupYes" onclick="Click()">JA</button>
+                <button class="retro-popup-btn retro-popup-btn-no" id="retroPopupNo" onclick="Click()">NEIN</button>
             </div>
         </div>
     `;
