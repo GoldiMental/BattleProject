@@ -17,13 +17,14 @@ if(Player.name == ""){
         }
     }
 }
-
-document.getElementById('bg01-sound').volume = 0.1;
-document.getElementById('bg02-sound').volume = 0.1;
-document.getElementById('bg03-sound').volume = 0.1;
-document.getElementById('bgr01-sound').volume = 0.1;
-document.getElementById('bgr02-sound').volume = 0.1;
-document.getElementById('bg03-sound').play();
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('bg01-sound').volume = 0.1;
+    document.getElementById('bg02-sound').volume = 0.1;
+    document.getElementById('bg03-sound').volume = 0.1;
+    document.getElementById('bgr01-sound').volume = 0.1;
+    document.getElementById('bgr02-sound').volume = 0.1;
+    document.getElementById('bg03-sound').play();
+});
 
 function Click(){
     document.getElementById('click-sound').play();
