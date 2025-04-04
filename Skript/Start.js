@@ -17,3 +17,6 @@ if(Player.name == ""){
         }
     }
 }
+
+document.getElementById('bg03-sound').volume = 0.1;
+document.getElementById('bg03-sound').play();
