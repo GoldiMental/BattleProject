@@ -23,7 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('bg03-sound').volume = 0.1;
     document.getElementById('bgr01-sound').volume = 0.1;
     document.getElementById('bgr02-sound').volume = 0.1;
-    document.getElementById('bg03-sound').play();
+    const startMusik = () => {
+        document.getElementById('bg03-sound').play();
+        document.removeEventListener('click', startMusik);
+        document.removeEventListener('mousedown', startMusik);
+        document.removeEventListener('keydown', startMusik);
+        document.removeEventListener('touchstart', startMusik);
+    }
+    document.addEventListener('click', startMusik);
+    document.addEventListener('mousedown', startMusik);
+    document.addEventListener('keydown', startMusik);
+    document.addEventListener('touchstart', startMusik);
 });
 
 function Click(){
