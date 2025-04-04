@@ -31,6 +31,7 @@ function moveMap() {
 
     let newMapX = mapX;
     let newMapY = mapY;
+    
 
     if (activeDirection === "w" && mapY + moveSpeed <= maxY) {
         direction = "up";
@@ -53,6 +54,17 @@ function moveMap() {
         const area = maps[activeMap].blockedArea[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
             return;
+        }
+    }
+    
+    for (let i = 0; i < maps[activeMap].battleArea.length; i++) {
+        const area = maps[activeMap].battleArea[i];
+        if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+           let zufall = Math.round(Math.random()*100);
+           if (zufall <= 10 ){
+            battle();
+            //console.log("Du wirst Angegriffen!")
+           } 
         }
     }
 
@@ -87,6 +99,5 @@ document.addEventListener('keyup', (event) => {
     }
 });
 
-setInterval(() => {
-    if (activeDirection) { moveMap() };
-}, moveInterval);
+let moveIntervalID;
+moveIntervalID = setInterval(() => {if (activeDirection) { moveMap() };}, moveInterval);
