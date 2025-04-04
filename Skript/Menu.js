@@ -57,8 +57,8 @@ function Tulpas_List() {
                     '<div class="LP_Bar">' +
                     '<div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div>' +
                     '</div>' +
-                    '<button class="Change_Tulpa" onclick="swapTulpa(\'' + Slot + '\')">🔄️</button>' +
-                    '<button class="Delete_Tulpa" onclick="removeTulpa(\'' + Slot + '\')">🗑️</button></div>';
+                    '<button class="Change_Tulpa" onclick="swapTulpa(\'' + Slot + '\');Click()">🔄️</button>' +
+                    '<button class="Delete_Tulpa" onclick="removeTulpa(\'' + Slot + '\');Click()">🗑️</button></div>';
             }
         }
     };
