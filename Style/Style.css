@@ -224,8 +224,8 @@ button{
     position: absolute;
     top: -75px;
     left: -25px;
-    background-image: url(../img/textures/MAP.gif);
-    width: 1700px;
+    background-image: url(../img/textures/MAP03.gif);
+    width: 3250px;
     height: 1200px;
     transition: left 0.3s linear, top 0.3s linear;
 }
