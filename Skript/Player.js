@@ -28,7 +28,7 @@ if (PlayerCookie) {
 }
 else {
     var Player = {
-        name: "Max",
+        name: "",
         Gold: 500,
         Cheats: 0,
         Tulpas: {
