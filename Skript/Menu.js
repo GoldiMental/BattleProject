@@ -124,7 +124,38 @@ function close_Info() {
 }
 
 function Karte() {
+    // Mache das Kartenelement sichtbar
     document.getElementById('Karte').style.visibility = 'visible';
+  
+    // Rufe die aktuellen Kartenkoordinaten ab
+    let mapX = maps[activeMap].startX;
+    let mapY = maps[activeMap].startY;
+  
+    // Finde das Element für den Standort-Marker
+    const standortMarker = document.getElementById('standort-marker');
+  
+    if (standortMarker) {
+      // **WICHTIG:** Hier musst du überlegen, wie deine Koordinaten
+      // mit den Pixelkoordinaten auf deiner Hintergrundkarte zusammenhängen.
+      // Das hängt stark davon ab, wie deine Karte aufgebaut ist.
+  
+      // **Annahme:** Vielleicht repräsentieren mapX und mapY eine Art von
+      // Gitterzellen oder relative Positionen. Du musst diese Werte in Pixel
+      // umrechnen, die innerhalb deines #Karte_info Elements Sinn machen.
+  
+      // **Beispielhafte Umrechnung (musst du an dein System anpassen!):**
+      const schrittweiteX = 50; // Beispiel: jede Einheit in mapX entspricht 50 Pixeln
+      const schrittweiteY = 50; // Beispiel: jede Einheit in mapY entspricht 50 Pixeln
+  
+      const markerLeft = mapX * schrittweiteX;
+      const markerTop = mapY * schrittweiteY;
+  
+      // Setze die CSS-Position des Markers
+      standortMarker.style.left = `${markerLeft}px`;
+      standortMarker.style.top = `${markerTop}px`;
+    } else {
+      console.error("Das Element mit der ID 'standort-marker' wurde nicht gefunden!");
+    }
 }
 
 function close_Karte() {
