@@ -224,7 +224,7 @@ button{
     position: absolute;
     top: -75px;
     left: -25px;
-    background-image: url(../img/textures/Map_Anfang.png);
+    background-image: url(../img/textures/MAP.gif);
     width: 1700px;
     height: 1200px;
     transition: left 0.3s linear, top 0.3s linear;
@@ -388,20 +388,26 @@ button{
     border-radius: 10px;
 }
 
-/*#Item_List {
-    visibility: hidden;
+.Item_Title {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    height: 450px;
-    width: 450px;
-    padding: 10px;
+    margin: -5px;
+    left: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(0, 0, 0);
+    background-color: rgb(197, 197, 197);
+    border: 4px outset azure;
+    border-radius: 10px 5px;
+}
+
+.Item_list {
+    position: sticky;
+    padding: 2px;
+    height: 25px;
+    top: 50px;
+    text-align: left;
     font-family: 'Courier New', Courier, monospace;
     color: black;
-    background-color: silver;
-    border: 5px outset azure;
-    border-radius: 10px;
-}*/
+}
 
 .retro-popup-text {
     color: #000;

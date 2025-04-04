@@ -1,6 +1,6 @@
 var maps = {
-    Map_Anfang:{
-        name:"Map_Anfang",
+    MAP:{
+        name:"MAP",
         Height: 1200,
         Width: 1700,
         startX:-25,
