@@ -39,12 +39,17 @@ var maps = {
             {minX: -1625, maxX: -1475, minY: -675, maxY: -475},
             {minX: -1475, maxX: -1475, minY: -425, maxY: -375},
         ],
+        //BattleMapZone. 
+        battleArea: [
+            {minX: -2275, maxX: -1675, minY: -675, maxY: -675},
+            {minX: -2275, maxX: -2275, minY: -625, maxY: -625},
+            {minX: -2475, maxX: -2275, minY: -575, maxY: -125},
+            {minX: -1825, maxX: -1725, minY: -575, maxY: -475},
+            {minX: -2125, maxX: -1875, minY: -575, maxY: -175},
+            {minX: -2125, maxX: -2025, minY: -125, maxY: -75},
+            {minX: -2825, maxX: -1925, minY: -25, maxY: 75},
+            {minX: -2825, maxX: -2575, minY: -425, maxY: -75},
+            {minX: -2875, maxX: -2675, minY: -625, maxY: -525},
+        ],
     },
 }
-
-const kampfzonen = [
-    { x: 100, y: 100, breite: 200, höhe: 200 },
-    { x: 0, y: 300, breite: 100, höhe: 100 },
-    { x: 300, y: 0, breite: 100, höhe: 100 }
-  ];
-  
