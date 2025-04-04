@@ -58,7 +58,7 @@ function moveMap() {
 
     mapX = newMapX;
     mapY = newMapY;
-
+console.log(mapX, mapY)
     if (direction) {
         player.className = 'Player m_' + direction;
     }
