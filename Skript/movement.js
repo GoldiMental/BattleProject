@@ -3,7 +3,7 @@ const moveInterval = 300;
 let activeDirection = null;
 
 const documentMap = document.querySelector('.map');
-let activeMap = "Map_Anfang";
+let activeMap = "MAP";
 
 let mapX = maps[activeMap].startX;
 let mapY = maps[activeMap].startY;
