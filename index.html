@@ -57,33 +57,33 @@
         </div>
         <div id="battle_game">
             <div id="opponent">
-                <div id="Name-opp">Maus Lv.4</div>
+                <div id="Name-opp"></div>
                 <div id="LP-opp">
                     <div id="fill-opp"></div>
                 </div>
                 <div id="Tulpa-opp"></div>
             </div>
             <div id="self">
-                <div id="Name-self">Maus Lv.5</div>
+                <div id="Name-self"></div>
                 <div id="LP-self">
                     <div id="fill-self"></div>
                 </div>
                 <div id="Tulpa-self"></div>
             </div>
             <div id="battle-info">
-                <div id="battle_text">.. </div>
+                <div id="battle_text"></div>
                 <div id="battle_box">
                     <div id="battle_menu">
-                        <button class="battle_Button" id="fight">Kämpfen</button>
+                        <button class="battle_Button" id="fight" onclick="fight()">Kämpfen</button>
                         <button class="battle_Button" id="use_Items">Item's</button>
-                        <button class="battle_Button" id="change_Tulpa">Tulpa's</button>
-                        <button class="battle_Button" id="escape">Flucht</button>
+                        <button class="battle_Button" id="change_Tulpa" onclick="changeTulpa()">Tulpa's</button>
+                        <button class="battle_Button" id="escape" onclick="escape()">Flucht</button>
                     </div>
                     <div id="attack_menu">
-                        <button class="battle_Button" id="Attack_1">--Todeshauch--</button>
-                        <button class="battle_Button" id="Attack_2">--Todeshauch--</button>
-                        <button class="battle_Button" id="Attack_3">--Todeshauch--</button>
-                        <button class="battle_Button" id="Attack_4">--Todeshauch--</button>
+                        <button class="battle_Button" id="Attack_1" onclick="self_attack(this.innerHTML)">.</button>
+                        <button class="battle_Button" id="Attack_2" onclick="self_attack(this.innerHTML)">.</button>
+                        <button class="battle_Button" id="Attack_3" onclick="self_attack(this.innerHTML)">.</button>
+                        <button class="battle_Button" id="Attack_4" onclick="self_attack(this.innerHTML)">.</button>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,9 @@
     <audio id="lvup-sound" src="audio/Level-up.mp3"></audio>
     <audio id="win-sound" src="audio/Win-sound.mp3"></audio>
     <audio id="click-sound" src="audio/Click-sound.mp3"></audio>
+    <audio id="alarm-sound" src="audio/8bit-alarm.mp3"></audio>
 
+    <script src="Skript/attack.js"></script>
     <script src="Skript/Mapzones.js"></script>
     <script src="Skript/Tulpa-List.js"></script>
     <script src="Skript/Item-List.js"></script>

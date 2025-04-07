@@ -65,6 +65,7 @@ button{
     height: 200px;
     width: 200px;
     background-color: red;
+    transition: right 0.5s linear;
 }
 
 #self {
@@ -113,6 +114,7 @@ button{
     height: 200px;
     width: 200px;
     background-color: green;
+    transition: left 0.5s linear;
 }
 
 #battle-info {
@@ -474,7 +476,6 @@ button{
 
 #battle_menu {
     position: absolute;
-    visibility: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -506,6 +507,7 @@ button{
     color: black;
     margin: 3px;
     max-width: 230px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #Tulpa_List {

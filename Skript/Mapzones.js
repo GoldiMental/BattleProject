@@ -54,5 +54,9 @@ var maps = {
             {minX: -2825, maxX: -2575, minY: -425, maxY: -75},
             {minX: -2875, maxX: -2675, minY: -625, maxY: -525},
         ],
+        opp_List: [
+            "Mäusschen","Kaninchen",
+        ],
+        maxLv: 2,
     },
 }
