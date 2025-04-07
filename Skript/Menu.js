@@ -131,6 +131,7 @@ function Karte() {
     // Karten- und Anzeigedimensionen
     const mapWidth = parseInt(maps[activeMap].Width);   // Original-Kartenbreite (z. B. 3250)
     const mapHeight = parseInt(maps[activeMap].Height); // Original-Kartenhöhe (z. B. 1250)
+    
     const displayWidth = 450;  // Breite des #Karte-Containers
     const displayHeight = 172; // Höhe des #Karte-Containers
 
@@ -144,9 +145,16 @@ function Karte() {
     console.log(scaleX);
     console.log(scaleY);
     // Marker-Position (skaliert & zentriert)
-    const markerX = playerX * scaleX;
-    const markerY = playerY * scaleY;
+    let markerX = playerX * scaleX;
+    let markerY = playerY * scaleY;
 
+    const karteInfo = document.getElementById('Karte_info');
+    const karteInfoOffset = karteInfo.getBoundingClientRect().top - document.getElementById('Karte').getBoundingClientRect().top;
+    markerY -= karteInfoOffset;
+
+    markerX += 35; // Nach rechts 
+    markerY += 175;  // Nach unten
+    
     // Marker setzen (mit Korrektur für die Mitte des Markers)
     standortMarker.style.left = `${markerX}px`;
     standortMarker.style.top = `${markerY}px`;
