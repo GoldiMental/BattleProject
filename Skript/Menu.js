@@ -8,7 +8,11 @@ document.getElementById('Tulpas').style.visibility = 'hidden';
 function MenuList() {
     if (document.getElementById('MenuList').style.visibility == 'hidden') {
         document.getElementById('MenuList').style.visibility = 'visible';
-    } else { document.getElementById('MenuList').style.visibility = 'hidden'; }
+        clearInterval(moveIntervalID);
+    } else {
+        document.getElementById('MenuList').style.visibility = 'hidden';
+        moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+    }
 }
 
 function Cheat() {
@@ -131,7 +135,7 @@ function Karte() {
     // Karten- und Anzeigedimensionen
     const mapWidth = parseInt(maps[activeMap].Width);   // Original-Kartenbreite (z. B. 3250)
     const mapHeight = parseInt(maps[activeMap].Height); // Original-Kartenhöhe (z. B. 1250)
-    
+
     const displayWidth = 450;  // Breite des #Karte-Containers
     const displayHeight = 172; // Höhe des #Karte-Containers
 
@@ -154,7 +158,7 @@ function Karte() {
 
     markerX += 35; // Nach rechts 
     markerY += 175;  // Nach unten
-    
+
     // Marker setzen (mit Korrektur für die Mitte des Markers)
     standortMarker.style.left = `${markerX}px`;
     standortMarker.style.top = `${markerY}px`;
