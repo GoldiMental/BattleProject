@@ -62,7 +62,7 @@ function moveMap() {
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
            let zufall = Math.round(Math.random()*100);
            if (zufall <= 10 ){
-            battle();
+            battleanimation();
             //console.log("Du wirst Angegriffen!")
            } 
         }
@@ -70,7 +70,7 @@ function moveMap() {
 
     mapX = newMapX;
     mapY = newMapY;
-console.log(mapX, mapY)
+// console.log(mapX, mapY)
     if (direction) {
         player.className = 'Player m_' + direction;
     }
