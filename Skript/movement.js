@@ -56,7 +56,7 @@ function moveMap() {
             return;
         }
     }
-
+if(activeMap=="MAP"){
     for (let i = 0; i < maps[activeMap].profHome.length; i++) {
         const area = maps[activeMap].profHome[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
@@ -97,7 +97,7 @@ function moveMap() {
            } 
         }
     }
-    
+}   
     mapX = newMapX;
     mapY = newMapY;
     console.log(mapX, mapY)
@@ -132,16 +132,18 @@ document.addEventListener('keyup', (event) => {
 let moveIntervalID;
 moveIntervalID = setInterval(() => {if (activeDirection) { moveMap() };}, moveInterval);
 
-function meinEingang() {
+async function meinEingang() {
     document.getElementById("karte").disabled=true;
     console.log("Eintritt in mein Haus");
     document.getElementsByClassName("map")[0].className="map MeinHaus";
-    changeMap("MeinHaus")
+    changeMap("MeinHaus");
+    refreshMap();
 }
 
-function troysEingang() {
+async function troysEingang() {
     document.getElementById("karte").disabled=true;
     console.log("Eintritt in Troys Haus");
     document.getElementsByClassName("map")[0].className="map TroysHaus";
-    changeMap("TroysHaus")
+    changeMap("TroysHaus");
+    refreshMap();
 }
