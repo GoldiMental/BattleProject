@@ -72,4 +72,20 @@ var maps = {
         ],
         maxLv: 2,
     },
+    TroysHaus:{
+        name:"TroysHaus",
+        Height: 300,
+        Width: 500,
+        startX:-25,
+        startY:-75,
+        blockedArea: []
+    },
+    MeinHaus:{
+        name:"MeinHaus",
+        Height: 250,
+        Width: 250,
+        startX:-25,
+        startY:-75,
+        blockedArea: []
+    },
 }

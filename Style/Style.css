@@ -189,7 +189,7 @@ button {
     cursor: pointer;
 }
 
-.button:hover {
+.button:not(:disabled):hover {
     border-color: gold;
 }
 
@@ -240,10 +240,25 @@ button {
     position: absolute;
     top: -75px;
     left: -25px;
-    background-image: url(../img/textures/MAP03.gif);
+    transition: left 0.3s linear, top 0.3s linear;
+}
+
+.MAP {
     width: 3250px;
     height: 1200px;
-    transition: left 0.3s linear, top 0.3s linear;
+    background-image: url(../img/textures/MAP03.gif);
+}
+
+.MeinHaus {
+    height: 250px;
+    width: 250px;
+    background-image: url(../img/textures/roomUs.png);
+}
+
+.TroysHaus {
+    width: 500px;
+    height: 300px;
+    background-image: url(../img/textures/labmap.png);
 }
 
 #MenuList {
@@ -294,7 +309,7 @@ button {
     transform: translate(-50%, -50%);
 }
 
-.MenuList:hover {
+.MenuList:not(:disabled):hover {
     border-color: gold;
 }
 
@@ -529,6 +544,33 @@ button {
     right: 300px;
     height: 50px;
     width: 50px;
+}
+
+.MeinHaus_B {
+    top: 250px;
+    left: 350px;
+}
+
+.TroysHaus_B {
+    top: 700px;
+    left: 1150px;
+}
+
+.Inside {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔺</text></svg>");
+    background-size: 50px;
+    background-color: transparent;
+    background-position: 50%;
+    opacity: 0.5;
+    position: absolute;
+    border: none;
+    height: 45px;
+    width: 40px;
+    visibility: hidden;
+}
+
+.Inside:hover {
+    opacity: 1;
 }
 
 #battle_text {
