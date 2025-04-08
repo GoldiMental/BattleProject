@@ -167,9 +167,9 @@ async function self_attack(attack) {
             document.getElementById("movement_game").style.visibility = "visible";
             document.getElementById("battle_game").style.visibility = "hidden";
             moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-        }
-    }
-}
+     }
+ }
+
 
 function changeTulpa() {
     alert("Funktion derzeit nicht verfügbar. Match wird beendet.");
