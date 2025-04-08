@@ -42,6 +42,7 @@ function battle() {
     document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
     battleInfo.innerText = "Ein wildes " + tulpa_opp + " Lv. " + tulpa_lv + " greift an!";
     document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
+    document.getElementById('Tulpa-opp').innerHTML = '<div class="'+tulpa_opp+'_Back"></div>';
     document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
 }
