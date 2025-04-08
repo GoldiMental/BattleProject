@@ -5,24 +5,22 @@ function Delay(time) {
 let tulpa_HP = 0;
 let tulpa_HP_Total = 0;
 let tulpa_self;
-let isTrainerBattle = false;
 
-async function battleanimation(isTrainer = false, trainer = null) {
+async function battleanimation() {
     clearInterval(moveIntervalID);
     document.getElementById('bg03-sound').pause();
     document.getElementById('bg03-sound').currentTime = 0;
     document.getElementById('alarm-sound').play();
     for (i = 0; i < 15; i++) {
         await Delay(80);
-         document.getElementById("movement_game").style.visibility = 
-            document.getElementById("movement_game").style.visibility === "hidden" ? "visible" : "hidden";
+        if (document.getElementById("movement_game").style.visibility == "hidden") { document.getElementById("movement_game").style.visibility = "visible" }
+        else { document.getElementById("movement_game").style.visibility = "hidden" }
     }
     document.getElementById('bgr02-sound').play();
-    battle(isTrainer, trainer);
+    battle();
 }
 
-function battle(isTrainer = false, trainer = null) {
-    isTrainerBattle = isTrainer;
+function battle() {
     document.getElementById("movement_game").style.visibility = "hidden";
     document.getElementById("battle_game").style.visibility = "visible";
     document.getElementById("battle_menu").style.visibility = "visible";
@@ -36,16 +34,6 @@ function battle(isTrainer = false, trainer = null) {
         }
     }
     let battleInfo = document.getElementById('battle_text');
-    if (isTrainerBattle) {
-        if (trainer.monsterList.every(tulpa => Tulpas[tulpa].HP <= 0)) {
-            trainerBattleEnd(trainer);
-            return;
-    } else {
-        nextTrainerTulpa(trainer);
-        return;
-    }
-}
-
     let zufall = Math.round(Math.random() * (maps[Player.actualMap].opp_List.length - 1));
     let tulpa_opp = maps[Player.actualMap].opp_List[zufall];
     let tulpa_lv = Math.round((Math.random() + 1) * (maps[Player.actualMap].maxLv - 1));
@@ -54,8 +42,7 @@ function battle(isTrainer = false, trainer = null) {
     document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
     battleInfo.innerText = "Ein wildes " + tulpa_opp + " Lv. " + tulpa_lv + " greift an!";
     document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
-    }
-
+    document.getElementById('Tulpa-opp').innerHTML = '<div class="'+tulpa_opp+'_Back"></div>';
     document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
 }
@@ -143,13 +130,7 @@ async function self_attack(attack) {
             document.getElementById("battle_menu").style.visibility = "visible";
         } else {
             document.getElementById('fill-opp').style.width = "0%";
-            if (isTrainerBattle) {
-                document.getElementById('battle_text').innerText = "Du hast den Kampf gegen " + trainer.name + " gewonnen!";
-                trainerBattleEnd(trainer);
-            }else { 
-                document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
-                        }
-            }            document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
+            document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
             await Delay(500);
             document.getElementById('Tulpa-opp').style.right = "-500px";
             document.getElementById('bgr02-sound').pause();
