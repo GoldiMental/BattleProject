@@ -135,6 +135,13 @@ async function self_attack(attack) {
             document.getElementById("battle_menu").style.visibility = "visible";
         } else {
             document.getElementById('fill-opp').style.width = "0%";
+            if (isTrainerBattle) {
+                document.getElementById('battle_text').innerText = "Du hast den Kampf gegen " + trainer.name + " gewonnen!";
+                trainerBattleEnd(trainer);
+            }else { 
+                document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
+                        }
+            }            document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
             document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
             await Delay(500);
             document.getElementById('Tulpa-opp').style.right = "-500px";
