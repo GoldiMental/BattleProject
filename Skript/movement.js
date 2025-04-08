@@ -56,6 +56,19 @@ function moveMap() {
             return;
         }
     }
+
+    for (let i = 0; i < maps[activeMap].profHome.length; i++) {
+        const area = maps[activeMap].profHome[i];
+        if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+            console.log("Hier wohnt Prof. Troy!")
+        }
+    }    
+    for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
+        const area = maps[activeMap].selfHome[i];
+        if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+            console.log("Hier wohne ich!")
+        }
+    }    
     
     for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
         const area = maps[activeMap].trainerBattle[i];
