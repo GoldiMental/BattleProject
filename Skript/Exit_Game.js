@@ -1,9 +1,7 @@
 function Exit_Game() {
-    // Erstelle Popup-Element
     const popup = document.createElement('div');
     popup.className = 'retro-popup';
-    
-    // Popup-Inhalt
+
     popup.innerHTML = `
         <div class="retro-popup-window">
         <div class="retro-popup-title">SPIEL VERLASSEN?</div>
@@ -14,11 +12,9 @@ function Exit_Game() {
             </div>
         </div>
     `;
-    
-    // Füge Popup zum DOM hinzu
+
     document.body.appendChild(popup);
-    
-    // Event-Handler für Buttons
+
     document.getElementById('retroPopupYes').addEventListener('click', function() {
         try {
             window.close();

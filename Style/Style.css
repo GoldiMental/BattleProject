@@ -20,7 +20,12 @@ button {
 }
 
 #battle_game {
+    position: absolute;
     visibility: hidden;
+    background-size: 100%;
+    background-image: linear-gradient(black,lightgray,darkgray,gray);
+    width: 100%;
+    height: 100%;
 }
 
 #opponent {
@@ -71,7 +76,7 @@ button {
     right: -500px;
     height: 200px;
     width: 200px;
-    transition: right 0.5s linear;
+    transition: right 0.3s linear;
 }
 
 #self {
@@ -123,7 +128,7 @@ button {
     left: 10px;
     height: 200px;
     width: 200px;
-    transition: left 0.5s linear;
+    transition: left 0.3s linear;
 }
 
 #battle-info {

@@ -100,8 +100,8 @@ async function opp_Attack() {
     document.getElementById('battle_text').innerText = tulpa_opp + " setzt " + attack + " ein.";
     document.getElementById('attack-sound').play();
     await Delay(350);
-    document.getElementById('Tulpa-opp').style.right = "30px";
-    await Delay(100);
+    document.getElementById('Tulpa-opp').style.right = "50px";
+    await Delay(200);
     document.getElementById('Tulpa-opp').style.right = "10px";
     await Delay(1000);
     let dmg = (Tulpas[tulpa_opp.toString()].ANG + (3 * tulpa_opp_lv) * Attacks[attack].ATK_Power);
@@ -143,7 +143,6 @@ async function opp_Attack() {
             document.getElementById("movement_game").style.visibility = "visible";
             document.getElementById("battle_game").style.visibility = "hidden";
             document.getElementById("battle_menu").style.visibility = "hidden";
-            document.getElementById('escape').disabled = false;
             document.getElementById('Name-opp').style.opacity = "0";
             document.getElementById('LP-opp').style.opacity = "0";
             document.getElementById('Name-self').style.opacity = "0";
@@ -173,8 +172,8 @@ async function self_attack(attack) {
         document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play();
         await Delay(350);
-        document.getElementById('Tulpa-self').style.left = "30px";
-        await Delay(100);
+        document.getElementById('Tulpa-self').style.left = "50px";
+        await Delay(200);
         document.getElementById('Tulpa-self').style.left = "10px";
         await Delay(1000);
         tulpa_HP -= dmg;
