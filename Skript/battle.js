@@ -50,7 +50,7 @@ function battle() {
 async function escape() {
     if (isTrainerBattle){
         document.getElementById('battle_text').innerText = "Keine Flucht möglich!";
-        await Delazy(1000);
+        await Delay(1000);
         return;
     }
     document.getElementById('escape').disabled = true;
