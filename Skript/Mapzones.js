@@ -55,6 +55,14 @@ var maps = {
             {minX: -2825, maxX: -2575, minY: -425, maxY: -75},
             {minX: -2875, maxX: -2775, minY: -625, maxY: -525},
         ],
+        //ProfHome. 
+        profHome: [
+            {minX: -925, maxX: -925, minY: -525, maxY: -525},
+        ],
+        //SelfHome. 
+        selfHome: [
+            {minX: -125, maxX: -125, minY: -75, maxY: -75},
+        ],
         //trainerBattle. 
         trainerBattle: [
             {minX: -2675, maxX: -2675, minY: -675, maxY: -525},
