@@ -259,22 +259,26 @@ button{
 
 #Karte_info {
     background-image: url(../img/textures/MAP03.gif);
-    background-size: 14% ;
+    background-size: 100% ;
     background-repeat: no-repeat;
     position: relative;
     left: -2px;
     top: 20%;
-    width: 3250px;
-    height: 1200px;
+    width: 450px;
+    height: 172px;
 }
-
+ 
 #standort-marker {
+    visibility: hidden;
+    background-size: 14%;
     position: absolute;
-    color: red; /* Beispiel: rote Farbe für das X */
+    left: -2px;
+    top: 20%;
+    color: red;
     font-weight: bold;
-    font-size: 500px; /* Beispiel: etwas größer */
-    /* Die genauen Werte für 'left' und 'top' werden wir per JavaScript setzen */
-  }
+    font-size: 20px;
+    transform: translate(-50%, -50%); /* Zentriert den Marker */
+}
 
 .MenuList:hover {
     border-color: gold;

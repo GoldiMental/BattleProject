@@ -12,6 +12,18 @@
     float: left;
 }
 
+.Mäusschen_Front {
+    background-image:url(..\tulpaPic\mausi_f.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.Mäusschen_Back {
+    background-image: url(../img/tulpaPic/mausi_b.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 .Maus {
     background-image: url(../img/tulpaPic/maus_f.png);
     background-repeat: no-repeat;
