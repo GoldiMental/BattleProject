@@ -56,7 +56,31 @@ function moveMap() {
             return;
         }
     }
+
+    for (let i = 0; i < maps[activeMap].profHome.length; i++) {
+        const area = maps[activeMap].profHome[i];
+        if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+            console.log("Hier wohnt Prof. Troy!")
+        }
+    }    
+    for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
+        const area = maps[activeMap].selfHome[i];
+        if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+            console.log("Hier wohne ich!")
+        }
+    }    
     
+    for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
+        const area = maps[activeMap].trainerBattle[i];
+        if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+           let zufall = Math.round(Math.random()*100);
+           if (zufall <= 100 ){
+            //battleanimation(); //Hier muss dann die neue trainerAnimation function eingefügt werden
+            console.log("Trainer Kampf!") //<- Bitte stehen lassen!
+           } 
+        }
+    }
+
     for (let i = 0; i < maps[activeMap].battleArea.length; i++) {
         const area = maps[activeMap].battleArea[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
@@ -67,10 +91,10 @@ function moveMap() {
            } 
         }
     }
-
+    
     mapX = newMapX;
     mapY = newMapY;
-// console.log(mapX, mapY)
+    console.log(mapX, mapY)
     if (direction) {
         player.className = 'Player m_' + direction;
     }

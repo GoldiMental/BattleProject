@@ -56,6 +56,7 @@ async function battle() {
     await Delay(500);
     document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
     document.getElementById('Tulpa-self').style.left = "10px";
+  
     document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
     document.getElementById('Name-self').style.opacity = "1";
     document.getElementById('LP-self').style.opacity = "1";

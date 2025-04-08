@@ -25,6 +25,7 @@ var maps = {
             {minX: -625, maxX: -575, minY: -325, maxY: -275},            
             {minX: 75, maxX: 75, minY: 25, maxY: 25},
             {minX: -225, maxX: 225, minY: 125, maxY: 225},
+            {minX: -1275, maxX: -1275, minY: -725, maxY: -525},
             //Map anhang. 
             {minX: -1475, maxX: -1475, minY: -250, maxY: 250},
             {minX: -1575, maxX: -1525, minY: -125, maxY: 250},
@@ -52,7 +53,19 @@ var maps = {
             {minX: -2125, maxX: -2025, minY: -125, maxY: -75},
             {minX: -2825, maxX: -1925, minY: -25, maxY: 75},
             {minX: -2825, maxX: -2575, minY: -425, maxY: -75},
-            {minX: -2875, maxX: -2675, minY: -625, maxY: -525},
+            {minX: -2875, maxX: -2775, minY: -625, maxY: -525},
+        ],
+        //ProfHome. 
+        profHome: [
+            {minX: -925, maxX: -925, minY: -525, maxY: -525},
+        ],
+        //SelfHome. 
+        selfHome: [
+            {minX: -125, maxX: -125, minY: -75, maxY: -75},
+        ],
+        //trainerBattle. 
+        trainerBattle: [
+            {minX: -2675, maxX: -2675, minY: -675, maxY: -525},
         ],
         opp_List: [
             "Mäusschen","Kaninchen",
