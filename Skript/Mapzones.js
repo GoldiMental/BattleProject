@@ -52,7 +52,11 @@ var maps = {
             {minX: -2125, maxX: -2025, minY: -125, maxY: -75},
             {minX: -2825, maxX: -1925, minY: -25, maxY: 75},
             {minX: -2825, maxX: -2575, minY: -425, maxY: -75},
-            {minX: -2875, maxX: -2675, minY: -625, maxY: -525},
+            {minX: -2875, maxX: -2775, minY: -625, maxY: -525},
+        ],
+        //trainerBattle. 
+        trainerBattle: [
+            {minX: -2675, maxX: -2675, minY: -675, maxY: -525},
         ],
         opp_List: [
             "Mäusschen","Kaninchen",
