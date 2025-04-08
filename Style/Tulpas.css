@@ -13,15 +13,20 @@
 }
 
 .Mäusschen_Front {
-    background-image:url(..\tulpaPic\mausi_f.png);
+    background-image:url(../img/tulpaPic/mausi_f.png);
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    width: 100%;
+    height:100%;
+    
 }
 
 .Mäusschen_Back {
     background-image: url(../img/tulpaPic/mausi_b.png);
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    width: 100%;
+    height:100%;
 }
 
 .Maus {
@@ -52,6 +57,22 @@
     height: 80px;
     width:80px;
     float: left;
+}
+
+.Kaninchen_Front{
+    background-image: url(../img/tulpaPic/kaninchen_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height:100%;
+}
+
+.Kaninchen_Back{
+    background-image: url(../img/tulpaPic/kaninchen_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height:100%;
 }
 
 .Hase {
