@@ -62,8 +62,8 @@ function moveMap() {
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
            let zufall = Math.round(Math.random()*100);
            if (zufall <= 100 ){
-            battleanimation(); //Hier muss dann die neue trainerAnimation function eingefügt werden
-            //console.log("Trainer Kampf!") <- Bitte stehen lassen!
+            //battleanimation(); //Hier muss dann die neue trainerAnimation function eingefügt werden
+            console.log("Trainer Kampf!") //<- Bitte stehen lassen!
            } 
         }
     }

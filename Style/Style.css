@@ -503,6 +503,17 @@ button{
     background-color: gray;
 }
 
+.Trainer {
+    background-image: url(../img/textures/tR2.png);
+    background-size: 175%;
+    background-position: 50%;
+    position: absolute;
+    top: 750px;
+    right: 300px;
+    height: 50px;
+    width: 50px;
+}
+
 #battle_text {
     color: black;
     margin: 3px;

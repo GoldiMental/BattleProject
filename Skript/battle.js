@@ -42,17 +42,11 @@ function battle() {
     document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
     battleInfo.innerText = "Ein wildes " + tulpa_opp + " Lv. " + tulpa_lv + " greift an!";
     document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
-    document.getElementById('Tulpa-opp').innerHTML = '<div class="'+tulpa_opp+'_Back"></div>';
     document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
 }
 
 async function escape() {
-    if (isTrainerBattle){
-        document.getElementById('battle_text').innerText = "Keine Flucht möglich!";
-        await Delay(1000);
-        return;
-    }
     document.getElementById('escape').disabled = true;
     let zufall = Math.round(Math.random() * 100);
     if (zufall >= 20) {
@@ -135,13 +129,6 @@ async function self_attack(attack) {
             document.getElementById("battle_menu").style.visibility = "visible";
         } else {
             document.getElementById('fill-opp').style.width = "0%";
-            if (isTrainerBattle) {
-                document.getElementById('battle_text').innerText = "Du hast den Kampf gegen " + trainer.name + " gewonnen!";
-                trainerBattleEnd(trainer);
-            }else { 
-                document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
-                        }
-            }            document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
             document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
             await Delay(500);
             document.getElementById('Tulpa-opp').style.right = "-500px";
@@ -167,9 +154,9 @@ async function self_attack(attack) {
             document.getElementById("movement_game").style.visibility = "visible";
             document.getElementById("battle_game").style.visibility = "hidden";
             moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-     }
- }
-
+        }
+    }
+}
 
 function changeTulpa() {
     alert("Funktion derzeit nicht verfügbar. Match wird beendet.");
