@@ -654,10 +654,22 @@ button {
 
 #change_tulpa {
     visibility: hidden;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #use_item {
     visibility: hidden;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .change_tulpa_button {
