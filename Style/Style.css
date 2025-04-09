@@ -23,7 +23,7 @@ button {
     position: absolute;
     visibility: hidden;
     background-size: 100%;
-    background-image: linear-gradient(black,lightgray,darkgray,gray);
+    background-image: linear-gradient(black, lightgray, darkgray, gray);
     width: 100%;
     height: 100%;
 }
@@ -166,7 +166,7 @@ button {
     border-radius: 12px;
 }
 
-#Menu:hover {
+#Menu:not(:disabled):hover {
     background-color: rgba(255, 215, 0, 0.65);
     opacity: 1;
 }
@@ -356,7 +356,7 @@ button {
     border-radius: 10px 5px;
 }
 
-.Exit_Button:hover {
+.Exit_Button:not(:disabled):hover {
     border-color: gold;
 }
 
@@ -371,7 +371,7 @@ button {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .retro-popup-window {
@@ -531,7 +531,7 @@ button {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.battle_Button:hover {
+.battle_Button:not(:disabled):hover {
     background-color: gray;
 }
 
@@ -626,8 +626,8 @@ button {
     font-size: larger;
 }
 
-.Delete_Tulpa:hover,
-.Change_Tulpa:hover {
+.Delete_Tulpa:not(:disabled):hover,
+.Change_Tulpa:not(:disabled):hover {
     background-color: lightgrey;
 }
 
@@ -652,15 +652,15 @@ button {
     font-family: 'Courier New', Courier, monospace;
 }
 
-#change_tulpa{
+#change_tulpa {
     visibility: hidden;
 }
 
-#use_item{
+#use_item {
     visibility: hidden;
 }
 
-.change_tulpa_button{
+.change_tulpa_button {
     background-color: transparent;
     border: none;
     height: 30px;
@@ -668,6 +668,6 @@ button {
     border-radius: 3px;
 }
 
-.change_tulpa_button:hover{
+.change_tulpa_button:not(:disabled):hover {
     background-color: gray;
 }
