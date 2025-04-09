@@ -63,6 +63,9 @@ async function battle() {
 }
 
 async function escape() {
+    document.getElementById('change_tulpa').style.visibility = "hidden";
+    document.getElementById('battle_game_menu').style.visibility = "hidden";
+    document.getElementById('use_item').style.visibility = "hidden";
     document.getElementById('escape').disabled = true;
     let zufall = Math.round(Math.random() * 100);
     if (zufall >= 20) {
@@ -90,6 +93,7 @@ async function escape() {
 }
 
 async function opp_Attack() {
+    document.getElementById("battle_menu").style.visibility = "hidden";
     let tulpa_opp = document.getElementById('Name-opp').innerHTML.split(" ")[0];
     let tulpa_opp_lv = document.getElementById('Name-opp').innerHTML.split(" ")[2];
     let zufall = Math.round((Math.random()) * 4);
@@ -109,6 +113,8 @@ async function opp_Attack() {
     tulpa_self.HP -= dmg;
     if (tulpa_self.HP > 0) {
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
+        await Delay(300);
+        document.getElementById("battle_menu").style.visibility = "visible";
     } else {
         tulpa_self.HP = 0;
         document.getElementById('battle_text').innerText = "Dein Tulpa ist kampfunfähig!";
@@ -154,6 +160,9 @@ async function opp_Attack() {
 }
 
 function fight() {
+    document.getElementById('change_tulpa').style.visibility = "hidden";
+    document.getElementById('battle_game_menu').style.visibility = "hidden";
+    document.getElementById('use_item').style.visibility = "hidden";
     document.getElementById("battle_menu").style.visibility = "hidden";
     document.getElementById("attack_menu").style.visibility = "visible";
     document.getElementById("Attack_1").innerHTML = Tulpas[tulpa_self.name].attacks[1];
@@ -182,8 +191,6 @@ async function self_attack(attack) {
             document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
             await Delay(1500);
             opp_Attack();
-            await Delay(1500);
-            document.getElementById("battle_menu").style.visibility = "visible";
         } else {
             document.getElementById('fill-opp').style.width = "0%";
             document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
@@ -224,6 +231,7 @@ document.getElementById('change_tulpa').style.visibility = "hidden";
 
 function changeTulpa() {
     if (document.getElementById('change_tulpa').style.visibility == "hidden") {
+        document.getElementById('use_item').style.visibility = "hidden";
         document.getElementById('battle_game_menu').style.visibility = "visible";
         document.getElementById('change_tulpa').style.visibility = "visible";
         let html = '';
@@ -232,9 +240,9 @@ function changeTulpa() {
                 let tulpa = Player.Tulpas[Slot];
                 if (tulpa.name != "") {
                     if (tulpa.HP > 0) {
-                        html += '<button class="change_tulpa_button" onclick="selectTulpa(\'' + Slot + '\')">' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button><br>';
+                        html += '<button class="change_tulpa_button" onclick="selectTulpa(\'' + Slot + '\')">' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button>';
                     } else {
-                        html += '<button class="change_tulpa_button" disabled>' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button><br>';
+                        html += '<button class="change_tulpa_button" disabled>' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button>';
                     }
                 }
             }
@@ -263,6 +271,8 @@ async function selectTulpa(Slot) {
         document.getElementById('Tulpa-self').style.left = "10px";
         document.getElementById('Name-self').style.opacity = "1";
         document.getElementById('LP-self').style.opacity = "1";
+        await Delay(300);
+        document.getElementById("battle_menu").style.visibility = "visible";
     } else {
         document.getElementById('battle_game_menu').style.visibility = "hidden";
         document.getElementById('change_tulpa').style.visibility = "hidden";
@@ -279,5 +289,67 @@ async function selectTulpa(Slot) {
         document.getElementById('LP-self').style.opacity = "1";
         await Delay(500);
         opp_Attack();
+    }
+}
+
+document.getElementById('use_item').style.visibility = "hidden";
+
+function useItem() {
+    if (document.getElementById('use_item').style.visibility == "hidden") {
+        document.getElementById('change_tulpa').style.visibility = "hidden";
+        document.getElementById('battle_game_menu').style.visibility = "visible";
+        document.getElementById('use_item').style.visibility = "visible";
+        let html = '';
+        for (ball in Player.inventory.balls) {
+            if (Player.inventory.balls[ball] > 0) {
+                html += '<button class="change_tulpa_button" onclick="UseBall(\'' + ball + '\')">' + Player.inventory.balls[ball] + 'x ' + Item_List[ball].name + '</button>';
+            }
+        }
+        for (drink in Player.inventory.drinks) {
+            if (Player.inventory.drinks[drink] > 0) {
+                html += '<button class="change_tulpa_button" onclick="UseDrink(\'' + drink + '\')">' + Player.inventory.drinks[drink] + 'x ' + Item_List[drink].name + '</button>';
+            }
+        }
+        document.getElementById('use_item').innerHTML = html;
+    } else {
+        document.getElementById('change_tulpa').style.visibility = "hidden";
+        document.getElementById('battle_game_menu').style.visibility = "hidden";
+        document.getElementById('use_item').style.visibility = "hidden";
+    }
+}
+
+function UseBall(ball) {
+    console.log(ball);
+}
+
+async function UseDrink(drink) {
+    let antwort = prompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib nur eine Zahl ein.");
+    if (antwort > 0 && antwort <= 6){
+        let slot = "Slot_"+antwort;
+        if(Player.Tulpas[slot].name != ""){
+            if(Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total){
+                Player.Tulpas[slot].HP += Item_List[drink].HP;
+                if(Player.Tulpas[slot].HP > Player.Tulpas[slot].HP_Total){
+                    Player.Tulpas[slot].HP = Player.Tulpas[slot].HP_Total;
+                }
+                document.getElementById('battle_text').innerText = Player.name +" setzt " +Item_List[drink].name + " ein";
+                document.getElementById('change_tulpa').style.visibility = "hidden";
+                document.getElementById('battle_game_menu').style.visibility = "hidden";
+                document.getElementById('use_item').style.visibility = "hidden";
+                document.getElementById("battle_menu").style.visibility = "hidden";
+                if(Player.Tulpas[slot] == tulpa_self){
+                    document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
+                }
+                Player.inventory.drinks[drink] -= 1;
+                await Delay(2000);
+                opp_Attack();
+            } else {
+                document.getElementById('battle_text').innerText = Player.Tulpas[slot].name+" ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";
+            }
+        } else {
+            document.getElementById('battle_text').innerText = "Slot ist nicht belegt. Versuche es nochmal";
+        }
+    } else {
+        document.getElementById('battle_text').innerText = "Ich sagte doch, gib eine Zahl ein. Versuch es nochmal...";
     }
 }

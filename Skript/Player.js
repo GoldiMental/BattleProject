@@ -43,13 +43,13 @@ else {
         },
         inventory: {
             balls: {
-                Tulpaball: 0,
+                Tulpaball: 5,
                 Super_Tulpaball: 0,
                 Hyper_Tulpaball: 0,
                 Ultra_Tulpaball: 0,
             },
             drinks: {
-                Heiltrank: 0,
+                Heiltrank: 5,
                 Super_Heiltrank: 0,
                 Manatrank: 0,
                 Super_Manatrank: 0,

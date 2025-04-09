@@ -77,19 +77,25 @@ var maps = {
         Height: 300,
         Width: 500,
         startX:-25,
-        startY:-75,
+        startY:-25,
         blockedArea: [
-            {minX: 255, maxX: 75, minY: -25, maxY: 25}
-        ]
+            {minX: 75, maxX: 255, minY: -25, maxY: 25},
+            {minX: -225, maxX: -125, minY: -25, maxY: 25},
+            {minX: -225, maxX: 225, minY: 175, maxY: 225},
+        ],
     },
     MeinHaus:{
         name:"MeinHaus",
         Height: 250,
         Width: 250,
-        startX:25,
-        startY:-25,
+        startX:125,
+        startY:25,
         blockedArea: [
-            {minX: 75, maxX: 225, minY: 25, maxY: -25},
-        ]
+            {minX: 175, maxX: 225, minY: 25, maxY: 25},
+            {minX: 25, maxX: 75, minY: 25, maxY: 25},
+            {minX: 225, maxX: 225, minY: 175, maxY: 175},
+            {minX: 25, maxX: 225, minY: 225, maxY: 225},
+            {minX: 25, maxX: 25, minY: 125, maxY: 125},
+        ],
     },
 }
