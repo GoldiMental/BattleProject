@@ -1,24 +1,20 @@
-  
-
-
-
 .Mäusschen {
     background-image: url(../img/tulpaPic/mausi_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
 }
 
 .Mäusschen_Front {
-    background-image:url(../img/tulpaPic/mausi_f.png);
+    background-image: url(../img/tulpaPic/mausi_f.png);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
-    height:100%;
-    
+    height: 100%;
+
 }
 
 .Mäusschen_Back {
@@ -26,161 +22,369 @@
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 
 .Maus {
     background-image: url(../img/tulpaPic/maus_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Maus_Front {
+    background-image: url(../img/tulpaPic/maus_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Maus_Back {
+    background-image: url(../img/tulpaPic/maus_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Kampfmaus {
     background-image: url(../img/tulpaPic/kmaus_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Kampfmaus_Front {
+    background-image: url(../img/tulpaPic/kmaus_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Kampfmaus_Back {
+    background-image: url(../img/tulpaPic/kmaus_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Kaninchen {
     background-image: url(../img/tulpaPic/kaninchen_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
 }
 
-.Kaninchen_Front{
+.Kaninchen_Front {
     background-image: url(../img/tulpaPic/kaninchen_f.png);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 
-.Kaninchen_Back{
+.Kaninchen_Back {
     background-image: url(../img/tulpaPic/kaninchen_b.png);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 
 .Hase {
     background-image: url(../img/tulpaPic/hase_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Hase_Front {
+    background-image: url(../img/tulpaPic/hase_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Hase_Back {
+    background-image: url(../img/tulpaPic/hase_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Kaninchen_des_Todes {
     background-image: url(../img/tulpaPic/kk_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Kaninchen_des_Todes_Front {
+    background-image: url(../img/tulpaPic/kk_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Kaninchen_des_Todes_Back {
+    background-image: url(../img/tulpaPic/kk_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Streuner {
     background-image: url(../img/tulpaPic/streuner_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Streuner_Front {
+    background-image: url(../img/tulpaPic/streuner_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Streuner_Back {
+    background-image: url(../img/tulpaPic/streuner_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Wachhund {
     background-image: url(../img/tulpaPic/wachhund_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Wachhund_Front {
+    background-image: url(../img/tulpaPic/wachhund_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Wachhund_Back {
+    background-image: url(../img/tulpaPic/wachhund_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Schutzhund {
     background-image: url(../img/tulpaPic/schutzhund_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Schutzhund_Front {
+    background-image: url(../img/tulpaPic/schutzhund_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Schutzhund_Back {
+    background-image: url(../img/tulpaPic/schutzhund_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Kleiner_Wolf {
     background-image: url(../img/tulpaPic/k_wolf_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Kleiner_Wolf_Front {
+    background-image: url(../img/tulpaPic/k_wolf_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Kleiner_Wolf_Back {
+    background-image: url(../img/tulpaPic/k_wolf_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Wolf {
     background-image: url(../img/tulpaPic/wolf_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Wolf_Front {
+    background-image: url(../img/tulpaPic/wolf_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Wolf_Back {
+    background-image: url(../img/tulpaPic/wolf_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Böser_Wolf {
     background-image: url(../img/tulpaPic/b_wolf_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Böser_Wolf_Front {
+    background-image: url(../img/tulpaPic/b_wolf_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Böser_Wolf_Back {
+    background-image: url(../img/tulpaPic/b_wolf_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Zosse {
     background-image: url(../img/tulpaPic/zossen_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Zosse_Front {
+    background-image: url(../img/tulpaPic/zossen_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Zosse_Back {
+    background-image: url(../img/tulpaPic/zossen_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Treues_Ross {
     background-image: url(../img/tulpaPic/treuers_ross_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Treues_Ross_Front {
+    background-image: url(../img/tulpaPic/treuers_ross_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Treues_Ross_Back {
+    background-image: url(../img/tulpaPic/treues_ross_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .Streitross {
     background-image: url(../img/tulpaPic/streitross_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-right:3px;
+    margin-right: 3px;
     height: 80px;
-    width:80px;
+    width: 80px;
     float: left;
+}
+
+.Streitross_Front {
+    background-image: url(../img/tulpaPic/streitross_f.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.Streitross_Back {
+    background-image: url(../img/tulpaPic/streitross_b.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
