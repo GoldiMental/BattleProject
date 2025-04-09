@@ -56,6 +56,27 @@ function moveMap() {
             return;
         }
     }
+    if (activeMap == "MeinHaus") {
+        for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
+            const area = maps[activeMap].selfHome[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                document.getElementsByClassName("MeinHausOut_B")[0].style.visibility = "visible";
+            } else {
+                document.getElementsByClassName("MeinHausOut_B")[0].style.visibility = "hidden";
+            }
+        }
+    }
+    if (activeMap == "TroysHaus") {    
+        for (let i = 0; i < maps[activeMap].profHome.length; i++) {
+            const area = maps[activeMap].profHome[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                document.getElementsByClassName("TroysHausOut_B")[0].style.visibility = "visible";
+            }
+            else {
+                document.getElementsByClassName("TroysHausOut_B")[0].style.visibility = "hidden";
+            }
+        }
+    }
     if (activeMap == "MAP") {
         for (let i = 0; i < maps[activeMap].profHome.length; i++) {
             const area = maps[activeMap].profHome[i];
@@ -140,10 +161,10 @@ async function meinEingang() {
     movementGame.style.opacity = "0";
 
     // Kurze Verzögerung (für Effekt)
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await Delay(500);
     document.getElementById("karte").disabled = true;
-    document.getElementById("tuerSelf").disabled = true;
-    document.getElementById("tuerSelf").style.opacity = "0";
+    document.getElementById("tuerSelfIn").disabled = true;
+    document.getElementById("tuerSelfIn").style.opacity = "0";
     // Map wechseln (zur Hauskarte)
     const mapName = "MeinHaus"; // Ziel-Map
     if (!maps[mapName]) {
@@ -165,9 +186,10 @@ async function meinEingang() {
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
     bg.className = "map MeinHaus"; // CSS-Klasse für Haus-Hintergrund
-
+    document.getElementById("tuerSelfOut").disabled = false;
+    document.getElementById("tuerSelfOut").style.opacity = "1";
     // Spieler wieder einblenden
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await Delay(500);
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";
     //console.log("Eintritt in mein Haus erfolgreich!");
@@ -198,7 +220,84 @@ async function troysEingang() {
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
     bg.className = "map TroysHaus"; 
+    document.getElementById("tuerTroyOut").disabled = false;
+    document.getElementById("tuerTroyOut").style.opacity = "1";
+    await Delay(500);
+    movementGame.style.visibility = "visible";
+    movementGame.style.opacity = "1";
+    console.log("Eintritt in Troys Haus erfolgreich!");
+}
+
+async function meinAusgang() {
+    // Spieler "verschwinden" lassen (Animation)
+    const movementGame = document.getElementById("movement_game");
+    movementGame.style.visibility = "hidden";
+    movementGame.style.transition = "opacity 0.5s";
+    movementGame.style.opacity = "0";
+
+    // Kurze Verzögerung (für Effekt)
+    await Delay(500);
+    document.getElementById("karte").disabled = false;
+    document.getElementById("tuerSelfOut").disabled = true;
+    document.getElementById("tuerSelfOut").style.opacity = "0";
+    // Map wechseln (zur Hauskarte)
+    const mapName = "MAP"; // Ziel-Map
+    if (!maps[mapName]) {
+        console.error("Map existiert nicht:", mapName);
+        return;
+    }
     
+    // Position zurücksetzen (Startpunkt der Hauskarte)
+    mapX = maps[activeMap].startStadtX;
+    mapY = maps[activeMap].startStadtY;
+    console.log(mapX, mapY)
+
+    // Aktive Map aktualisieren
+    activeMap = mapName;
+    changeMap(mapName);
+
+    // Grenzen und Karte aktualisieren
+    refreshMap();
+    const bg = document.querySelector('.map');
+    bg.style.left = mapX + 'px';
+    bg.style.top = mapY + 'px';
+    bg.className = "map MAP"; // CSS-Klasse für Haus-Hintergrund
+    document.getElementById("tuerSelfIn").disabled = false;
+    document.getElementById("tuerSelfIn").style.opacity = "0.5";
+    // Spieler wieder einblenden
+    await Delay(500);
+    movementGame.style.visibility = "visible";
+    movementGame.style.opacity = "1";
+    //console.log("Eintritt in mein Haus erfolgreich!");
+}
+
+async function troysAusgang() {
+    const movementGame = document.getElementById("movement_game");
+    movementGame.style.visibility = "hidden";
+    movementGame.style.transition = "opacity 0.5s";
+    movementGame.style.opacity = "0";
+
+    await Delay(500);
+    document.getElementById("karte").disabled = false;
+    const mapName = "MAP"; 
+    if (!maps[mapName]) {
+        console.error("Map existiert nicht:", mapName);
+        return;
+    }
+        
+    mapX = maps[activeMap].startStadtX;
+    mapY = maps[activeMap].startStadtY;
+   
+    activeMap = mapName;
+    changeMap(mapName);
+
+    refreshMap();
+    const bg = document.querySelector('.map');
+    bg.style.left = mapX + 'px';
+    bg.style.top = mapY + 'px';
+    bg.className = "map MAP"; 
+    document.getElementById("tuerTroyOut").disabled = true;
+    document.getElementById("tuerTroyOut").style.opacity = "0";
     await Delay(500);
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";

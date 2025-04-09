@@ -78,10 +78,16 @@ var maps = {
         Width: 500,
         startX:-25,
         startY:-25,
+        startStadtX: -925,
+        startStadtY: -525,
         blockedArea: [
             {minX: 75, maxX: 255, minY: -25, maxY: 25},
             {minX: -225, maxX: -125, minY: -25, maxY: 25},
             {minX: -225, maxX: 225, minY: 175, maxY: 225},
+        ],
+        //ProfHome. 
+        profHome: [
+            { minX: -25, maxX: -25, minY: -25, maxY: -25 },
         ],
     },
     MeinHaus:{
@@ -90,12 +96,18 @@ var maps = {
         Width: 250,
         startX:125,
         startY:25,
+        startStadtX: -125,
+        startStadtY: -75,
         blockedArea: [
             {minX: 175, maxX: 225, minY: 25, maxY: 25},
             {minX: 25, maxX: 75, minY: 25, maxY: 25},
             {minX: 225, maxX: 225, minY: 175, maxY: 175},
             {minX: 25, maxX: 225, minY: 225, maxY: 225},
             {minX: 25, maxX: 25, minY: 125, maxY: 125},
+        ],
+        //SelfHome. 
+        selfHome: [
+            { minX: 125, maxX: 125, minY: 25, maxY: 25 },
         ],
     },
 }
