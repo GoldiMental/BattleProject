@@ -56,7 +56,7 @@ async function battle() {
     await Delay(500);
     document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
     document.getElementById('Tulpa-self').style.left = "10px";
-  
+
     document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
     document.getElementById('Name-self').style.opacity = "1";
     document.getElementById('LP-self').style.opacity = "1";
@@ -118,11 +118,11 @@ async function opp_Attack() {
             if (Slot.startsWith('Slot')) {
                 let tulpa = Player.Tulpas[Slot];
                 if (tulpa.name != "" && tulpa.HP > 0) {
-                        tulpa_list += 1;
+                    tulpa_list += 1;
                 }
             }
         };
-        if (tulpa_list > 0){
+        if (tulpa_list > 0) {
             changeTulpa();
             tulpa_list = 0;
         } else {
@@ -136,7 +136,7 @@ async function opp_Attack() {
                 if (Slot.startsWith('Slot')) {
                     let tulpa = Player.Tulpas[Slot];
                     if (tulpa.name != "") {
-                            tulpa.HP = tulpa.HP_Total;
+                        tulpa.HP = tulpa.HP_Total;
                     }
                 }
             };
@@ -231,8 +231,8 @@ function changeTulpa() {
             if (Slot.startsWith('Slot')) {
                 let tulpa = Player.Tulpas[Slot];
                 if (tulpa.name != "") {
-                    if(tulpa.HP > 0){
-                        html += '<button class="change_tulpa_button" onclick="selectTulpa(\''+Slot+'\')">' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button><br>';
+                    if (tulpa.HP > 0) {
+                        html += '<button class="change_tulpa_button" onclick="selectTulpa(\'' + Slot + '\')">' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button><br>';
                     } else {
                         html += '<button class="change_tulpa_button" disabled>' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button><br>';
                     }
@@ -246,10 +246,10 @@ function changeTulpa() {
     }
 }
 
-async function selectTulpa(Slot){
-    if(Player.Tulpas[Slot] == tulpa_self){
+async function selectTulpa(Slot) {
+    if (Player.Tulpas[Slot] == tulpa_self) {
         document.getElementById('battle_text').innerText = "Das gewählte Tulpaist bereits im Kampf!";
-    } else if (tulpa_self.HP <= 0){
+    } else if (tulpa_self.HP <= 0) {
         document.getElementById('battle_game_menu').style.visibility = "hidden";
         document.getElementById('change_tulpa').style.visibility = "hidden";
         document.getElementById('Tulpa-self').style.left = "-500px";
@@ -258,7 +258,7 @@ async function selectTulpa(Slot){
         await Delay(500);
         tulpa_self = Player.Tulpas[Slot];
         document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
-        document.getElementById('Tulpa-self').innerHTML = '<div class="'+tulpa_self.name+'_Back"></div>';
+        document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
         document.getElementById('Tulpa-self').style.left = "10px";
         document.getElementById('Name-self').style.opacity = "1";
@@ -272,7 +272,7 @@ async function selectTulpa(Slot){
         await Delay(500);
         tulpa_self = Player.Tulpas[Slot];
         document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
-        document.getElementById('Tulpa-self').innerHTML = '<div class="'+tulpa_self.name+'_Back"></div>';
+        document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
         document.getElementById('Tulpa-self').style.left = "10px";
         document.getElementById('Name-self').style.opacity = "1";

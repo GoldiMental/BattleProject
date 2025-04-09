@@ -31,7 +31,7 @@ function moveMap() {
 
     let newMapX = mapX;
     let newMapY = mapY;
-    
+
 
     if (activeDirection === "w" && mapY + moveSpeed <= maxY) {
         direction = "up";
@@ -62,36 +62,36 @@ function moveMap() {
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
             console.log("Hier wohnt Prof. Troy!")
         }
-    }    
+    }
     for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
         const area = maps[activeMap].selfHome[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
             console.log("Hier wohne ich!")
         }
-    }    
-    
+    }
+
     for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
         const area = maps[activeMap].trainerBattle[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-           let zufall = Math.round(Math.random()*100);
-           if (zufall <= 100 ){
-            //battleanimation(); //Hier muss dann die neue trainerAnimation function eingefügt werden
-            console.log("Trainer Kampf!") //<- Bitte stehen lassen!
-           } 
+            let zufall = Math.round(Math.random() * 100);
+            if (zufall <= 100) {
+                //battleanimation(); //Hier muss dann die neue trainerAnimation function eingefügt werden
+                console.log("Trainer Kampf!") //<- Bitte stehen lassen!
+            }
         }
     }
 
     for (let i = 0; i < maps[activeMap].battleArea.length; i++) {
         const area = maps[activeMap].battleArea[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-           let zufall = Math.round(Math.random()*100);
-           if (zufall <= 10 ){
-            battleanimation();
-            //console.log("Du wirst Angegriffen!")
-           } 
+            let zufall = Math.round(Math.random() * 100);
+            if (zufall <= 10) {
+                battleanimation();
+                //console.log("Du wirst Angegriffen!")
+            }
         }
     }
-    
+
     mapX = newMapX;
     mapY = newMapY;
     console.log(mapX, mapY)
@@ -124,4 +124,4 @@ document.addEventListener('keyup', (event) => {
 });
 
 let moveIntervalID;
-moveIntervalID = setInterval(() => {if (activeDirection) { moveMap() };}, moveInterval);
+moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);

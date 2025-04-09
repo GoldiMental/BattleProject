@@ -15,15 +15,15 @@ function Exit_Game() {
 
     document.body.appendChild(popup);
 
-    document.getElementById('retroPopupYes').addEventListener('click', function() {
+    document.getElementById('retroPopupYes').addEventListener('click', function () {
         try {
             window.close();
         } catch (e) {
             window.location.href = 'about:blank';
         }
     });
-    
-    document.getElementById('retroPopupNo').addEventListener('click', function() {
+
+    document.getElementById('retroPopupNo').addEventListener('click', function () {
         document.body.removeChild(popup);
     });
 }
