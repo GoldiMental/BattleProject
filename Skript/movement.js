@@ -56,24 +56,24 @@ function moveMap() {
             return;
         }
     }
-if(activeMap=="MAP"){
-    for (let i = 0; i < maps[activeMap].profHome.length; i++) {
-        const area = maps[activeMap].profHome[i];
-        if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-            document.getElementsByClassName("TroysHaus_B")[0].style.visibility="visible";
-        }
-    }
-        else{
-            document.getElementsByClassName("TroysHaus_B")[0].style.visibility="hidden";
+    if (activeMap == "MAP") {
+        for (let i = 0; i < maps[activeMap].profHome.length; i++) {
+            const area = maps[activeMap].profHome[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                document.getElementsByClassName("TroysHaus_B")[0].style.visibility = "visible";
+            } else {
+                document.getElementsByClassName("TroysHaus_B")[0].style.visibility = "hidden";
             }
+        }
+
     }
     for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
         const area = maps[activeMap].selfHome[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-            document.getElementsByClassName("MeinHaus_B")[0].style.visibility="visible";
+            document.getElementsByClassName("MeinHaus_B")[0].style.visibility = "visible";
         }
-        else{
-        document.getElementsByClassName("MeinHaus_B")[0].style.visibility="hidden";
+        else {
+            document.getElementsByClassName("MeinHaus_B")[0].style.visibility = "hidden";
         }
     }
     for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
@@ -97,8 +97,6 @@ if(activeMap=="MAP"){
             }
         }
     }
-
-}   
     mapX = newMapX;
     mapY = newMapY;
     console.log(mapX, mapY)
@@ -108,6 +106,8 @@ if(activeMap=="MAP"){
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
 }
+
+
 
 function stopMovement() {
     const player = document.getElementById('user');
@@ -131,20 +131,20 @@ document.addEventListener('keyup', (event) => {
 });
 
 let moveIntervalID;
-moveIntervalID = setInterval(() => {if (activeDirection) { moveMap() };}, moveInterval);
+moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
 
 async function meinEingang() {
-    document.getElementById("karte").disabled=true;
+    document.getElementById("karte").disabled = true;
     console.log("Eintritt in mein Haus");
-    document.getElementsByClassName("map")[0].className="map MeinHaus";
+    document.getElementsByClassName("map")[0].className = "map MeinHaus";
     changeMap("MeinHaus");
     refreshMap();
 }
 
 async function troysEingang() {
-    document.getElementById("karte").disabled=true;
+    document.getElementById("karte").disabled = true;
     console.log("Eintritt in Troys Haus");
-    document.getElementsByClassName("map")[0].className="map TroysHaus";
+    document.getElementsByClassName("map")[0].className = "map TroysHaus";
     changeMap("TroysHaus");
     refreshMap();
 }
