@@ -4,6 +4,7 @@ function Delay(time) {
 
 let tulpa_HP = 0;
 let tulpa_HP_Total = 0;
+let tulpa_lv = 0;
 let tulpa_self;
 
 async function battleanimation() {
@@ -24,7 +25,7 @@ async function battle() {
     let battleInfo = document.getElementById('battle_text');
     let zufall = Math.round(Math.random() * (maps[Player.actualMap].opp_List.length - 1));
     let tulpa_opp = maps[Player.actualMap].opp_List[zufall];
-    let tulpa_lv = Math.round((Math.random() + 1) * (maps[Player.actualMap].maxLv - 1));
+    tulpa_lv = Math.round((Math.random() + 1) * (maps[Player.actualMap].maxLv - 1));
     for (Slot in Player.Tulpas) {
         if (Slot.startsWith("Slot")) {
             if (Player.Tulpas[Slot].HP > 0) {
@@ -318,38 +319,141 @@ function useItem() {
     }
 }
 
-function UseBall(ball) {
-    console.log(ball);
+async function UseBall(ball) {
+    document.getElementById('change_tulpa').style.visibility = "hidden";
+    document.getElementById('battle_game_menu').style.visibility = "hidden";
+    document.getElementById('use_item').style.visibility = "hidden";
+    document.getElementById("battle_menu").style.visibility = "hidden";
+    Player.inventory.balls[ball] -= 1;
+    document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[ball].name + " ein";
+    let ballElement = document.createElement("div");
+    ballElement.id = "tulpaball";
+    document.getElementById('battle_game').appendChild(ballElement);
+    document.getElementById('tulpaball').style.left = "50px";
+    document.getElementById('tulpaball').style.top = "320px";
+    await Delay(100);
+    document.getElementById('tulpaball').style.left = "70px";
+    document.getElementById('tulpaball').style.top = "250px";
+    await Delay(100);
+    document.getElementById('tulpaball').style.left = "100px";
+    document.getElementById('tulpaball').style.top = "190px";
+    await Delay(100);
+    document.getElementById('tulpaball').style.left = "140px";
+    document.getElementById('tulpaball').style.top = "140px";
+    await Delay(100);
+    document.getElementById('tulpaball').style.left = "190px";
+    document.getElementById('tulpaball').style.top = "100px";
+    await Delay(100);
+    document.getElementById('tulpaball').style.left = "250px";
+    document.getElementById('tulpaball').style.top = "70px";
+    await Delay(100);
+    document.getElementById('tulpaball').style.left = "320px";
+    document.getElementById('tulpaball').style.top = "50px";
+    document.getElementById('tulpaball').style.left = "370px";
+    await Delay(100);
+    document.getElementById('Tulpa-opp').style.opacity = "0";
+    await Delay(500);
+    document.getElementById('tulpaball').style.left = "370px";
+    document.getElementById('tulpaball').style.top = "150px";
+    await Delay(100);
+    document.getElementById('tulpaball').style.top = "120px";
+    await Delay(100);
+    document.getElementById('tulpaball').style.top = "150px";
+    await Delay(1000);//First
+    document.getElementById('tulpaball').style.left = "360px";
+    document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
+    await Delay(300);
+    document.getElementById('tulpaball').style.left = "370px";
+    document.getElementById('tulpaball').style.transform = "rotate(0deg)";
+    await Delay(1000);//Second Chance
+    document.getElementById('tulpaball').style.left = "360px";
+    document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
+    await Delay(300);
+    document.getElementById('tulpaball').style.left = "370px";
+    document.getElementById('tulpaball').style.transform = "rotate(0deg)";
+    await Delay(1000);//Third Chance
+    document.getElementById('tulpaball').style.left = "360px";
+    document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
+    await Delay(300);
+    document.getElementById('tulpaball').style.left = "370px";
+    document.getElementById('tulpaball').style.transform = "rotate(0deg)";
+    let chance = (Item_List[ball].CR + (10 / (tulpa_lv / 5))) - (tulpa_HP / tulpa_HP_Total * 100);
+    if (chance + 10 > 20) {
+        document.getElementById('battle_text').innerText = "Hurra! Du hast es gefangen";
+        let catchedName = document.getElementById('Name-opp').innerHTML.split(' ')[0];
+        let catchedTulpa = { name: catchedName, Lv: tulpa_lv, HP: tulpa_HP, HP_Total: tulpa_HP_Total, XP: 0, ID: Math.round(Math.random() * 1000000).toString() }
+        for (i in Player.Tulpas) {
+            if (Player.Tulpas[i].name == "") {
+                Player.Tulpas[i] = catchedTulpa;
+                break;
+            } else if(i == 'PC'){
+                Player.Tulpas[i].push(catchedTulpa);
+            }
+        }
+        document.getElementById('bgr02-sound').pause();
+        document.getElementById('bgr02-sound').currentTime = 0;
+        document.getElementById('win-sound').play();
+        await Delay(2000);
+        document.getElementById('bg03-sound').play();
+        document.getElementById("movement_game").style.visibility = "visible";
+        document.getElementById("battle_game").style.visibility = "hidden";
+        document.getElementById("battle_menu").style.visibility = "hidden";
+        document.getElementById('escape').disabled = false;
+        document.getElementById('Tulpa-opp').style.opacity = "1";
+        document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
+        document.getElementById('Name-opp').style.opacity = "0";
+        document.getElementById('LP-opp').style.opacity = "0";
+        document.getElementById('Name-self').style.opacity = "0";
+        document.getElementById('LP-self').style.opacity = "0";
+        moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+    }
+    else {
+        document.getElementById('Tulpa-opp').style.opacity = "1";
+        document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
+        document.getElementById('battle_text').innerText = "Mist, es hat sich befreit";
+        await Delay(2000);
+        opp_Attack();
+    }
 }
 
 async function UseDrink(drink) {
-    let antwort = prompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib nur eine Zahl ein.");
-    if (antwort > 0 && antwort <= 6){
-        let slot = "Slot_"+antwort;
-        if(Player.Tulpas[slot].name != ""){
-            if(Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total){
+    document.getElementById('use_item').style.visibility = "hidden";
+    changeTulpa();
+    document.getElementById('change_tulpa').style.visibility = "visible";
+    await Delay(100);
+    let antwort = prompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
+    if (antwort > 0 && antwort <= 6) {
+        let slot = "Slot_" + antwort;
+        if (Player.Tulpas[slot].name != "") {
+            if (Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total) {
                 Player.Tulpas[slot].HP += Item_List[drink].HP;
-                if(Player.Tulpas[slot].HP > Player.Tulpas[slot].HP_Total){
+                if (Player.Tulpas[slot].HP > Player.Tulpas[slot].HP_Total) {
                     Player.Tulpas[slot].HP = Player.Tulpas[slot].HP_Total;
                 }
-                document.getElementById('battle_text').innerText = Player.name +" setzt " +Item_List[drink].name + " ein";
+                document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[drink].name + " ein";
                 document.getElementById('change_tulpa').style.visibility = "hidden";
                 document.getElementById('battle_game_menu').style.visibility = "hidden";
                 document.getElementById('use_item').style.visibility = "hidden";
                 document.getElementById("battle_menu").style.visibility = "hidden";
-                if(Player.Tulpas[slot] == tulpa_self){
+                if (Player.Tulpas[slot] == tulpa_self) {
                     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
                 }
                 Player.inventory.drinks[drink] -= 1;
                 await Delay(2000);
                 opp_Attack();
             } else {
-                document.getElementById('battle_text').innerText = Player.Tulpas[slot].name+" ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";
+                document.getElementById('battle_text').innerText = Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";
+                document.getElementById('use_item').style.visibility = "visible";
+                document.getElementById('change_tulpa').style.visibility = "hidden";
             }
         } else {
             document.getElementById('battle_text').innerText = "Slot ist nicht belegt. Versuche es nochmal";
+            document.getElementById('use_item').style.visibility = "visible";
+            document.getElementById('change_tulpa').style.visibility = "hidden";
         }
     } else {
-        document.getElementById('battle_text').innerText = "Ich sagte doch, gib eine Zahl ein. Versuch es nochmal...";
+        document.getElementById('battle_text').innerText = "Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.";
+        document.getElementById('use_item').style.visibility = "visible";
+        document.getElementById('change_tulpa').style.visibility = "hidden";
     }
 }

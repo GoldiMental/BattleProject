@@ -76,7 +76,7 @@ button {
     right: -500px;
     height: 200px;
     width: 200px;
-    transition: right 0.3s linear;
+    transition: right 0.3s linear, opacity 0.5s ease,transform 0.5s linear;
 }
 
 #self {
@@ -682,4 +682,14 @@ button {
 
 .change_tulpa_button:not(:disabled):hover {
     background-color: gray;
+}
+
+#tulpaball {
+    position: absolute;
+    background-image: url(../img/textures/tBall.png);
+    height:50px;
+    width:50px;
+    top:350px;
+    left:0px;
+    transition: left 0.1s linear, top 0.1s linear;
 }
