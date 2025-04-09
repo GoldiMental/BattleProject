@@ -8,7 +8,11 @@ document.getElementById('Tulpas').style.visibility = 'hidden';
 function MenuList() {
     if (document.getElementById('MenuList').style.visibility == 'hidden') {
         document.getElementById('MenuList').style.visibility = 'visible';
-    } else { document.getElementById('MenuList').style.visibility = 'hidden'; }
+        clearInterval(moveIntervalID);
+    } else {
+        document.getElementById('MenuList').style.visibility = 'hidden';
+        moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+    }
 }
 
 function Cheat() {
@@ -124,42 +128,48 @@ function close_Info() {
 }
 
 function Karte() {
-    // Mache das Kartenelement sichtbar
     document.getElementById('Karte').style.visibility = 'visible';
-  
-    // Rufe die aktuellen Kartenkoordinaten ab
-    let mapX = maps[activeMap].startX;
-    let mapY = maps[activeMap].startY;
-  
-    // Finde das Element für den Standort-Marker
     const standortMarker = document.getElementById('standort-marker');
-  
-    if (standortMarker) {
-      // **WICHTIG:** Hier musst du überlegen, wie deine Koordinaten
-      // mit den Pixelkoordinaten auf deiner Hintergrundkarte zusammenhängen.
-      // Das hängt stark davon ab, wie deine Karte aufgebaut ist.
-  
-      // **Annahme:** Vielleicht repräsentieren mapX und mapY eine Art von
-      // Gitterzellen oder relative Positionen. Du musst diese Werte in Pixel
-      // umrechnen, die innerhalb deines #Karte_info Elements Sinn machen.
-  
-      // **Beispielhafte Umrechnung (musst du an dein System anpassen!):**
-      const schrittweiteX = 50; // Beispiel: jede Einheit in mapX entspricht 50 Pixeln
-      const schrittweiteY = 50; // Beispiel: jede Einheit in mapY entspricht 50 Pixeln
-  
-      const markerLeft = mapX * schrittweiteX;
-      const markerTop = mapY * schrittweiteY;
-  
-      // Setze die CSS-Position des Markers
-      standortMarker.style.left = `${markerLeft}px`;
-      standortMarker.style.top = `${markerTop}px`;
-    } else {
-      console.error("Das Element mit der ID 'standort-marker' wurde nicht gefunden!");
-    }
+    standortMarker.style.visibility = 'visible';
+
+    // Karten- und Anzeigedimensionen
+    const mapWidth = parseInt(maps[activeMap].Width);   // Original-Kartenbreite (z. B. 3250)
+    const mapHeight = parseInt(maps[activeMap].Height); // Original-Kartenhöhe (z. B. 1250)
+
+    const displayWidth = 450;  // Breite des #Karte-Containers
+    const displayHeight = 172; // Höhe des #Karte-Containers
+
+    // Spieler-Position (mapX/mapY sind negativ, da die Karte verschoben wird)
+    const playerX = -mapX;  // Umkehr der Richtung
+    const playerY = -mapY;  // Umkehr der Richtung
+
+    // Verhältnis zwischen Originalkarte und Anzeige berechnen
+    const scaleX = displayWidth / mapWidth;
+    const scaleY = displayHeight / mapHeight;
+    console.log(scaleX);
+    console.log(scaleY);
+    // Marker-Position (skaliert & zentriert)
+    let markerX = playerX * scaleX;
+    let markerY = playerY * scaleY;
+
+    const karteInfo = document.getElementById('Karte_info');
+    const karteInfoOffset = karteInfo.getBoundingClientRect().top - document.getElementById('Karte').getBoundingClientRect().top;
+    markerY -= karteInfoOffset;
+
+    markerX += 35; // Nach rechts 
+    markerY += 175;  // Nach unten
+
+    // Marker setzen (mit Korrektur für die Mitte des Markers)
+    standortMarker.style.left = `${markerX}px`;
+    standortMarker.style.top = `${markerY}px`;
+
+    console.log("Spieler-Position (Original):", playerX, playerY);
+    console.log("Marker-Position (Skaliert):", markerX, markerY);
 }
 
 function close_Karte() {
     document.getElementById('Karte').style.visibility = 'hidden';
+    document.getElementById('standort-marker').style.visibility = 'hidden';
 }
 
 function Items() {
