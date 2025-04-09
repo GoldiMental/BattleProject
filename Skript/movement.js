@@ -56,20 +56,26 @@ function moveMap() {
             return;
         }
     }
-
+if(activeMap=="MAP"){
     for (let i = 0; i < maps[activeMap].profHome.length; i++) {
         const area = maps[activeMap].profHome[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-            console.log("Hier wohnt Prof. Troy!")
+            document.getElementsByClassName("TroysHaus_B")[0].style.visibility="visible";
         }
+    }
+        else{
+            document.getElementsByClassName("TroysHaus_B")[0].style.visibility="hidden";
+            }
     }
     for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
         const area = maps[activeMap].selfHome[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-            console.log("Hier wohne ich!")
+            document.getElementsByClassName("MeinHaus_B")[0].style.visibility="visible";
+        }
+        else{
+        document.getElementsByClassName("MeinHaus_B")[0].style.visibility="hidden";
         }
     }
-
     for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
         const area = maps[activeMap].trainerBattle[i];
         if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
@@ -92,6 +98,7 @@ function moveMap() {
         }
     }
 
+}   
     mapX = newMapX;
     mapY = newMapY;
     console.log(mapX, mapY)
@@ -124,4 +131,20 @@ document.addEventListener('keyup', (event) => {
 });
 
 let moveIntervalID;
-moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+moveIntervalID = setInterval(() => {if (activeDirection) { moveMap() };}, moveInterval);
+
+async function meinEingang() {
+    document.getElementById("karte").disabled=true;
+    console.log("Eintritt in mein Haus");
+    document.getElementsByClassName("map")[0].className="map MeinHaus";
+    changeMap("MeinHaus");
+    refreshMap();
+}
+
+async function troysEingang() {
+    document.getElementById("karte").disabled=true;
+    console.log("Eintritt in Troys Haus");
+    document.getElementsByClassName("map")[0].className="map TroysHaus";
+    changeMap("TroysHaus");
+    refreshMap();
+}
