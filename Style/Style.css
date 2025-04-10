@@ -9,6 +9,8 @@ body {
     align-items: center;
     flex-direction: column;
     font-family: 'Courier New', Courier, monospace;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 button {
