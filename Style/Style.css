@@ -76,7 +76,7 @@ button {
     right: -500px;
     height: 200px;
     width: 200px;
-    transition: right 0.3s linear;
+    transition: right 0.3s linear, opacity 0.5s ease,transform 0.5s linear;
 }
 
 #self {
@@ -573,6 +573,33 @@ button {
     opacity: 1;
 }
 
+.MeinHausOut_B {
+    top: 250px;
+    left: 105px;
+}
+
+.TroysHausOut_B {
+    top: 300px;
+    left: 255px;
+}
+
+.Outside {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔻</text></svg>");
+    background-size: 50px;
+    background-color: transparent;
+    background-position: 50%;
+    opacity: 0.5;
+    position: absolute;
+    border: none;
+    height: 45px;
+    width: 40px;
+    visibility: hidden;
+}
+
+.Outside:hover {
+    opacity: 1;
+}
+
 #battle_text {
     color: black;
     margin: 3px;
@@ -682,4 +709,14 @@ button {
 
 .change_tulpa_button:not(:disabled):hover {
     background-color: gray;
+}
+
+#tulpaball {
+    position: absolute;
+    background-image: url(../img/textures/tBall.png);
+    height:50px;
+    width:50px;
+    top:350px;
+    left:0px;
+    transition: left 0.1s linear, top 0.1s linear;
 }
