@@ -337,12 +337,12 @@ async function shopEingang() {
     movementGame.style.visibility = "hidden";
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
-
     // Kurze Verzögerung (für Effekt)
     await Delay(500);
     document.getElementById("karte").disabled = true;
     document.getElementById("tuerShopIn").disabled = true;
     document.getElementById("tuerShopIn").style.opacity = "0";
+    document.getElementById("Haendler").style.opacity = "1";
     // Map wechseln (zur Hauskarte)
     const mapName = "ShopHaus"; // Ziel-Map
     if (!maps[mapName]) {
@@ -366,6 +366,7 @@ async function shopEingang() {
     bg.className = "map ShopHaus"; // CSS-Klasse für Haus-Hintergrund
     document.getElementById("tuerShopOut").disabled = false;
     document.getElementById("tuerShopOut").style.opacity = "1";
+
     // Spieler wieder einblenden
     await Delay(500);
     movementGame.style.visibility = "visible";
@@ -384,6 +385,8 @@ async function shopAusgang() {
     document.getElementById("karte").disabled = false;
     document.getElementById("tuerShopOut").disabled = true;
     document.getElementById("tuerShopOut").style.opacity = "0";
+    document.getElementById("Haendler").style.opacity = "0";
+
     // Map wechseln (zur Hauskarte)
     const mapName = "MAP"; // Ziel-Map
     if (!maps[mapName]) {

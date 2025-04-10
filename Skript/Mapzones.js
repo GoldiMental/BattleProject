@@ -26,6 +26,9 @@ var maps = {
             { minX: 75, maxX: 75, minY: 25, maxY: 25 },
             { minX: -225, maxX: 225, minY: 125, maxY: 225 },
             { minX: -1275, maxX: -1275, minY: -725, maxY: -525 },
+            { minX: 75, maxX: 225, minY: -925, maxY: -925 },
+            { minX: -425, maxX: -425, minY: -525, maxY: -475 },
+            { minX: -775, maxX: -775, minY: -475, maxY: -425 },
             //Map anhang. 
             { minX: -1475, maxX: -1475, minY: -250, maxY: 250 },
             { minX: -1575, maxX: -1525, minY: -125, maxY: 250 },

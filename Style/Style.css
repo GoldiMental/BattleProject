@@ -567,6 +567,18 @@ button {
     width: 50px;
 }
 
+.Händler {
+    background-image: url(../img/textures/tR4.png);
+    background-size: 160%;
+    background-position: 50%;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    height: 50px;
+    width: 50px;
+    opacity: 0;
+}
+
 .MeinHaus_B {
     top: 250px;
     left: 350px;
