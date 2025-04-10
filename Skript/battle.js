@@ -75,6 +75,7 @@ async function escape() {
         document.getElementById('bgr02-sound').currentTime = 0;
         document.getElementById('win-sound').play();
         await Delay(3500);
+        setCookie("PlayerData", JSON.stringify(Player), 30);
         document.getElementById('bg03-sound').play();
         document.getElementById("movement_game").style.visibility = "visible";
         document.getElementById("battle_game").style.visibility = "hidden";
@@ -148,6 +149,7 @@ async function opp_Attack() {
                     }
                 }
             };
+            setCookie("PlayerData", JSON.stringify(Player), 30);
             document.getElementById('bg03-sound').play();
             document.getElementById("movement_game").style.visibility = "visible";
             document.getElementById("battle_game").style.visibility = "hidden";
@@ -212,6 +214,7 @@ async function self_attack(attack) {
                 tulpa_self.XP = 0;
                 tulpa_self.HP += 3;
                 tulpa_self.HP_Total += 3;
+                setCookie("PlayerData", JSON.stringify(Player), 30);
                 await Delay(1000);
                 document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
                 document.getElementById('battle_text').innerText = tulpa_self.name + " ist ein Level aufgestiegen";
@@ -326,6 +329,7 @@ async function UseBall(ball) {
     document.getElementById('use_item').style.visibility = "hidden";
     document.getElementById("battle_menu").style.visibility = "hidden";
     Player.inventory.balls[ball] -= 1;
+    setCookie("PlayerData", JSON.stringify(Player), 30);
     document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[ball].name + " ein";
     let ballElement = document.createElement("div");
     ballElement.id = "tulpaball";
@@ -381,6 +385,7 @@ async function UseBall(ball) {
     let chance = (Item_List[ball].CR + (10 / (tulpa_lv / 5))) - (tulpa_HP / tulpa_HP_Total * 100);
     if (chance + 10 > 20) {
         document.getElementById('battle_text').innerText = "Hurra! Du hast es gefangen";
+        Player.catchedTulpas += 1;
         let catchedName = document.getElementById('Name-opp').innerHTML.split(' ')[0];
         let catchedTulpa = { name: catchedName, Lv: tulpa_lv, HP: tulpa_HP, HP_Total: tulpa_HP_Total, XP: 0, ID: Math.round(Math.random() * 1000000).toString() }
         for (i in Player.Tulpas) {
@@ -391,6 +396,7 @@ async function UseBall(ball) {
                 Player.Tulpas[i].push(catchedTulpa);
             }
         }
+        setCookie("PlayerData", JSON.stringify(Player), 30);
         document.getElementById('bgr02-sound').pause();
         document.getElementById('bgr02-sound').currentTime = 0;
         document.getElementById('win-sound').play();
@@ -440,6 +446,7 @@ async function UseDrink(drink) {
                     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
                 }
                 Player.inventory.drinks[drink] -= 1;
+                setCookie("PlayerData", JSON.stringify(Player), 30);
                 await Delay(2000);
                 opp_Attack();
             } else {
