@@ -110,8 +110,9 @@ async function opp_Attack() {
     await Delay(200);
     document.getElementById('Tulpa-opp').style.right = "10px";
     await Delay(1000);
-    let dmg = (Tulpas[tulpa_opp.toString()].ANG + (3 * tulpa_opp_lv) * Attacks[attack].ATK_Power);
+    let dmg = Math.round((Tulpas[tulpa_opp.toString()].ANG - (Math.random() * 0.5 * Tulpas[tulpa_self.name].VER) + parseInt(tulpa_opp_lv)) * (1 + (Attacks[attack].ATK_Power / 10)));
     tulpa_self.HP -= dmg;
+    console.log(dmg);
     if (tulpa_self.HP > 0) {
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
         await Delay(300);
@@ -178,7 +179,7 @@ async function self_attack(attack) {
         let tulpa_opp = document.getElementById('Name-opp').innerHTML;
         let tulpa_opp_name = tulpa_opp.split(' ')[0];
         let tulpa_opp_lv = tulpa_opp.split(' ')[2];
-        let dmg = (Tulpas[tulpa_self.name].ANG + (3 * tulpa_self.Lv)) * Attacks[attack].ATK_Power;
+        let dmg = Math.round((Tulpas[tulpa_self.name].ANG - (Math.random()* 0.5 * Tulpas[tulpa_opp_name].VER) + tulpa_self.Lv) * (1 + (Attacks[attack].ATK_Power / 10)));
         console.log(dmg);
         document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play();
