@@ -31,6 +31,7 @@ else {
         name: "",
         Gold: 500,
         Cheats: 0,
+        catchedTulpas: 0,
         actualMap: "MAP",
         Tulpas: {
             Slot_1: { name: "Mäusschen", Lv: 1, HP: 60, HP_Total: 60, XP: 0, ID: "000001" },

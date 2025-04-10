@@ -119,7 +119,8 @@ function Info() {
     let html = '';
     html += '<div>Name: ' + Player.name + '</div>' +
         '<div>Gold: ' + Player.Gold + '</div>' +
-        '<div>Cheats: ' + Player.Cheats + '</div>';
+        '<div>Tulpas gefangen: ' + Player.catchedTulpas + '</div>' +
+        '<div>Cheats verwendet: ' + Player.Cheats + 'x</div>';
     document.getElementById('Info_List').innerHTML = html;
 }
 
@@ -146,8 +147,8 @@ function Karte() {
     // Verhältnis zwischen Originalkarte und Anzeige berechnen
     const scaleX = displayWidth / mapWidth;
     const scaleY = displayHeight / mapHeight;
-    console.log(scaleX);
-    console.log(scaleY);
+    //console.log(scaleX);
+    //console.log(scaleY);
     // Marker-Position (skaliert & zentriert)
     let markerX = playerX * scaleX;
     let markerY = playerY * scaleY;
@@ -163,8 +164,8 @@ function Karte() {
     standortMarker.style.left = `${markerX}px`;
     standortMarker.style.top = `${markerY}px`;
 
-    console.log("Spieler-Position (Original):", playerX, playerY);
-    console.log("Marker-Position (Skaliert):", markerX, markerY);
+    //console.log("Spieler-Position (Original):", playerX, playerY);
+    //console.log("Marker-Position (Skaliert):", markerX, markerY);
 }
 
 function close_Karte() {
