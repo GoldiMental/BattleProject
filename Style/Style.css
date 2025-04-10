@@ -440,27 +440,40 @@ button {
     background-color: silver;
     border: 5px outset azure;
     border-radius: 10px;
+    font-size: large;
 }
 
 .Item_Title {
-    position: absolute;
-    margin: -5px;
     left: 15px;
     font-family: 'Courier New', Courier, monospace;
     color: rgb(0, 0, 0);
-    background-color: rgb(197, 197, 197);
-    border: 4px outset azure;
-    border-radius: 10px 5px;
+    text-decoration: underline;
+}
+
+#Item_List{
+    max-height:370px;
+    overflow-x: auto;
+    text-align: left;
 }
 
 .Item_list {
-    position: sticky;
-    padding: 2px;
-    height: 25px;
-    top: 50px;
-    text-align: left;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
+    background-color: transparent;
+    text-align: left;
+    border: none;
+    height: 30px;
+    width:250px;
+    margin-bottom: 2px;
+    border-radius: 3px;
+    color:black;
+}
+
+.Item_list:not(:disabled):hover{
+    background-color: gray;
+}
+
+.Item_list:disabled{
+    color:black;
 }
 
 .retro-popup-text {

@@ -177,19 +177,87 @@ function Items() {
     document.getElementById('Items').style.visibility = 'visible';
     let html = "<div id='Bälle' class='Item_Title'>Bälle: </div><br>";
     for (ball in Player.inventory.balls) {
-        html += '<div><div class="Item_list">' + Item_List[ball].name + ': ' + Player.inventory.balls[ball] + '</div>';
+        html += '<div><button title="Kann nur im Kampf eingesetzt werden." class="Item_list" disabled>' + Item_List[ball].name + ': ' + Player.inventory.balls[ball] + '</button><br>';
     }
-    html += "<div id='Tränke' class='Item_Title'>Tränke: </div><br>";
+    html += "<br><div id='Tränke' class='Item_Title'>Tränke: </div><br>";
     for (drink in Player.inventory.drinks) {
-        html += '<div><div class="Item_list">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</div>';
+        html += '<div><button title="'+Item_List[drink].des+'" class="Item_list" onclick="Use(\'' + drink + '\',\'' + Player.inventory.drinks[drink] + '\')">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</button><br>';
     }
-    html += "<div id='Bonbons' class='Item_Title'>Bonbons: </div><br>";
+    html += "<br><div id='Bonbons' class='Item_Title'>Bonbons: </div><br>";
     for (bonbon in Player.inventory.bonbons) {
-        html += '<div><div class="Item_list">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</div>';
+        html += '<div><button title="'+Item_List[bonbon].des+'" class="Item_list" onclick="Use(\'' + bonbon + '\',\'' + Player.inventory.bonbons[bonbon] + '\')">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</button><br>';
     }
     document.getElementById('Item_List').innerHTML = html;
 }
 
 function close_Items() {
     document.getElementById('Items').style.visibility = 'hidden';
+}
+
+async function Use(itm, qty) {
+    if (qty > 0) {
+        if (itm in Player.inventory.drinks) {
+            close_Items();
+            Tulpas_List();
+            await Delay(200);
+            let antwort = prompt("Bei welchem Slot soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
+            if (antwort > 0 && antwort <= 6) {
+                let slot = "Slot_" + antwort;
+                if (Player.Tulpas[slot].name != "") {
+                    if (Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total) {
+                        Player.Tulpas[slot].HP += Item_List[itm].HP;
+                        if (Player.Tulpas[slot].HP > Player.Tulpas[slot].HP_Total) {
+                            Player.Tulpas[slot].HP = Player.Tulpas[slot].HP_Total;
+                        }
+                        Player.inventory.drinks[itm] -= 1;
+                        setCookie("PlayerData", JSON.stringify(Player), 30);
+                        close_Tulpas();
+                        Items();
+                    } else {
+                        alert(Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
+                        close_Tulpas();
+                        Items();
+                    }
+                } else {
+                    alert("Slot ist nicht belegt. Versuche es nochmal");
+                    close_Tulpas();
+                    Items();
+                }
+            } else {
+                alert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
+                close_Tulpas();
+                Items();
+            }
+        } else {
+            close_Items();
+            Tulpas_List();
+            await Delay(200);
+            let antwort = prompt("Bei welchem Slot soll das Bonbon verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
+            if (antwort > 0 && antwort <= 6) {
+                let slot = "Slot_" + antwort;
+                if (Player.Tulpas[slot].name != "") {
+                        Player.Tulpas[slot].XP += Item_List[itm].XPB;
+                        if(Player.Tulpas[slot].XP >= 100){
+                            Player.Tulpas[slot].XP -= 100;
+                            Player.Tulpas[slot].Lv += 1;
+                            Player.Tulpas[slot].HP += 3;
+                            Player.Tulpas[slot].HP_Total += 3;
+                        }
+                        
+                        Player.inventory.bonbons[itm] -= 1;
+                        setCookie("PlayerData", JSON.stringify(Player), 30);
+                        close_Tulpas();
+                        Items();
+                } else {
+                    alert("Slot ist nicht belegt. Versuche es nochmal");
+                    close_Tulpas();
+                    Items();
+                }
+            } else {
+                alert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
+                close_Tulpas();
+                Items();
+            }
+        }
+    }
 }

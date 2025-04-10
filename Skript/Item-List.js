@@ -12,9 +12,9 @@ const Item_List = {
 
     //Tränke
 
-    "Heiltrank": { name: "Heiltrank", HP: 50, MP: 0, CR: 0, XPB: 0, des: "Heilt die Lebenspunkte deiner Tulpas.", type: "Trank", price: 75, price_sell: 75, },
+    "Heiltrank": { name: "Heiltrank", HP: 50, MP: 0, CR: 0, XPB: 0, des: "Heilt 50 Lebenspunkte eines Tulpas.", type: "Trank", price: 75, price_sell: 75, },
     //Klassisch roter Trank mit weissem kreuz drauf
-    "Super_Heiltrank": { name: "Super Heiltrank", HP: 100, MP: 0, CR: 0, XPB: 0, des: "Heilt die Lebenspunkte deiner Tulpas.", type: "Trank", price: 100, price_sell: 100, },
+    "Super_Heiltrank": { name: "Super Heiltrank", HP: 100, MP: 0, CR: 0, XPB: 0, des: "Heilt 100 Lebenspunkte eines Tulpas.", type: "Trank", price: 100, price_sell: 100, },
     //etwas grösser
 
     "Manatrank": { name: "Manatrank", HP: 0, MP: 50, CR: 0, XPB: 0, des: "Füllt das Mana deiner Tulpas wieder auf.", type: "Trank", price: 75, price_sell: 75, },
@@ -24,11 +24,11 @@ const Item_List = {
 
     //Bonbons
 
-    "Bonbon": { name: "Bonbon", HP: 0, MP: 0, CR: 0, XPB: 25, des: "Gibt deinen Tulpas etwas XP.", type: "Bonbon", price: 50, price_sell: 50, },
+    "Bonbon": { name: "Bonbon", HP: 0, MP: 0, CR: 0, XPB: 25, des: "Gibt deinem Tulpa 25 XP.", type: "Bonbon", price: 50, price_sell: 50, },
     //ein weisses Bonbon
-    "Super_Bonbon": { name: "Super Bonbon", HP: 0, MP: 0, CR: 0, XPB: 50, des: "Gibt deinen Tulpas etwas mehr XP.", type: "Bonbon", price: 75, price_sell: 75, },
+    "Super_Bonbon": { name: "Super Bonbon", HP: 0, MP: 0, CR: 0, XPB: 50, des: "Gibt deinem Tulpa 50 XP.", type: "Bonbon", price: 75, price_sell: 75, },
     //ein gelbes Bonbon
-    "Hyper_Bonbon": { name: "Hyper Bonbon", HP: 0, MP: 0, CR: 0, XPB: 100, des: "Gibt deinen Tulpas viel XP.", type: "Bonbon", price: 150, price_sell: 150, },
+    "Hyper_Bonbon": { name: "Hyper Bonbon", HP: 0, MP: 0, CR: 0, XPB: 100, des: "Gibt deinem Tulpa 100 XP und somit garantiert ein Level-Up.", type: "Bonbon", price: 150, price_sell: 150, },
     //ein blaues Bonbon
 
 
