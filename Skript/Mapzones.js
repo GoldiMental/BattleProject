@@ -63,6 +63,10 @@ var maps = {
         selfHome: [
             { minX: -125, maxX: -125, minY: -75, maxY: -75 },
         ],
+        //ShopHome. 
+        shopHome: [
+            { minX: -275, maxX: -275, minY: -575, maxY: -575 },
+        ],
         //trainerBattle. 
         trainerBattle: [
             { minX: -2675, maxX: -2675, minY: -675, maxY: -525 },
@@ -108,6 +112,31 @@ var maps = {
         //SelfHome. 
         selfHome: [
             { minX: 125, maxX: 125, minY: 25, maxY: 25 },
+        ],
+    },
+    ShopHaus:{
+        name:"ShopHaus",
+        Height: 300,
+        Width: 500,
+        startX:75,
+        startY:-25,
+        startStadtX: -275,
+        startStadtY: -575,
+        blockedArea: [
+            {minX: 125, maxX: 225, minY: -25, maxY: 25},
+            {minX: -225, maxX: 25, minY: -25, maxY: -25},
+            {minX: -225, maxX: -175, minY: 25, maxY: 25},
+            {minX: -125, maxX: -25, minY: 75, maxY: 75},
+            {minX: -225, maxX: -175, minY: 125, maxY: 125},
+            {minX: -175, maxX: 75, minY: 175, maxY: 175},
+            {minX: 75, maxX: 225, minY: 125, maxY: 125},
+        ],
+        //ShopHome. 
+        shopHome: [
+            {minX: 75, maxX: 75, minY: -25, maxY: -25},
+        ],
+        shopHandel: [
+            {minX: 175, maxX: 175, minY: 75, maxY: 75},
         ],
     },
 }

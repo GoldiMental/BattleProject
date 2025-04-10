@@ -263,6 +263,12 @@ button {
     background-image: url(../img/textures/labmap.png);
 }
 
+.ShopHaus {
+    width: 500px;
+    height: 300px;
+    background-image: url(../img/textures/mapShop_01.png);
+}
+
 #MenuList {
     visibility: hidden;
     position: absolute;
@@ -571,6 +577,11 @@ button {
     left: 1150px;
 }
 
+.ShopHaus_B {
+    top: 750px;
+    left: 500px;
+}
+
 .Inside {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔺</text></svg>");
     background-size: 50px;
@@ -598,6 +609,16 @@ button {
     left: 255px;
 }
 
+.ShopHausOut_B {
+    top: 300px;
+    left: 155px;
+}
+
+.ShopHandel_B {
+    top: 70px;
+    left: 55px;
+}
+
 .Outside {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔻</text></svg>");
     background-size: 50px;
@@ -609,6 +630,24 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
+}
+
+.Handler {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🪙</text></svg>");
+    background-size: 30px;
+    background-color: transparent;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    position: absolute;
+    border: none;
+    height: 45px;
+    width: 40px;
+    visibility: hidden;
+}
+
+.Handler:hover {
+    opacity: 1;
 }
 
 .Outside:hover {

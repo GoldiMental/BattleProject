@@ -58,6 +58,24 @@ function moveMap() {
             return;
         }
     }
+    if (activeMap == "ShopHaus") {
+        for (let i = 0; i < maps[activeMap].shopHandel.length; i++) {
+            const area = maps[activeMap].shopHandel[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                document.getElementsByClassName("ShopHandel_B")[0].style.visibility = "visible";
+            } else {
+                document.getElementsByClassName("ShopHandel_B")[0].style.visibility = "hidden";
+            }
+        }
+        for (let i = 0; i < maps[activeMap].shopHome.length; i++) {
+            const area = maps[activeMap].shopHome[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                document.getElementsByClassName("ShopHausOut_B")[0].style.visibility = "visible";
+            } else {
+                document.getElementsByClassName("ShopHausOut_B")[0].style.visibility = "hidden";
+            }
+        }
+    }
     if (activeMap == "MeinHaus") {
         for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
             const area = maps[activeMap].selfHome[i];
@@ -80,6 +98,14 @@ function moveMap() {
         }
     }
     if (activeMap == "MAP") {
+        for (let i = 0; i < maps[activeMap].shopHome.length; i++) {
+            const area = maps[activeMap].shopHome[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                document.getElementsByClassName("ShopHaus_B")[0].style.visibility = "visible";
+            } else {
+                document.getElementsByClassName("ShopHaus_B")[0].style.visibility = "hidden";
+            }
+        }
         for (let i = 0; i < maps[activeMap].profHome.length; i++) {
             const area = maps[activeMap].profHome[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
@@ -304,4 +330,87 @@ async function troysAusgang() {
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";
     //console.log("Eintritt in Troys Haus erfolgreich!");
+}
+async function shopEingang() {
+    // Spieler "verschwinden" lassen (Animation)
+    const movementGame = document.getElementById("movement_game");
+    movementGame.style.visibility = "hidden";
+    movementGame.style.transition = "opacity 0.5s";
+    movementGame.style.opacity = "0";
+
+    // Kurze Verzögerung (für Effekt)
+    await Delay(500);
+    document.getElementById("karte").disabled = true;
+    document.getElementById("tuerShopIn").disabled = true;
+    document.getElementById("tuerShopIn").style.opacity = "0";
+    // Map wechseln (zur Hauskarte)
+    const mapName = "ShopHaus"; // Ziel-Map
+    if (!maps[mapName]) {
+        console.error("Map existiert nicht:", mapName);
+        return;
+    }
+
+    // Aktive Map aktualisieren
+    activeMap = mapName;
+    changeMap(mapName);
+    
+    // Position zurücksetzen (Startpunkt der Hauskarte)
+    mapX = maps[mapName].startX;
+    mapY = maps[mapName].startY;
+
+    // Grenzen und Karte aktualisieren
+    refreshMap();
+    const bg = document.querySelector('.map');
+    bg.style.left = mapX + 'px';
+    bg.style.top = mapY + 'px';
+    bg.className = "map ShopHaus"; // CSS-Klasse für Haus-Hintergrund
+    document.getElementById("tuerShopOut").disabled = false;
+    document.getElementById("tuerShopOut").style.opacity = "1";
+    // Spieler wieder einblenden
+    await Delay(500);
+    movementGame.style.visibility = "visible";
+    movementGame.style.opacity = "1";
+    //console.log("Eintritt in mein Haus erfolgreich!");
+}
+async function shopAusgang() {
+    // Spieler "verschwinden" lassen (Animation)
+    const movementGame = document.getElementById("movement_game");
+    movementGame.style.visibility = "hidden";
+    movementGame.style.transition = "opacity 0.5s";
+    movementGame.style.opacity = "0";
+
+    // Kurze Verzögerung (für Effekt)
+    await Delay(500);
+    document.getElementById("karte").disabled = false;
+    document.getElementById("tuerShopOut").disabled = true;
+    document.getElementById("tuerShopOut").style.opacity = "0";
+    // Map wechseln (zur Hauskarte)
+    const mapName = "MAP"; // Ziel-Map
+    if (!maps[mapName]) {
+        console.error("Map existiert nicht:", mapName);
+        return;
+    }
+    
+    // Position zurücksetzen (Startpunkt der Hauskarte)
+    mapX = maps[activeMap].startStadtX;
+    mapY = maps[activeMap].startStadtY;
+    console.log(mapX, mapY)
+
+    // Aktive Map aktualisieren
+    activeMap = mapName;
+    changeMap(mapName);
+
+    // Grenzen und Karte aktualisieren
+    refreshMap();
+    const bg = document.querySelector('.map');
+    bg.style.left = mapX + 'px';
+    bg.style.top = mapY + 'px';
+    bg.className = "map MAP"; // CSS-Klasse für Haus-Hintergrund
+    document.getElementById("tuerShopIn").disabled = false;
+    document.getElementById("tuerShopIn").style.opacity = "0.5";
+    // Spieler wieder einblenden
+    await Delay(500);
+    movementGame.style.visibility = "visible";
+    movementGame.style.opacity = "1";
+    //console.log("Eintritt in mein Haus erfolgreich!");
 }
