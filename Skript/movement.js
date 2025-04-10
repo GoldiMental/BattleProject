@@ -250,6 +250,7 @@ async function troysEingang() {
     bg.className = "map TroysHaus"; 
     document.getElementById("tuerTroyOut").disabled = false;
     document.getElementById("tuerTroyOut").style.opacity = "1";
+    document.getElementById("Professor").style.opacity = "1";
     await Delay(500);
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";
@@ -326,6 +327,7 @@ async function troysAusgang() {
     bg.className = "map MAP"; 
     document.getElementById("tuerTroyOut").disabled = true;
     document.getElementById("tuerTroyOut").style.opacity = "0";
+    document.getElementById("Professor").style.opacity = "0";
     await Delay(500);
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";

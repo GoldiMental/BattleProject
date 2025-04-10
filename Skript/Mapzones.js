@@ -91,10 +91,15 @@ var maps = {
             {minX: 75, maxX: 255, minY: -25, maxY: 25},
             {minX: -225, maxX: -125, minY: -25, maxY: 25},
             {minX: -225, maxX: 225, minY: 175, maxY: 225},
+            {minX: -225, maxX: -225, minY: 125, maxY: 125},
         ],
         //ProfHome. 
         profHome: [
             { minX: -25, maxX: -25, minY: -25, maxY: -25 },
+        ],
+        //Professor. 
+        professor: [
+            { minX: -175, maxX: -175, minY: 125, maxY: 125 },
         ],
     },
     MeinHaus:{

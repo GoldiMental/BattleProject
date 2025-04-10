@@ -579,6 +579,27 @@ button {
     opacity: 0;
 }
 
+#Professor {
+    background-image: url(../img/textures/prTory_L.png);
+    background-size: 160%;
+    background-position: 50%;
+    position: absolute;
+    top: 100px;
+    left: 450px;
+    height: 50px;
+    width: 50px;
+    opacity: 0;
+}
+
+#ProfessorButton {
+    position: absolute;
+    border: none;
+    background: transparent;
+    right: 0px;
+    height: 50px;
+    width: 50px;
+}
+
 .MeinHaus_B {
     top: 250px;
     left: 350px;
