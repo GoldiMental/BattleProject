@@ -109,8 +109,9 @@ async function opp_Attack() {
     await Delay(200);
     document.getElementById('Tulpa-opp').style.right = "10px";
     await Delay(1000);
-    let dmg = (Tulpas[tulpa_opp.toString()].ANG + (3 * tulpa_opp_lv) * Attacks[attack].ATK_Power);
+    let dmg = Math.round((Tulpas[tulpa_opp.toString()].ANG - (Math.random() * 0.5 * Tulpas[tulpa_self.name].VER) + parseInt(tulpa_opp_lv)) * (1 + (Attacks[attack].ATK_Power / 10)));
     tulpa_self.HP -= dmg;
+    console.log(dmg);
     if (tulpa_self.HP > 0) {
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
         await Delay(300);
@@ -177,7 +178,7 @@ async function self_attack(attack) {
         let tulpa_opp = document.getElementById('Name-opp').innerHTML;
         let tulpa_opp_name = tulpa_opp.split(' ')[0];
         let tulpa_opp_lv = tulpa_opp.split(' ')[2];
-        let dmg = (Tulpas[tulpa_self.name].ANG + (3 * tulpa_self.Lv)) * Attacks[attack].ATK_Power;
+        let dmg = Math.round((Tulpas[tulpa_self.name].ANG - (Math.random()* 0.5 * Tulpas[tulpa_opp_name].VER) + tulpa_self.Lv) * (1 + (Attacks[attack].ATK_Power / 10)));
         console.log(dmg);
         document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play();
@@ -324,27 +325,27 @@ function UseBall(ball) {
 
 async function UseDrink(drink) {
     let antwort = prompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib nur eine Zahl ein.");
-    if (antwort > 0 && antwort <= 6){
-        let slot = "Slot_"+antwort;
-        if(Player.Tulpas[slot].name != ""){
-            if(Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total){
+    if (antwort > 0 && antwort <= 6) {
+        let slot = "Slot_" + antwort;
+        if (Player.Tulpas[slot].name != "") {
+            if (Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total) {
                 Player.Tulpas[slot].HP += Item_List[drink].HP;
-                if(Player.Tulpas[slot].HP > Player.Tulpas[slot].HP_Total){
+                if (Player.Tulpas[slot].HP > Player.Tulpas[slot].HP_Total) {
                     Player.Tulpas[slot].HP = Player.Tulpas[slot].HP_Total;
                 }
-                document.getElementById('battle_text').innerText = Player.name +" setzt " +Item_List[drink].name + " ein";
+                document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[drink].name + " ein";
                 document.getElementById('change_tulpa').style.visibility = "hidden";
                 document.getElementById('battle_game_menu').style.visibility = "hidden";
                 document.getElementById('use_item').style.visibility = "hidden";
                 document.getElementById("battle_menu").style.visibility = "hidden";
-                if(Player.Tulpas[slot] == tulpa_self){
+                if (Player.Tulpas[slot] == tulpa_self) {
                     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
                 }
                 Player.inventory.drinks[drink] -= 1;
                 await Delay(2000);
                 opp_Attack();
             } else {
-                document.getElementById('battle_text').innerText = Player.Tulpas[slot].name+" ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";
+                document.getElementById('battle_text').innerText = Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";
             }
         } else {
             document.getElementById('battle_text').innerText = "Slot ist nicht belegt. Versuche es nochmal";
