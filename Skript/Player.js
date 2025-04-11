@@ -34,8 +34,8 @@ else {
         catchedTulpas: 0,
         actualMap: "MAP",
         Tulpas: {
-            Slot_1: { name: "Mäusschen", Lv: 1, HP: 63, HP_Total: 63, XP: 0, ID: "000001" },
-            Slot_2: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "000002" },
+            Slot_1: { name: "Böser_Wolf", Lv: 15, HP: 155, HP_Total: 155, XP: 90, ID: "000001" },
+            Slot_2: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
             Slot_3: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
             Slot_4: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
             Slot_5: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },

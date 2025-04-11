@@ -400,7 +400,7 @@ async function UseBall(ball) {
         document.getElementById('bgr02-sound').pause();
         document.getElementById('bgr02-sound').currentTime = 0;
         document.getElementById('win-sound').play();
-        await Delay(2000);
+        await Delay(3000);
         document.getElementById('bg03-sound').play();
         document.getElementById("movement_game").style.visibility = "visible";
         document.getElementById("battle_game").style.visibility = "hidden";
