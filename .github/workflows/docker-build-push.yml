@@ -1,4 +1,4 @@
-name: Docker Build and Push
+name: Docker Build and Push (Static)
 
 on:
   push:
@@ -25,18 +25,10 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build and push Frontend Docker image
+    - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
-        context: ./frontend  # Pfad zum Dockerfile des Frontends
-        file: ./frontend/Dockerfile # Optional, falls Dockerfile nicht im Kontext liegt
+        context: .  # Der gesamte Repository-Inhalt als Kontext
+        dockerfile: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/battleproject-frontend:latest
-
-    - name: Build and push Backend Docker image
-      uses: docker/build-push-action@v5
-      with:
-        context: ./backend   # Pfad zum Dockerfile des Backends
-        file: ./backend/Dockerfile # Optional, falls Dockerfile nicht im Kontext liegt
-        push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/battleproject-backend:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/battleproject-static:latest
