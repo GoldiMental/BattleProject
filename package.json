@@ -1,0 +1,23 @@
+{
+  "name": "battleproject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohhnyTec/BattleProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohhnyTec/BattleProject/issues"
+  },
+  "homepage": "https://github.com/JohhnyTec/BattleProject#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
