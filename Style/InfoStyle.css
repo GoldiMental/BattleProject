@@ -46,3 +46,6 @@ html {
       max-width: 100%;
       margin-top: 20px;
     }
+    li{
+      margin-bottom: 10px;
+    }
