@@ -86,7 +86,7 @@ function moveMap() {
             }
         }
     }
-    if (activeMap == "TroysHaus") {    
+    if (activeMap == "TroysHaus") {
         for (let i = 0; i < maps[activeMap].profHome.length; i++) {
             const area = maps[activeMap].profHome[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
@@ -126,11 +126,9 @@ function moveMap() {
         for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
             const area = maps[activeMap].trainerBattle[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                let zufall = Math.round(Math.random() * 100);
-                if (zufall <= 100) {
-                    //battleanimation(); //Hier muss dann die neue trainerAnimation function eingefügt werden
-                    console.log("Trainer Kampf!") //<- Bitte stehen lassen!
-                }
+                clearInterval(moveIntervalID);
+                trainername = area.name;
+                traineranimation(TrainerList[trainername]);
             }
         }
 
@@ -139,15 +137,15 @@ function moveMap() {
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
                 let zufall = Math.round(Math.random() * 100);
                 if (zufall <= 10) {
-                    battleanimation();
-                    //console.log("Du wirst Angegriffen!")
+                    clearInterval(moveIntervalID);
+                    battleanimation(0);
                 }
             }
         }
     }
     mapX = newMapX;
     mapY = newMapY;
-    console.log(mapX, mapY)
+    //console.log(mapX, mapY);
     if (direction) {
         player.className = 'Player m_' + direction;
     }
@@ -203,7 +201,7 @@ async function meinEingang() {
     // Aktive Map aktualisieren
     activeMap = mapName;
     changeMap(mapName);
-    
+
     // Position zurücksetzen (Startpunkt der Hauskarte)
     mapX = maps[mapName].startX;
     mapY = maps[mapName].startY;
@@ -231,23 +229,23 @@ async function troysEingang() {
 
     await Delay(500);
     document.getElementById("karte").disabled = true;
-    const mapName = "TroysHaus"; 
+    const mapName = "TroysHaus";
     if (!maps[mapName]) {
         console.error("Map existiert nicht:", mapName);
         return;
     }
-  
+
     activeMap = mapName;
     changeMap(mapName);
-      
+
     mapX = maps[mapName].startX;
     mapY = maps[mapName].startY;
-   
+
     refreshMap();
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map TroysHaus"; 
+    bg.className = "map TroysHaus";
     document.getElementById("tuerTroyOut").disabled = false;
     document.getElementById("tuerTroyOut").style.opacity = "1";
     document.getElementById("Professor").style.opacity = "1";
@@ -275,7 +273,7 @@ async function meinAusgang() {
         console.error("Map existiert nicht:", mapName);
         return;
     }
-    
+
     // Position zurücksetzen (Startpunkt der Hauskarte)
     mapX = maps[activeMap].startStadtX;
     mapY = maps[activeMap].startStadtY;
@@ -308,15 +306,15 @@ async function troysAusgang() {
 
     await Delay(500);
     document.getElementById("karte").disabled = false;
-    const mapName = "MAP"; 
+    const mapName = "MAP";
     if (!maps[mapName]) {
         console.error("Map existiert nicht:", mapName);
         return;
     }
-        
+
     mapX = maps[activeMap].startStadtX;
     mapY = maps[activeMap].startStadtY;
-   
+
     activeMap = mapName;
     changeMap(mapName);
 
@@ -324,7 +322,7 @@ async function troysAusgang() {
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map MAP"; 
+    bg.className = "map MAP";
     document.getElementById("tuerTroyOut").disabled = true;
     document.getElementById("tuerTroyOut").style.opacity = "0";
     document.getElementById("Professor").style.opacity = "0";
@@ -355,7 +353,7 @@ async function shopEingang() {
     // Aktive Map aktualisieren
     activeMap = mapName;
     changeMap(mapName);
-    
+
     // Position zurücksetzen (Startpunkt der Hauskarte)
     mapX = maps[mapName].startX;
     mapY = maps[mapName].startY;
@@ -395,7 +393,7 @@ async function shopAusgang() {
         console.error("Map existiert nicht:", mapName);
         return;
     }
-    
+
     // Position zurücksetzen (Startpunkt der Hauskarte)
     mapX = maps[activeMap].startStadtX;
     mapY = maps[activeMap].startStadtY;

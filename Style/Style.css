@@ -807,3 +807,16 @@ button {
     left:0px;
     transition: left 0.1s linear, top 0.1s linear;
 }
+
+.TrainerDialogBox {
+    color: black;
+    text-align: center;
+    font-size: 22px;
+    visibility: hidden;
+    position: absolute;
+    bottom:0px;
+    height:100px;
+    width:490px;
+    background-color: azure;
+    border: 5px ridge gray;
+}

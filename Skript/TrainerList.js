@@ -1,0 +1,16 @@
+const TrainerList = {
+    Trainer001: {
+        name: "Laura",
+        text1: "Hallo, ich bin Lady Laura.",
+        text2: "Ich bin Trainerin und fordere Dich zum Kampf heraus!",
+        text3: "Hehehe...",
+        text4: "",
+        gold: 150,
+        Tulpa1: { name: "Kaninchen", Lv: 8, HP: 70, HP_Total: 70 },
+        Tulpa2: { name: "Hase", Lv: 10, HP: 90, HP_Total: 90 },
+        Tulpa3: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+        Tulpa4: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+        Tulpa5: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+        Tulpa6: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+    }
+}
