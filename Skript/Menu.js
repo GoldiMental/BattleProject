@@ -34,8 +34,6 @@ function Cheat() {
     }
 }
 
-module.exports = Cheat;
-
 function Tulpa_Dex() {
     document.getElementById('Tulpa_Dex').style.visibility = 'visible';
     let html = '';

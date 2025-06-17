@@ -2,13 +2,50 @@ function Delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
+let trainer = {};
+let TulpaIndex = "Tulpa1";
+let trainerbattle = 0;
 let tulpa_HP = 0;
 let tulpa_HP_Total = 0;
 let tulpa_lv = 0;
 let tulpa_self;
 
-async function battleanimation() {
-    clearInterval(moveIntervalID);
+async function traineranimation(Trainer) {
+    trainer = Trainer;
+    TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
+    TrainerDialogBox.style.visibility = "visible";
+    TrainerDialogBox.innerHTML = Trainer.text1;
+    await Delay(2000);
+    if (Trainer.text2 != "") {
+        TrainerDialogBox.innerHTML = Trainer.text2;
+        await Delay(2000);
+        if (Trainer.text3 != "") {
+            TrainerDialogBox.innerHTML = Trainer.text3;
+            await Delay(2000)
+            if (Trainer.text4 != "") {
+                TrainerDialogBox.innerHTML = Trainer.text4;
+                await Delay(2000);
+                TrainerDialogBox.style.visibility = "hidden";
+                trainerbattle = 1;
+                battleanimation(1);
+            } else {
+                TrainerDialogBox.style.visibility = "hidden";
+                trainerbattle = 1;
+                battleanimation(1);
+            }
+        } else {
+            TrainerDialogBox.style.visibility = "hidden";
+            trainerbattle = 1;
+            battleanimation(1);
+        }
+    } else {
+        TrainerDialogBox.style.visibility = "hidden";
+        trainerbattle = 1;
+        battleanimation(1);
+    }
+}
+
+async function battleanimation(trainerbattle) {
     document.getElementById('bg03-sound').pause();
     document.getElementById('bg03-sound').currentTime = 0;
     document.getElementById('alarm-sound').play();
@@ -18,7 +55,52 @@ async function battleanimation() {
         else { document.getElementById("movement_game").style.visibility = "hidden" }
     }
     document.getElementById('bgr02-sound').play();
-    battle();
+    if (trainerbattle == 0) {
+        battle();
+    } else {
+        Trainerbattle("Tulpa1");
+    }
+}
+
+async function Trainerbattle(TulpaIndex) {
+    let battleInfo = document.getElementById('battle_text');
+    let tulpa_opp = trainer[TulpaIndex].name;
+    tulpa_lv = trainer[TulpaIndex].Lv;
+    for (Slot in Player.Tulpas) {
+        if (Slot.startsWith("Slot")) {
+            if (Player.Tulpas[Slot].HP > 0) {
+                tulpa_self = Player.Tulpas[Slot];
+                break;
+            }
+        }
+    }
+
+    document.getElementById("movement_game").style.visibility = "hidden";
+    document.getElementById("battle_game").style.visibility = "visible";
+    document.getElementById("battle_menu").style.visibility = "visible";
+    document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
+    document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
+
+    tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 3);
+    tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 3);
+    document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
+    battleInfo.innerText = "" + trainer.name + " schickt " + tulpa_opp + " Lv. " + tulpa_lv + " in den Kampf!";
+    document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
+    document.getElementById('Tulpa-opp').innerHTML = '<div class="' + tulpa_opp + '_Front"></div>';
+
+    document.getElementById('Tulpa-opp').style.right = "10px";
+    document.getElementById('Name-opp').style.opacity = "1";
+    document.getElementById('LP-opp').style.opacity = "1";
+
+    await Delay(2000);
+    document.getElementById('Tulpa-self').style.left = "-500px";
+    await Delay(500);
+    document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
+    document.getElementById('Tulpa-self').style.left = "10px";
+
+    document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
+    document.getElementById('Name-self').style.opacity = "1";
+    document.getElementById('LP-self').style.opacity = "1";
 }
 
 async function battle() {
@@ -69,7 +151,7 @@ async function escape() {
     document.getElementById('use_item').style.visibility = "hidden";
     document.getElementById('escape').disabled = true;
     let zufall = Math.round(Math.random() * 100);
-    if (zufall >= 20) {
+    if (zufall >= 20 && trainerbattle == 0) {
         document.getElementById('battle_text').innerText = "Flucht erfolgreich!";
         document.getElementById('bgr02-sound').pause();
         document.getElementById('bgr02-sound').currentTime = 0;
@@ -86,11 +168,15 @@ async function escape() {
         document.getElementById('Name-self').style.opacity = "0";
         document.getElementById('LP-self').style.opacity = "0";
         moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-    } else {
+    } else if(trainerbattle == 0) {
         document.getElementById('battle_text').innerText = "Mist! Das hat nicht funktioniert";
         await Delay(1000);
         document.getElementById('escape').disabled = false;
         opp_Attack();
+    } else {
+        document.getElementById('battle_text').innerText = "Ich kann mich doch nicht vor so einer Herausforderung drücken!";
+        await Delay(1000);
+        document.getElementById('escape').disabled = false;
     }
 }
 
@@ -181,7 +267,7 @@ async function self_attack(attack) {
         let tulpa_opp = document.getElementById('Name-opp').innerHTML;
         let tulpa_opp_name = tulpa_opp.split(' ')[0];
         let tulpa_opp_lv = tulpa_opp.split(' ')[2];
-        let dmg = Math.round((Tulpas[tulpa_self.name].ANG - (Math.random()* 0.5 * Tulpas[tulpa_opp_name].VER) + tulpa_self.Lv) * (1 + (Attacks[attack].ATK_Power / 10)));
+        let dmg = Math.round((Tulpas[tulpa_self.name].ANG - (Math.random() * 0.5 * Tulpas[tulpa_opp_name].VER) + tulpa_self.Lv) * (1 + (Attacks[attack].ATK_Power / 10)));
         console.log(dmg);
         document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play();
@@ -198,6 +284,9 @@ async function self_attack(attack) {
         } else {
             document.getElementById('fill-opp').style.width = "0%";
             document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
+            if (trainerbattle == 1){
+                trainer[TulpaIndex] = {name: "", Lv: 0, HP: 0, HP_Total: 0};
+            }
             await Delay(500);
             document.getElementById('Tulpa-opp').style.right = "-500px";
             document.getElementById('bgr02-sound').pause();
@@ -224,10 +313,36 @@ async function self_attack(attack) {
             document.getElementById('LP-opp').style.opacity = "0";
             document.getElementById('Name-self').style.opacity = "0";
             document.getElementById('LP-self').style.opacity = "0";
-            document.getElementById("movement_game").style.visibility = "visible";
-            document.getElementById("battle_game").style.visibility = "hidden";
-            document.getElementById('fill-opp').style.width = "100%";
-            moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+            if (trainerbattle == 0){
+                document.getElementById("movement_game").style.visibility = "visible";
+                document.getElementById("battle_game").style.visibility = "hidden";
+                document.getElementById('fill-opp').style.width = "100%";
+                moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+            } else if(trainerbattle == 1){
+                let nextTulpaFound = false;
+                for (let i = 1; i <= 6; i++) {
+                    const tulpaKey = "Tulpa" + i;
+                    if (trainer.hasOwnProperty(tulpaKey) && trainer[tulpaKey].name !== "" && trainer[tulpaKey].HP > 0) {
+                        TulpaIndex = "Tulpa"+i;
+                        Trainerbattle("Tulpa"+i);
+                        nextTulpaFound = true;
+                        break;
+                    }
+                }
+                if (!nextTulpaFound) {
+                    document.getElementById('battle_text').innerText = "Du hast " + trainer.name + " besiegt!";
+                    await Delay(1500);
+                    document.getElementById('battle_text').innerText = "Du hast " + trainer.gold + " Gold erhalten!";
+                    Player.Gold += trainer.gold;
+                    setCookie("PlayerData", JSON.stringify(Player), 30);
+                    trainer = {};
+                    await Delay(1500);
+                    document.getElementById("movement_game").style.visibility = "visible";
+                    document.getElementById("battle_game").style.visibility = "hidden";
+                    document.getElementById('fill-opp').style.width = "100%";
+                    moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+                }
+            }
         }
     }
 }
@@ -324,102 +439,106 @@ function useItem() {
 }
 
 async function UseBall(ball) {
-    document.getElementById('change_tulpa').style.visibility = "hidden";
-    document.getElementById('battle_game_menu').style.visibility = "hidden";
-    document.getElementById('use_item').style.visibility = "hidden";
-    document.getElementById("battle_menu").style.visibility = "hidden";
-    Player.inventory.balls[ball] -= 1;
-    setCookie("PlayerData", JSON.stringify(Player), 30);
-    document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[ball].name + " ein";
-    let ballElement = document.createElement("div");
-    ballElement.id = "tulpaball";
-    document.getElementById('battle_game').appendChild(ballElement);
-    document.getElementById('tulpaball').style.left = "50px";
-    document.getElementById('tulpaball').style.top = "320px";
-    await Delay(100);
-    document.getElementById('tulpaball').style.left = "70px";
-    document.getElementById('tulpaball').style.top = "250px";
-    await Delay(100);
-    document.getElementById('tulpaball').style.left = "100px";
-    document.getElementById('tulpaball').style.top = "190px";
-    await Delay(100);
-    document.getElementById('tulpaball').style.left = "140px";
-    document.getElementById('tulpaball').style.top = "140px";
-    await Delay(100);
-    document.getElementById('tulpaball').style.left = "190px";
-    document.getElementById('tulpaball').style.top = "100px";
-    await Delay(100);
-    document.getElementById('tulpaball').style.left = "250px";
-    document.getElementById('tulpaball').style.top = "70px";
-    await Delay(100);
-    document.getElementById('tulpaball').style.left = "320px";
-    document.getElementById('tulpaball').style.top = "50px";
-    document.getElementById('tulpaball').style.left = "370px";
-    await Delay(100);
-    document.getElementById('Tulpa-opp').style.opacity = "0";
-    await Delay(500);
-    document.getElementById('tulpaball').style.left = "370px";
-    document.getElementById('tulpaball').style.top = "150px";
-    await Delay(100);
-    document.getElementById('tulpaball').style.top = "120px";
-    await Delay(100);
-    document.getElementById('tulpaball').style.top = "150px";
-    await Delay(1000);//First
-    document.getElementById('tulpaball').style.left = "360px";
-    document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
-    await Delay(300);
-    document.getElementById('tulpaball').style.left = "370px";
-    document.getElementById('tulpaball').style.transform = "rotate(0deg)";
-    await Delay(1000);//Second Chance
-    document.getElementById('tulpaball').style.left = "360px";
-    document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
-    await Delay(300);
-    document.getElementById('tulpaball').style.left = "370px";
-    document.getElementById('tulpaball').style.transform = "rotate(0deg)";
-    await Delay(1000);//Third Chance
-    document.getElementById('tulpaball').style.left = "360px";
-    document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
-    await Delay(300);
-    document.getElementById('tulpaball').style.left = "370px";
-    document.getElementById('tulpaball').style.transform = "rotate(0deg)";
-    let chance = (Item_List[ball].CR + (10 / (tulpa_lv / 5))) - (tulpa_HP / tulpa_HP_Total * 100);
-    if (chance + 10 > 20) {
-        document.getElementById('battle_text').innerText = "Hurra! Du hast es gefangen";
-        Player.catchedTulpas += 1;
-        let catchedName = document.getElementById('Name-opp').innerHTML.split(' ')[0];
-        let catchedTulpa = { name: catchedName, Lv: tulpa_lv, HP: tulpa_HP, HP_Total: tulpa_HP_Total, XP: 0, ID: Math.round(Math.random() * 1000000).toString() }
-        for (i in Player.Tulpas) {
-            if (Player.Tulpas[i].name == "") {
-                Player.Tulpas[i] = catchedTulpa;
-                break;
-            } else if(i == 'PC'){
-                Player.Tulpas[i].push(catchedTulpa);
-            }
-        }
-        setCookie("PlayerData", JSON.stringify(Player), 30);
-        document.getElementById('bgr02-sound').pause();
-        document.getElementById('bgr02-sound').currentTime = 0;
-        document.getElementById('win-sound').play();
-        await Delay(3000);
-        document.getElementById('bg03-sound').play();
-        document.getElementById("movement_game").style.visibility = "visible";
-        document.getElementById("battle_game").style.visibility = "hidden";
+    if (trainerbattle == 0) {
+        document.getElementById('change_tulpa').style.visibility = "hidden";
+        document.getElementById('battle_game_menu').style.visibility = "hidden";
+        document.getElementById('use_item').style.visibility = "hidden";
         document.getElementById("battle_menu").style.visibility = "hidden";
-        document.getElementById('escape').disabled = false;
-        document.getElementById('Tulpa-opp').style.opacity = "1";
-        document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
-        document.getElementById('Name-opp').style.opacity = "0";
-        document.getElementById('LP-opp').style.opacity = "0";
-        document.getElementById('Name-self').style.opacity = "0";
-        document.getElementById('LP-self').style.opacity = "0";
-        moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-    }
-    else {
-        document.getElementById('Tulpa-opp').style.opacity = "1";
-        document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
-        document.getElementById('battle_text').innerText = "Mist, es hat sich befreit";
-        await Delay(2000);
-        opp_Attack();
+        Player.inventory.balls[ball] -= 1;
+        setCookie("PlayerData", JSON.stringify(Player), 30);
+        document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[ball].name + " ein";
+        let ballElement = document.createElement("div");
+        ballElement.id = "tulpaball";
+        document.getElementById('battle_game').appendChild(ballElement);
+        document.getElementById('tulpaball').style.left = "50px";
+        document.getElementById('tulpaball').style.top = "320px";
+        await Delay(100);
+        document.getElementById('tulpaball').style.left = "70px";
+        document.getElementById('tulpaball').style.top = "250px";
+        await Delay(100);
+        document.getElementById('tulpaball').style.left = "100px";
+        document.getElementById('tulpaball').style.top = "190px";
+        await Delay(100);
+        document.getElementById('tulpaball').style.left = "140px";
+        document.getElementById('tulpaball').style.top = "140px";
+        await Delay(100);
+        document.getElementById('tulpaball').style.left = "190px";
+        document.getElementById('tulpaball').style.top = "100px";
+        await Delay(100);
+        document.getElementById('tulpaball').style.left = "250px";
+        document.getElementById('tulpaball').style.top = "70px";
+        await Delay(100);
+        document.getElementById('tulpaball').style.left = "320px";
+        document.getElementById('tulpaball').style.top = "50px";
+        document.getElementById('tulpaball').style.left = "370px";
+        await Delay(100);
+        document.getElementById('Tulpa-opp').style.opacity = "0";
+        await Delay(500);
+        document.getElementById('tulpaball').style.left = "370px";
+        document.getElementById('tulpaball').style.top = "150px";
+        await Delay(100);
+        document.getElementById('tulpaball').style.top = "120px";
+        await Delay(100);
+        document.getElementById('tulpaball').style.top = "150px";
+        await Delay(1000);//First
+        document.getElementById('tulpaball').style.left = "360px";
+        document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
+        await Delay(300);
+        document.getElementById('tulpaball').style.left = "370px";
+        document.getElementById('tulpaball').style.transform = "rotate(0deg)";
+        await Delay(1000);//Second Chance
+        document.getElementById('tulpaball').style.left = "360px";
+        document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
+        await Delay(300);
+        document.getElementById('tulpaball').style.left = "370px";
+        document.getElementById('tulpaball').style.transform = "rotate(0deg)";
+        await Delay(1000);//Third Chance
+        document.getElementById('tulpaball').style.left = "360px";
+        document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
+        await Delay(300);
+        document.getElementById('tulpaball').style.left = "370px";
+        document.getElementById('tulpaball').style.transform = "rotate(0deg)";
+        let chance = (Item_List[ball].CR + (10 / (tulpa_lv / 5))) - (tulpa_HP / tulpa_HP_Total * 100);
+        if (chance + 10 > 20) {
+            document.getElementById('battle_text').innerText = "Hurra! Du hast es gefangen";
+            Player.catchedTulpas += 1;
+            let catchedName = document.getElementById('Name-opp').innerHTML.split(' ')[0];
+            let catchedTulpa = { name: catchedName, Lv: tulpa_lv, HP: tulpa_HP, HP_Total: tulpa_HP_Total, XP: 0, ID: Math.round(Math.random() * 1000000).toString() }
+            for (i in Player.Tulpas) {
+                if (Player.Tulpas[i].name == "") {
+                    Player.Tulpas[i] = catchedTulpa;
+                    break;
+                } else if (i == 'PC') {
+                    Player.Tulpas[i].push(catchedTulpa);
+                }
+            }
+            setCookie("PlayerData", JSON.stringify(Player), 30);
+            document.getElementById('bgr02-sound').pause();
+            document.getElementById('bgr02-sound').currentTime = 0;
+            document.getElementById('win-sound').play();
+            await Delay(3000);
+            document.getElementById('bg03-sound').play();
+            document.getElementById("movement_game").style.visibility = "visible";
+            document.getElementById("battle_game").style.visibility = "hidden";
+            document.getElementById("battle_menu").style.visibility = "hidden";
+            document.getElementById('escape').disabled = false;
+            document.getElementById('Tulpa-opp').style.opacity = "1";
+            document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
+            document.getElementById('Name-opp').style.opacity = "0";
+            document.getElementById('LP-opp').style.opacity = "0";
+            document.getElementById('Name-self').style.opacity = "0";
+            document.getElementById('LP-self').style.opacity = "0";
+            moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+        }
+        else {
+            document.getElementById('Tulpa-opp').style.opacity = "1";
+            document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
+            document.getElementById('battle_text').innerText = "Mist, es hat sich befreit";
+            await Delay(2000);
+            opp_Attack();
+        }
+    } else {
+        document.getElementById('battle_text').innerText = "Dieses Tulpa gehört schon jemandem!";
     }
 }
 
