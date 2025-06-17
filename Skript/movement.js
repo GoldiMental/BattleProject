@@ -126,9 +126,17 @@ function moveMap() {
         for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
             const area = maps[activeMap].trainerBattle[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                clearInterval(moveIntervalID);
                 trainername = area.name;
-                traineranimation(TrainerList[trainername]);
+                var Fight = true;
+                for (i = 0; i <= Player.defeatedTrainer.length; i++) {
+                    if(Player.defeatedTrainer[i] == area.name){
+                        Fight = false;
+                    }
+                }
+                if (Fight){
+                    clearInterval(moveIntervalID);
+                    traineranimation(TrainerList[trainername], trainername);
+                }
             }
         }
 

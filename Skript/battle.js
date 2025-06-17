@@ -10,9 +10,10 @@ let tulpa_HP_Total = 0;
 let tulpa_lv = 0;
 let tulpa_self;
 
-async function traineranimation(Trainer) {
+async function traineranimation(Trainer, name) {
     trainer = Trainer;
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
+    TrainerDialogBox.setAttribute("TrainerID",name);
     TrainerDialogBox.style.visibility = "visible";
     TrainerDialogBox.innerHTML = Trainer.text1;
     await Delay(2000);
@@ -199,7 +200,7 @@ async function opp_Attack() {
     await Delay(1000);
     let dmg = Math.round((Tulpas[tulpa_opp.toString()].ANG - (Math.random() * 0.5 * Tulpas[tulpa_self.name].VER) + parseInt(tulpa_opp_lv)) * (1 + (Attacks[attack].ATK_Power / 10)));
     tulpa_self.HP -= dmg;
-    console.log(dmg);
+    //console.log(dmg); // Log für Gegnerschaden
     if (tulpa_self.HP > 0) {
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
         await Delay(300);
@@ -268,7 +269,7 @@ async function self_attack(attack) {
         let tulpa_opp_name = tulpa_opp.split(' ')[0];
         let tulpa_opp_lv = tulpa_opp.split(' ')[2];
         let dmg = Math.round((Tulpas[tulpa_self.name].ANG - (Math.random() * 0.5 * Tulpas[tulpa_opp_name].VER) + tulpa_self.Lv) * (1 + (Attacks[attack].ATK_Power / 10)));
-        console.log(dmg);
+        //console.log(dmg); //Log für Spielerschaden
         document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play();
         await Delay(350);
@@ -331,6 +332,8 @@ async function self_attack(attack) {
                 }
                 if (!nextTulpaFound) {
                     document.getElementById('battle_text').innerText = "Du hast " + trainer.name + " besiegt!";
+                    Player.defeatedTrainer.push(document.getElementsByClassName("TrainerDialogBox")[0].getAttribute("TrainerID"));
+                    setCookie("PlayerData", JSON.stringify(Player), 30);
                     await Delay(1500);
                     document.getElementById('battle_text').innerText = "Du hast " + trainer.gold + " Gold erhalten!";
                     Player.Gold += trainer.gold;
@@ -340,6 +343,7 @@ async function self_attack(attack) {
                     document.getElementById("movement_game").style.visibility = "visible";
                     document.getElementById("battle_game").style.visibility = "hidden";
                     document.getElementById('fill-opp').style.width = "100%";
+                    document.getElementsByClassName("TrainerDialogBox")[0].setAttribute("TrainerID","");
                     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
                 }
             }

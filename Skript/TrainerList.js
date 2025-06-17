@@ -12,5 +12,19 @@ const TrainerList = {
         Tulpa4: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
         Tulpa5: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
         Tulpa6: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
-    }
+    },
+    Trainer002: {
+        name: "Pascal",
+        text1: "Halt Stop !!",
+        text2: "Ich bin Trainer Pascal!!",
+        text3: "Du und ich kämpfen jetzt!!!",
+        text4: "SOFORT!!!!!!!",
+        gold: 150,
+        Tulpa1: { name: "Kaninchen", Lv: 8, HP: 70, HP_Total: 70 },
+        Tulpa2: { name: "Hase", Lv: 10, HP: 90, HP_Total: 90 },
+        Tulpa3: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+        Tulpa4: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+        Tulpa5: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+        Tulpa6: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+    },
 }

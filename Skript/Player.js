@@ -59,6 +59,7 @@ else {
                 Hyper_Bonbon: 0,
             }
         },
+        defeatedTrainer: [],
     }
     setCookie("PlayerData", JSON.stringify(Player), 30);
 }
