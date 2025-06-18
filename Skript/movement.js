@@ -135,7 +135,11 @@ function moveMap() {
                 }
                 if (Fight){
                     clearInterval(moveIntervalID);
-                    traineranimation(TrainerList[trainername], trainername);
+                    if(trainername == "Trainer000"){
+                        Trainer000monolog();
+                    } else {
+                        traineranimation(TrainerList[trainername], trainername);
+                    }
                 }
             }
         }

@@ -1,4 +1,12 @@
 const TrainerList = {
+    Trainer000: {
+        name: "Steve",
+        text1: "Warte mal kurz. Wo willst du hin?",
+        text2: "Ohne Tulpa wirst du sterben!",
+        text3: "Geh am besten zu Professor Troy",
+        text4: "Er braucht immer Hilfe bei der Forschung",
+        text5: "Vielleicht kann er auch dir helfen...",
+    },
     Trainer001: {
         name: "Laura",
         text1: "Hallo, ich bin Lady Laura.",
@@ -27,4 +35,20 @@ const TrainerList = {
         Tulpa5: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
         Tulpa6: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
     },
+}
+
+async function Trainer000monolog(){
+    TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
+    TrainerDialogBox.innerHTML = Trainer.text1;
+    await Delay(2000)
+    TrainerDialogBox.innerHTML = Trainer.text2;
+    await Delay(2000)
+    TrainerDialogBox.innerHTML = Trainer.text3;
+    await Delay(2000)
+    TrainerDialogBox.innerHTML = Trainer.text4;
+    await Delay(2000)
+    TrainerDialogBox.innerHTML = Trainer.text5;
+    await Delay(2000)
+    moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+    KeyboardEvent('keydown',{key: 'a'});
 }
