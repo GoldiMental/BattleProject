@@ -50,6 +50,11 @@ async function Trainer000monolog(Trainer){
     await Delay(2000)
     TrainerDialogBox.innerHTML = Trainer.text5;
     await Delay(2000)
+    TrainerDialogBox.style.visibility = "hidden";
     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-    KeyboardEvent('keydown',{key: 'a'});
+    activeDirection = "a";
+    moveMap();
+    await Delay(100);
+    activeDirection = null;
+    stopMovement();
 }

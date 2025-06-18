@@ -134,10 +134,13 @@ function moveMap() {
                     }
                 }
                 if (Fight){
-                    clearInterval(moveIntervalID);
                     if(area.name == "Trainer000"){
-                        Trainer000monolog(TrainerList[trainername]);
+                        if (Player.Tulpas.Slot_1.name == ""){
+                            clearInterval(moveIntervalID);
+                            Trainer000monolog(TrainerList[trainername]);
+                        }
                     } else {
+                        clearInterval(moveIntervalID);
                         traineranimation(TrainerList[trainername], trainername);
                     }
                 }
