@@ -567,6 +567,17 @@ button {
     width: 50px;
 }
 
+.TrainerText {
+    background-image: url(../img/textures/tR3.png);
+    background-size: 175%;
+    background-position: 50%;
+    position: absolute;
+    top: 450px;
+    right: 1900px;
+    height: 50px;
+    width: 50px;
+}
+
 #Haendler {
     background-image: url(../img/textures/tR4.png);
     background-size: 160%;
