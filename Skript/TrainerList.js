@@ -40,6 +40,7 @@ const TrainerList = {
 async function Trainer000monolog(){
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
     TrainerDialogBox.innerHTML = Trainer.text1;
+    TrainerDialogBox.style.visibility = "visible";
     await Delay(2000)
     TrainerDialogBox.innerHTML = Trainer.text2;
     await Delay(2000)
