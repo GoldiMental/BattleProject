@@ -309,7 +309,7 @@ async function self_attack(attack) {
                 document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
                 document.getElementById('battle_text').innerText = tulpa_self.name + " ist ein Level aufgestiegen";
             }
-            await Delay(3000);
+            await Delay(1000);
             document.getElementById('Name-opp').style.opacity = "0";
             document.getElementById('LP-opp').style.opacity = "0";
             document.getElementById('Name-self').style.opacity = "0";
