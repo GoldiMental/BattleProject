@@ -16,16 +16,16 @@ async function traineranimation(Trainer, name) {
     TrainerDialogBox.setAttribute("TrainerID",name);
     TrainerDialogBox.style.visibility = "visible";
     TrainerDialogBox.innerHTML = Trainer.text1;
-    await Delay(2000);
+    await Click();
     if (Trainer.text2 != "") {
         TrainerDialogBox.innerHTML = Trainer.text2;
-        await Delay(2000);
+        await Click();
         if (Trainer.text3 != "") {
             TrainerDialogBox.innerHTML = Trainer.text3;
-            await Delay(2000)
+            await Click()
             if (Trainer.text4 != "") {
                 TrainerDialogBox.innerHTML = Trainer.text4;
-                await Delay(2000);
+                await Click();
                 TrainerDialogBox.style.visibility = "hidden";
                 trainerbattle = 1;
                 battleanimation(1);

@@ -41,15 +41,15 @@ async function Trainer000monolog(Trainer){
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
     TrainerDialogBox.innerHTML = Trainer.text1;
     TrainerDialogBox.style.visibility = "visible";
-    await Delay(2000)
+    await Click();
     TrainerDialogBox.innerHTML = Trainer.text2;
-    await Delay(2000)
+    await Click();
     TrainerDialogBox.innerHTML = Trainer.text3;
-    await Delay(2000)
+    await Click();
     TrainerDialogBox.innerHTML = Trainer.text4;
-    await Delay(2000)
+    await Click();
     TrainerDialogBox.innerHTML = Trainer.text5;
-    await Delay(2000)
+    await Click();
     TrainerDialogBox.style.visibility = "hidden";
     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
     activeDirection = "a";
