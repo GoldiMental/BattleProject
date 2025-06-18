@@ -136,7 +136,7 @@ function moveMap() {
                 if (Fight){
                     clearInterval(moveIntervalID);
                     if(area.name == "Trainer000"){
-                        Trainer000monolog();
+                        Trainer000monolog(trainername);
                     } else {
                         traineranimation(TrainerList[trainername], trainername);
                     }

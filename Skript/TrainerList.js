@@ -37,7 +37,7 @@ const TrainerList = {
     },
 }
 
-async function Trainer000monolog(){
+async function Trainer000monolog(Trainer){
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
     TrainerDialogBox.innerHTML = Trainer.text1;
     TrainerDialogBox.style.visibility = "visible";
