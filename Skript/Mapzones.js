@@ -73,7 +73,7 @@ var maps = {
         ],
         //trainerBattle. 
         trainerBattle: [
-            { minX: -1057, maxX: -1075, minY: -325, maxY: -275, name:"Trainer000"},
+            { minX: -1075, maxX: -1075, minY: -325, maxY: -275, name:"Trainer000"},
             { minX: -2675, maxX: -2675, minY: -675, maxY: -525, name:"Trainer001"},
         ],
         opp_List: [
