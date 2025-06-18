@@ -43,4 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function Click() {
     document.getElementById('click-sound').play();
+    return new Promise(resolve => {
+        document.addEventListener("click", function handler() {
+            document.removeEventListener("click", handler);
+            resolve();
+        });
+    });
 }
