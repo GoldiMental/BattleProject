@@ -15,44 +15,51 @@ function MenuList() {
     }
 }
 
-function Cheat() {
-    let CheatInput = prompt("Gib bitte den Cheat ein:", "Eingabe");
-    if (CheatInput == "MOREGOLD") {
-        Player.Gold += 1000;
-        Player.Cheats += 1;
-        setCookie("PlayerData", JSON.stringify(Player), 30);
-        alert(CheatInput + " wurde erfolgreich ausgeführt!");
-    } else if (CheatInput == "CHANGENAME") {
-        let newName = prompt("Gib deinen neuen Namen ein:", "Max");
-        Player.name = newName;
-        Player.Cheats += 1;
-        setCookie("PlayerData", JSON.stringify(Player), 30);
-        alert("Der Name wurde zu " + newName + " geändert.");
-    } else if (CheatInput == "GETBALLS") {
-        Player.inventory.balls.Tulpaball += 10;
-        Player.inventory.balls.Super_Tulpaball += 5;
-        Player.inventory.balls.Hyper_Tulpaball += 2;
-        Player.inventory.balls.Ultra_Tulpaball += 1;
-        Player.Cheats += 1;
-        setCookie("PlayerData", JSON.stringify(Player), 30);
-        alert(CheatInput + " wurde erfolgreich ausgeführt!");
-    } else if (CheatInput == "GETDRINKS") {
-        Player.inventory.drinks.Heiltrank += 10;
-        Player.inventory.drinks.Super_Heiltrank += 5;
-        Player.inventory.drinks.Manatrank += 2;
-        Player.inventory.drinks.Super_Manatrank += 1;
-        Player.Cheats += 1;
-        setCookie("PlayerData", JSON.stringify(Player), 30);
-        alert(CheatInput + " wurde erfolgreich ausgeführt!");
-    } else if (CheatInput == "GETBONBONS") {
-        Player.inventory.bonbons.Bonbon += 5;
-        Player.inventory.bonbons.Super_Bonbon += 2;
-        Player.inventory.bonbons.Hyper_Bonbon += 1;
-        Player.Cheats += 1;
-        setCookie("PlayerData", JSON.stringify(Player), 30);
-        alert(CheatInput + " wurde erfolgreich ausgeführt!");
-    } else {
-        alert("Cheat ungültig")
+async function Cheat() {
+    let CheatInput = await showCustomPrompt("Bitte gib den Cheat ein:", "Eingabe");
+    switch (CheatInput) {
+        case "MOREGOLD":
+            Player.Gold += 1000;
+            Player.Cheats += 1;
+            setCookie("PlayerData", JSON.stringify(Player), 30);
+            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+            break;
+        case "CHANGENAME":
+            let newName = prompt("Gib deinen neuen Namen ein:", "Max");
+            Player.name = newName;
+            Player.Cheats += 1;
+            setCookie("PlayerData", JSON.stringify(Player), 30);
+            showCustomAlert("Der Name wurde zu " + newName + " geändert.");
+            break;
+        case "GETBALLS":
+            Player.inventory.balls.Tulpaball += 10;
+            Player.inventory.balls.Super_Tulpaball += 5;
+            Player.inventory.balls.Hyper_Tulpaball += 2;
+            Player.inventory.balls.Ultra_Tulpaball += 1;
+            Player.Cheats += 1;
+            setCookie("PlayerData", JSON.stringify(Player), 30);
+            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+            break;
+        case "GETDRINKS":
+            Player.inventory.drinks.Heiltrank += 10;
+            Player.inventory.drinks.Super_Heiltrank += 5;
+            Player.inventory.drinks.Manatrank += 2;
+            Player.inventory.drinks.Super_Manatrank += 1;
+            Player.Cheats += 1;
+            setCookie("PlayerData", JSON.stringify(Player), 30);
+            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+            break;
+        case "GETBONBONS":
+            Player.inventory.bonbons.Bonbon += 5;
+            Player.inventory.bonbons.Super_Bonbon += 2;
+            Player.inventory.bonbons.Hyper_Bonbon += 1;
+            Player.Cheats += 1;
+            setCookie("PlayerData", JSON.stringify(Player), 30);
+            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+            break;
+        default:
+            showCustomAlert("Cheat ungültig");
+            break;
     }
 }
 
@@ -91,10 +98,10 @@ function Tulpas_List() {
     document.getElementById('Tulpa_List').innerHTML = html;
 }
 
-function removeTulpa(Slot) {
-    let antwort = confirm("Soll " + Player.Tulpas[Slot].name + " wirklich gelöscht werden?");
+async function removeTulpa(Slot) {
+    let antwort = await showCustomConfirm("Soll " + Player.Tulpas[Slot].name + " wirklich gelöscht werden?");
     if (antwort && Slot != "Slot_1") {
-        alert(Player.Tulpas[Slot].name + " wurde gelöscht.");
+        showCustomAlert(Player.Tulpas[Slot].name + " wurde gelöscht.");
         Player.Tulpas[Slot] = { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" };
         if (Slot != "Slot_6") {
             for (i in Player.Tulpas) {
@@ -114,12 +121,12 @@ function removeTulpa(Slot) {
         setCookie("PlayerData", JSON.stringify(Player), 30);
         Tulpas_List();
     } else if (Slot == "Slot_1") {
-        alert("Der erste Slot muss immer belegt sein!");
+        showCustomAlert("Der erste Slot muss immer belegt sein!");
     }
 }
 
-function swapTulpa(Slot) {
-    let antwort = prompt("Mit welchem Slot soll " + Slot + " getauscht werden? Gib dazu die Slotnummer (1-6) an:", "0 beendet den Tausch");
+async function swapTulpa(Slot) {
+    let antwort = await showCustomPrompt("Mit welchem Slot soll " + Slot + " getauscht werden? Gib dazu die Slotnummer (1-6) an:", "0 beendet den Tausch");
     if (antwort != 0 && antwort <= 6 && Player.Tulpas["Slot_" + antwort].name != "" && Slot != "Slot_" + antwort) {
         let tulpa_1 = Player.Tulpas[Slot];
         let tulpa_2 = Player.Tulpas["Slot_" + antwort];
@@ -128,7 +135,7 @@ function swapTulpa(Slot) {
         setCookie("PlayerData", JSON.stringify(Player), 30);
         Tulpas_List();
     } else {
-        alert("Tausch nicht möglich! \n Falsche Eingabe oder Slot nicht belegt.");
+        showCustomAlert("Tausch nicht möglich! \n Falsche Eingabe oder Slot nicht belegt.");
     }
 }
 
@@ -222,7 +229,7 @@ async function Use(itm, qty) {
             close_Items();
             Tulpas_List();
             await Delay(200);
-            let antwort = prompt("Bei welchem Slot soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
+            let antwort = await showCustomPrompt("Bei welchem Slot soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
             if (antwort > 0 && antwort <= 6) {
                 let slot = "Slot_" + antwort;
                 if (Player.Tulpas[slot].name != "") {
@@ -236,17 +243,17 @@ async function Use(itm, qty) {
                         close_Tulpas();
                         Items();
                     } else {
-                        alert(Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
+                        showCustomAlert(Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
                         close_Tulpas();
                         Items();
                     }
                 } else {
-                    alert("Slot ist nicht belegt. Versuche es nochmal");
+                    showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
                     close_Tulpas();
                     Items();
                 }
             } else {
-                alert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
+                showCustomAlert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
                 close_Tulpas();
                 Items();
             }
@@ -254,7 +261,7 @@ async function Use(itm, qty) {
             close_Items();
             Tulpas_List();
             await Delay(200);
-            let antwort = prompt("Bei welchem Slot soll das Bonbon verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
+            let antwort = await showCustomPrompt("Bei welchem Slot soll das Bonbon verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
             if (antwort > 0 && antwort <= 6) {
                 let slot = "Slot_" + antwort;
                 if (Player.Tulpas[slot].name != "") {
@@ -271,12 +278,12 @@ async function Use(itm, qty) {
                     close_Tulpas();
                     Items();
                 } else {
-                    alert("Slot ist nicht belegt. Versuche es nochmal");
+                    showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
                     close_Tulpas();
                     Items();
                 }
             } else {
-                alert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
+                showCustomAlert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
                 close_Tulpas();
                 Items();
             }

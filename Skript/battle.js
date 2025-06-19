@@ -13,7 +13,7 @@ let tulpa_self;
 async function traineranimation(Trainer, name) {
     trainer = Trainer;
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
-    TrainerDialogBox.setAttribute("TrainerID",name);
+    TrainerDialogBox.setAttribute("TrainerID", name);
     TrainerDialogBox.style.visibility = "visible";
     TrainerDialogBox.innerHTML = Trainer.text1;
     await Click();
@@ -168,8 +168,9 @@ async function escape() {
         document.getElementById('LP-opp').style.opacity = "0";
         document.getElementById('Name-self').style.opacity = "0";
         document.getElementById('LP-self').style.opacity = "0";
+        trainerbattle = 0;
         moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-    } else if(trainerbattle == 0) {
+    } else if (trainerbattle == 0) {
         document.getElementById('battle_text').innerText = "Mist! Das hat nicht funktioniert";
         await Delay(1000);
         document.getElementById('escape').disabled = false;
@@ -245,6 +246,7 @@ async function opp_Attack() {
             document.getElementById('LP-opp').style.opacity = "0";
             document.getElementById('Name-self').style.opacity = "0";
             document.getElementById('LP-self').style.opacity = "0";
+            trainerbattle = 0;
             moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
         }
     }
@@ -285,8 +287,8 @@ async function self_attack(attack) {
         } else {
             document.getElementById('fill-opp').style.width = "0%";
             document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
-            if (trainerbattle == 1){
-                trainer[TulpaIndex] = {name: "", Lv: 0, HP: 0, HP_Total: 0};
+            if (trainerbattle == 1) {
+                trainer[TulpaIndex] = { name: "", Lv: 0, HP: 0, HP_Total: 0 };
             }
             await Delay(500);
             document.getElementById('Tulpa-opp').style.right = "-500px";
@@ -314,18 +316,19 @@ async function self_attack(attack) {
             document.getElementById('LP-opp').style.opacity = "0";
             document.getElementById('Name-self').style.opacity = "0";
             document.getElementById('LP-self').style.opacity = "0";
-            if (trainerbattle == 0){
+            if (trainerbattle == 0) {
                 document.getElementById("movement_game").style.visibility = "visible";
                 document.getElementById("battle_game").style.visibility = "hidden";
                 document.getElementById('fill-opp').style.width = "100%";
+                trainerbattle = 0;
                 moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-            } else if(trainerbattle == 1){
+            } else if (trainerbattle == 1) {
                 let nextTulpaFound = false;
                 for (let i = 1; i <= 6; i++) {
                     const tulpaKey = "Tulpa" + i;
                     if (trainer.hasOwnProperty(tulpaKey) && trainer[tulpaKey].name !== "" && trainer[tulpaKey].HP > 0) {
-                        TulpaIndex = "Tulpa"+i;
-                        Trainerbattle("Tulpa"+i);
+                        TulpaIndex = "Tulpa" + i;
+                        Trainerbattle("Tulpa" + i);
                         nextTulpaFound = true;
                         break;
                     }
@@ -343,7 +346,8 @@ async function self_attack(attack) {
                     document.getElementById("movement_game").style.visibility = "visible";
                     document.getElementById("battle_game").style.visibility = "hidden";
                     document.getElementById('fill-opp').style.width = "100%";
-                    document.getElementsByClassName("TrainerDialogBox")[0].setAttribute("TrainerID","");
+                    document.getElementsByClassName("TrainerDialogBox")[0].setAttribute("TrainerID", "");
+                    trainerbattle = 0;
                     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
                 }
             }
@@ -532,6 +536,7 @@ async function UseBall(ball) {
             document.getElementById('LP-opp').style.opacity = "0";
             document.getElementById('Name-self').style.opacity = "0";
             document.getElementById('LP-self').style.opacity = "0";
+            trainerbattle = 0;
             moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
         }
         else {

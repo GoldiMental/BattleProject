@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (/^[a-zA-Z. ]+$/.test(antwort)) {
                 Player.name = antwort;
                 setCookie("PlayerData", JSON.stringify(Player), 30);
-                alert("Hallo: " + Player.name + "!\nMit den Tasten \"W,A,S,D\" kannst du deinen Charakter in die jeweilige Richtung laufen lassen.\nAlles weitere kannst du mit deiner Maus anklicken.\nWeiteres erfährst du, wenn es soweit ist.");
+                showCustomAlert("Hallo: " + Player.name + "!\nMit den Tasten \"W,A,S,D\" kannst du deinen Charakter in die jeweilige Richtung laufen lassen.\nAlles weitere kannst du mit deiner Maus bedienen.\nWeiteres erfährst du, wenn es soweit ist.");
                 break;
             } else {
                 alert("Ein Name besteht doch gewöhnlich nur aus Buchstaben.\n\nZahlen und Sonderzeichen machen daher keinen Sinn.");

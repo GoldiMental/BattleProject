@@ -160,7 +160,7 @@ function moveMap() {
     }
     mapX = newMapX;
     mapY = newMapY;
-    console.log(mapX, mapY);
+    //console.log(mapX, mapY); //Log für Koordinaten
     if (direction) {
         player.className = 'Player m_' + direction;
     }

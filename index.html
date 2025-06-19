@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style/Customize.css">
     <link rel="stylesheet" href="Style/Style.css">
     <link rel="stylesheet" href="Style/Tulpas.css">
     <link rel="icon" href="img/TulpaIcon.png" type="image/png">
@@ -107,6 +108,17 @@
                 </div>
             </div>
         </div>
+        <div id="customModalOverlay" class="custom-modal-overlay">
+        <div class="custom-modal-content">
+            <h3 id="customModalTitle" class="custom-modal-title"></h3>
+            <p id="customModalMessage" class="custom-modal-message"></p>
+            <input type="text" id="customModalInput" class="custom-modal-input hidden">
+            <div class="custom-modal-buttons">
+                <button id="customModalOkButton" class="custom-modal-button ok">OK</button>
+                <button id="customModalCancelButton" class="custom-modal-button cancel hidden">Abbrechen</button>
+            </div>
+        </div>
+    </div>
     </div>
 
     <audio id="attack-sound" src="audio/Attack-001.mp3"></audio>
@@ -132,6 +144,7 @@
     <script src="Skript/Exit_Game.js"></script>
     <script src="Skript/Menu.js"></script>
     <script src="Skript/movement.js"></script>
+    <script src="Skript/customize.js"></script>
     <script src="Skript/Start.js"></script>
 
 </body>
