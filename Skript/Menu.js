@@ -28,8 +28,30 @@ function Cheat() {
         Player.Cheats += 1;
         setCookie("PlayerData", JSON.stringify(Player), 30);
         alert("Der Name wurde zu " + newName + " geändert.");
-    }
-    else {
+    } else if (CheatInput == "GETBALLS") {
+        Player.inventory.balls.Tulpaball += 10;
+        Player.inventory.balls.Super_Tulpaball += 5;
+        Player.inventory.balls.Hyper_Tulpaball += 2;
+        Player.inventory.balls.Ultra_Tulpaball += 1;
+        Player.Cheats += 1;
+        setCookie("PlayerData", JSON.stringify(Player), 30);
+        alert(CheatInput + " wurde erfolgreich ausgeführt!");
+    } else if (CheatInput == "GETDRINKS") {
+        Player.inventory.drinks.Heiltrank += 10;
+        Player.inventory.drinks.Super_Heiltrank += 5;
+        Player.inventory.drinks.Manatrank += 2;
+        Player.inventory.drinks.Super_Manatrank += 1;
+        Player.Cheats += 1;
+        setCookie("PlayerData", JSON.stringify(Player), 30);
+        alert(CheatInput + " wurde erfolgreich ausgeführt!");
+    } else if (CheatInput == "GETBONBONS") {
+        Player.inventory.bonbons.Bonbon += 5;
+        Player.inventory.bonbons.Super_Bonbon += 2;
+        Player.inventory.bonbons.Hyper_Bonbon += 1;
+        Player.Cheats += 1;
+        setCookie("PlayerData", JSON.stringify(Player), 30);
+        alert(CheatInput + " wurde erfolgreich ausgeführt!");
+    } else {
         alert("Cheat ungültig")
     }
 }
@@ -181,11 +203,11 @@ function Items() {
     }
     html += "<br><div id='Tränke' class='Item_Title'>Tränke: </div><br>";
     for (drink in Player.inventory.drinks) {
-        html += '<div><button title="'+Item_List[drink].des+'" class="Item_list" onclick="Use(\'' + drink + '\',\'' + Player.inventory.drinks[drink] + '\')">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</button><br>';
+        html += '<div><button title="' + Item_List[drink].des + '" class="Item_list" onclick="Use(\'' + drink + '\',\'' + Player.inventory.drinks[drink] + '\')">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</button><br>';
     }
     html += "<br><div id='Bonbons' class='Item_Title'>Bonbons: </div><br>";
     for (bonbon in Player.inventory.bonbons) {
-        html += '<div><button title="'+Item_List[bonbon].des+'" class="Item_list" onclick="Use(\'' + bonbon + '\',\'' + Player.inventory.bonbons[bonbon] + '\')">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</button><br>';
+        html += '<div><button title="' + Item_List[bonbon].des + '" class="Item_list" onclick="Use(\'' + bonbon + '\',\'' + Player.inventory.bonbons[bonbon] + '\')">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</button><br>';
     }
     document.getElementById('Item_List').innerHTML = html;
 }
@@ -236,18 +258,18 @@ async function Use(itm, qty) {
             if (antwort > 0 && antwort <= 6) {
                 let slot = "Slot_" + antwort;
                 if (Player.Tulpas[slot].name != "") {
-                        Player.Tulpas[slot].XP += Item_List[itm].XPB;
-                        if(Player.Tulpas[slot].XP >= 100){
-                            Player.Tulpas[slot].XP -= 100;
-                            Player.Tulpas[slot].Lv += 1;
-                            Player.Tulpas[slot].HP += 3;
-                            Player.Tulpas[slot].HP_Total += 3;
-                        }
-                        
-                        Player.inventory.bonbons[itm] -= 1;
-                        setCookie("PlayerData", JSON.stringify(Player), 30);
-                        close_Tulpas();
-                        Items();
+                    Player.Tulpas[slot].XP += Item_List[itm].XPB;
+                    if (Player.Tulpas[slot].XP >= 100) {
+                        Player.Tulpas[slot].XP -= 100;
+                        Player.Tulpas[slot].Lv += 1;
+                        Player.Tulpas[slot].HP += 3;
+                        Player.Tulpas[slot].HP_Total += 3;
+                    }
+
+                    Player.inventory.bonbons[itm] -= 1;
+                    setCookie("PlayerData", JSON.stringify(Player), 30);
+                    close_Tulpas();
+                    Items();
                 } else {
                     alert("Slot ist nicht belegt. Versuche es nochmal");
                     close_Tulpas();
