@@ -35,6 +35,8 @@ const TrainerList = {
         Tulpa5: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
         Tulpa6: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
     },
+
+    
 }
 
 async function Trainer000monolog(Trainer){
@@ -51,6 +53,7 @@ async function Trainer000monolog(Trainer){
     TrainerDialogBox.innerHTML = Trainer.text5;
     await Click();
     TrainerDialogBox.style.visibility = "hidden";
+    clearInterval(moveIntervalID);
     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
     activeDirection = "a";
     moveMap();
