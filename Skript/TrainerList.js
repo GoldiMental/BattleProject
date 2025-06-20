@@ -42,6 +42,7 @@ const TrainerList = {
 async function Trainer000monolog(Trainer){
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
     TrainerDialogBox.innerHTML = Trainer.text1;
+    clearInterval(moveIntervalID);
     TrainerDialogBox.style.visibility = "visible";
     await Click();
     TrainerDialogBox.innerHTML = Trainer.text2;
@@ -53,7 +54,6 @@ async function Trainer000monolog(Trainer){
     TrainerDialogBox.innerHTML = Trainer.text5;
     await Click();
     TrainerDialogBox.style.visibility = "hidden";
-    clearInterval(moveIntervalID);
     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
     activeDirection = "a";
     moveMap();
