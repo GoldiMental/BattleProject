@@ -5,13 +5,10 @@ ProffesorTroy: {
         text1: "Willkommen, junger Trainer. Die Welt der Tulpas ist voller Rätsel und du stehst ganz am Anfang",
         text2: "Du hast noch keinen Tulpa? Keine Sorge… hier, nimm diesen.",
         text3: "Er wird dein erster Begleiter sein. Behandelt euch gut, ihr werdet ein starkes Team. Viel Glück auf deiner Reise. Die Welt wartet auf dich!",
-        Tulpa1: {name:"Wolf", Lv: 5, HP: 90, HP_Total: 90, XP: 80, ID: "00002"},
     }
 };
 
-// Hilfsfunktion für Pausen
-function Delay(ms) {
-};
+
 
 
 // Funktion, um den Dialog anzuzeigen
