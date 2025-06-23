@@ -650,7 +650,7 @@ button {
     height: 400px;
     width: 450px;
     text-align: left;
-    float: inline; 
+    float: inline;
     position: absolute;
     color: black;
     overflow-x: hidden;
@@ -865,6 +865,7 @@ button {
 }
 
 .TrainerDialogBox {
+    font-family: 'Courier New', Courier, monospace;
     color: black;
     text-align: center;
     font-size: 22px;
@@ -876,61 +877,38 @@ button {
     background-color: azure;
     border: 5px ridge gray;
 }
-/*hier sind css für shop eingang kaufen,
-verkaufen dialogs and verkaufen*/
-/* Hide by default */
-body {
-  background-color: transparent#9b8989;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 50px;
-}
-
-/* Händler Button (Coin style) */
-#ShopHandel {
-  font-size: 30px;
-  background-color: 9b8989;
-  border: 3px solid #d4af37;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-}
 
 /* Shop Menu Panel */
 #shopMenu {
-  display: none;
-  margin-top: 20px;
-  background-color: transparent;
-  border: 2px solid #4CAF50;
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
+    visibility: hidden;
+    position: absolute;
+    background-color: azure;
+    color: black;
+    right: 5px;
+    top: 5px;
+    border: 5px ridge silver;
+    border-radius: 10px;
+    width: 250px;
 }
 
 .menu-button {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  font-size: 16px;
-  background-color: transparent;
-  border: none;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
+    left:5px;
+    width: 240px;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 3px outset silver;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .menu-button:hover {
-  background-color: transparent;
+    border: 3px outset gold;
 }
 
 #shopOutput {
-  margin-top: 15px;
-  font-size: 16px;
-  color: #ddd;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #ddd;
 }
-

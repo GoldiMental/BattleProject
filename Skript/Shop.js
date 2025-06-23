@@ -1,28 +1,23 @@
-function shopHandel() 
-{
-  const welcome = document.getElementById('welcomeMessage');
-  const shopMenu = document.getElementById('shopMenu');
-  const leaveBtn = document.getElementById('shopMenu');
+const Shops = {
+  Shop_1: ["Tulpaball","Heiltrank"]
+}
 
-  // Show welcome message for 5 seconds, then show shop menu
-    welcome.style.display = 'block';
-    shopMenu.style.display = 'none';
-    setTimeout(function() {
-      welcome.style.display = 'none';
-      shopMenu.style.display = 'flex';
-    }, 5000);
-
-  // When "Verlassen" is clicked, hide menu and show welcome again
-  leaveBtn.onclick = function() {
-    shopMenu.style.display = 'none';
-    showWelcomeThenMenu();
-  };
-
-  // Optional: Actions for buy/sell
-  document.getElementById('buyBtn').onclick = function() {
-    alert('Was möchten Sie kaufen?');
-  };
-  document.getElementById('sellBtn').onclick = function() {
-    alert('Was möchten Sie verkaufen?');
-  };
+async function shopHandel() {
+  clearInterval(moveIntervalID);
+  let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
+  let shopMenu = document.getElementById("shopMenu");
+  monologBox.style.visibility = "visible";
+  monologBox.innerHTML = "Herzlich Willkommen im Shop von Lavazza!"
+  await Click();
+  monologBox.innerHTML = "Wie kann ich Ihnen weiterhelfen?"
+  shopMenu.style.visibility = "visible";
 };
+
+function closeShop() {
+  let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
+  let shopMenu = document.getElementById("shopMenu");
+  shopMenu.style.visibility = "hidden";
+  monologBox.style.visibility = "hidden";
+  moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+}
+
