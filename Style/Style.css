@@ -78,7 +78,7 @@ button {
     right: -500px;
     height: 200px;
     width: 200px;
-    transition: right 0.3s linear, opacity 0.5s ease,transform 0.5s linear;
+    transition: right 0.3s linear, opacity 0.5s ease, transform 0.5s linear;
 }
 
 #self {
@@ -458,8 +458,8 @@ button {
     text-decoration: underline;
 }
 
-#Item_List{
-    max-height:370px;
+#Item_List {
+    max-height: 370px;
     overflow-x: auto;
     text-align: left;
 }
@@ -470,18 +470,18 @@ button {
     text-align: left;
     border: none;
     height: 30px;
-    width:250px;
+    width: 250px;
     margin-bottom: 2px;
     border-radius: 3px;
-    color:black;
+    color: black;
 }
 
-.Item_list:not(:disabled):hover{
+.Item_list:not(:disabled):hover {
     background-color: gray;
 }
 
-.Item_list:disabled{
-    color:black;
+.Item_list:disabled {
+    color: black;
 }
 
 .retro-popup-text {
@@ -857,10 +857,10 @@ button {
 #tulpaball {
     position: absolute;
     background-image: url(../img/textures/tBall.png);
-    height:50px;
-    width:50px;
-    top:350px;
-    left:0px;
+    height: 50px;
+    width: 50px;
+    top: 350px;
+    left: 0px;
     transition: left 0.1s linear, top 0.1s linear;
 }
 
@@ -870,9 +870,67 @@ button {
     font-size: 22px;
     visibility: hidden;
     position: absolute;
-    bottom:0px;
-    height:100px;
-    width:490px;
+    bottom: 0px;
+    height: 100px;
+    width: 490px;
     background-color: azure;
     border: 5px ridge gray;
 }
+/*hier sind css für shop eingang kaufen,
+verkaufen dialogs and verkaufen*/
+/* Hide by default */
+body {
+  background-color: transparent#9b8989;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+
+/* Händler Button (Coin style) */
+#ShopHandel {
+  font-size: 30px;
+  background-color: 9b8989;
+  border: 3px solid #d4af37;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+/* Shop Menu Panel */
+#shopMenu {
+  display: none;
+  margin-top: 20px;
+  background-color: transparent;
+  border: 2px solid #4CAF50;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu-button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  background-color: transparent;
+}
+
+#shopOutput {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #ddd;
+}
+
