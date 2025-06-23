@@ -890,7 +890,19 @@ button {
     border-radius: 10px;
     width: 250px;
 }
-
+#ShopBuyList{
+    visibility: hidden;
+    position: absolute;
+    background-color: azure;
+    color: black;
+    left: 5px;
+    top: 5px;
+    border: 5px ridge silver;
+    border-radius: 10px;
+    width: 300px;
+    max-height: 400px;
+    text-align: center;
+}
 .menu-button {
     left:5px;
     width: 240px;
@@ -907,8 +919,34 @@ button {
     border: 3px outset gold;
 }
 
-#shopOutput {
-    margin-top: 15px;
-    font-size: 16px;
-    color: #ddd;
+.number_input{
+    position: relative;
+    left: 5px;
+    width: 50px;
+    float: left;
+}
+
+.BuyButton{
+    position: absolute;
+    right: 5px;
+    background-color: transparent;
+    border: 3px outset silver;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.BuyButton:hover {
+    border: 3px outset gold;
+}
+
+.productcost{
+    position: absolute;
+    width: 100px;
+    left: 60px;
+}
+
+.producttitle{
+   text-decoration: underline;
+   font-weight: bold;
+   margin-bottom: 2px;
 }
