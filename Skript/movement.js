@@ -77,6 +77,14 @@ function moveMap() {
         }
     }
     if (activeMap == "MeinHaus") {
+        for (let i = 0; i < maps[activeMap].tulpaPc.length; i++) {
+            const area = maps[activeMap].tulpaPc[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                document.getElementsByClassName("Tulpa-PC")[0].style.visibility = "visible";
+            } else {
+                document.getElementsByClassName("Tulpa-PC")[0].style.visibility = "hidden";
+            }
+        }
         for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
             const area = maps[activeMap].selfHome[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {

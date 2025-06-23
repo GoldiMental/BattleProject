@@ -123,6 +123,9 @@ var maps = {
         selfHome: [
             { minX: 125, maxX: 125, minY: 25, maxY: 25 },
         ],
+        tulpaPc: [
+            { minX: 225, maxX: 225, minY: 125, maxY: 125 },
+        ],
     },
     ShopHaus:{
         name:"ShopHaus",

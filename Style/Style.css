@@ -611,6 +611,52 @@ button {
     width: 50px;
 }
 
+#TulpaPC-Button {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🖥️</text></svg>");
+    background-size: 30px;
+    background-color: transparent;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    position: absolute;
+    border: none;
+    top: 66px;
+    left: 5px;
+    height: 45px;
+    width: 18px;
+    visibility: hidden;
+}
+
+#TulpaPC-Button:hover {
+    opacity: 1;
+}
+
+#TulpaPC {
+    text-align: left;
+    float: inline; 
+    visibility: hidden;
+        position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 450px;
+    width: 450px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color: silver;
+    border: 5px outset azure;
+    border-radius: 10px;
+}
+
+#TulpaPC_List {
+    height: 400px;
+    width: 450px;
+    text-align: left;
+    float: inline; 
+    position: absolute;
+    color: black;
+}
+
 .MeinHaus_B {
     top: 250px;
     left: 350px;
