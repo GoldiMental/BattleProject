@@ -60,6 +60,7 @@ else {
             }
         },
         defeatedTrainer: [],
+        tulpaGegeben: false,
     }
     setCookie("PlayerData", JSON.stringify(Player), 30);
 }
