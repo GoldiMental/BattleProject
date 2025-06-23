@@ -26,4 +26,3 @@ async function Professor001monolog() {
     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
     TrainerDialogBox.style.visibility = "hidden";
 };
-
