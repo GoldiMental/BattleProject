@@ -556,7 +556,7 @@ async function UseDrink(drink) {
     changeTulpa();
     document.getElementById('change_tulpa').style.visibility = "visible";
     await Delay(100);
-    let antwort = prompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
+    let antwort = await showCustomPrompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
     if (antwort > 0 && antwort <= 6) {
         let slot = "Slot_" + antwort;
         if (Player.Tulpas[slot].name != "") {

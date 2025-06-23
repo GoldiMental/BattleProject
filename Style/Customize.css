@@ -1,6 +1,6 @@
 .custom-modal-overlay {
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -20,28 +20,28 @@
 }
 
 .custom-modal-content {
-    background-color: #2d3748;
+    background-color: silver;
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
     max-width: 400px;
     width: 90%;
     text-align: center;
-    border: 1px solid #4a5568;
+    border: 5px inset azure;
 }
 
 .custom-modal-title {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #edf2f7;
+    color: black;
 }
 
 .custom-modal-message {
     margin-bottom: 1.5rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: #cbd5e0;
+    color: black;
 }
 
 .custom-modal-input {
@@ -49,18 +49,18 @@
     padding: 10px;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
-    border: 1px solid #4a5568;
+    border: 1px solid azure;
     border-radius: 6px;
-    background-color: #4a5568;
-    color: #edf2f7;
+    background-color: silver;
+    color: black;
     font-size: 1rem;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .custom-modal-input:focus {
-    border-color: #63b3ed;
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    border-color: gold;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5);
 }
 
 .custom-modal-buttons {
