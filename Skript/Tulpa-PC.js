@@ -7,13 +7,13 @@ function TulpaPC() {
     for (Tulpa in pcTulpas) {
             let tulpa = pcTulpas[Tulpa];
             if (tulpa.name != "") {
-        html += '<div style="display:block;margin-bottom:5px;"><div class="' + tulpa.name + '"></div><br>' +
+        html += '<div><div class="' + tulpa.name + '"></div><br>' +
+        '<div style="position:relative;left:60px;" class="TulpaPC_01">' + "</br>" + pcTulpas[Tulpa].name + " " + "Lv." + pcTulpas[Tulpa].Lv + ' HP:' + pcTulpas[Tulpa].HP + '/' + pcTulpas[Tulpa].HP_Total + '</div>' +
         '<div class="LP_Bar">' +
-        '<div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div>' +
-        '<div class="TulpaPC_01">' + "</br>" + pcTulpas[Tulpa].name + " " + "Level: " + pcTulpas[Tulpa].Lv + '</div>' ;
-        '</div>'
-        //'<button class="Change_Tulpa" onclick="swapTulpa(\'' + Slot + '\');Click()">🔄️</button>' +
-        //'<button class="Delete_Tulpa" onclick="removeTulpa(\'' + Slot + '\');Click()">🗑️</button></div>';
+        '<div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div>' +   
+        '</div>' +
+        '<button class="Change_Tulpa" ;Click()">🔄️</button>' +
+        '<button class="Delete_Tulpa" ;Click()">🗑️</button></div>';
       }
 }        
     document.getElementById('TulpaPC_List').innerHTML = html;
