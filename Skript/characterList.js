@@ -13,6 +13,7 @@ const Professor = {
 
 async function Professor001monolog() {
     const box = document.getElementsByClassName("TrainerDialogBox")[0];
+    document.getElementById("ProfessorButton").style.visibility = "hidden";
     clearInterval(moveIntervalID);
     box.style.visibility = "visible";
 
@@ -35,4 +36,5 @@ async function Professor001monolog() {
 
     box.style.visibility = "hidden";
     moveIntervalID = setInterval(() => activeDirection && moveMap(), moveInterval);
+    document.getElementById("ProfessorButton").style.visibility = "visible";
         }
