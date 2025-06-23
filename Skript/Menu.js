@@ -25,7 +25,7 @@ async function Cheat() {
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             break;
         case "CHANGENAME":
-            let newName = prompt("Gib deinen neuen Namen ein:", "Max");
+            let newName = await showCustomPrompt("Gib deinen neuen Namen ein:", "Max");
             Player.name = newName;
             Player.Cheats += 1;
             setCookie("PlayerData", JSON.stringify(Player), 30);
