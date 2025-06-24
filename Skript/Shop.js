@@ -97,3 +97,108 @@ function BuyThis(idnr) {
     showCustomAlert("Das scheint mir, als könntest Du dir das nicht leisten.")
   }
 }
+
+
+function sellItems() {
+  let ShopSellList = document.getElementById("ShopSellList");
+  let html = "";
+  ShopSellList.style.visibility = "visible";
+
+  for (itm in Shops[activeShop]) {
+    let itemId = Shops[activeShop][itm];
+    let itemName = Item_List[itemId].name;
+    let itemPrice = Item_List[itemId].price;
+    let playerQty = getPlayerItemQty(itemName);
+
+    if (playerQty > 0) {
+      html += '<div style="height:50px;"><div class="producttitle">' + itemName + ' (x' + playerQty + ')</div>' +
+        '<input id="sellqty_' + itm + '" class="number_input" type="number" min="1" max="' + playerQty + '" onchange="calculateSell(this.value ,\'sellproduct_' + itm + '\' ,' + itemPrice + ')" value="1">' +
+        '<div class="productcost" id="sellproduct_' + itm + '">' + itemPrice + ' Gold</div>' +
+        '<button class="SellButton" onclick="SellThis(' + itm + ')">Sell</button></div>';
+    }
+  }
+
+  html += '<button class="ExitSellButton" onclick="close_SellList()">Exit</button>';
+  ShopSellList.innerHTML = html;
+}
+
+function calculateSell(qty, Product, Price) {
+  let output = document.getElementById(Product);
+  output.innerHTML = qty * Price + " Gold";
+}
+
+function close_SellList() {
+  document.getElementById("ShopSellList").style.visibility = "hidden";
+}
+
+function getPlayerItemQty(itemName) {
+  switch (itemName) {
+    case "Tulpaball": return Player.inventory.balls.Tulpaball;
+    case "Super Tulpaball": return Player.inventory.balls.Super_Tulpaball;
+    case "Hyper Tulpaball": return Player.inventory.balls.Hyper_Tulpaball;
+    case "Ultra Tulpaball": return Player.inventory.balls.Ultra_Tulpaball;
+    case "Heiltrank": return Player.inventory.drinks.Heiltrank;
+    case "Super Heiltrank": return Player.inventory.drinks.Super_Heiltrank;
+    case "Manatrank": return Player.inventory.drinks.Manatrank;
+    case "Super Manatrank": return Player.inventory.drinks.Super_Manatrank;
+    case "Bonbon": return Player.inventory.bonbons.Bonbon;
+    case "Super Bonbon": return Player.inventory.bonbons.Super_Bonbon;
+    case "Hyper Bonbon": return Player.inventory.bonbons.Hyper_Bonbon;
+    default: return 0;
+  }
+}
+
+function SellThis(idnr) {
+  let itemId = Shops[activeShop][idnr];
+  let product = Item_List[itemId].name;
+  let qty = parseInt(document.getElementById("sellqty_" + idnr).value);
+  let price = qty * Item_List[itemId].price;
+
+  let currentQty = getPlayerItemQty(product);
+
+  if (currentQty >= qty) {
+    switch (product) {
+      case "Tulpaball":
+        Player.inventory.balls.Tulpaball -= qty;
+        break;
+      case "Super Tulpaball":
+        Player.inventory.balls.Super_Tulpaball -= qty;
+        break;
+      case "Hyper Tulpaball":
+        Player.inventory.balls.Hyper_Tulpaball -= qty;
+        break;
+      case "Ultra Tulpaball":
+        Player.inventory.balls.Ultra_Tulpaball -= qty;
+        break;
+      case "Heiltrank":
+        Player.inventory.drinks.Heiltrank -= qty;
+        break;
+      case "Super Heiltrank":
+        Player.inventory.drinks.Super_Heiltrank -= qty;
+        break;
+      case "Manatrank":
+        Player.inventory.drinks.Manatrank -= qty;
+        break;
+      case "Super Manatrank":
+        Player.inventory.drinks.Super_Manatrank -= qty;
+        break;
+      case "Bonbon":
+        Player.inventory.bonbons.Bonbon -= qty;
+        break;
+      case "Super Bonbon":
+        Player.inventory.bonbons.Super_Bonbon -= qty;
+        break;
+      case "Hyper Bonbon":
+        Player.inventory.bonbons.Hyper_Bonbon -= qty;
+        break;
+      default:
+        break;
+    }
+    Player.Gold += price;
+    setCookie("PlayerData", JSON.stringify(Player), 30);
+    showCustomAlert("Du hast " + qty + "x " + product + " für " + price + " Gold verkauft!");
+    sellItems(); // UI neu laden
+  } else {
+    showCustomAlert("Du hast nicht genug " + product + " zum Verkaufen.");
+  }
+}

@@ -950,3 +950,17 @@ button {
    font-weight: bold;
    margin-bottom: 2px;
 }
+
+#ShopSellList{
+    visibility: hidden;
+    position: absolute;
+    background-color: azure;
+    color: black;
+    left: 5px;
+    top: 5px;
+    border: 5px ridge silver;
+    border-radius: 10px;
+    width: 300px;
+    max-height: 400px;
+    text-align: center;
+}
