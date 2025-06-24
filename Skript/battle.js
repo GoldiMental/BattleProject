@@ -199,7 +199,7 @@ async function opp_Attack() {
     await Delay(200);
     document.getElementById('Tulpa-opp').style.right = "10px";
     await Delay(1000);
-    let dmg = Math.round((Tulpas[tulpa_opp.toString()].ANG - (Math.random() * 0.5 * Tulpas[tulpa_self.name].VER) + parseInt(tulpa_opp_lv)) * (1 + (Attacks[attack].ATK_Power / 10)));
+    let dmg = Attacks[attack].ATK_Power + (tulpa_opp_lv * 2);
     tulpa_self.HP -= dmg;
     //console.log(dmg); // Log für Gegnerschaden
     if (tulpa_self.HP > 0) {
@@ -293,7 +293,7 @@ async function self_attack(attack) {
         let tulpa_opp = document.getElementById('Name-opp').innerHTML;
         let tulpa_opp_name = tulpa_opp.split(' ')[0];
         let tulpa_opp_lv = tulpa_opp.split(' ')[2];
-        let dmg = Math.round((Tulpas[tulpa_self.name].ANG - (Math.random() * 0.5 * Tulpas[tulpa_opp_name].VER) + tulpa_self.Lv) * (1 + (Attacks[attack].ATK_Power / 10)));
+        let dmg = Attacks[attack].ATK_Power + (tulpa_self.Lv * 2);
         //console.log(dmg); //Log für Spielerschaden
         document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play();
