@@ -239,9 +239,32 @@ async function opp_Attack() {
             };
             setCookie("PlayerData", JSON.stringify(Player), 30);
             document.getElementById('bg03-sound').play();
-            document.getElementById("movement_game").style.visibility = "visible";
+            document.getElementById("movement_game").style.visibility = "hidden";
             document.getElementById("battle_game").style.visibility = "hidden";
             document.getElementById("battle_menu").style.visibility = "hidden";
+            document.getElementById("GameOver").style.visibility = "visible";
+            await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf gewählt";
+            await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf gewählt.";
+            await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf gewählt..";
+            await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf gewählt...";
+            await Delay(800);
+            document.getElementById("Countdown").innerHTML = "";
+            await Delay(1000);
+            document.getElementById("Countdown").innerHTML = "Transport nach Hause";
+            await Delay(500);
+            document.getElementById("Countdown").innerHTML = "Transport nach Hause.";
+            await Delay(500);
+            document.getElementById("Countdown").innerHTML = "Transport nach Hause..";
+            await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Transport nach Hause...";
+            await Delay(800)
+            document.getElementById("Countdown").innerHTML = "WACH AUF!!!";
+            await Delay(500);
+            location.reload();
             document.getElementById('Name-opp').style.opacity = "0";
             document.getElementById('LP-opp').style.opacity = "0";
             document.getElementById('Name-self').style.opacity = "0";

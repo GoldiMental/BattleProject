@@ -420,7 +420,7 @@ async function shopAusgang() {
     // Position zurücksetzen (Startpunkt der Hauskarte)
     mapX = maps[activeMap].startStadtX;
     mapY = maps[activeMap].startStadtY;
-    console.log(mapX, mapY)
+    //console.log(mapX, mapY) //Log
 
     // Aktive Map aktualisieren
     activeMap = mapName;

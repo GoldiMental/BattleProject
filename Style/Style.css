@@ -964,3 +964,19 @@ button {
     max-height: 400px;
     text-align: center;
 }
+#GameOver{
+    visibility: hidden;
+    position: absolute;
+    height:100px;
+    width:500px;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    top:500px;
+    text-shadow:5px 5px 10px gold;
+}
+#Countdown{
+    color: silver;
+    font-size: 30px;
+    text-shadow: 5px 5px 10px azure;
+}
