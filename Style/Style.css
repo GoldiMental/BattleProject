@@ -246,9 +246,9 @@ button {
 }
 
 .MAP {
-    width: 3250px;
+    width: 4750px;
     height: 1200px;
-    background-image: url(../img/textures/MAP03.gif);
+    background-image: url(../img/textures/Map04.1.2.gif);
 }
 
 .MeinHaus {
@@ -295,7 +295,7 @@ button {
 }
 
 #Karte_info {
-    background-image: url(../img/textures/MAP03.gif);
+    background-image: url(../img/textures/Map04.1.png);
     background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
@@ -562,7 +562,7 @@ button {
     background-position: 50%;
     position: absolute;
     top: 750px;
-    right: 300px;
+    left: 2900px;
     height: 50px;
     width: 50px;
 }
@@ -573,7 +573,7 @@ button {
     background-position: 50%;
     position: absolute;
     top: 450px;
-    right: 1900px;
+    left: 1300px;
     height: 50px;
     width: 50px;
 }

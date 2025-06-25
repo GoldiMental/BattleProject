@@ -2,7 +2,7 @@ var maps = {
     MAP: {
         name: "MAP",
         Height: 1250,
-        Width: 3250,
+        Width: 4750,
         startX: -25,
         startY: -75,
         blockedArea: [
@@ -30,14 +30,14 @@ var maps = {
             { minX: -425, maxX: -425, minY: -525, maxY: -475 },
             { minX: -775, maxX: -775, minY: -475, maxY: -425 },
             { minX: -1075, maxX: -1075, minY: -225, maxY: -225 },
-            //Map anhang. 
+            //Map(Hohes Gras). 
             { minX: -1475, maxX: -1475, minY: -250, maxY: 250 },
             { minX: -1575, maxX: -1525, minY: -125, maxY: 250 },
             { minX: -1975, maxX: -1625, minY: -125, maxY: -75 },
             { minX: -1852, maxX: -1625, minY: 175, maxY: 225 },
             { minX: -2975, maxX: -1875, minY: 125, maxY: 225 },
             { minX: -2975, maxX: -2875, minY: -475, maxY: 225 },
-            { minX: -2975, maxX: -2925, minY: -625, maxY: -525 },
+            //{ minX: -2975, maxX: -2925, minY: -625, maxY: -525 },
             { minX: -2825, maxX: -2625, minY: -475, maxY: -475 },
             { minX: -2625, maxX: -2625, minY: -525, maxY: -525 },
             { minX: -2975, maxX: -2325, minY: -825, maxY: -675 },
@@ -46,6 +46,8 @@ var maps = {
             { minX: -2275, maxX: -1475, minY: -775, maxY: -725 },
             { minX: -1625, maxX: -1475, minY: -675, maxY: -475 },
             { minX: -1475, maxX: -1475, minY: -425, maxY: -375 },
+            //Map(DunkelWald).
+            
         ],
         //BattleMapZone. 
         battleArea: [
@@ -104,6 +106,20 @@ var maps = {
             { minX: -175, maxX: -175, minY: 125, maxY: 125 },
         ],
     },
+
+    ZoneAreal:{
+        Lavazza:[
+
+        ],
+        HohesGras:[
+
+            
+        ],
+        Dunkelwald:[
+,
+        ],
+    },
+
     MeinHaus:{
         name:"MeinHaus",
         Height: 250,
