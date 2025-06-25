@@ -46,8 +46,8 @@ var maps = {
             { minX: -2275, maxX: -1475, minY: -775, maxY: -725 },
             { minX: -1625, maxX: -1475, minY: -675, maxY: -475 },
             { minX: -1475, maxX: -1475, minY: -425, maxY: -375 },
-            //Map(DunkelWald).
-            
+            //Map(DunkelWald). Max=Min und Min=Max!!!!
+            { minX: -3175, maxX: -3025, minY: -475, maxY: -125 },
         ],
         //BattleMapZone. 
         battleArea: [
