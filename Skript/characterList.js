@@ -8,6 +8,7 @@ const Professor = {
         text5: "Es wird dein erster Begleiter sein. Behandele es gut und Ihr werdet ein starkes Team.",
         text6: "Fang an zu trainieren und melde dich ab und zu, damit ich eure Entwicklung verfolgen kann.",
         text7: "Weiter westlich von hier, findest du einen kleinen Shop. Vielleicht siehst du mal vorbei, ob es etwas nützliches gibt.",
+        text8: "In einem Shop kannst du deine Tulpas auch kostenlos heilen lassen.",
     },
 };
 
@@ -31,7 +32,9 @@ async function Professor001monolog() {
         await Click();
         box.innerHTML = Professor.Dialog1.text7;
         await Click();
-        box.innerHTML = "Also los geht die Reise!<br>Viel Erfolg, "+Player.name+"!";
+        box.innerHTML = Professor.Dialog1.text8;
+        await Click();
+        box.innerHTML = "Also los! Deine Reise beginnt...<br>Viel Erfolg, "+Player.name+"!";
         await Click();
         Player.Tulpas.Slot_1 = { name: "Kaninchen", Lv: 5, HP: 65, HP_Total: 65, XP: 0 };
         Player.tulpaGegeben = true;
