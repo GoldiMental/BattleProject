@@ -11,7 +11,7 @@ async function showCustomPrompt(message, defaultValue = '') {
         resolveModalPromise = resolve;
         customModalTitle.textContent = "Eingabe erforderlich";
         customModalMessage.textContent = message;
-        customModalInput.value = defaultValue;
+        customModalInput.placeholder = defaultValue;
         customModalInput.classList.remove('hidden');
         customModalCancelButton.classList.remove('hidden');
         customModalOverlay.classList.add('visible');

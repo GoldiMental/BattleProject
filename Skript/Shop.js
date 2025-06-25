@@ -1,5 +1,5 @@
 const Shops = {
-  Shop_1: ["Tulpaball", "Heiltrank", "Hyper_Tulpaball"],
+  Shop_1: ["Tulpaball", "Heiltrank"],
   Shop_2: ["Tulpaball", "Heiltrank", "Super_Tulpaball"],
 }
 
@@ -7,12 +7,13 @@ let activeShop = "";
 
 async function shopHandel(SHOP) {
   clearInterval(moveIntervalID);
+  document.getElementById("ShopHandel").style.visibility = "hidden";
   activeShop = SHOP;
   let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
   let shopMenu = document.getElementById("shopMenu");
   monologBox.style.visibility = "visible";
   monologBox.innerHTML = "Herzlich Willkommen im Shop von Lavazza!"
-  await Click();
+  await Delay(100); await Click();
   monologBox.innerHTML = "Wie kann ich Ihnen weiterhelfen?"
   shopMenu.style.visibility = "visible";
 };
@@ -22,12 +23,14 @@ function closeShop() {
   let shopMenu = document.getElementById("shopMenu");
   shopMenu.style.visibility = "hidden";
   monologBox.style.visibility = "hidden";
+  document.getElementById("ShopHandel").style.visibility = "visible";
   moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
 }
 
 function buyItems() {
   let ShopBuyList = document.getElementById("ShopBuyList");
   let html = "";
+  document.getElementById("shopMenu").style.visibility = "hidden";
   ShopBuyList.style.visibility = "visible";
   for (itm in Shops[activeShop]) {
     html += '<div style="height:50px;"><div class="producttitle">' + Item_List[Shops[activeShop][itm]].name + '</div>' +
@@ -46,6 +49,7 @@ function calculate(qty, Product, Price) {
 
 function close_BuyList() {
   document.getElementById("ShopBuyList").style.visibility = "hidden";
+  document.getElementById("shopMenu").style.visibility = "visible";
 }
 
 function BuyThis(idnr) {
@@ -102,6 +106,7 @@ function BuyThis(idnr) {
 function sellItems() {
   let ShopSellList = document.getElementById("ShopSellList");
   let html = "";
+  document.getElementById("shopMenu").style.visibility = "hidden";
   ShopSellList.style.visibility = "visible";
 
   for (itm in Shops[activeShop]) {
@@ -129,6 +134,7 @@ function calculateSell(qty, Product, Price) {
 
 function close_SellList() {
   document.getElementById("ShopSellList").style.visibility = "hidden";
+  document.getElementById("shopMenu").style.visibility = "visible";
 }
 
 function getPlayerItemQty(itemName) {
@@ -201,4 +207,18 @@ function SellThis(idnr) {
   } else {
     showCustomAlert("Du hast nicht genug " + product + " zum Verkaufen.");
   }
+}
+
+async function healTulpas(){
+  Player.Tulpas.Slot_1.HP = Player.Tulpas.Slot_1.HP_Total;
+  Player.Tulpas.Slot_2.HP = Player.Tulpas.Slot_2.HP_Total;
+  Player.Tulpas.Slot_3.HP = Player.Tulpas.Slot_3.HP_Total;
+  Player.Tulpas.Slot_4.HP = Player.Tulpas.Slot_4.HP_Total;
+  Player.Tulpas.Slot_5.HP = Player.Tulpas.Slot_5.HP_Total;
+  Player.Tulpas.Slot_6.HP = Player.Tulpas.Slot_6.HP_Total;
+  setCookie("PlayerData", JSON.stringify(Player), 30);
+  document.getElementsByClassName("TrainerDialogBox")[0].innerHTML = "Alle Deine Tulpas, die Du bei dir hast, wurden vollständig geheilt!";
+  await Delay(1500);
+  document.getElementsByClassName("TrainerDialogBox")[0].innerHTML = "Wie kann ich Ihnen weiterhelfen?";
+
 }

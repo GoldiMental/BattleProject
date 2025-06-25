@@ -168,7 +168,7 @@ function moveMap() {
     }
     mapX = newMapX;
     mapY = newMapY;
-    //console.log(mapX, mapY); //Log für Koordinaten
+    console.log(mapX, mapY); //Log für Koordinaten
     if (direction) {
         player.className = 'Player m_' + direction;
     }
@@ -439,4 +439,8 @@ async function shopAusgang() {
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";
     //console.log("Eintritt in mein Haus erfolgreich!");
+}
+
+function zonenName () {
+    console.log()
 }

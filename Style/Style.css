@@ -13,6 +13,28 @@ body {
     user-select: none;
 }
 
+a {
+    color: black;
+    width: 350px;
+    font-size: 20px;
+    background-color: silver;
+    border: 3px outset azure;
+    border-radius: 10px;
+    margin-top: 5px;
+    padding: 2px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+a:hover {
+    border: 3px outset gold;
+    box-shadow: 0px 0px 15px gold;
+    background-color: gold;
+}
+
+a:active {
+    border: 3px inset gold;
+}
+
 button {
     cursor: pointer;
 }
@@ -166,6 +188,7 @@ button {
     opacity: 0.65;
     border: none;
     border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
 }
 
 #Menu:not(:disabled):hover {
@@ -189,10 +212,15 @@ button {
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .button:not(:disabled):hover {
     border-color: gold;
+}
+
+.button:not(:disabled):active{
+    border: 5px ridge gold;
 }
 
 .Player {
@@ -246,9 +274,9 @@ button {
 }
 
 .MAP {
-    width: 3250px;
+    width: 4750px;
     height: 1200px;
-    background-image: url(../img/textures/MAP03.gif);
+    background-image: url(../img/textures/Map04.1.2.gif);
 }
 
 .MeinHaus {
@@ -280,6 +308,7 @@ button {
     border: 5px outset azure;
     border-radius: 10px;
     padding: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .MenuList {
@@ -292,10 +321,11 @@ button {
     font-family: 'Courier New', Courier, monospace;
     border: 5px outset azure;
     border-radius: 10px 5px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 #Karte_info {
-    background-image: url(../img/textures/MAP03.gif);
+    background-image: url(../img/textures/Map04.1.png);
     background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
@@ -318,7 +348,13 @@ button {
 }
 
 .MenuList:not(:disabled):hover {
+    background-color: gold;
     border-color: gold;
+    box-shadow: 0 0 10px gold;
+}
+
+.MenuList:not(:disabled):active{
+    border: 5px inset gold;
 }
 
 #Tulpa_Dex {
@@ -362,10 +398,17 @@ button {
     font-family: 'Courier New', Courier, monospace;
     border: 5px outset azure;
     border-radius: 10px 5px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .Exit_Button:not(:disabled):hover {
+    background-color: gold;
     border-color: gold;
+    box-shadow:0 0 10px gold;
+}
+
+.Exit_Button:not(:disabled):active{
+    border: 5px inset gold;
 }
 
 .retro-popup {
@@ -474,6 +517,7 @@ button {
     margin-bottom: 2px;
     border-radius: 3px;
     color: black;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .Item_list:not(:disabled):hover {
@@ -550,6 +594,7 @@ button {
     border: none;
     border-radius: 3px;
     font-family: 'Courier New', Courier, monospace;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .battle_Button:not(:disabled):hover {
@@ -562,7 +607,7 @@ button {
     background-position: 50%;
     position: absolute;
     top: 750px;
-    right: 300px;
+    left: 2900px;
     height: 50px;
     width: 50px;
 }
@@ -573,7 +618,7 @@ button {
     background-position: 50%;
     position: absolute;
     top: 450px;
-    right: 1900px;
+    left: 1300px;
     height: 50px;
     width: 50px;
 }
@@ -625,6 +670,7 @@ button {
     height: 45px;
     width: 18px;
     visibility: hidden;
+    transition: opacity 0.2s ease;
 }
 
 #TulpaPC-Button:hover {
@@ -682,6 +728,7 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .Inside:hover {
@@ -719,6 +766,7 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
+    transition: opacity 0.2s ease;
 }
 
 .Handler {
@@ -733,6 +781,7 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
+    transition: opacity 0.2s ease;
 }
 
 .Handler:hover {
@@ -783,6 +832,7 @@ button {
     border: none;
     border-radius: 5px;
     font-size: larger;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .Change_Tulpa {
@@ -794,6 +844,7 @@ button {
     border: none;
     border-radius: 5px;
     font-size: larger;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .Delete_Tulpa:not(:disabled):hover,
@@ -848,6 +899,7 @@ button {
     height: 30px;
     margin-bottom: 5px;
     border-radius: 3px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .change_tulpa_button:not(:disabled):hover {
@@ -878,7 +930,6 @@ button {
     border: 5px ridge gray;
 }
 
-/* Shop Menu Panel */
 #shopMenu {
     visibility: hidden;
     position: absolute;
@@ -890,7 +941,8 @@ button {
     border-radius: 10px;
     width: 250px;
 }
-#ShopBuyList{
+
+#ShopBuyList {
     visibility: hidden;
     position: absolute;
     background-color: azure;
@@ -900,11 +952,13 @@ button {
     border: 5px ridge silver;
     border-radius: 10px;
     width: 300px;
-    max-height: 400px;
+    max-height: 350px;
+    overflow-y: auto;
     text-align: center;
 }
+
 .menu-button {
-    left:5px;
+    left: 5px;
     width: 240px;
     margin: 10px 0;
     padding: 10px;
@@ -913,45 +967,81 @@ button {
     border: 3px outset silver;
     border-radius: 6px;
     cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .menu-button:hover {
+    background-color: gold;
     border: 3px outset gold;
+    box-shadow: 0 0 10px gold;
 }
 
-.number_input{
+.menu-button:active{
+    border: 3px inset gold;
+}
+
+.number_input {
     position: relative;
     left: 5px;
     width: 50px;
     float: left;
 }
 
-.BuyButton{
+.BuyButton,
+.SellButton {
     position: absolute;
     right: 5px;
     background-color: transparent;
     border: 3px outset silver;
     border-radius: 6px;
     cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-.BuyButton:hover {
+.BuyButton:hover,
+.SellButton:hover {
+    background-color: gold;
     border: 3px outset gold;
+    box-shadow: gold;
 }
 
-.productcost{
+.BuyButton:active, .SellButton:active{
+    border: 3px inset gold;
+}
+
+.ExitBuyButton,
+.ExitSellButton {
+    background-color: transparent;
+    border: 3px outset silver;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.ExitBuyButton:hover,
+.ExitSellButton:hover {
+    background-color: gold;
+    border: 3px outset gold;
+    box-shadow: gold;
+}
+
+.ExitBuyButton:active, .ExitSellButton:active{
+    border: 3px inset gold;
+}
+
+.productcost {
     position: absolute;
     width: 100px;
     left: 60px;
 }
 
-.producttitle{
-   text-decoration: underline;
-   font-weight: bold;
-   margin-bottom: 2px;
+.producttitle {
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 2px;
 }
 
-#ShopSellList{
+#ShopSellList {
     visibility: hidden;
     position: absolute;
     background-color: azure;
@@ -961,21 +1051,24 @@ button {
     border: 5px ridge silver;
     border-radius: 10px;
     width: 300px;
-    max-height: 400px;
+    max-height: 350px;
+    overflow-y: auto;
     text-align: center;
 }
-#GameOver{
+
+#GameOver {
     visibility: hidden;
     position: absolute;
-    height:100px;
-    width:500px;
+    height: 100px;
+    width: 500px;
     font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     color: red;
-    top:500px;
-    text-shadow:5px 5px 10px gold;
+    top: 500px;
+    text-shadow: 5px 5px 10px gold;
 }
-#Countdown{
+
+#Countdown {
     color: silver;
     font-size: 30px;
     text-shadow: 5px 5px 10px azure;
