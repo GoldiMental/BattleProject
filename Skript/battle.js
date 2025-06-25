@@ -321,10 +321,13 @@ async function self_attack(attack) {
             await Delay(2000);
             document.getElementById('bg03-sound').play();
             await Delay(500);
-            let exp = Math.round((Tulpas[tulpa_opp_name].HP / Tulpas[tulpa_opp_name].ANG) / tulpa_self.Lv);
+            let exp = Math.round( ((Tulpas[tulpa_opp_name].HP_Total + (3 * tulpa_opp_lv)) / 2) );
+            if (tulpa_opp_lv > tulpa_self.Lv) {
+                exp *= 1 + ((tulpa_opp_lv-tulpa_self.Lv)/10);
+            }
             document.getElementById('battle_text').innerText = "Du hast " + exp + " EXP. erhalten!";
             tulpa_self.XP += exp;
-            if (tulpa_self.XP >= 100) {
+            if (tulpa_self.XP >= 100 * (2 ** tulpa_self.Lv)) {
                 tulpa_self.Lv += 1;
                 tulpa_self.XP = 0;
                 tulpa_self.HP += 3;
