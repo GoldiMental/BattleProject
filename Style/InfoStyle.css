@@ -86,3 +86,39 @@ img {
   padding: 40px;
   flex-grow: 1;
 }
+
+#LinkForGame {
+  color:gold;
+  text-align: center;
+  background: radial-gradient(rgb(50,50,50),rgb(100,100,100));
+  padding: 7px;
+  border-radius: 15px;
+  border: 3px outset gold;
+  text-shadow: 0 0 5px gold;
+  box-shadow: 0 0 10px silver;
+  animation: pulse-shadow 2s infinite alternate;
+}
+
+@keyframes pulse-shadow {
+  0% {
+    box-shadow: 0 0 10px silver;
+    text-shadow: 0 0 5px gold;
+  }
+  50% {
+    box-shadow: 0 0 25px gold;
+    text-shadow: 0 0 15px gold;
+  }
+  100% {
+    box-shadow: 0 0 10px silver;
+    text-shadow: 0 0 5px gold;
+  }
+}
+
+#LinkForGame:hover{
+  border: 3px outset rgb(0,0,75);
+  color: rgb(0,0,150);
+}
+
+#LinkForGame:active{
+  border: 3px inset rgb(0,0,75);
+}
