@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background: radial-gradient(rgb(0, 0, 60), rgb(0, 0, 25));
     color: azure;
     min-height: 850px;
     min-width: 600px;
@@ -15,17 +15,19 @@ body {
 
 a {
     color: black;
-    width: 350px;
+    width: 500px;
     font-size: 20px;
     background-color: silver;
     border: 3px outset azure;
     border-radius: 10px;
     margin-top: 5px;
     padding: 2px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    opacity: 0.4;
+    transition: opacity 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 a:hover {
+    opacity: 0.8;
     border: 3px outset gold;
     box-shadow: 0px 0px 15px gold;
     background-color: gold;
@@ -172,8 +174,10 @@ button {
     width: 500px;
     height: 500px;
     border: 15px ridge silver;
-    border-radius: 15px;
+    border-radius: 15px 15px 30px 30px;
     overflow: hidden;
+    background-color: black;
+    box-shadow: 0 0 10px silver;
 }
 
 #Menu {
@@ -184,15 +188,15 @@ button {
     bottom: 10px;
     font-size: 27px;
     font-weight: bolder;
-    background-color: rgba(150, 150, 150);
-    opacity: 0.65;
-    border: none;
+    background-color: silver;
+    opacity: 0.5;
     border-radius: 12px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease-out;
 }
 
 #Menu:not(:disabled):hover {
-    background-color: rgba(255, 215, 0, 0.65);
+    background-color: gold;
+    box-shadow: 0 0 10px gold;
     opacity: 1;
 }
 
@@ -206,21 +210,22 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    background-color: silver;
     color: azure;
-    border: 5px groove silver;
+    border: 3px outset silver;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .button:not(:disabled):hover {
     border-color: gold;
+    background-color: gold;
 }
 
-.button:not(:disabled):active{
-    border: 5px ridge gold;
+.button:not(:disabled):active {
+    border: 5px inset gold;
 }
 
 .Player {
@@ -300,28 +305,28 @@ button {
 #MenuList {
     visibility: hidden;
     position: absolute;
-    background-color: gray;
+    background: radial-gradient(rgb(0, 0, 100), rgb(0, 0, 50));
     height: 450px;
     width: 180px;
     top: 10px;
     right: 10px;
-    border: 5px outset azure;
+    border: 5px ridge azure;
     border-radius: 10px;
     padding: 10px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .MenuList {
     min-height: 30px;
     margin: 5px;
     width: 170px;
-    background-color: silver;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     text-align: left;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
-    border: 5px outset azure;
+    border: 3px outset silver;
     border-radius: 10px 5px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #Karte_info {
@@ -348,13 +353,12 @@ button {
 }
 
 .MenuList:not(:disabled):hover {
-    background-color: gold;
     border-color: gold;
     box-shadow: 0 0 10px gold;
 }
 
-.MenuList:not(:disabled):active{
-    border: 5px inset gold;
+.MenuList:not(:disabled):active {
+    border: 3px inset gold;
 }
 
 #Tulpa_Dex {
@@ -366,9 +370,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge azure;
     border-radius: 10px;
 }
 
@@ -393,22 +397,22 @@ button {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background-color: silver;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
-    border: 5px outset azure;
+    border: 3px outset azure;
     border-radius: 10px 5px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .Exit_Button:not(:disabled):hover {
-    background-color: gold;
     border-color: gold;
-    box-shadow:0 0 10px gold;
+    box-shadow: 0 0 10px gold;
 }
 
-.Exit_Button:not(:disabled):active{
-    border: 5px inset gold;
+.Exit_Button:not(:disabled):active {
+    border: 3px inset gold;
 }
 
 .retro-popup {
@@ -442,9 +446,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge silver;
     border-radius: 10px;
 }
 
@@ -457,9 +461,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge silver;
     border-radius: 10px;
 }
 
@@ -472,9 +476,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge silver;
     border-radius: 10px;
 }
 
@@ -487,9 +491,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge silver;
     border-radius: 10px;
     font-size: large;
 }
@@ -497,7 +501,7 @@ button {
 .Item_Title {
     left: 15px;
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(0, 0, 0);
+    color: silver;
     text-decoration: underline;
 }
 
@@ -516,8 +520,8 @@ button {
     width: 250px;
     margin-bottom: 2px;
     border-radius: 3px;
-    color: black;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    color: silver;
+    transition: background-color 0.5s ease;
 }
 
 .Item_list:not(:disabled):hover {
@@ -525,7 +529,7 @@ button {
 }
 
 .Item_list:disabled {
-    color: black;
+    color: silver;
 }
 
 .retro-popup-text {
@@ -594,7 +598,7 @@ button {
     border: none;
     border-radius: 3px;
     font-family: 'Courier New', Courier, monospace;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .battle_Button:not(:disabled):hover {
@@ -670,7 +674,7 @@ button {
     height: 45px;
     width: 18px;
     visibility: hidden;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.5s ease;
 }
 
 #TulpaPC-Button:hover {
@@ -686,9 +690,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    border: 5px ridge azure;
     border-radius: 10px;
 }
 
@@ -698,7 +702,7 @@ button {
     text-align: left;
     float: inline;
     position: absolute;
-    color: black;
+    color: silver;
     overflow-x: hidden;
 }
 
@@ -728,7 +732,7 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .Inside:hover {
@@ -766,7 +770,7 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.5s ease;
 }
 
 .Handler {
@@ -781,7 +785,7 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.5s ease;
 }
 
 .Handler:hover {
@@ -832,7 +836,7 @@ button {
     border: none;
     border-radius: 5px;
     font-size: larger;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .Change_Tulpa {
@@ -844,7 +848,7 @@ button {
     border: none;
     border-radius: 5px;
     font-size: larger;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .Delete_Tulpa:not(:disabled):hover,
@@ -899,7 +903,7 @@ button {
     height: 30px;
     margin-bottom: 5px;
     border-radius: 3px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .change_tulpa_button:not(:disabled):hover {
@@ -933,8 +937,8 @@ button {
 #shopMenu {
     visibility: hidden;
     position: absolute;
-    background-color: azure;
-    color: black;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    color: silver;
     right: 5px;
     top: 5px;
     border: 5px ridge silver;
@@ -945,8 +949,8 @@ button {
 #ShopBuyList {
     visibility: hidden;
     position: absolute;
-    background-color: azure;
-    color: black;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    color: silver;
     left: 5px;
     top: 5px;
     border: 5px ridge silver;
@@ -958,16 +962,17 @@ button {
 }
 
 .menu-button {
+    font-family: 'Courier New', Courier, monospace;
     left: 5px;
     width: 240px;
     margin: 10px 0;
     padding: 10px;
     font-size: 16px;
-    background-color: transparent;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    color: silver;
     border: 3px outset silver;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    border-radius: 5px;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .menu-button:hover {
@@ -976,14 +981,18 @@ button {
     box-shadow: 0 0 10px gold;
 }
 
-.menu-button:active{
+.menu-button:active {
     border: 3px inset gold;
 }
 
 .number_input {
+    background-color: transparent;
+    border: 3px inset silver;
+    color: silver;
     position: relative;
     left: 5px;
     width: 50px;
+    height:20px;
     float: left;
 }
 
@@ -991,11 +1000,11 @@ button {
 .SellButton {
     position: absolute;
     right: 5px;
-    background-color: transparent;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    color: silver;
     border: 3px outset silver;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    border-radius: 5px;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .BuyButton:hover,
@@ -1005,17 +1014,19 @@ button {
     box-shadow: gold;
 }
 
-.BuyButton:active, .SellButton:active{
+.BuyButton:active,
+.SellButton:active {
     border: 3px inset gold;
 }
 
 .ExitBuyButton,
 .ExitSellButton {
-    background-color: transparent;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    color: silver;
     border: 3px outset silver;
     border-radius: 6px;
     cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .ExitBuyButton:hover,
@@ -1025,7 +1036,8 @@ button {
     box-shadow: gold;
 }
 
-.ExitBuyButton:active, .ExitSellButton:active{
+.ExitBuyButton:active,
+.ExitSellButton:active {
     border: 3px inset gold;
 }
 
@@ -1044,8 +1056,8 @@ button {
 #ShopSellList {
     visibility: hidden;
     position: absolute;
-    background-color: azure;
-    color: black;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    color: silver;
     left: 5px;
     top: 5px;
     border: 5px ridge silver;
