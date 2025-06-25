@@ -890,7 +890,8 @@ button {
     border-radius: 10px;
     width: 250px;
 }
-#ShopBuyList{
+
+#ShopBuyList {
     visibility: hidden;
     position: absolute;
     background-color: azure;
@@ -900,11 +901,13 @@ button {
     border: 5px ridge silver;
     border-radius: 10px;
     width: 300px;
-    max-height: 400px;
+    max-height: 350px;
+    overflow-y: auto;
     text-align: center;
 }
+
 .menu-button {
-    left:5px;
+    left: 5px;
     width: 240px;
     margin: 10px 0;
     padding: 10px;
@@ -919,14 +922,14 @@ button {
     border: 3px outset gold;
 }
 
-.number_input{
+.number_input {
     position: relative;
     left: 5px;
     width: 50px;
     float: left;
 }
 
-.BuyButton{
+.BuyButton, .SellButton{
     position: absolute;
     right: 5px;
     background-color: transparent;
@@ -935,23 +938,34 @@ button {
     cursor: pointer;
 }
 
-.BuyButton:hover {
+.BuyButton:hover, .SellButton:hover {
     border: 3px outset gold;
 }
 
-.productcost{
+.ExitBuyButton, .ExitSellButton {
+    background-color: transparent;
+    border: 3px outset silver;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.ExitBuyButton:hover, .ExitSellButton:hover {
+    border: 3px outset gold;
+}
+
+.productcost {
     position: absolute;
     width: 100px;
     left: 60px;
 }
 
-.producttitle{
-   text-decoration: underline;
-   font-weight: bold;
-   margin-bottom: 2px;
+.producttitle {
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 2px;
 }
 
-#ShopSellList{
+#ShopSellList {
     visibility: hidden;
     position: absolute;
     background-color: azure;
@@ -961,21 +975,24 @@ button {
     border: 5px ridge silver;
     border-radius: 10px;
     width: 300px;
-    max-height: 400px;
+    max-height: 350px;
+    overflow-y: auto;
     text-align: center;
 }
-#GameOver{
+
+#GameOver {
     visibility: hidden;
     position: absolute;
-    height:100px;
-    width:500px;
+    height: 100px;
+    width: 500px;
     font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     color: red;
-    top:500px;
-    text-shadow:5px 5px 10px gold;
+    top: 500px;
+    text-shadow: 5px 5px 10px gold;
 }
-#Countdown{
+
+#Countdown {
     color: silver;
     font-size: 30px;
     text-shadow: 5px 5px 10px azure;

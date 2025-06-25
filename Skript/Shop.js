@@ -28,6 +28,7 @@ function closeShop() {
 function buyItems() {
   let ShopBuyList = document.getElementById("ShopBuyList");
   let html = "";
+  document.getElementById("shopMenu").style.visibility = "hidden";
   ShopBuyList.style.visibility = "visible";
   for (itm in Shops[activeShop]) {
     html += '<div style="height:50px;"><div class="producttitle">' + Item_List[Shops[activeShop][itm]].name + '</div>' +
@@ -46,6 +47,7 @@ function calculate(qty, Product, Price) {
 
 function close_BuyList() {
   document.getElementById("ShopBuyList").style.visibility = "hidden";
+  document.getElementById("shopMenu").style.visibility = "visible";
 }
 
 function BuyThis(idnr) {
@@ -102,6 +104,7 @@ function BuyThis(idnr) {
 function sellItems() {
   let ShopSellList = document.getElementById("ShopSellList");
   let html = "";
+  document.getElementById("shopMenu").style.visibility = "hidden";
   ShopSellList.style.visibility = "visible";
 
   for (itm in Shops[activeShop]) {
@@ -129,6 +132,7 @@ function calculateSell(qty, Product, Price) {
 
 function close_SellList() {
   document.getElementById("ShopSellList").style.visibility = "hidden";
+  document.getElementById("shopMenu").style.visibility = "visible";
 }
 
 function getPlayerItemQty(itemName) {
