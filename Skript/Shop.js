@@ -1,5 +1,5 @@
 const Shops = {
-  Shop_1: ["Tulpaball", "Heiltrank", "Hyper_Tulpaball"],
+  Shop_1: ["Tulpaball", "Heiltrank"],
   Shop_2: ["Tulpaball", "Heiltrank", "Super_Tulpaball"],
 }
 
