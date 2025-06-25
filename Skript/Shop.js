@@ -107,7 +107,7 @@ function sellItems() {
   for (itm in Shops[activeShop]) {
     let itemId = Shops[activeShop][itm];
     let itemName = Item_List[itemId].name;
-    let itemPrice = Item_List[itemId].price;
+    let itemPrice = Item_List[itemId].price_sell;
     let playerQty = getPlayerItemQty(itemName);
 
     if (playerQty > 0) {
@@ -152,7 +152,7 @@ function SellThis(idnr) {
   let itemId = Shops[activeShop][idnr];
   let product = Item_List[itemId].name;
   let qty = parseInt(document.getElementById("sellqty_" + idnr).value);
-  let price = qty * Item_List[itemId].price;
+  let price = qty * Item_List[itemId].price_sell;
 
   let currentQty = getPlayerItemQty(product);
 
