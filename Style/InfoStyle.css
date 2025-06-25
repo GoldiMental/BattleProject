@@ -1,51 +1,60 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(#1e1e3f, #121223);
+  background: radial-gradient(rgb(0,0,70),rgb(0,0,25));
   font-family: 'Press Start 2P', monospace;
-  color: #f0f0f0;
+  color: silver;
   line-height: 1.6;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .container {
-    display: flex;
+  display: flex;
   max-width: 900px;
   margin: 40px auto;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.3);
-  border: 3px solid #f2c94c;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #000;
+  border: 5px ridge #f2c94c;
+  border-radius: 30px 10px;
+  box-shadow: 5px 5px 50px black;
 }
 
-    .sidebar {
-      width: 250px;
-      padding: 20px;
-      background-color: black;
-      border-right: 2px solid #444;
-      height: 100vh;
-      position: sticky;
-      top: 0;
-      flex-shrink: 0;
-      margin-left: -30px;
-    }
-    .sidebar h2 {
-      color: gold;
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-    .sidebar a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      margin-bottom: 10px;
-    }
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: black;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  border-radius: 20px;
+  box-shadow: 0 0 20px silver;
+  flex-shrink: 0;
+  margin-left: px;
+}
 
-    h1, h2, h3 {
+.sidebar h2 {
+  color: gold;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  display: block;
+  color: silver;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+.sidebar a:hover {
+  color: gold;
+  text-decoration: underline;
+  text-shadow: 0 0 10px gold;
+}
+
+h1,
+h2,
+h3 {
   font-weight: normal;
   text-align: center;
   margin: 20px 0;
@@ -57,19 +66,22 @@ h1 {
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 20px;
   color: #ff4d4d;
 }
 
 h3 {
-  font-size: 14px;
+  font-size: 18px;
   color: #66ffe0;
 }
 
-li{
-      margin-bottom: 10px;
+li {
+  margin-bottom: 10px;
 }
-
+img {
+  border-radius: 20px;
+  box-shadow: 0 0 20px gold;
+}
 .content {
   padding: 40px;
   flex-grow: 1;
