@@ -1,11 +1,26 @@
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(rgb(0,0,70),rgb(0,0,25));
+  background: radial-gradient(rgb(0, 0, 70), rgb(0, 0, 25));
   font-family: 'Press Start 2P', monospace;
   color: silver;
   line-height: 1.6;
   font-size: 14px;
+}
+
+.menu-toggle {
+  display: none; /* Standardmäßig auf Desktop ausblenden */
+  position: fixed; /* Bleibt beim Scrollen sichtbar */
+  top: 20px;
+  right: 20px;
+  z-index: 1000; /* Stellt sicher, dass der Button über allem liegt */
+  background: gold;
+  color: black;
+  border: 2px outset #f2c94c;
+  border-radius: 5px;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 10px;
 }
 
 .container {
@@ -29,7 +44,8 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 20px silver;
   flex-shrink: 0;
-  margin-left: px;
+  margin-right: 20px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .sidebar h2 {
@@ -52,9 +68,7 @@ body {
   text-shadow: 0 0 10px gold;
 }
 
-h1,
-h2,
-h3 {
+h1,h2,h3 {
   font-weight: normal;
   text-align: center;
   margin: 20px 0;
@@ -78,19 +92,25 @@ h3 {
 li {
   margin-bottom: 10px;
 }
+
 img {
+  max-width: 100%;
+  height: auto;
   border-radius: 20px;
   box-shadow: 0 0 20px gold;
+  display: block;
+  margin: 20px auto;
 }
+
 .content {
-  padding: 40px;
+  padding: 20px;
   flex-grow: 1;
 }
 
 #LinkForGame {
-  color:gold;
+  color: gold;
   text-align: center;
-  background: radial-gradient(rgb(50,50,50),rgb(100,100,100));
+  background: radial-gradient(rgb(50, 50, 50), rgb(100, 100, 100));
   padding: 7px;
   border-radius: 15px;
   border: 3px outset gold;
@@ -104,21 +124,78 @@ img {
     box-shadow: 0 0 10px silver;
     text-shadow: 0 0 5px gold;
   }
+
   50% {
     box-shadow: 0 0 25px gold;
     text-shadow: 0 0 15px gold;
   }
+
   100% {
     box-shadow: 0 0 10px silver;
     text-shadow: 0 0 5px gold;
   }
 }
 
-#LinkForGame:hover{
-  border: 3px outset rgb(0,0,75);
-  color: rgb(0,0,150);
+#LinkForGame:hover {
+  border: 3px outset rgb(0, 0, 75);
+  color: rgb(0, 0, 150);
 }
 
-#LinkForGame:active{
-  border: 3px inset rgb(0,0,75);
+#LinkForGame:active {
+  border: 3px inset rgb(0, 0, 75);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .container {
+    flex-direction: column;
+    margin-top: 60px;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    transform: translateX(-100%);
+    z-index: 999;
+    margin-right: 0;
+  }
+
+  .sidebar.visible {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  .container {
+    margin: 10px;
+    margin-top: 70px;
+    padding: 5px;
+    border-width: 3px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
 }

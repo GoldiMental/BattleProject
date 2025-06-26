@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Style/InfoStyle.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  </head>
+</head>
 <body>
 
+  <button class="menu-toggle" id="menu-toggle">
+    &#9776; </button>
 
   <div class="container">
     
-    <!-- Sidebar -->
-    <nav class="sidebar">
+    <nav class="sidebar" id="sidebar">
       <h2>Themen:</h2>
       <a href="#welcome">Welcome to TulpaKing<sup>®</sup></a>
       <a href="index.html" id="LinkForGame" target="_blank">Zum Spiel</a>
@@ -28,11 +29,8 @@
       <a href="#cheats"><li>Cheats</li></a>
       <a href="#kampf">Kampf System</a>
       <a href="#shop">Shop</a>
-      <a href="#"></a>
-      <a href="#"></a>
     </nav>
 
-    <!-- Content -->
     <main class="content">
       
       <section id="welcome">
@@ -57,7 +55,6 @@
         <img src="img/Info Seite/Info Seite Haus.png" alt="">
       </section>
 
-      <!-- Weitere Sektionen als Beispiel -->
       <section id="menüliste">
         <h2>Menü Liste 🎮	</h2>
         <p>Um in <span style="color: orange">TulpaKing<sup>®</sup></span> die Menü-Liste zu öffnen,
@@ -111,7 +108,7 @@
           zu verwenden, öffne die Menü-Liste und gehe auf den Reiter "Cheat's".
           Dort kannst Du die Cheats eingeben. Im Spiel wird mitgezählt, wie oft Du Cheats verwendet hast. 
           So kannst Du nachvollziehen, ob Du fair gespielt oder 
-          Dir Durch Hilfen Vorteile verschafft hast. 
+          Dir durch Hilfen Vorteile verschafft hast. 
           Der Zähler dient nur zur Information und hat keinen Einfluss auf das Spielergebnis.</p>
 
         <h4>Cheats 🧙‍♂️</h4>
@@ -154,16 +151,28 @@
         </ul>
 
         <h3>Wozu Gold ? 💰</h3>
-        <p>Gold die Währungen in <span style="color: orange">TulpaKing<sup>®</sup></span>. Du verdienst sie durch Kämpfe gegen Trainer oder beim Verkauf von Item's im Shop. 
+        <p>Gold ist die Währung in <span style="color: orange">TulpaKing<sup>®</sup></span>. Du verdienst sie durch Kämpfe gegen Trainer oder beim Verkauf von Item's im Shop. 
           Achte darauf, genügend Gold zu haben, um Deine Tulpa's mit den besten Item's auszustatten!</p>
-
-        
-
-
-
-
     </main>
   </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('visible');
+    });
+
+    const sidebarLinks = sidebar.querySelectorAll('a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (sidebar.classList.contains('visible')) {
+          sidebar.classList.remove('visible');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
