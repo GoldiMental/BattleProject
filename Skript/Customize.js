@@ -15,8 +15,8 @@ async function showCustomPrompt(message, defaultValue = '') {
         customModalInput.classList.remove('hidden');
         customModalCancelButton.classList.remove('hidden');
         customModalOverlay.classList.add('visible');
-        customModalOkButton.onclick = () => { closeModal(customModalInput.value); };
-        customModalCancelButton.onclick = () => { closeModal(null); };
+        customModalOkButton.onclick = () => { closeModal(customModalInput.value);;Click() };
+        customModalCancelButton.onclick = () => { closeModal(null);;Click() };
     });
 }
 
@@ -29,7 +29,7 @@ function showCustomAlert(message) {
         customModalInput.classList.add('hidden');
         customModalCancelButton.classList.add('hidden');
         customModalOverlay.classList.add('visible');
-        customModalOkButton.onclick = () => { closeModal(); };
+        customModalOkButton.onclick = () => { closeModal();;Click() };
     });
 }
 
@@ -41,8 +41,8 @@ function showCustomConfirm(message) {
         customModalInput.classList.add('hidden');
         customModalCancelButton.classList.remove('hidden');
         customModalOverlay.classList.add('visible');
-        customModalOkButton.onclick = () => {closeModal(true);};
-        customModalCancelButton.onclick = () => {closeModal(false);};
+        customModalOkButton.onclick = () => {closeModal(true);;Click()};
+        customModalCancelButton.onclick = () => {closeModal(false);;Click()};
     });
 }
 

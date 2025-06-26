@@ -15,17 +15,13 @@ async function traineranimation(Trainer, name) {
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
     TrainerDialogBox.setAttribute("TrainerID", name);
     TrainerDialogBox.style.visibility = "visible";
-    TrainerDialogBox.innerHTML = Trainer.text1;
-    await Click();
+    TrainerDialogBox.innerHTML = Trainer.text1; await Click();
     if (Trainer.text2 != "") {
-        TrainerDialogBox.innerHTML = Trainer.text2;
-        await Click();
+        TrainerDialogBox.innerHTML = Trainer.text2; await Click();
         if (Trainer.text3 != "") {
-            TrainerDialogBox.innerHTML = Trainer.text3;
-            await Click()
+            TrainerDialogBox.innerHTML = Trainer.text3; await Click()
             if (Trainer.text4 != "") {
-                TrainerDialogBox.innerHTML = Trainer.text4;
-                await Click();
+                TrainerDialogBox.innerHTML = Trainer.text4; await Click();
                 TrainerDialogBox.style.visibility = "hidden";
                 trainerbattle = 1;
                 battleanimation(1);
@@ -56,11 +52,8 @@ async function battleanimation(trainerbattle) {
         else { document.getElementById("movement_game").style.visibility = "hidden" }
     }
     document.getElementById('bgr02-sound').play();
-    if (trainerbattle == 0) {
-        battle();
-    } else {
-        Trainerbattle("Tulpa1");
-    }
+    if (trainerbattle == 0) { battle(); }
+    else { Trainerbattle("Tulpa1"); }
 }
 
 async function Trainerbattle(TulpaIndex) {
@@ -69,10 +62,7 @@ async function Trainerbattle(TulpaIndex) {
     tulpa_lv = trainer[TulpaIndex].Lv;
     for (Slot in Player.Tulpas) {
         if (Slot.startsWith("Slot")) {
-            if (Player.Tulpas[Slot].HP > 0) {
-                tulpa_self = Player.Tulpas[Slot];
-                break;
-            }
+            if (Player.Tulpas[Slot].HP > 0) { tulpa_self = Player.Tulpas[Slot]; break; }
         }
     }
 
@@ -111,13 +101,9 @@ async function battle() {
     tulpa_lv = Math.round((Math.random() + 1) * (maps[Player.actualMap].maxLv - 1));
     for (Slot in Player.Tulpas) {
         if (Slot.startsWith("Slot")) {
-            if (Player.Tulpas[Slot].HP > 0) {
-                tulpa_self = Player.Tulpas[Slot];
-                break;
-            }
+            if (Player.Tulpas[Slot].HP > 0) { tulpa_self = Player.Tulpas[Slot]; break; }
         }
     }
-
     document.getElementById("movement_game").style.visibility = "hidden";
     document.getElementById("battle_game").style.visibility = "visible";
     document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
@@ -132,11 +118,9 @@ async function battle() {
 
     document.getElementById('Tulpa-opp').style.right = "10px";
     document.getElementById('Name-opp').style.opacity = "1";
-    document.getElementById('LP-opp').style.opacity = "1";
+    document.getElementById('LP-opp').style.opacity = "1"; await Delay(2000);
 
-    await Delay(2000);
-    document.getElementById('Tulpa-self').style.left = "-500px";
-    await Delay(500);
+    document.getElementById('Tulpa-self').style.left = "-500px"; await Delay(500);
     document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
     document.getElementById('Tulpa-self').style.left = "10px";
     document.getElementById("battle_menu").style.visibility = "visible";
@@ -155,8 +139,7 @@ async function escape() {
         document.getElementById('battle_text').innerText = "Flucht erfolgreich!";
         document.getElementById('bgr02-sound').pause();
         document.getElementById('bgr02-sound').currentTime = 0;
-        document.getElementById('win-sound').play();
-        await Delay(3500);
+        document.getElementById('win-sound').play(); await Delay(3500);
         setCookie("PlayerData", JSON.stringify(Player), 30);
         document.getElementById('bg03-sound').play();
         document.getElementById("movement_game").style.visibility = "visible";
@@ -192,18 +175,14 @@ async function opp_Attack() {
         return;
     }
     document.getElementById('battle_text').innerText = tulpa_opp + " setzt " + attack + " ein.";
-    document.getElementById('attack-sound').play();
-    await Delay(350);
-    document.getElementById('Tulpa-opp').style.right = "50px";
-    await Delay(200);
-    document.getElementById('Tulpa-opp').style.right = "10px";
-    await Delay(1000);
+    document.getElementById('attack-sound').play(); await Delay(350);
+    document.getElementById('Tulpa-opp').style.right = "50px"; await Delay(200);
+    document.getElementById('Tulpa-opp').style.right = "10px"; await Delay(1000);
     let dmg = Attacks[attack].ATK_Power + (tulpa_opp_lv * 2);
     tulpa_self.HP -= dmg;
     //console.log(dmg); // Log für Gegnerschaden
     if (tulpa_self.HP > 0) {
-        document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
-        await Delay(300);
+        document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%"; await Delay(300);
         document.getElementById("battle_menu").style.visibility = "visible";
     } else {
         tulpa_self.HP = 0;
@@ -241,28 +220,17 @@ async function opp_Attack() {
             document.getElementById("movement_game").style.visibility = "hidden";
             document.getElementById("battle_game").style.visibility = "hidden";
             document.getElementById("battle_menu").style.visibility = "hidden";
-            document.getElementById("GameOver").style.visibility = "visible";
-            await Delay(500)
-            document.getElementById("Countdown").innerHTML = "Notruf gewählt";
-            await Delay(500)
-            document.getElementById("Countdown").innerHTML = "Notruf gewählt.";
-            await Delay(500)
-            document.getElementById("Countdown").innerHTML = "Notruf gewählt..";
-            await Delay(500)
-            document.getElementById("Countdown").innerHTML = "Notruf gewählt...";
-            await Delay(800);
-            document.getElementById("Countdown").innerHTML = "";
-            await Delay(1000);
-            document.getElementById("Countdown").innerHTML = "Transport nach Hause";
-            await Delay(500);
-            document.getElementById("Countdown").innerHTML = "Transport nach Hause.";
-            await Delay(500);
-            document.getElementById("Countdown").innerHTML = "Transport nach Hause..";
-            await Delay(500)
-            document.getElementById("Countdown").innerHTML = "Transport nach Hause...";
-            await Delay(800)
-            document.getElementById("Countdown").innerHTML = "WACH AUF!!!";
-            await Delay(500);
+            document.getElementById("GameOver").style.visibility = "visible"; await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf gewählt"; await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf gewählt."; await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf gewählt.."; await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf gewählt..."; await Delay(800);
+            document.getElementById("Countdown").innerHTML = ""; await Delay(1000);
+            document.getElementById("Countdown").innerHTML = "Transport nach Hause"; await Delay(500);
+            document.getElementById("Countdown").innerHTML = "Transport nach Hause."; await Delay(500);
+            document.getElementById("Countdown").innerHTML = "Transport nach Hause.."; await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Transport nach Hause..."; await Delay(800)
+            document.getElementById("Countdown").innerHTML = "WACH AUF!!!"; await Delay(500);
             location.reload();
             document.getElementById('Name-opp').style.opacity = "0";
             document.getElementById('LP-opp').style.opacity = "0";
@@ -295,12 +263,9 @@ async function self_attack(attack) {
         let dmg = Attacks[attack].ATK_Power + (tulpa_self.Lv * 2);
         //console.log(dmg); //Log für Spielerschaden
         document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
-        document.getElementById('attack-sound').play();
-        await Delay(350);
-        document.getElementById('Tulpa-self').style.left = "50px";
-        await Delay(200);
-        document.getElementById('Tulpa-self').style.left = "10px";
-        await Delay(1000);
+        document.getElementById('attack-sound').play(); await Delay(350);
+        document.getElementById('Tulpa-self').style.left = "50px"; await Delay(200);
+        document.getElementById('Tulpa-self').style.left = "10px"; await Delay(1000);
         tulpa_HP -= dmg;
         if (tulpa_HP > 0) {
             document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
@@ -309,21 +274,14 @@ async function self_attack(attack) {
         } else {
             document.getElementById('fill-opp').style.width = "0%";
             document.getElementById('battle_text').innerText = "Du hast " + tulpa_opp + " besiegt!";
-            if (trainerbattle == 1) {
-                trainer[TulpaIndex] = { name: "", Lv: 0, HP: 0, HP_Total: 0 };
-            }
-            await Delay(500);
+            if (trainerbattle == 1) { trainer[TulpaIndex] = { name: "", Lv: 0, HP: 0, HP_Total: 0 }; }; await Delay(500);
             document.getElementById('Tulpa-opp').style.right = "-500px";
             document.getElementById('bgr02-sound').pause();
             document.getElementById('bgr02-sound').currentTime = 0;
-            document.getElementById('win-sound').play();
-            await Delay(2000);
-            document.getElementById('bg03-sound').play();
-            await Delay(500);
-            let exp = Math.round( ((Tulpas[tulpa_opp_name].HP_Total + (3 ** tulpa_opp_lv)) / 2) );
-            if (tulpa_opp_lv > tulpa_self.Lv) {
-                exp = Math.round(exp *(1 + ((tulpa_opp_lv-tulpa_self.Lv)/10)));
-            }
+            document.getElementById('win-sound').play(); await Delay(2000);
+            document.getElementById('bg03-sound').play(); await Delay(500);
+            let exp = Math.round(((Tulpas[tulpa_opp_name].HP_Total + (3 ** tulpa_opp_lv)) / 2));
+            if (tulpa_opp_lv > tulpa_self.Lv) { exp = Math.round(exp * (1 + ((tulpa_opp_lv - tulpa_self.Lv) / 10))); };
             document.getElementById('battle_text').innerText = "Du hast " + exp + " EXP. erhalten!";
             tulpa_self.XP += exp;
             if (tulpa_self.XP >= 10 * (2 ** tulpa_self.Lv)) {
@@ -331,8 +289,7 @@ async function self_attack(attack) {
                 tulpa_self.XP = 0;
                 tulpa_self.HP += 3;
                 tulpa_self.HP_Total += 3;
-                setCookie("PlayerData", JSON.stringify(Player), 30);
-                await Delay(1000);
+                setCookie("PlayerData", JSON.stringify(Player), 30); await Delay(1000);
                 document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
                 document.getElementById('battle_text').innerText = tulpa_self.name + " ist ein Level aufgestiegen";
             }
@@ -362,13 +319,11 @@ async function self_attack(attack) {
                 if (!nextTulpaFound) {
                     document.getElementById('battle_text').innerText = "Du hast " + trainer.name + " besiegt!";
                     Player.defeatedTrainer.push(document.getElementsByClassName("TrainerDialogBox")[0].getAttribute("TrainerID"));
-                    setCookie("PlayerData", JSON.stringify(Player), 30);
-                    await Delay(1500);
+                    setCookie("PlayerData", JSON.stringify(Player), 30); await Delay(1500);
                     document.getElementById('battle_text').innerText = "Du hast " + trainer.gold + " Gold erhalten!";
                     Player.Gold += trainer.gold;
                     setCookie("PlayerData", JSON.stringify(Player), 30);
-                    trainer = {};
-                    await Delay(1500);
+                    trainer = {}; await Delay(1500);
                     document.getElementById("movement_game").style.visibility = "visible";
                     document.getElementById("battle_game").style.visibility = "hidden";
                     document.getElementById('fill-opp').style.width = "100%";
@@ -416,32 +371,28 @@ async function selectTulpa(Slot) {
         document.getElementById('change_tulpa').style.visibility = "hidden";
         document.getElementById('Tulpa-self').style.left = "-500px";
         document.getElementById('Name-self').style.opacity = "0";
-        document.getElementById('LP-self').style.opacity = "0";
-        await Delay(500);
+        document.getElementById('LP-self').style.opacity = "0"; await Delay(500);
         tulpa_self = Player.Tulpas[Slot];
         document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
         document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
         document.getElementById('Tulpa-self').style.left = "10px";
         document.getElementById('Name-self').style.opacity = "1";
-        document.getElementById('LP-self').style.opacity = "1";
-        await Delay(300);
+        document.getElementById('LP-self').style.opacity = "1"; await Delay(300);
         document.getElementById("battle_menu").style.visibility = "visible";
     } else {
         document.getElementById('battle_game_menu').style.visibility = "hidden";
         document.getElementById('change_tulpa').style.visibility = "hidden";
         document.getElementById('Tulpa-self').style.left = "-500px";
         document.getElementById('Name-self').style.opacity = "0";
-        document.getElementById('LP-self').style.opacity = "0";
-        await Delay(500);
+        document.getElementById('LP-self').style.opacity = "0"; await Delay(500);
         tulpa_self = Player.Tulpas[Slot];
         document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
         document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
         document.getElementById('Tulpa-self').style.left = "10px";
         document.getElementById('Name-self').style.opacity = "1";
-        document.getElementById('LP-self').style.opacity = "1";
-        await Delay(500);
+        document.getElementById('LP-self').style.opacity = "1"; await Delay(500);
         opp_Attack();
     }
 }
@@ -485,51 +436,35 @@ async function UseBall(ball) {
         ballElement.id = "tulpaball";
         document.getElementById('battle_game').appendChild(ballElement);
         document.getElementById('tulpaball').style.left = "50px";
-        document.getElementById('tulpaball').style.top = "320px";
-        await Delay(100);
+        document.getElementById('tulpaball').style.top = "320px"; await Delay(100);
         document.getElementById('tulpaball').style.left = "70px";
-        document.getElementById('tulpaball').style.top = "250px";
-        await Delay(100);
+        document.getElementById('tulpaball').style.top = "250px"; await Delay(100);
         document.getElementById('tulpaball').style.left = "100px";
-        document.getElementById('tulpaball').style.top = "190px";
-        await Delay(100);
+        document.getElementById('tulpaball').style.top = "190px"; await Delay(100);
         document.getElementById('tulpaball').style.left = "140px";
-        document.getElementById('tulpaball').style.top = "140px";
-        await Delay(100);
+        document.getElementById('tulpaball').style.top = "140px"; await Delay(100);
         document.getElementById('tulpaball').style.left = "190px";
-        document.getElementById('tulpaball').style.top = "100px";
-        await Delay(100);
+        document.getElementById('tulpaball').style.top = "100px"; await Delay(100);
         document.getElementById('tulpaball').style.left = "250px";
-        document.getElementById('tulpaball').style.top = "70px";
-        await Delay(100);
+        document.getElementById('tulpaball').style.top = "70px"; await Delay(100);
         document.getElementById('tulpaball').style.left = "320px";
         document.getElementById('tulpaball').style.top = "50px";
+        document.getElementById('tulpaball').style.left = "370px"; await Delay(100);
+        document.getElementById('Tulpa-opp').style.opacity = "0"; await Delay(500);
         document.getElementById('tulpaball').style.left = "370px";
-        await Delay(100);
-        document.getElementById('Tulpa-opp').style.opacity = "0";
-        await Delay(500);
-        document.getElementById('tulpaball').style.left = "370px";
-        document.getElementById('tulpaball').style.top = "150px";
-        await Delay(100);
-        document.getElementById('tulpaball').style.top = "120px";
-        await Delay(100);
-        document.getElementById('tulpaball').style.top = "150px";
-        await Delay(1000);//First
+        document.getElementById('tulpaball').style.top = "150px"; await Delay(100);
+        document.getElementById('tulpaball').style.top = "120px"; await Delay(100);
+        document.getElementById('tulpaball').style.top = "150px"; await Delay(1000);
         document.getElementById('tulpaball').style.left = "360px";
-        document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
-        await Delay(300);
+        document.getElementById('tulpaball').style.transform = "rotate(-30deg)"; await Delay(300);
         document.getElementById('tulpaball').style.left = "370px";
-        document.getElementById('tulpaball').style.transform = "rotate(0deg)";
-        await Delay(1000);//Second Chance
+        document.getElementById('tulpaball').style.transform = "rotate(0deg)"; await Delay(1000);
         document.getElementById('tulpaball').style.left = "360px";
-        document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
-        await Delay(300);
+        document.getElementById('tulpaball').style.transform = "rotate(-30deg)"; await Delay(300);
         document.getElementById('tulpaball').style.left = "370px";
-        document.getElementById('tulpaball').style.transform = "rotate(0deg)";
-        await Delay(1000);//Third Chance
+        document.getElementById('tulpaball').style.transform = "rotate(0deg)"; await Delay(1000);
         document.getElementById('tulpaball').style.left = "360px";
-        document.getElementById('tulpaball').style.transform = "rotate(-30deg)";
-        await Delay(300);
+        document.getElementById('tulpaball').style.transform = "rotate(-30deg)"; await Delay(300);
         document.getElementById('tulpaball').style.left = "370px";
         document.getElementById('tulpaball').style.transform = "rotate(0deg)";
         let chance = (Item_List[ball].CR + (10 / (tulpa_lv / 5))) - (tulpa_HP / tulpa_HP_Total * 100);
@@ -539,18 +474,13 @@ async function UseBall(ball) {
             let catchedName = document.getElementById('Name-opp').innerHTML.split(' ')[0];
             let catchedTulpa = { name: catchedName, Lv: tulpa_lv, HP: tulpa_HP, HP_Total: tulpa_HP_Total, XP: 0, ID: Math.round(Math.random() * 1000000).toString() }
             for (i in Player.Tulpas) {
-                if (Player.Tulpas[i].name == "") {
-                    Player.Tulpas[i] = catchedTulpa;
-                    break;
-                } else if (i == 'PC') {
-                    Player.Tulpas[i].push(catchedTulpa);
-                }
+                if (Player.Tulpas[i].name == "") { Player.Tulpas[i] = catchedTulpa; break; }
+                else if (i == 'PC') { Player.Tulpas[i].push(catchedTulpa); }
             }
             setCookie("PlayerData", JSON.stringify(Player), 30);
             document.getElementById('bgr02-sound').pause();
             document.getElementById('bgr02-sound').currentTime = 0;
-            document.getElementById('win-sound').play();
-            await Delay(3000);
+            document.getElementById('win-sound').play(); await Delay(3000);
             document.getElementById('bg03-sound').play();
             document.getElementById("movement_game").style.visibility = "visible";
             document.getElementById("battle_game").style.visibility = "hidden";
@@ -568,8 +498,7 @@ async function UseBall(ball) {
         else {
             document.getElementById('Tulpa-opp').style.opacity = "1";
             document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
-            document.getElementById('battle_text').innerText = "Mist, es hat sich befreit";
-            await Delay(2000);
+            document.getElementById('battle_text').innerText = "Mist, es hat sich befreit"; await Delay(2000);
             opp_Attack();
         }
     } else {
@@ -580,8 +509,7 @@ async function UseBall(ball) {
 async function UseDrink(drink) {
     document.getElementById('use_item').style.visibility = "hidden";
     changeTulpa();
-    document.getElementById('change_tulpa').style.visibility = "visible";
-    await Delay(100);
+    document.getElementById('change_tulpa').style.visibility = "visible"; await Delay(100);
     let antwort = await showCustomPrompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
     if (antwort > 0 && antwort <= 6) {
         let slot = "Slot_" + antwort;
@@ -600,8 +528,7 @@ async function UseDrink(drink) {
                     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
                 }
                 Player.inventory.drinks[drink] -= 1;
-                setCookie("PlayerData", JSON.stringify(Player), 30);
-                await Delay(2000);
+                setCookie("PlayerData", JSON.stringify(Player), 30); await Delay(2000);
                 opp_Attack();
             } else {
                 document.getElementById('battle_text').innerText = Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";

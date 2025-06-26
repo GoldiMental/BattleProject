@@ -12,6 +12,18 @@
 </head>
 
 <body>
+    <div class="background-lines">
+        <div class="lineRed line-1"></div>
+        <div class="lineGold line-2"></div>
+        <div class="lineRed line-3"></div>
+        <div class="lineGold line-4"></div>
+        <div class="lineRed line-5"></div>
+        <div class="lineGold line-6"></div>
+        <div class="lineRed line-7"></div>
+        <div class="lineGold line-8"></div>
+        <div class="lineRed line-9"></div>
+        <div class="lineGold line-10"></div>
+    </div>
     <div id="GameOver">Du bist ohnmächtig!<br /><br /><span id="Countdown"></span></div>
     <img style="position: relative; left: 5px;" src="img/TulpaTopLogo.png" height="300px" alt="Tulpa-King-Logo">
     <div class="Playground">
@@ -32,7 +44,7 @@
                     onclick="shopAusgang()"></button>
                 <button id="ShopHandel" title="Händler" class="Handler ShopHandel_B"
                     onclick="shopHandel('Shop_1')"></button>
-                <button id="TulpaPC-Button" title="TulpaComputer" class="Tulpa-PC" onclick="TulpaPC()"></button>
+                <button id="TulpaPC-Button" title="TulpaComputer" class="Tulpa-PC" onclick="TulpaPC();Click()"></button>
             </div>
             <div id="user" class="Player down"></div>
             <button id="Menu" onclick="MenuList();Click()">≡</button>
@@ -83,10 +95,10 @@
 
             <div id="shopMenu">
                 <h2>Shop Menü</h2>
-                <button class="menu-button" onclick="buyItems()">Kaufen</button>
-                <button class="menu-button" onclick="sellItems()">Verkaufen</button>
-                <button class="menu-button" onclick="healTulpas()">Tulpas Heilen</button>
-                <button class="menu-button" onclick="closeShop()">Verlassen</button>
+                <button class="menu-button" onclick="buyItems();Click()">Kaufen</button>
+                <button class="menu-button" onclick="sellItems();Click()">Verkaufen</button>
+                <button class="menu-button" onclick="healTulpas();Click()">Tulpas Heilen</button>
+                <button class="menu-button" onclick="closeShop();Click()">Verlassen</button>
             </div>
             <div id="ShopBuyList"></div>
             <div id="ShopSellList"></div>
@@ -154,6 +166,7 @@
     <audio id="win-sound" src="audio/Win-sound.mp3"></audio>
     <audio id="click-sound" src="audio/Click-sound.mp3"></audio>
     <audio id="alarm-sound" src="audio/8bit-alarm.mp3"></audio>
+    <audio id="door-sound" src="audio/door-opening.mp3"></audio>
 
     <script src="Skript/Shop.js"></script>
     <script src="Skript/TrainerList.js"></script>

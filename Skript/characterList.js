@@ -18,30 +18,21 @@ async function Professor001monolog() {
     clearInterval(moveIntervalID);
     box.style.visibility = "visible";
     if (!Player.tulpaGegeben) {
-        box.innerHTML = Professor.Dialog1.text1;
-        await Delay(100); await Click();
-        box.innerHTML = Professor.Dialog1.text2;
-        await Click();
-        box.innerHTML = Professor.Dialog1.text3;
-        await Click();
-        box.innerHTML = Professor.Dialog1.text4;
-        await Click();
-        box.innerHTML = Professor.Dialog1.text5;
-        await Click();
-        box.innerHTML = Professor.Dialog1.text6;
-        await Click();
-        box.innerHTML = Professor.Dialog1.text7;
-        await Click();
-        box.innerHTML = Professor.Dialog1.text8;
-        await Click();
-        box.innerHTML = "Also los! Deine Reise beginnt...<br>Viel Erfolg, "+Player.name+"!";
-        await Click();
+        box.innerHTML = Professor.Dialog1.text1; await Delay(300); await Click();
+        box.innerHTML = Professor.Dialog1.text2; await Delay(300); await Click();
+        box.innerHTML = Professor.Dialog1.text3; await Delay(300); await Click();
+        box.innerHTML = Professor.Dialog1.text4; await Delay(300); await Click();
+        box.innerHTML = Professor.Dialog1.text5; await Delay(300); await Click();
+        box.innerHTML = "Hier... Bitte schön..."; document.getElementById('win-sound').play(); await Delay(3000); await Click();
+        box.innerHTML = Professor.Dialog1.text6; await Delay(300); await Click();
+        box.innerHTML = Professor.Dialog1.text7; await Delay(300); await Click();
+        box.innerHTML = Professor.Dialog1.text8; await Delay(300); await Click();
+        box.innerHTML = "Also los! Deine Reise beginnt...<br>Viel Erfolg, "+Player.name+"!"; await Delay(300); await Click();
         Player.Tulpas.Slot_1 = { name: "Kaninchen", Lv: 5, HP: 65, HP_Total: 65, XP: 0 };
         Player.tulpaGegeben = true;
         setCookie("PlayerData", JSON.stringify(Player), 30);
     } else {
-        box.innerHTML = "Ich habe dir bereits alles gegeben, was du aktuell benötigst. Geh nun hinaus, und hilf mir, die Geheimnisse der Tulpas zu erforschen.";
-        await Delay(100); await Click();
+        box.innerHTML = "Ich habe dir bereits alles gegeben, was du aktuell benötigst. Geh nun hinaus, und hilf mir, die Geheimnisse der Tulpas zu erforschen."; await Delay(300); await Click();
     }
     box.style.visibility = "hidden";
     moveIntervalID = setInterval(() => activeDirection && moveMap(), moveInterval);

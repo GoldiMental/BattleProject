@@ -137,13 +137,13 @@ function moveMap() {
                 trainername = area.name;
                 var Fight = true;
                 for (i = 0; i <= Player.defeatedTrainer.length; i++) {
-                    if(Player.defeatedTrainer[i] == area.name){
+                    if (Player.defeatedTrainer[i] == area.name) {
                         Fight = false;
                     }
                 }
-                if (Fight){
-                    if(area.name == "Trainer000"){
-                        if (Player.Tulpas.Slot_1.name == ""){
+                if (Fight) {
+                    if (area.name == "Trainer000") {
+                        if (Player.Tulpas.Slot_1.name == "") {
                             clearInterval(moveIntervalID);
                             Trainer000monolog(TrainerList[trainername]);
                         }
@@ -168,7 +168,7 @@ function moveMap() {
     }
     mapX = newMapX;
     mapY = newMapY;
-    console.log(mapX, mapY); //Log für Koordinaten
+    //console.log(mapX, mapY); //Log für Koordinaten
     if (direction) {
         player.className = 'Player m_' + direction;
     }
@@ -203,48 +203,41 @@ let moveIntervalID;
 moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
 
 async function meinEingang() {
-    // Spieler "verschwinden" lassen (Animation)
+    document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
     movementGame.style.visibility = "hidden";
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
 
-    // Kurze Verzögerung (für Effekt)
     await Delay(500);
     document.getElementById("karte").disabled = true;
     document.getElementById("tuerSelfIn").disabled = true;
     document.getElementById("tuerSelfIn").style.opacity = "0";
-    // Map wechseln (zur Hauskarte)
-    const mapName = "MeinHaus"; // Ziel-Map
+    const mapName = "MeinHaus";
     if (!maps[mapName]) {
         console.error("Map existiert nicht:", mapName);
         return;
     }
-
-    // Aktive Map aktualisieren
     activeMap = mapName;
     changeMap(mapName);
 
-    // Position zurücksetzen (Startpunkt der Hauskarte)
     mapX = maps[mapName].startX;
     mapY = maps[mapName].startY;
 
-    // Grenzen und Karte aktualisieren
     refreshMap();
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map MeinHaus"; // CSS-Klasse für Haus-Hintergrund
+    bg.className = "map MeinHaus";
     document.getElementById("tuerSelfOut").disabled = false;
     document.getElementById("tuerSelfOut").style.opacity = "1";
-    // Spieler wieder einblenden
     await Delay(500);
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";
-    //console.log("Eintritt in mein Haus erfolgreich!");
 }
 
 async function troysEingang() {
+    document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
     movementGame.style.visibility = "hidden";
     movementGame.style.transition = "opacity 0.5s";
@@ -279,49 +272,41 @@ async function troysEingang() {
 }
 
 async function meinAusgang() {
-    // Spieler "verschwinden" lassen (Animation)
+    document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
     movementGame.style.visibility = "hidden";
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
 
-    // Kurze Verzögerung (für Effekt)
     await Delay(500);
     document.getElementById("karte").disabled = false;
     document.getElementById("tuerSelfOut").disabled = true;
     document.getElementById("tuerSelfOut").style.opacity = "0";
-    // Map wechseln (zur Hauskarte)
-    const mapName = "MAP"; // Ziel-Map
+    const mapName = "MAP";
     if (!maps[mapName]) {
         console.error("Map existiert nicht:", mapName);
         return;
     }
-
-    // Position zurücksetzen (Startpunkt der Hauskarte)
     mapX = maps[activeMap].startStadtX;
     mapY = maps[activeMap].startStadtY;
-    console.log(mapX, mapY)
+    //console.log(mapX, mapY) //Log-Koordinaten beim Übergang
 
-    // Aktive Map aktualisieren
     activeMap = mapName;
     changeMap(mapName);
-
-    // Grenzen und Karte aktualisieren
     refreshMap();
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map MAP"; // CSS-Klasse für Haus-Hintergrund
+    bg.className = "map MAP";
     document.getElementById("tuerSelfIn").disabled = false;
     document.getElementById("tuerSelfIn").style.opacity = "0.5";
-    // Spieler wieder einblenden
     await Delay(500);
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";
-    //console.log("Eintritt in mein Haus erfolgreich!");
 }
 
 async function troysAusgang() {
+    document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
     movementGame.style.visibility = "hidden";
     movementGame.style.transition = "opacity 0.5s";
@@ -352,95 +337,76 @@ async function troysAusgang() {
     await Delay(500);
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";
-    //console.log("Eintritt in Troys Haus erfolgreich!");
 }
 async function shopEingang() {
-    // Spieler "verschwinden" lassen (Animation)
+    document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
     movementGame.style.visibility = "hidden";
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
-    // Kurze Verzögerung (für Effekt)
     await Delay(500);
     document.getElementById("karte").disabled = true;
     document.getElementById("tuerShopIn").disabled = true;
     document.getElementById("tuerShopIn").style.opacity = "0";
     document.getElementById("Haendler").style.opacity = "1";
-    // Map wechseln (zur Hauskarte)
-    const mapName = "ShopHaus"; // Ziel-Map
+    const mapName = "ShopHaus";
     if (!maps[mapName]) {
         console.error("Map existiert nicht:", mapName);
         return;
     }
-
-    // Aktive Map aktualisieren
     activeMap = mapName;
     changeMap(mapName);
 
-    // Position zurücksetzen (Startpunkt der Hauskarte)
     mapX = maps[mapName].startX;
     mapY = maps[mapName].startY;
 
-    // Grenzen und Karte aktualisieren
     refreshMap();
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map ShopHaus"; // CSS-Klasse für Haus-Hintergrund
+    bg.className = "map ShopHaus";
     document.getElementById("tuerShopOut").disabled = false;
     document.getElementById("tuerShopOut").style.opacity = "1";
 
-    // Spieler wieder einblenden
     await Delay(500);
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";
-    //console.log("Eintritt in mein Haus erfolgreich!");
 }
 async function shopAusgang() {
-    // Spieler "verschwinden" lassen (Animation)
+    document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
     movementGame.style.visibility = "hidden";
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
 
-    // Kurze Verzögerung (für Effekt)
     await Delay(500);
     document.getElementById("karte").disabled = false;
     document.getElementById("tuerShopOut").disabled = true;
     document.getElementById("tuerShopOut").style.opacity = "0";
     document.getElementById("Haendler").style.opacity = "0";
-
-    // Map wechseln (zur Hauskarte)
-    const mapName = "MAP"; // Ziel-Map
+    const mapName = "MAP";
     if (!maps[mapName]) {
         console.error("Map existiert nicht:", mapName);
         return;
     }
-
-    // Position zurücksetzen (Startpunkt der Hauskarte)
     mapX = maps[activeMap].startStadtX;
     mapY = maps[activeMap].startStadtY;
-    //console.log(mapX, mapY) //Log
+    //console.log(mapX, mapY) //Log-Koordinaten beim Übergang
 
-    // Aktive Map aktualisieren
     activeMap = mapName;
     changeMap(mapName);
-
-    // Grenzen und Karte aktualisieren
     refreshMap();
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map MAP"; // CSS-Klasse für Haus-Hintergrund
+    bg.className = "map MAP";
     document.getElementById("tuerShopIn").disabled = false;
     document.getElementById("tuerShopIn").style.opacity = "0.5";
-    // Spieler wieder einblenden
     await Delay(500);
     movementGame.style.visibility = "visible";
     movementGame.style.opacity = "1";
-    //console.log("Eintritt in mein Haus erfolgreich!");
 }
 
-function zonenName () {
+function zonenName() {
     console.log()
 }

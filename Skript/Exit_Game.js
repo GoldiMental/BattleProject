@@ -17,11 +17,8 @@ function Exit_Game() {
 
     document.getElementById('retroPopupYes').addEventListener('click', function () {
         setCookie("PlayerData", JSON.stringify(Player), 30);
-        try {
-            window.close();
-        } catch (e) {
-            window.location.href = 'about:blank';
-        }
+        try {window.close();}
+        catch (e) {window.location.href = 'about:blank';}
     });
 
     document.getElementById('retroPopupNo').addEventListener('click', function () {

@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('bgr02-sound').volume = 0.1;
     document.getElementById('alarm-sound').volume = 0.1;
     document.getElementById('win-sound').volume = 0.1;
+    document.getElementById('door-sound').volume = 0.4;
     const startMusik = () => {
         document.getElementById('bg03-sound').play();
         document.removeEventListener('click', startMusik);
