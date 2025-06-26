@@ -79,9 +79,9 @@ var maps = {
             { minX: -2675, maxX: -2675, minY: -675, maxY: -525, name:"Trainer001"},
         ],
         opp_List: [
-            "Mäusschen", "Kaninchen",
+            "Mäusschen", "Kaninchen", "Streuner",
         ],
-        maxLv: 2,
+        maxLv: 4,
     },
     TroysHaus:{
         name:"TroysHaus",

@@ -120,7 +120,6 @@ async function battle() {
 
     document.getElementById("movement_game").style.visibility = "hidden";
     document.getElementById("battle_game").style.visibility = "visible";
-    document.getElementById("battle_menu").style.visibility = "visible";
     document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
 
@@ -140,7 +139,7 @@ async function battle() {
     await Delay(500);
     document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
     document.getElementById('Tulpa-self').style.left = "10px";
-
+    document.getElementById("battle_menu").style.visibility = "visible";
     document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
     document.getElementById('Name-self').style.opacity = "1";
     document.getElementById('LP-self').style.opacity = "1";
@@ -321,13 +320,13 @@ async function self_attack(attack) {
             await Delay(2000);
             document.getElementById('bg03-sound').play();
             await Delay(500);
-            let exp = Math.round( ((Tulpas[tulpa_opp_name].HP_Total + (3 * tulpa_opp_lv)) / 2) );
+            let exp = Math.round( ((Tulpas[tulpa_opp_name].HP_Total + (3 ** tulpa_opp_lv)) / 2) );
             if (tulpa_opp_lv > tulpa_self.Lv) {
-                exp *= 1 + ((tulpa_opp_lv-tulpa_self.Lv)/10);
+                exp = Math.round(exp *(1 + ((tulpa_opp_lv-tulpa_self.Lv)/10)));
             }
             document.getElementById('battle_text').innerText = "Du hast " + exp + " EXP. erhalten!";
             tulpa_self.XP += exp;
-            if (tulpa_self.XP >= 100 * (2 ** tulpa_self.Lv)) {
+            if (tulpa_self.XP >= 10 * (2 ** tulpa_self.Lv)) {
                 tulpa_self.Lv += 1;
                 tulpa_self.XP = 0;
                 tulpa_self.HP += 3;
@@ -347,6 +346,7 @@ async function self_attack(attack) {
                 document.getElementById("battle_game").style.visibility = "hidden";
                 document.getElementById('fill-opp').style.width = "100%";
                 trainerbattle = 0;
+                setCookie("PlayerData", JSON.stringify(Player), 30);
                 moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
             } else if (trainerbattle == 1) {
                 let nextTulpaFound = false;

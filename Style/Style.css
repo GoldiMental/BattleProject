@@ -439,6 +439,7 @@ button {
 
 #Info {
     visibility: hidden;
+    text-align: left;
     position: absolute;
     top: 10px;
     left: 10px;

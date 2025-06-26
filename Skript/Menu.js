@@ -86,7 +86,7 @@ function Tulpas_List() {
             let tulpa = Player.Tulpas[Slot];
             if (tulpa.name != "") {
                 html += '<div style="display:block;margin-bottom:5px;"><div class="' + tulpa.name + '"></div><br>' +
-                    '<div style="position:relative;left:60px;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + '</div>' +
+                    '<div style="position:relative;left:30px;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + ' XP '+tulpa.XP+'/'+(10 * (2**tulpa.Lv))+'</div>' +
                     '<div class="LP_Bar">' +
                     '<div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div>' +
                     '</div>' +
@@ -146,10 +146,17 @@ function close_Tulpas() {
 function Info() {
     document.getElementById('Info').style.visibility = 'visible';
     let html = '';
-    html += '<div>Name: ' + Player.name + '</div>' +
-        '<div>Gold: ' + Player.Gold + '</div>' +
-        '<div>Tulpas gefangen: ' + Player.catchedTulpas + '</div>' +
-        '<div>Cheats verwendet: ' + Player.Cheats + 'x</div>';
+    html +='<table><tr>'+
+        '<td>Spielername:</td>'+
+        '<td>'+Player.name+'</td></tr>'+
+        '<tr><td>Gold:</td>'+
+        '<td>'+Player.Gold+'</td></tr>'+
+        '<tr><td>Gefangene Tulpas:</td>'+
+        '<td>'+Player.catchedTulpas+'</td></tr>'+
+        '<tr><td>Besiegte Trainer:</td>'+
+        '<td>'+Player.defeatedTrainer.length+'</td></tr>'+
+        '<tr><td>Cheats:</td>'+
+        '<td>'+Player.Cheats+'</td></tr>';
     document.getElementById('Info_List').innerHTML = html;
 }
 
@@ -289,4 +296,9 @@ async function Use(itm, qty) {
             }
         }
     }
+}
+
+function SaveGame(){
+    setCookie("PlayerData", JSON.stringify(Player), 30);
+    showCustomAlert("Der Spielstand wurde gespeichert!");
 }
