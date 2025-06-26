@@ -65,33 +65,49 @@ async function Trainerbattle(TulpaIndex) {
             if (Player.Tulpas[Slot].HP > 0) { tulpa_self = Player.Tulpas[Slot]; break; }
         }
     }
+    if (TulpaIndex == "Tulpa1") {
+        document.getElementById("movement_game").style.visibility = "hidden";
+        document.getElementById("battle_game").style.visibility = "visible";
+        document.getElementById("battle_menu").style.visibility = "visible";
+        document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
+        document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
 
-    document.getElementById("movement_game").style.visibility = "hidden";
-    document.getElementById("battle_game").style.visibility = "visible";
-    document.getElementById("battle_menu").style.visibility = "visible";
-    document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
-    document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
+        tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 3);
+        tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 3);
+        document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
+        battleInfo.innerText = "" + trainer.name + " schickt " + tulpa_opp + " Lv. " + tulpa_lv + " in den Kampf!";
+        document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
+        document.getElementById('Tulpa-opp').innerHTML = '<div class="' + tulpa_opp + '_Front"></div>';
 
-    tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 3);
-    tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 3);
-    document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
-    battleInfo.innerText = "" + trainer.name + " schickt " + tulpa_opp + " Lv. " + tulpa_lv + " in den Kampf!";
-    document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
-    document.getElementById('Tulpa-opp').innerHTML = '<div class="' + tulpa_opp + '_Front"></div>';
+        document.getElementById('Tulpa-opp').style.right = "10px";
+        document.getElementById('Name-opp').style.opacity = "1";
+        document.getElementById('LP-opp').style.opacity = "1";
 
-    document.getElementById('Tulpa-opp').style.right = "10px";
-    document.getElementById('Name-opp').style.opacity = "1";
-    document.getElementById('LP-opp').style.opacity = "1";
+        await Delay(2000);
+        document.getElementById('Tulpa-self').style.left = "-500px";
+        await Delay(500);
+        document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
+        document.getElementById('Tulpa-self').style.left = "10px";
 
-    await Delay(2000);
-    document.getElementById('Tulpa-self').style.left = "-500px";
-    await Delay(500);
-    document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
-    document.getElementById('Tulpa-self').style.left = "10px";
+        document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
+        document.getElementById('Name-self').style.opacity = "1";
+        document.getElementById('LP-self').style.opacity = "1";
+    } else {
+        document.getElementById("battle_menu").style.visibility = "visible";
+        tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 3);
+        tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 3);
+        document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
+        battleInfo.innerText = "" + trainer.name + " schickt " + tulpa_opp + " Lv. " + tulpa_lv + " in den Kampf!";
+        await Delay(500);
+        document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
+        document.getElementById('Tulpa-opp').innerHTML = '<div class="' + tulpa_opp + '_Front"></div>';
 
-    document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
-    document.getElementById('Name-self').style.opacity = "1";
-    document.getElementById('LP-self').style.opacity = "1";
+        document.getElementById('Tulpa-opp').style.right = "10px";
+        document.getElementById('Name-opp').style.opacity = "1";
+        document.getElementById('LP-opp').style.opacity = "1";
+        document.getElementById('Name-self').style.opacity = "1";
+        document.getElementById('LP-self').style.opacity = "1";
+    }
 }
 
 async function battle() {
@@ -221,10 +237,10 @@ async function opp_Attack() {
             document.getElementById("battle_game").style.visibility = "hidden";
             document.getElementById("battle_menu").style.visibility = "hidden";
             document.getElementById("GameOver").style.visibility = "visible"; await Delay(500)
-            document.getElementById("Countdown").innerHTML = "Notruf gewählt"; await Delay(500)
-            document.getElementById("Countdown").innerHTML = "Notruf gewählt."; await Delay(500)
-            document.getElementById("Countdown").innerHTML = "Notruf gewählt.."; await Delay(500)
-            document.getElementById("Countdown").innerHTML = "Notruf gewählt..."; await Delay(800);
+            document.getElementById("Countdown").innerHTML = "Notruf wählen"; await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf wählen."; await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf wählen.."; await Delay(500)
+            document.getElementById("Countdown").innerHTML = "Notruf wählen..."; await Delay(800);
             document.getElementById("Countdown").innerHTML = ""; await Delay(1000);
             document.getElementById("Countdown").innerHTML = "Transport nach Hause"; await Delay(500);
             document.getElementById("Countdown").innerHTML = "Transport nach Hause."; await Delay(500);

@@ -28,7 +28,7 @@ async function Professor001monolog() {
         box.innerHTML = Professor.Dialog1.text7; await Delay(300); await Click();
         box.innerHTML = Professor.Dialog1.text8; await Delay(300); await Click();
         box.innerHTML = "Also los! Deine Reise beginnt...<br>Viel Erfolg, "+Player.name+"!"; await Delay(300); await Click();
-        Player.Tulpas.Slot_1 = { name: "Kaninchen", Lv: 5, HP: 65, HP_Total: 65, XP: 0 };
+        Player.Tulpas.Slot_1 = { name: "Kaninchen", Lv: 10, HP: 80, HP_Total: 80, XP: 0 };
         Player.tulpaGegeben = true;
         setCookie("PlayerData", JSON.stringify(Player), 30);
     } else {

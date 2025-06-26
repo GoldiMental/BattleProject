@@ -1152,12 +1152,12 @@ button {
     font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     color: red;
-    top: 500px;
+    top: 150px;
     text-shadow: 5px 5px 10px gold;
 }
 
 #Countdown {
     color: silver;
     font-size: 30px;
-    text-shadow: 5px 5px 10px azure;
+    text-shadow: 5px 5px 10px silver;
 }
