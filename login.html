@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/TulpaIcon.png" type="image/png">
+    <link rel="stylesheet" href="Style/login.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <img style="position: relative; top: -160px;" src="img/TulpaIcon.png" height="500px" width="550px"
+        alt="Tulpa-King-Logo">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="text" name="username" placeholder="Benutzername" required />
+            <input type="password" name="password" placeholder="Passwort" required />
+            <button class="btn" type="submit">Einloggen</button>
+        </form>
+            <div class="register-link">
+        Noch nicht Registriert? <a href="/register.html">Zur Registration</a>
+    </div>
+    </div>
+    <script src="Skript/regandlogin.js"></script>
+    <script src="Skript/server.js"></script>
+</body>
+
+</html>

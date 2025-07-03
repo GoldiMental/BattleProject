@@ -1,0 +1,73 @@
+    body {
+        font-family: Arial, sans-serif;
+        background: silver;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .register-container {
+        position: absolute;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        height: 380px;
+        color: black;
+        font-size: 20px;
+        background-color: silver;
+        border: 3px outset azure;
+        border-radius: 10px;
+        margin-top: 5px;
+        padding: 5px;
+    }
+
+    .register-container h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .register-container input[type="text"],
+    .register-container input[type="email"],
+    .register-container input[type="password"] {
+        width: 92%;
+        padding: 0.7rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .register-container button {
+        position: relative;
+        left: 29%;
+        color: black;
+        width: 150px;
+        font-size: 20px;
+        background-color: silver;
+        border: 3px outset azure;
+        border-radius: 10px;
+        margin-top: 5px;
+        padding: 2px;
+        transition: opacity 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+    }
+
+    .register-container button:hover {
+        background-color: gold;
+    }
+
+    .register-container .login-link {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .register-container .login-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .register-container .login-link a:hover {
+        text-decoration: underline;
+    }
