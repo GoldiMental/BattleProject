@@ -1,3 +1,22 @@
+function Delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+
+async function changeMode(LoginOrRegister) {
+  if (LoginOrRegister == 0) {
+    document.getElementById("Login-Container").classList.add("opacity0");
+    document.getElementById("Register-Container").classList.remove("hidden", "opacity0");
+    await Delay(500);
+    document.getElementById("Login-Container").classList.add("hidden");
+  }
+  else {
+    document.getElementById("Register-Container").classList.add("opacity0");
+    document.getElementById("Login-Container").classList.remove("hidden", "opacity0");
+    await Delay(500);
+    document.getElementById("Register-Container").classList.add("hidden");
+  }
+}
+
 document.querySelector('form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const username = e.target.username.value;

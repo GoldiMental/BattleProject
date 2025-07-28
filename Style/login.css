@@ -4,26 +4,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     -webkit-user-select: none;
     user-select: none;
 }
 
-.login-container {
+.container {
     position: absolute;
+    margin-top:400px;
     padding: 2rem;
+    border: 3px outset silver;
     border-radius: 10px;
     box-shadow: 0 0 15px red;
     width: 350px;
-    height: 270px;
     color: silver;
     font-size: 20px;
     background: radial-gradient(rgb(0, 0, 100), rgb(0, 0, 25));
-    border: 3px outset silver;
-    border-radius: 10px;
-    margin-top: 5px;
-    padding: 5px;
     animation: pulseLight 3s infinite;
+    transition: opacity 0.5s ease;
 }
 
 @keyframes pulseLight {
@@ -40,7 +38,16 @@ body {
     }
 }
 
-.login-container h2 {
+.login {
+    height: auto;
+}
+
+.register {
+    height: auto;
+}
+
+
+.container h2 {
     text-align: center;
     margin-bottom: 1.5rem;
 }
@@ -49,8 +56,9 @@ body {
     display: inline-block;
 }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
+.container input[type="text"],
+.container input[type="email"],
+.container input[type="password"] {
     width: 92%;
     padding: 0.7rem;
     text-align: center;
@@ -59,9 +67,9 @@ body {
     border-radius: 8px;
 }
 
-.login-container button {
+.container .btn {
     position: relative;
-    left: 28%;
+    left: 100px;
     color: silver;
     width: 150px;
     font-size: 20px;
@@ -73,27 +81,35 @@ body {
     transition: opacity 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
-.login-container button:hover {
+.container .btn:hover {
     border: 3px outset gold;
     box-shadow: 0 0 15px gold;
 }
-.login-container button:active {
+
+.container .btn:active {
     border: 3px inset gold;
 }
 
-.login-container .register-link {
+.changeMode {
+    position: relative;
+    left: 75px;
+    width: 194px;
+    height: 26px;
     margin-top: 1rem;
+    padding: 2px;
     text-align: center;
     font-size: 0.9rem;
+    border: none;
+    background: transparent;
+    color: silver;
+    transition: font-size 0.3s ease, text-shadow 0.3s ease;
 }
 
-.login-container .register-link a {
+.changeMode:hover {
     color: gold;
-    text-decoration: none;
-}
-
-.login-container .register-link a:hover {
+    font-size: 1.1rem;
     text-decoration: underline;
+    text-shadow: 0.3rem 0.2rem 0.25rem silver;
 }
 
 /*Hintergrundanimation*/
@@ -184,3 +200,24 @@ body {
 }
 
 /*Hintergrundanimation Ende*/
+
+.opacity0 {
+    opacity: 0;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.impressum{
+    position: absolute;
+    bottom: 0.75rem;
+    color:silver;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+.impressum:hover{
+    color:gold;
+    font-size: 1.1rem;
+}
