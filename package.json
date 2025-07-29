@@ -1,9 +1,11 @@
 {
   "name": "battleproject",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Dein Browser-Rollenspiel",
+  "main": "Skript/server.js",
   "scripts": {
-    "test": "jest"
+    "start": "NODE_ENV=production node Skript/server.js",
+    "dev": "node Skript/server.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,6 @@
     "url": "https://github.com/JohhnyTec/BattleProject/issues"
   },
   "homepage": "https://github.com/JohhnyTec/BattleProject#readme",
-  "description": "",
   "devDependencies": {
     "jest": "^29.7.0"
   },
