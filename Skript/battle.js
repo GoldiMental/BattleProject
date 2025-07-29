@@ -1,7 +1,3 @@
-function Delay(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
-}
-
 let trainer = {};
 let TulpaIndex = "Tulpa1";
 let trainerbattle = 0;
