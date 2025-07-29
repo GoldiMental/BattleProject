@@ -51,3 +51,57 @@ function Click() {
         });
     });
 }
+
+// Test 
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const welcomeUsernameElement = document.getElementById('welcomeUsername');
+    const playerDataDisplayElement = document.getElementById('playerDataDisplay');
+    const logoutButton = document.getElementById('logoutButton');
+
+    const storedUsername = localStorage.getItem('loggedInUsername');
+    if (storedUsername) {
+        welcomeUsernameElement.textContent = storedUsername;
+    }
+
+    const authToken = localStorage.getItem('authToken');
+
+    if (!authToken) {
+        alert('Nicht eingeloggt. Bitte melde dich an.');
+        window.location.href = 'index.html';
+        return;
+    }
+
+    try {
+        const res = await fetch('http://localhost:3000/api/playerdata', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`
+            },
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            console.log('Playerdata erfolgreich geladen:', data.playerdata);
+        } else {
+            playerDataDisplayElement.textContent = `Fehler beim Laden der Playerdata: ${data.message || res.statusText}`;
+            playerDataDisplayElement.style.color = 'red';
+            if (res.status === 401 || res.status === 403) {
+                alert('Sitzung abgelaufen oder ungültig. Bitte melde dich erneut an.');
+                localStorage.clear();
+                window.location.href = 'index.html';
+            }
+        }
+    } catch (error) {
+        console.error('Fehler beim Abrufen der Playerdata (Netzwerkproblem):', error);
+        playerDataDisplayElement.textContent = 'Es gab ein Problem beim Verbinden mit dem Server, um die Playerdata zu laden.';
+        playerDataDisplayElement.style.color = 'red';
+    }
+    logoutButton.addEventListener('click', () => {
+        localStorage.clear();
+        alert('Du wurdest ausgeloggt.');
+        window.location.href = 'index.html';
+    });
+});
