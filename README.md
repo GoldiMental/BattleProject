@@ -1,6 +1,6 @@
-# 🎮 TulpaKing - Dein Browser-Rollenspiel
+# 🎮 TulpaKing® - Dein Browser-Rollenspiel
 
-Willkommen im GitHub-Repository von TulpaKing, einem spannenden Browser-Rollenspiel, das mit Node.js (Express), MongoDB Atlas und Vanilla JavaScript/HTML/CSS entwickelt wird!
+Willkommen im GitHub-Repository von TulpaKing®, einem spannenden Browser-Rollenspiel, das mit Node.js (Express), MongoDB Atlas und Vanilla JavaScript/HTML/CSS entwickelt wird!
 
 Dieses Projekt dient als Basis für ein browserbasiertes Abenteuer, in dem Spieler Tulpas fangen, trainieren und gegen andere antreten lassen können. Es verfügt über ein robustes Backend für Benutzerauthentifizierung und Datenpersistenz, um dein Spielerlebnis zu speichern.
 
