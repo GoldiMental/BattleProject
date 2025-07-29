@@ -1,0 +1,141 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#TulpaIcon {
+    position: fixed;
+    top: 10%;
+    width: 45%;
+    height: auto;
+    left: 0%;
+}
+
+i{
+    font-size: smaller;
+}
+a {
+    color: silver;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: gold;
+}
+
+.background-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.lineRed {
+    position: absolute;
+    height: 1px;
+    width: 50%;
+    background: linear-gradient(90deg, transparent, red, transparent);
+    animation: moveLine 10s linear infinite;
+}
+
+.lineGold {
+    position: absolute;
+    height: 1px;
+    width: 50%;
+    background: linear-gradient(90deg, transparent, gold, transparent);
+    animation: moveLine 10s linear infinite;
+}
+
+.line-1 {
+    top: 5%;
+    animation-duration: 10s;
+}
+
+.line-2 {
+    top: 15%;
+    animation-duration: 15s;
+}
+
+.line-3 {
+    top: 25%;
+    animation-duration: 20s;
+}
+
+.line-4 {
+    top: 35%;
+    animation-duration: 15s;
+}
+
+.line-5 {
+    top: 45%;
+    animation-duration: 20s;
+}
+
+.line-6 {
+    top: 55%;
+    animation-duration: 11s;
+}
+
+.line-7 {
+    top: 65%;
+    animation-duration: 15s;
+}
+
+.line-8 {
+    top: 75%;
+    animation-duration: 13s;
+}
+
+.line-9 {
+    top: 85%;
+    animation-duration: 18s;
+}
+
+.line-10 {
+    top: 95%;
+    animation-duration: 16s;
+}
+
+@keyframes moveLine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+.impressum {
+    position: sticky;
+    left: 50%;
+    width: 50%;
+    padding: 2.5rem;
+    color: silver;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 0.3rem outset silver;
+    border-radius: 1.5rem 4.5rem;
+}
+
+@media (max-width: 1080px) {
+    body {
+        font-size: larger;
+    }
+
+    #TulpaIcon {
+        width: 90%;
+        left: 5%;
+    }
+    .impressum {
+        left: 5%;
+        width: 100%;
+    }
+}

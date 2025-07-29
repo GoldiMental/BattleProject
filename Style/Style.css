@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background: radial-gradient(rgb(0, 0, 60), rgb(0, 0, 25));
     color: azure;
     min-height: 850px;
     min-width: 600px;
@@ -11,6 +11,105 @@ body {
     font-family: 'Courier New', Courier, monospace;
     -webkit-user-select: none;
     user-select: none;
+}
+
+.background-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.lineRed {
+    position: absolute;
+    height: 1px;
+    width: 50%;
+    background: linear-gradient(90deg, transparent, red, transparent);
+    animation: moveLine 10s linear infinite;
+}
+.lineGold {
+    position: absolute;
+    height: 1px;
+    width: 50%;
+    background: linear-gradient(90deg, transparent, gold, transparent);
+    animation: moveLine 10s linear infinite;
+}
+
+.line-1 {
+    top: 5%;
+    animation-duration: 10s;
+}
+.line-2 {
+    top: 15%;
+    animation-duration: 15s;
+}
+.line-3 {
+    top: 25%;
+    animation-duration: 20s;
+}
+.line-4 {
+    top: 35%;
+    animation-duration: 15s;
+}
+.line-5 {
+    top: 45%;
+    animation-duration: 20s;
+}
+.line-6 {
+    top: 55%;
+    animation-duration: 11s;
+}
+.line-7 {
+    top: 65%;
+    animation-duration: 15s;
+}
+.line-8 {
+    top: 75%;
+    animation-duration: 13s;
+}
+.line-9 {
+    top: 85%;
+    animation-duration: 18s;
+}
+.line-10 {
+    top: 95%;
+    animation-duration: 16s;
+}
+@keyframes moveLine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+
+a {
+    color: black;
+    width: 500px;
+    font-size: 20px;
+    background-color: silver;
+    border: 3px outset azure;
+    border-radius: 10px;
+    margin-top: 5px;
+    padding: 2px;
+    opacity: 0.4;
+    transition: opacity 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+    border: 3px outset gold;
+    box-shadow: 0px 0px 15px gold;
+    background-color: gold;
+}
+
+a:active {
+    border: 3px inset gold;
 }
 
 button {
@@ -78,7 +177,7 @@ button {
     right: -500px;
     height: 200px;
     width: 200px;
-    transition: right 0.3s linear, opacity 0.5s ease,transform 0.5s linear;
+    transition: right 0.3s linear, opacity 0.5s ease, transform 0.5s linear;
 }
 
 #self {
@@ -150,8 +249,10 @@ button {
     width: 500px;
     height: 500px;
     border: 15px ridge silver;
-    border-radius: 15px;
+    border-radius: 15px 15px 30px 30px;
     overflow: hidden;
+    background-color: black;
+    box-shadow: 0 0 10px silver;
 }
 
 #Menu {
@@ -162,14 +263,15 @@ button {
     bottom: 10px;
     font-size: 27px;
     font-weight: bolder;
-    background-color: rgba(150, 150, 150);
-    opacity: 0.65;
-    border: none;
+    background-color: silver;
+    opacity: 0.5;
     border-radius: 12px;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease-out;
 }
 
 #Menu:not(:disabled):hover {
-    background-color: rgba(255, 215, 0, 0.65);
+    background-color: gold;
+    box-shadow: 0 0 10px gold;
     opacity: 1;
 }
 
@@ -183,16 +285,22 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    background-color: silver;
     color: azure;
-    border: 5px groove silver;
+    border: 3px outset silver;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .button:not(:disabled):hover {
     border-color: gold;
+    background-color: gold;
+}
+
+.button:not(:disabled):active {
+    border: 5px inset gold;
 }
 
 .Player {
@@ -246,9 +354,9 @@ button {
 }
 
 .MAP {
-    width: 3250px;
+    width: 4750px;
     height: 1200px;
-    background-image: url(../img/textures/MAP03.gif);
+    background-image: url(../img/textures/Map04.1.2.gif);
 }
 
 .MeinHaus {
@@ -272,12 +380,12 @@ button {
 #MenuList {
     visibility: hidden;
     position: absolute;
-    background-color: gray;
+    background: radial-gradient(rgb(0, 0, 100), rgb(0, 0, 50));
     height: 450px;
     width: 180px;
     top: 10px;
     right: 10px;
-    border: 5px outset azure;
+    border: 5px ridge azure;
     border-radius: 10px;
     padding: 10px;
 }
@@ -286,16 +394,18 @@ button {
     min-height: 30px;
     margin: 5px;
     width: 170px;
-    background-color: silver;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     text-align: left;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
-    border: 5px outset azure;
+    border: 3px outset silver;
     border-radius: 10px 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #Karte_info {
-    background-image: url(../img/textures/MAP03.gif);
+    background-image: url(../img/textures/Map04.1.png);
     background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
@@ -319,6 +429,11 @@ button {
 
 .MenuList:not(:disabled):hover {
     border-color: gold;
+    box-shadow: 0 0 10px gold;
+}
+
+.MenuList:not(:disabled):active {
+    border: 3px inset gold;
 }
 
 #Tulpa_Dex {
@@ -330,9 +445,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge azure;
     border-radius: 10px;
 }
 
@@ -357,15 +472,22 @@ button {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background-color: silver;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
-    border: 5px outset azure;
+    border: 3px outset azure;
     border-radius: 10px 5px;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .Exit_Button:not(:disabled):hover {
     border-color: gold;
+    box-shadow: 0 0 10px gold;
+}
+
+.Exit_Button:not(:disabled):active {
+    border: 3px inset gold;
 }
 
 .retro-popup {
@@ -392,6 +514,7 @@ button {
 
 #Info {
     visibility: hidden;
+    text-align: left;
     position: absolute;
     top: 10px;
     left: 10px;
@@ -399,9 +522,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge silver;
     border-radius: 10px;
 }
 
@@ -414,9 +537,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge silver;
     border-radius: 10px;
 }
 
@@ -429,9 +552,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge silver;
     border-radius: 10px;
 }
 
@@ -444,9 +567,9 @@ button {
     width: 450px;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-    background-color: silver;
-    border: 5px outset azure;
+    color: silver;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    border: 5px ridge silver;
     border-radius: 10px;
     font-size: large;
 }
@@ -454,12 +577,12 @@ button {
 .Item_Title {
     left: 15px;
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(0, 0, 0);
+    color: silver;
     text-decoration: underline;
 }
 
-#Item_List{
-    max-height:370px;
+#Item_List {
+    max-height: 370px;
     overflow-x: auto;
     text-align: left;
 }
@@ -470,18 +593,19 @@ button {
     text-align: left;
     border: none;
     height: 30px;
-    width:250px;
+    width: 250px;
     margin-bottom: 2px;
     border-radius: 3px;
-    color:black;
+    color: silver;
+    transition: background-color 0.5s ease;
 }
 
-.Item_list:not(:disabled):hover{
+.Item_list:not(:disabled):hover {
     background-color: gray;
 }
 
-.Item_list:disabled{
-    color:black;
+.Item_list:disabled {
+    color: silver;
 }
 
 .retro-popup-text {
@@ -550,6 +674,7 @@ button {
     border: none;
     border-radius: 3px;
     font-family: 'Courier New', Courier, monospace;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .battle_Button:not(:disabled):hover {
@@ -562,7 +687,18 @@ button {
     background-position: 50%;
     position: absolute;
     top: 750px;
-    right: 300px;
+    left: 2900px;
+    height: 50px;
+    width: 50px;
+}
+
+.TrainerText {
+    background-image: url(../img/textures/tR3.png);
+    background-size: 175%;
+    background-position: 50%;
+    position: absolute;
+    top: 450px;
+    left: 1300px;
     height: 50px;
     width: 50px;
 }
@@ -600,6 +736,52 @@ button {
     width: 50px;
 }
 
+#TulpaPC-Button {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🖥️</text></svg>");
+    background-size: 30px;
+    background-color: transparent;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    position: absolute;
+    border: none;
+    top: 66px;
+    left: 5px;
+    height: 45px;
+    width: 18px;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+
+#TulpaPC-Button:hover {
+    opacity: 1;
+}
+
+#TulpaPC {
+    visibility: hidden;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 450px;
+    width: 450px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: silver;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    border: 5px ridge azure;
+    border-radius: 10px;
+}
+
+#TulpaPC_List {
+    height: 400px;
+    width: 450px;
+    text-align: left;
+    float: inline;
+    position: absolute;
+    color: silver;
+    overflow-x: hidden;
+}
+
 .MeinHaus_B {
     top: 250px;
     left: 350px;
@@ -626,6 +808,7 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .Inside:hover {
@@ -663,6 +846,7 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
+    transition: opacity 0.5s ease;
 }
 
 .Handler {
@@ -677,6 +861,7 @@ button {
     height: 45px;
     width: 40px;
     visibility: hidden;
+    transition: opacity 0.5s ease;
 }
 
 .Handler:hover {
@@ -727,6 +912,7 @@ button {
     border: none;
     border-radius: 5px;
     font-size: larger;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .Change_Tulpa {
@@ -738,6 +924,7 @@ button {
     border: none;
     border-radius: 5px;
     font-size: larger;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .Delete_Tulpa:not(:disabled):hover,
@@ -792,6 +979,7 @@ button {
     height: 30px;
     margin-bottom: 5px;
     border-radius: 3px;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .change_tulpa_button:not(:disabled):hover {
@@ -801,9 +989,175 @@ button {
 #tulpaball {
     position: absolute;
     background-image: url(../img/textures/tBall.png);
-    height:50px;
-    width:50px;
-    top:350px;
-    left:0px;
+    height: 50px;
+    width: 50px;
+    top: 350px;
+    left: 0px;
     transition: left 0.1s linear, top 0.1s linear;
+}
+
+.TrainerDialogBox {
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    text-align: center;
+    font-size: 22px;
+    visibility: hidden;
+    position: absolute;
+    bottom: 0px;
+    height: 100px;
+    width: 490px;
+    background-color: azure;
+    border: 5px ridge gray;
+}
+
+#shopMenu {
+    visibility: hidden;
+    position: absolute;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    color: silver;
+    right: 5px;
+    top: 5px;
+    border: 5px ridge silver;
+    border-radius: 10px;
+    width: 250px;
+}
+
+#ShopBuyList {
+    visibility: hidden;
+    position: absolute;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    color: silver;
+    left: 5px;
+    top: 5px;
+    border: 5px ridge silver;
+    border-radius: 10px;
+    width: 300px;
+    max-height: 350px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.menu-button {
+    font-family: 'Courier New', Courier, monospace;
+    left: 5px;
+    width: 240px;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    color: silver;
+    border: 3px outset silver;
+    border-radius: 5px;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+}
+
+.menu-button:hover {
+    background-color: gold;
+    border: 3px outset gold;
+    box-shadow: 0 0 10px gold;
+}
+
+.menu-button:active {
+    border: 3px inset gold;
+}
+
+.number_input {
+    background-color: transparent;
+    border: 3px inset silver;
+    color: silver;
+    position: relative;
+    left: 5px;
+    width: 50px;
+    height:20px;
+    float: left;
+}
+
+.BuyButton,
+.SellButton {
+    position: absolute;
+    right: 5px;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    color: silver;
+    border: 3px outset silver;
+    border-radius: 5px;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+}
+
+.BuyButton:hover,
+.SellButton:hover {
+    background-color: gold;
+    border: 3px outset gold;
+    box-shadow: gold;
+}
+
+.BuyButton:active,
+.SellButton:active {
+    border: 3px inset gold;
+}
+
+.ExitBuyButton,
+.ExitSellButton {
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    color: silver;
+    border: 3px outset silver;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+}
+
+.ExitBuyButton:hover,
+.ExitSellButton:hover {
+    background-color: gold;
+    border: 3px outset gold;
+    box-shadow: gold;
+}
+
+.ExitBuyButton:active,
+.ExitSellButton:active {
+    border: 3px inset gold;
+}
+
+.productcost {
+    position: absolute;
+    width: 100px;
+    left: 60px;
+}
+
+.producttitle {
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+#ShopSellList {
+    visibility: hidden;
+    position: absolute;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    color: silver;
+    left: 5px;
+    top: 5px;
+    border: 5px ridge silver;
+    border-radius: 10px;
+    width: 300px;
+    max-height: 350px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+#GameOver {
+    visibility: hidden;
+    position: absolute;
+    height: 100px;
+    width: 500px;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    top: 150px;
+    text-shadow: 5px 5px 10px gold;
+}
+
+#Countdown {
+    color: silver;
+    font-size: 30px;
+    text-shadow: 5px 5px 10px silver;
 }

@@ -1,133 +1,82 @@
 <!DOCTYPE html>
-<html lang="de-DE">
+<html lang="de">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Style/Style.css">
-    <link rel="stylesheet" href="Style/Tulpas.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="img/TulpaIcon.png" type="image/png">
-    <title>Tulpa-King</title>
+    <link rel="stylesheet" href="Style/login.css">
+    <title>TulpaKing® - Anmeldung</title>
 </head>
 
 <body>
-    <img src="img/TulpaTopLogo.png" height="300px" alt="Tulpa-King-Logo">
-    <div class="Playground">
-        <div id="movement_game">
-            <div  class="map MAP">
-                <div class="Trainer"></div>
-                <div id="Haendler"></div>
-                <div id="Professor"><button id="ProfessorButton" onclick="ProfTalk_1()"> </button></div>
-                <button id="tuerSelfIn" title="Mein Haus" class="Inside MeinHaus_B" onclick="meinEingang()"></button>
-                <button id="tuerSelfOut" title="MeinStadt" class="Outside MeinHausOut_B" onclick="meinAusgang()"></button>
-                <button id="tuerTroyIn" title="Troys Haus" class="Inside TroysHaus_B" onclick="troysEingang()"></button>
-                <button id="tuerTroyOut" title="TroyStadt" class="Outside TroysHausOut_B" onclick="troysAusgang()"></button>
-                <button id="tuerShopIn" title="Shop Haus" class="Inside ShopHaus_B" onclick="shopEingang()"></button>
-                <button id="tuerShopOut" title="ShopStadt" class="Outside ShopHausOut_B" onclick="shopAusgang()"></button>
-                <button id="ShopHandel" title="Händler" class="Handler ShopHandel_B" onclick="shopHandel()"></button>
-            </div>
-            <div id="user" class="Player down"></div>
-            <button id="Menu" onclick="MenuList();Click()">≡</button>
-            <div id="MenuList">
-                <button class="MenuList" onclick="Tulpa_Dex();Click()">Tulpa-Dex</button>
-                <button class="MenuList" onclick="Tulpas_List();Click()">Tulpa's</button>
-                <button class="MenuList" onclick="Info();Click()">Info</button>
-                <button id="karte" class="MenuList" onclick="Karte();Click()">Karte</button>
-                <button class="MenuList" onclick="Items();Click()">Item's</button>
-                <button class="MenuList" onclick="Click();Cheat()">Cheats</button>
-                <button class="MenuList" onclick="Exit_Game();Click()">Spiel verlassen</button>
-            </div>
-            <div id="Tulpa_Dex">
-                <div>Tulpa-Dex</div>
-                <div id="Tulpa_Dex_List"></div>
-                <button class="Exit_Button" onclick="close_Tulpa_Dex();Click()">Exit</button>
-            </div>
-            <div id="Tulpas">
-                <div>Tulpa's</div><br>
-                <div id="Tulpa_List"></div>
-                <button class="Exit_Button" onclick="close_Tulpas();Click()">Exit</button>
-            </div>
-            <div id="Info">
-                <div>Info</div><br>
-                <div id="Info_List"></div>
-                <button class="Exit_Button" onclick="close_Info();Click()">Exit</button>
-            </div>
-            <div id="Karte">
-                <div>Karte</div><br>
-                    <div id="Karte_info">
-                        <div id="standort-marker">💠</div>
-                    </div>
-                    
-                <button class="Exit_Button" onclick="close_Karte();Click()">Exit</button>
-            </div>
-            <div id="Items">
-                <div>Item's</div><br>
-                <div id="Item_List"></div>
-                <button class="Exit_Button" onclick="close_Items();Click()">Exit</button>
-            </div>
-        </div>
-        <div id="battle_game">
-            <div id="opponent">
-                <div id="Name-opp"></div>
-                <div id="LP-opp">
-                    <div id="fill-opp"></div>
-                </div>
-                <div id="Tulpa-opp"></div>
-            </div>
-            <div id="self">
-                <div id="Name-self"></div>
-                <div id="LP-self">
-                    <div id="fill-self"></div>
-                </div>
-                <div id="Tulpa-self"></div>
-            </div>
-            <div id="battle_game_menu">
-                <div id="change_tulpa"></div>
-                <div id="use_item"></div>
-            </div>
-            <div id="battle-info">
-                <div id="battle_text"></div>
-                <div id="battle_box">
-                    <div id="battle_menu">
-                        <button class="battle_Button" id="fight" onclick="fight()">Kämpfen</button>
-                        <button class="battle_Button" id="use_Items" onclick="useItem()">Item's</button>
-                        <button class="battle_Button" id="change_Tulpa" onclick="changeTulpa()">Tulpa's</button>
-                        <button class="battle_Button" id="escape" onclick="escape()">Flucht</button>
-                    </div>
-                    <div id="attack_menu">
-                        <button class="battle_Button" id="Attack_1" onclick="self_attack(this.innerHTML)">.</button>
-                        <button class="battle_Button" id="Attack_2" onclick="self_attack(this.innerHTML)">.</button>
-                        <button class="battle_Button" id="Attack_3" onclick="self_attack(this.innerHTML)">.</button>
-                        <button class="battle_Button" id="Attack_4" onclick="self_attack(this.innerHTML)">.</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!--Background-Section-Beginning-->
+    <div class="background-lines">
+        <div class="lineRed line-1"></div>
+        <div class="lineGold line-2"></div>
+        <div class="lineRed line-3"></div>
+        <div class="lineGold line-4"></div>
+        <div class="lineRed line-5"></div>
+        <div class="lineGold line-6"></div>
+        <div class="lineRed line-7"></div>
+        <div class="lineGold line-8"></div>
+        <div class="lineRed line-9"></div>
+        <div class="lineGold line-10"></div>
     </div>
-
-    <audio id="attack-sound" src="audio/Attack-001.mp3"></audio>
-    <audio id="bg01-sound" src="audio/background-001.mp3" loop></audio>
-    <audio id="bg02-sound" src="audio/background-002.mp3" loop></audio>
-    <audio id="bg03-sound" src="audio/background-003.mp3" loop></audio>
-    <audio id="bgr01-sound" src="audio/background-retro-001.mp3" loop></audio>
-    <audio id="bgr02-sound" src="audio/background-retro-002.mp3" loop></audio>
-    <audio id="lvup-sound" src="audio/Level-up.mp3"></audio>
-    <audio id="win-sound" src="audio/Win-sound.mp3"></audio>
-    <audio id="click-sound" src="audio/Click-sound.mp3"></audio>
-    <audio id="alarm-sound" src="audio/8bit-alarm.mp3"></audio>
-
-    <script src="Skript/Shop.js"></script>
-    <script src="Skript/Talks.js"></script>
-    <script src="Skript/attack.js"></script>
-    <script src="Skript/Mapzones.js"></script>
-    <script src="Skript/Tulpa-List.js"></script>
-    <script src="Skript/Item-List.js"></script>
-    <script src="Skript/battle.js"></script>
-    <script src="Skript/Player.js"></script>
-    <script src="Skript/Exit_Game.js"></script>
-    <script src="Skript/Menu.js"></script>
-    <script src="Skript/movement.js"></script>
-    <script src="Skript/Start.js"></script>
+    <img id="TulpaIcon" src="img/TulpaIcon.png" alt="TulpaKing-Logo">
+    <!--Background-Section-Ending-->
+    <!--Login-Section-Beginning  Default:visible-->
+    <div id="Login-Container" class="login container">
+        <h2>Login</h2>
+        <form id="loginForm" action="/login" method="post">
+            <div class="form-group">
+                <label for="login-username">Benutzername</label>
+                <input type="text" id="login-username" name="username" placeholder="Benutzername" required />
+            </div>
+            <div class="form-group">
+                <label for="login-password">Passwort</label>
+                <input type="password" id="login-password" name="password" placeholder="Passwort" required />
+            </div>
+            <button class="btn" type="submit">Einloggen</button>
+            <div id="loginMessage" class="message-area"></div>
+        </form>
+        <button class="changeMode" onclick="changeMode(0)">Hier Registrieren &gt;&gt;&gt;</button>
+    </div>
+    <!--Login-Section-Ending-->
+    <!--Register-Section-Beginning  Default:hidden-->
+    <div id="Register-Container" class="register container hidden opacity0">
+        <h2>Registrieren</h2>
+        <form id="registerForm" action="/register" method="post">
+            <div class="form-group">
+                <label for="register-username">Benutzername</label>
+                <input type="text" id="register-username" name="username" placeholder="Benutzername" required />
+            </div>
+            <div class="form-group">
+                <label for="register-email">E-Mail</label>
+                <input type="email" id="register-email" name="email" placeholder="E-Mail" required />
+            </div>
+            <div class="form-group">
+                <label for="register-password">Passwort</label>
+                <input type="password" id="register-password" name="password" placeholder="Passwort" required />
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Passwort wiederholen</label>
+                <input type="password" id="confirm-password" name="confirm_password" placeholder="Passwort wiederholen"
+                    required />
+                <span id="passwordMatchError" class="message-area error" style="display: block; margin-top: 5px;"></span>
+            </div>
+            <a id="LinkInfo" target="_blank" href="Info.html">Was erwartet mich? </a>
+            <button class="btn" type="submit">Registrieren</button>
+            <div id="registerMessage" class="message-area"></div>
+        </form>
+        <button class="changeMode" onclick="changeMode(1)">&lt;&lt;&lt; Zurück zum Login </button>
+    </div>
+    <!--Register-Section-Ending-->
+    <!--Impressum-Section-Beginning-->
+    <a class="impressum" target="_blank" href="impressum.html">Impressum & Quellen</a>
+    <!--Impressum-Section-Ending-->
+    <!--Scripts used by this .html-->
+    <script src="Skript/regandlogin.js"></script>
 
 </body>
 
