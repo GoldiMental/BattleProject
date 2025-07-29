@@ -21,14 +21,12 @@ async function Cheat() {
         case "MOREGOLD":
             Player.Gold += 1000;
             Player.Cheats += 1;
-            setCookie("PlayerData", JSON.stringify(Player), 30);
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             break;
         case "CHANGENAME":
             let newName = await showCustomPrompt("Gib deinen neuen Namen ein:", "Max");
             Player.name = newName;
             Player.Cheats += 1;
-            setCookie("PlayerData", JSON.stringify(Player), 30);
             showCustomAlert("Der Name wurde zu " + newName + " geändert.");
             break;
         case "GETBALLS":
@@ -37,7 +35,6 @@ async function Cheat() {
             Player.inventory.balls.Hyper_Tulpaball += 2;
             Player.inventory.balls.Ultra_Tulpaball += 1;
             Player.Cheats += 1;
-            setCookie("PlayerData", JSON.stringify(Player), 30);
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             break;
         case "GETDRINKS":
@@ -46,7 +43,6 @@ async function Cheat() {
             Player.inventory.drinks.Manatrank += 2;
             Player.inventory.drinks.Super_Manatrank += 1;
             Player.Cheats += 1;
-            setCookie("PlayerData", JSON.stringify(Player), 30);
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             break;
         case "GETBONBONS":
@@ -54,12 +50,10 @@ async function Cheat() {
             Player.inventory.bonbons.Super_Bonbon += 2;
             Player.inventory.bonbons.Hyper_Bonbon += 1;
             Player.Cheats += 1;
-            setCookie("PlayerData", JSON.stringify(Player), 30);
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             break;
         // case "GETBOSSTULPA":
         //     Player.Tulpas.Slot_1 = {name:"Böser_Wolf",Lv:100,HP:450,HP_Total:450,XP:0};
-        //     setCookie("PlayerData", JSON.stringify(Player), 30);
         //     showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
         //     break;
         default:
@@ -123,7 +117,6 @@ async function removeTulpa(Slot) {
                 }
             }
         }
-        setCookie("PlayerData", JSON.stringify(Player), 30);
         Tulpas_List();
     } else if (Slot == "Slot_1") {
         showCustomAlert("Der erste Slot muss immer belegt sein!");
@@ -137,7 +130,6 @@ async function swapTulpa(Slot) {
         let tulpa_2 = Player.Tulpas["Slot_" + antwort];
         Player.Tulpas[Slot] = tulpa_2;
         Player.Tulpas["Slot_" + antwort] = tulpa_1;
-        setCookie("PlayerData", JSON.stringify(Player), 30);
         Tulpas_List();
     } else {
         showCustomAlert("Tausch nicht möglich! \n Falsche Eingabe oder Slot nicht belegt.");
@@ -251,7 +243,6 @@ async function Use(itm, qty) {
                             Player.Tulpas[slot].HP = Player.Tulpas[slot].HP_Total;
                         }
                         Player.inventory.drinks[itm] -= 1;
-                        setCookie("PlayerData", JSON.stringify(Player), 30);
                         close_Tulpas();
                         Items();
                     } else {
@@ -284,9 +275,7 @@ async function Use(itm, qty) {
                         Player.Tulpas[slot].HP += 3;
                         Player.Tulpas[slot].HP_Total += 3;
                     }
-
                     Player.inventory.bonbons[itm] -= 1;
-                    setCookie("PlayerData", JSON.stringify(Player), 30);
                     close_Tulpas();
                     Items();
                 } else {
@@ -301,9 +290,4 @@ async function Use(itm, qty) {
             }
         }
     }
-}
-
-function SaveGame(){
-    setCookie("PlayerData", JSON.stringify(Player), 30);
-    showCustomAlert("Der Spielstand wurde gespeichert!");
 }

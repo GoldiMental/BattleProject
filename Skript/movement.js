@@ -16,7 +16,6 @@ let maxY = 250;
 function changeMap(mapname) {
     activeMap = maps[mapname].name;
     Player.actualMap = activeMap;
-    setCookie("PlayerData", JSON.stringify(Player), 30);
 }
 
 function refreshMap() {

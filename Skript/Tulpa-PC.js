@@ -1,4 +1,3 @@
-
 function TulpaPC() {
     let pcTulpas = Player.Tulpas.PC;
     let html = "";  
@@ -45,7 +44,6 @@ async function removeTulpaFromPC(index) {
     if (antwort) {
         tulpaPC.splice(index, 1);
         showCustomAlert(`"${selectedTulpa.name}" wurde aus dem Tulpa-PC gelöscht.`);
-        setCookie("PlayerData", JSON.stringify(Player), 30);
         TulpaPC();
     }
 }
@@ -77,20 +75,16 @@ async function swapTulpaWithPC(teamSlot, pcIndex) {
         showCustomAlert("Der gewählte PC-Slot ist leer.");
         return;
     }
-
     
     let confirm = await showCustomConfirm(
         `Soll "${teamTulpa.name}" aus ${teamSlot} mit "${pcTulpa.name}" aus dem Tulpa-PC getauscht werden?`
     );
 
     if (!confirm) return;
-
     
     Player.Tulpas[teamSlot] = pcTulpa;
     Player.Tulpas.PC[pcIndex] = teamTulpa;
 
-    
-    setCookie("PlayerData", JSON.stringify(Player), 30);
     Tulpas_List();
     TulpaPC(); 
 }

@@ -152,7 +152,6 @@ async function escape() {
         document.getElementById('bgr02-sound').pause();
         document.getElementById('bgr02-sound').currentTime = 0;
         document.getElementById('win-sound').play(); await Delay(3500);
-        setCookie("PlayerData", JSON.stringify(Player), 30);
         document.getElementById('bg03-sound').play();
         document.getElementById("movement_game").style.visibility = "visible";
         document.getElementById("battle_game").style.visibility = "hidden";
@@ -227,7 +226,6 @@ async function opp_Attack() {
                     }
                 }
             };
-            setCookie("PlayerData", JSON.stringify(Player), 30);
             document.getElementById('bg03-sound').play();
             document.getElementById("movement_game").style.visibility = "hidden";
             document.getElementById("battle_game").style.visibility = "hidden";
@@ -301,7 +299,7 @@ async function self_attack(attack) {
                 tulpa_self.XP = 0;
                 tulpa_self.HP += 3;
                 tulpa_self.HP_Total += 3;
-                setCookie("PlayerData", JSON.stringify(Player), 30); await Delay(1000);
+                await Delay(1000);
                 document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
                 document.getElementById('battle_text').innerText = tulpa_self.name + " ist ein Level aufgestiegen";
             }
@@ -315,7 +313,6 @@ async function self_attack(attack) {
                 document.getElementById("battle_game").style.visibility = "hidden";
                 document.getElementById('fill-opp').style.width = "100%";
                 trainerbattle = 0;
-                setCookie("PlayerData", JSON.stringify(Player), 30);
                 moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
             } else if (trainerbattle == 1) {
                 let nextTulpaFound = false;
@@ -331,10 +328,9 @@ async function self_attack(attack) {
                 if (!nextTulpaFound) {
                     document.getElementById('battle_text').innerText = "Du hast " + trainer.name + " besiegt!";
                     Player.defeatedTrainer.push(document.getElementsByClassName("TrainerDialogBox")[0].getAttribute("TrainerID"));
-                    setCookie("PlayerData", JSON.stringify(Player), 30); await Delay(1500);
+                    await Delay(1500);
                     document.getElementById('battle_text').innerText = "Du hast " + trainer.gold + " Gold erhalten!";
                     Player.Gold += trainer.gold;
-                    setCookie("PlayerData", JSON.stringify(Player), 30);
                     trainer = {}; await Delay(1500);
                     document.getElementById("movement_game").style.visibility = "visible";
                     document.getElementById("battle_game").style.visibility = "hidden";
@@ -442,7 +438,6 @@ async function UseBall(ball) {
         document.getElementById('use_item').style.visibility = "hidden";
         document.getElementById("battle_menu").style.visibility = "hidden";
         Player.inventory.balls[ball] -= 1;
-        setCookie("PlayerData", JSON.stringify(Player), 30);
         document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[ball].name + " ein";
         let ballElement = document.createElement("div");
         ballElement.id = "tulpaball";
@@ -489,7 +484,6 @@ async function UseBall(ball) {
                 if (Player.Tulpas[i].name == "") { Player.Tulpas[i] = catchedTulpa; break; }
                 else if (i == 'PC') { Player.Tulpas[i].push(catchedTulpa); }
             }
-            setCookie("PlayerData", JSON.stringify(Player), 30);
             document.getElementById('bgr02-sound').pause();
             document.getElementById('bgr02-sound').currentTime = 0;
             document.getElementById('win-sound').play(); await Delay(3000);
@@ -540,7 +534,7 @@ async function UseDrink(drink) {
                     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
                 }
                 Player.inventory.drinks[drink] -= 1;
-                setCookie("PlayerData", JSON.stringify(Player), 30); await Delay(2000);
+                await Delay(2000);
                 opp_Attack();
             } else {
                 document.getElementById('battle_text').innerText = Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";

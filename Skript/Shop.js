@@ -84,7 +84,6 @@ function BuyThis(idnr) {
         break;
     }
     Player.Gold -= price;
-    setCookie("PlayerData", JSON.stringify(Player), 30);
     showCustomAlert("Du hast " + qty + "x " + product + " für " + price + " Gold erhalten!");
   } else {
     showCustomAlert("Das scheint mir, als könntest Du dir das nicht leisten.")
@@ -179,7 +178,6 @@ function SellThis(idnr) {
         break;
     }
     Player.Gold += price;
-    setCookie("PlayerData", JSON.stringify(Player), 30);
     showCustomAlert("Du hast " + qty + "x " + product + " für " + price + " Gold verkauft!");
     sellItems();
   } else {
@@ -194,7 +192,6 @@ async function healTulpas() {
   Player.Tulpas.Slot_4.HP = Player.Tulpas.Slot_4.HP_Total;
   Player.Tulpas.Slot_5.HP = Player.Tulpas.Slot_5.HP_Total;
   Player.Tulpas.Slot_6.HP = Player.Tulpas.Slot_6.HP_Total;
-  setCookie("PlayerData", JSON.stringify(Player), 30);
   document.getElementsByClassName("TrainerDialogBox")[0].innerHTML = "Alle Deine Tulpas, die Du bei dir hast, wurden vollständig geheilt!"; await Delay(2500); await Click();
   document.getElementsByClassName("TrainerDialogBox")[0].innerHTML = "Wie kann ich Ihnen weiterhelfen?";
 }

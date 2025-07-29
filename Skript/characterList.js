@@ -30,7 +30,6 @@ async function Professor001monolog() {
         box.innerHTML = "Also los! Deine Reise beginnt...<br>Viel Erfolg, "+Player.name+"!"; await Delay(300); await Click();
         Player.Tulpas.Slot_1 = { name: "Kaninchen", Lv: 10, HP: 80, HP_Total: 80, XP: 0 };
         Player.tulpaGegeben = true;
-        setCookie("PlayerData", JSON.stringify(Player), 30);
     } else {
         box.innerHTML = "Ich habe dir bereits alles gegeben, was du aktuell benötigst. Geh nun hinaus, und hilf mir, die Geheimnisse der Tulpas zu erforschen."; await Delay(300); await Click();
     }
