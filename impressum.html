@@ -47,8 +47,8 @@
             title="zu Wikipedia - Pokémon (Computerspielreihe)">Pokémon</a>
         <p>
             Natürlich nicht das heutige Pokémon, welches man auf jeder Nintendo® Switch spielen kann. Sondern die gute,
-            alte Version, welche man auf einem 
-            <a title="zu Wikipedia - Gameboy® Color" href="https://de.wikipedia.org/wiki/Game_Boy">Game Boy</a> 
+            alte Version, welche man auf einem
+            <a title="zu Wikipedia - Gameboy® Color" href="https://de.wikipedia.org/wiki/Game_Boy">Game Boy</a>
             spielen kann.
         </p>
         <h3>weitere Ideen:</h3>
@@ -136,6 +136,16 @@
             Hoffmann, Johnny
         </p>
     </div>
+    <a id="ToLogin" class="ToLogin" href="index.html" target="_self">Zum Login</a>
+    <script>
+        window.onload = function() {
+            const ToLoginElement = document.getElementById("ToLogin");
+            ToLoginElement.classList.add("ToLoginHover");
+            setTimeout(function() {
+                ToLoginElement.classList.remove("ToLoginHover");
+            },3000);
+        };
+    </script>
 </body>
 
 </html>

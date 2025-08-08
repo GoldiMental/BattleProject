@@ -81,6 +81,7 @@ body {
 }
 
 .register {
+    margin-top:2%;
     height: auto;
 }
 
@@ -341,10 +342,12 @@ body {
     }
 
     .container {
+        position: absolute;
+        top:2%;
         margin: 1rem;
         padding: 1.5rem;
         font-size: 18px;
-        min-width: 150px;
+        width: 80%;
     }
 
     .form-group label {
@@ -378,14 +381,14 @@ body {
     }
 }
 
-@media (max-height: 750px) {
+@media (max-height: 850px) {
     body {
         position: relative;
     }
 
     .impressum {
         position: absolute;
-        top: 700px;
+        top: 800px;
         height: 30px;
     }
 }

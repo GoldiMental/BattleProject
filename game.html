@@ -154,7 +154,7 @@
             </div>
         </div>
     </div>
-    <a href="Info.html" target="_blank">TulpaKing<sup>&reg;</sup> Info & Impressum</a>
+    <a id="ToInfo" onclick="OpenInfo()">TulpaKing<sup>&reg;</sup> Info & Impressum</a>
 
     <audio id="attack-sound" src="audio/Attack-001.mp3"></audio>
     <audio id="bg01-sound" src="audio/background-001.mp3" loop></audio>
@@ -183,6 +183,12 @@
     <script src="Skript/characterList.js"></script>
     <script src="Skript/Tulpa-PC.js"></script>
     <script src="Skript/Start.js"></script>
+    <script>
+        function OpenInfo() {
+            const features = 'width=800,height=600,scrollbars=yes,resizable=yes';
+            window.open(Info.html, 'TulpaKing® - Info & Hilfe', features);
+        }
+    </script>
 </body>
 
 </html>
