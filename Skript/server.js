@@ -203,5 +203,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server läuft auf http://18.185.120.26:${PORT}`);
+    console.log(`Server läuft auf http://20.79.178.244:${PORT}`);
 });

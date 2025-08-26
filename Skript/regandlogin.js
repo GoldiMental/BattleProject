@@ -51,7 +51,7 @@ document.getElementById("loginForm").addEventListener('submit', async (e) => {
     showMessage(loginMessageElement, 'Anmeldung läuft...', '');
 
     try {
-        const res = await fetch('http://18.185.120.26:3000/login', {
+        const res = await fetch('http://20.79.178.244:3000/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
@@ -98,7 +98,7 @@ document.getElementById("registerForm").addEventListener('submit', async (e) => 
     showMessage(registerMessageElement, 'Registrierung läuft...', '');
 
     try {
-        const res = await fetch('http://18.185.120.26:3000/register', {
+        const res = await fetch('http://20.79.178.244:3000/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, password }),

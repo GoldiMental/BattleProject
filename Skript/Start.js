@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Spielerdaten vom Server abrufen
     try {
-        const res = await fetch('http://18.185.120.26:3000/api/playerdata', {
+        const res = await fetch('http://20.79.178.244:3000/api/playerdata', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -265,7 +265,7 @@ async function SaveGame() {
     }
 
     try {
-        const res = await fetch('http://18.185.120.26:3000/api/savegame', {
+        const res = await fetch('http://20.79.178.244:3000/api/savegame', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
