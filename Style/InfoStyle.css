@@ -8,6 +8,10 @@ body {
   font-size: 14px;
 }
 
+.hidethis{
+    display: none !important;
+}
+
 .menu-toggle {
   display: none; /* Standardmäßig auf Desktop ausblenden */
   position: fixed; /* Bleibt beim Scrollen sichtbar */

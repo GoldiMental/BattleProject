@@ -26,21 +26,21 @@
     </div>
     <img style="position: relative; left: 5px;" src="img/TulpaTopLogo.png" height="300px" alt="Tulpa-King-Logo">
     <div class="Playground">
-        <div id="GameOver">Du bist ohnmächtig!<br /><br /><span id="Countdown"></span></div>
+        <div id="GameOver"  class="hidethis">Du bist ohnmächtig!<br /><br /><span id="Countdown"></span></div>
         <div id="movement_game">
             <div class="map MAP">
                 <div class="Trainer"></div>
                 <div class="TrainerText"></div>
                 <div id="Haendler"></div>
                 <div id="Professor"><button id="ProfessorButton" onclick="Professor001monolog()"> </button></div>
-                <button id="tuerSelfIn" title="Mein Haus" class="Inside MeinHaus_B" onclick="meinEingang()"></button>
-                <button id="tuerSelfOut" title="MeinStadt" class="Outside MeinHausOut_B"
+                <button id="tuerSelfIn" title="Mein Haus" class="Inside MeinHaus_B hidethis" onclick="meinEingang()"></button>
+                <button id="tuerSelfOut" title="MeinStadt" class="Outside MeinHausOut_B hidethis"
                     onclick="meinAusgang()"></button>
-                <button id="tuerTroyIn" title="Troys Haus" class="Inside TroysHaus_B" onclick="troysEingang()"></button>
-                <button id="tuerTroyOut" title="TroyStadt" class="Outside TroysHausOut_B"
+                <button id="tuerTroyIn" title="Troys Haus" class="Inside TroysHaus_B hidethis" onclick="troysEingang()"></button>
+                <button id="tuerTroyOut" title="TroyStadt" class="Outside TroysHausOut_B hidethis"
                     onclick="troysAusgang()"></button>
-                <button id="tuerShopIn" title="Shop Haus" class="Inside ShopHaus_B" onclick="shopEingang()"></button>
-                <button id="tuerShopOut" title="ShopStadt" class="Outside ShopHausOut_B"
+                <button id="tuerShopIn" title="Shop Haus" class="Inside ShopHaus_B hidethis" onclick="shopEingang()"></button>
+                <button id="tuerShopOut" title="ShopStadt" class="Outside ShopHausOut_B hidethis"
                     onclick="shopAusgang()"></button>
                 <button id="ShopHandel" title="Händler" class="Handler ShopHandel_B"
                     onclick="shopHandel('Shop_1')"></button>
@@ -59,7 +59,7 @@
             <button class="WASD" id="D_Click" onmousedown="Click_D_down()" onmouseup="Click_D_up()"
                 ontouchstart="Click_D_down()" ontouchend="Click_D_up()">➡️</button>
             <button id="Menu" onclick="MenuList();Click()">≡</button>
-            <div id="MenuList">
+            <div id="MenuList" class="hidethis">
                 <button class="MenuList" onclick="Tulpa_Dex();Click()">Tulpa-Dex<sup>®</sup></button>
                 <button class="MenuList" onclick="Tulpas_List();Click()">Tulpa's</button>
                 <button class="MenuList" onclick="Info();Click()">Info</button>
@@ -69,28 +69,28 @@
                 <button class="MenuList" onclick="Click();SaveGame()">Spiel speichern</button>
                 <button class="MenuList" onclick="Exit_Game();Click()">Spiel verlassen</button>
             </div>
-            <div id="TulpaPC">
+            <div id="TulpaPC" class="hidethis">
                 <div>TulpaPC</div>
                 <div class="TulpaPC_01"></div>
                 <div id="TulpaPC_List"></div>
                 <button class="Exit_Button" onclick="close_Tulpa_PC();Click()">Exit</button>
             </div>
-            <div id="Tulpa_Dex">
+            <div id="Tulpa_Dex" class="hidethis">
                 <div>Tulpa-Dex<sup>®</sup></div>
                 <div id="Tulpa_Dex_List"></div>
                 <button class="Exit_Button" onclick="close_Tulpa_Dex();Click()">Exit</button>
             </div>
-            <div id="Tulpas">
+            <div id="Tulpas" class="hidethis">
                 <div>Tulpa's</div><br>
                 <div id="Tulpa_List"></div>
                 <button class="Exit_Button" onclick="close_Tulpas();Click()">Exit</button>
             </div>
-            <div id="Info">
+            <div id="Info" class="hidethis">
                 <div style="text-align:center;">Info</div><br>
                 <div id="Info_List"></div>
                 <button class="Exit_Button" onclick="close_Info();Click()">Exit</button>
             </div>
-            <div id="Karte">
+            <div id="Karte" class="hidethis">
                 <div>Karte</div><br>
                 <div id="Karte_info">
                     <div id="standort-marker">💠</div>
@@ -98,25 +98,25 @@
 
                 <button class="Exit_Button" onclick="close_Karte();Click()">Exit</button>
             </div>
-            <div id="Items">
+            <div id="Items" class="hidethis">
                 <div>Item's</div><br>
                 <div id="Item_List"></div>
                 <button class="Exit_Button" onclick="close_Items();Click()">Exit</button>
             </div>
 
-            <div id="shopMenu">
+            <div id="shopMenu" class="hidethis">
                 <h2>Shop Menü</h2>
                 <button class="menu-button" onclick="buyItems();Click()">Kaufen</button>
                 <button class="menu-button" onclick="sellItems();Click()">Verkaufen</button>
                 <button class="menu-button" onclick="healTulpas();Click()">Tulpas Heilen</button>
                 <button class="menu-button" onclick="closeShop();Click()">Verlassen</button>
             </div>
-            <div id="ShopBuyList"></div>
-            <div id="ShopSellList"></div>
+            <div id="ShopBuyList" class="hidethis"></div>
+            <div id="ShopSellList" class="hidethis"></div>
 
-            <div class="TrainerDialogBox"></div>
+            <div class="TrainerDialogBox hidethis"></div>
         </div>
-        <div id="battle_game">
+        <div id="battle_game" class="hidethis">
             <div id="opponent">
                 <div id="Name-opp"></div>
                 <div id="LP-opp">
@@ -131,7 +131,7 @@
                 </div>
                 <div id="Tulpa-self"></div>
             </div>
-            <div id="battle_game_menu">
+            <div id="battle_game_menu" class="hidethis">
                 <div id="change_tulpa"></div>
                 <div id="use_item"></div>
             </div>
@@ -144,7 +144,7 @@
                         <button class="battle_Button" id="change_Tulpa" onclick="changeTulpa()">Tulpa's</button>
                         <button class="battle_Button" id="escape" onclick="escape()">Flucht</button>
                     </div>
-                    <div id="attack_menu">
+                    <div id="attack_menu" class="hidethis">
                         <button class="battle_Button" id="Attack_1" onclick="self_attack(this.innerHTML)">.</button>
                         <button class="battle_Button" id="Attack_2" onclick="self_attack(this.innerHTML)">.</button>
                         <button class="battle_Button" id="Attack_3" onclick="self_attack(this.innerHTML)">.</button>

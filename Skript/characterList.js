@@ -14,9 +14,9 @@ const Professor = {
 
 async function Professor001monolog() {
     const box = document.getElementsByClassName("TrainerDialogBox")[0];
-    document.getElementById("ProfessorButton").style.visibility = "hidden";
+    document.getElementById("ProfessorButton").classList.toggle("hidethis", true);
     clearInterval(moveIntervalID);
-    box.style.visibility = "visible";
+    box.classList.toggle("hidethis", false);
     if (!Player.tulpaGegeben) {
         box.innerHTML = Professor.Dialog1.text1; await Delay(300); await Click();
         box.innerHTML = Professor.Dialog1.text2; await Delay(300); await Click();
@@ -33,7 +33,7 @@ async function Professor001monolog() {
     } else {
         box.innerHTML = "Ich habe dir bereits alles gegeben, was du aktuell benötigst. Geh nun hinaus, und hilf mir, die Geheimnisse der Tulpas zu erforschen."; await Delay(300); await Click();
     }
-    box.style.visibility = "hidden";
+    box.classList.toggle("hidethis", true);
     moveIntervalID = setInterval(() => activeDirection && moveMap(), moveInterval);
-    document.getElementById("ProfessorButton").style.visibility = "visible";
+    document.getElementById("ProfessorButton").classList.toggle("hidethis", false);
 }

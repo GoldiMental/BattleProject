@@ -13,6 +13,10 @@ body {
     user-select: none;
 }
 
+.hidethis {
+    display: none !important;
+}
+
 .background-lines {
     position: absolute;
     top: 0;
@@ -30,6 +34,7 @@ body {
     background: linear-gradient(90deg, transparent, red, transparent);
     animation: moveLine 10s linear infinite;
 }
+
 .lineGold {
     position: absolute;
     height: 1px;
@@ -42,46 +47,57 @@ body {
     top: 5%;
     animation-duration: 10s;
 }
+
 .line-2 {
     top: 15%;
     animation-duration: 15s;
 }
+
 .line-3 {
     top: 25%;
     animation-duration: 20s;
 }
+
 .line-4 {
     top: 35%;
     animation-duration: 15s;
 }
+
 .line-5 {
     top: 45%;
     animation-duration: 20s;
 }
+
 .line-6 {
     top: 55%;
     animation-duration: 11s;
 }
+
 .line-7 {
     top: 65%;
     animation-duration: 15s;
 }
+
 .line-8 {
     top: 75%;
     animation-duration: 13s;
 }
+
 .line-9 {
     top: 85%;
     animation-duration: 18s;
 }
+
 .line-10 {
     top: 95%;
     animation-duration: 16s;
 }
+
 @keyframes moveLine {
     0% {
         transform: translateX(-100%);
     }
+
     100% {
         transform: translateX(200%);
     }
@@ -122,7 +138,6 @@ button {
 
 #battle_game {
     position: absolute;
-    visibility: hidden;
     background-size: 100%;
     background-image: linear-gradient(black, lightgray, darkgray, gray);
     width: 100%;
@@ -420,7 +435,7 @@ button {
 }
 
 #MenuList {
-    visibility: hidden;
+
     position: absolute;
     background: radial-gradient(rgb(0, 0, 100), rgb(0, 0, 50));
     height: 450px;
@@ -458,7 +473,7 @@ button {
 }
 
 #standort-marker {
-    visibility: hidden;
+
     background-size: 14%;
     position: absolute;
     left: -2px;
@@ -479,7 +494,7 @@ button {
 }
 
 #Tulpa_Dex {
-    visibility: hidden;
+
     position: absolute;
     top: 10px;
     left: 10px;
@@ -555,7 +570,7 @@ button {
 }
 
 #Info {
-    visibility: hidden;
+
     text-align: left;
     position: absolute;
     top: 10px;
@@ -571,7 +586,7 @@ button {
 }
 
 #Tulpas {
-    visibility: hidden;
+
     position: absolute;
     top: 10px;
     left: 10px;
@@ -586,7 +601,7 @@ button {
 }
 
 #Karte {
-    visibility: hidden;
+
     position: absolute;
     top: 10px;
     left: 10px;
@@ -601,7 +616,7 @@ button {
 }
 
 #Items {
-    visibility: hidden;
+
     position: absolute;
     top: 10px;
     left: 10px;
@@ -701,7 +716,7 @@ button {
 
 #attack_menu {
     position: absolute;
-    visibility: hidden;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -791,7 +806,7 @@ button {
     left: 5px;
     height: 45px;
     width: 18px;
-    visibility: hidden;
+
     transition: opacity 0.5s ease;
 }
 
@@ -800,7 +815,7 @@ button {
 }
 
 #TulpaPC {
-    visibility: hidden;
+
     position: absolute;
     top: 10px;
     left: 10px;
@@ -809,7 +824,7 @@ button {
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     color: silver;
-    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     border: 5px ridge azure;
     border-radius: 10px;
 }
@@ -849,7 +864,6 @@ button {
     border: none;
     height: 45px;
     width: 40px;
-    visibility: hidden;
     transition: opacity 0.5s ease-in-out;
 }
 
@@ -887,7 +901,6 @@ button {
     border: none;
     height: 45px;
     width: 40px;
-    visibility: hidden;
     transition: opacity 0.5s ease;
 }
 
@@ -902,7 +915,7 @@ button {
     border: none;
     height: 45px;
     width: 40px;
-    visibility: hidden;
+
     transition: opacity 0.5s ease;
 }
 
@@ -984,7 +997,7 @@ button {
 
 #battle_game_menu {
     position: absolute;
-    visibility: hidden;
+
     height: 300px;
     width: 225px;
     right: 10px;
@@ -996,7 +1009,7 @@ button {
 }
 
 #change_tulpa {
-    visibility: hidden;
+
     position: absolute;
     text-align: center;
     display: flex;
@@ -1006,7 +1019,7 @@ button {
 }
 
 #use_item {
-    visibility: hidden;
+
     position: absolute;
     text-align: center;
     display: flex;
@@ -1043,7 +1056,7 @@ button {
     color: black;
     text-align: center;
     font-size: 22px;
-    visibility: hidden;
+
     position: absolute;
     bottom: 0px;
     height: 100px;
@@ -1053,7 +1066,7 @@ button {
 }
 
 #shopMenu {
-    visibility: hidden;
+
     position: absolute;
     background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     color: silver;
@@ -1065,9 +1078,9 @@ button {
 }
 
 #ShopBuyList {
-    visibility: hidden;
+
     position: absolute;
-    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     color: silver;
     left: 5px;
     top: 5px;
@@ -1110,7 +1123,7 @@ button {
     position: relative;
     left: 5px;
     width: 50px;
-    height:20px;
+    height: 20px;
     float: left;
 }
 
@@ -1118,7 +1131,7 @@ button {
 .SellButton {
     position: absolute;
     right: 5px;
-    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     color: silver;
     border: 3px outset silver;
     border-radius: 5px;
@@ -1139,7 +1152,7 @@ button {
 
 .ExitBuyButton,
 .ExitSellButton {
-    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     color: silver;
     border: 3px outset silver;
     border-radius: 6px;
@@ -1172,9 +1185,9 @@ button {
 }
 
 #ShopSellList {
-    visibility: hidden;
+
     position: absolute;
-    background: radial-gradient(rgb(0,0,50),rgb(0,0,25));
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     color: silver;
     left: 5px;
     top: 5px;
@@ -1187,7 +1200,7 @@ button {
 }
 
 #GameOver {
-    visibility: hidden;
+
     position: absolute;
     height: 100px;
     width: 500px;
@@ -1204,7 +1217,7 @@ button {
     text-shadow: 5px 5px 10px silver;
 }
 
-#ToInfo{
+#ToInfo {
     animation: HintAnimationToInfo 3s linear 1;
     transition: opacity 0.5s ease;
 }
@@ -1213,26 +1226,30 @@ button {
     0% {
         opacity: 0.4;
         background-color: silver;
-        border-color:silver;
+        border-color: silver;
     }
+
     25% {
         background-color: gold;
-        border-color:gold;
+        border-color: gold;
         opacity: 0.8;
     }
+
     50% {
         background-color: silver;
-        border-color:silver;
+        border-color: silver;
         opacity: 0.8;
     }
-    75%{
+
+    75% {
         background-color: gold;
-        border-color:gold;
+        border-color: gold;
         opacity: 0.8;
     }
+
     100% {
         background-color: silver;
-        border-color:silver;
+        border-color: silver;
         opacity: 0.4;
     }
 }

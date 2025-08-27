@@ -1,16 +1,16 @@
-document.getElementById('MenuList').style.visibility = 'hidden';
-document.getElementById('Tulpa_Dex').style.visibility = 'hidden';
-document.getElementById('Info').style.visibility = 'hidden';
-document.getElementById('Karte').style.visibility = 'hidden';
-document.getElementById('Items').style.visibility = 'hidden';
-document.getElementById('Tulpas').style.visibility = 'hidden';
+document.getElementById('MenuList').classList.toggle("hidethis", true);
+document.getElementById('Tulpa_Dex').classList.toggle("hidethis", true);
+document.getElementById('Info').classList.toggle("hidethis", true);
+document.getElementById('Karte').classList.toggle("hidethis", true);
+document.getElementById('Items').classList.toggle("hidethis", true);
+document.getElementById('Tulpas').classList.toggle("hidethis", true);
 
 function MenuList() {
-    if (document.getElementById('MenuList').style.visibility == 'hidden') {
-        document.getElementById('MenuList').style.visibility = 'visible';
+    if (document.getElementById('MenuList').classList.contains('hidethis')) {
+        document.getElementById('MenuList').classList.toggle("hidethis", false);
         clearInterval(moveIntervalID);
     } else {
-        document.getElementById('MenuList').style.visibility = 'hidden';
+        document.getElementById('MenuList').classList.toggle("hidethis", true);
         moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
     }
 }
@@ -63,7 +63,7 @@ async function Cheat() {
 }
 
 function Tulpa_Dex() {
-    document.getElementById('Tulpa_Dex').style.visibility = 'visible';
+    document.getElementById('Tulpa_Dex').classList.toggle("hidethis", false);
     let html = '';
     for (Tulpa in Tulpas) {
         html += '<div style="float:left;margin:5px;"><div class="Tulpa_Name">' + Tulpas[Tulpa].name + '</div>' +
@@ -74,11 +74,11 @@ function Tulpa_Dex() {
 }
 
 function close_Tulpa_Dex() {
-    document.getElementById('Tulpa_Dex').style.visibility = 'hidden';
+    document.getElementById('Tulpa_Dex').classList.toggle("hidethis", true);
 }
 
 function Tulpas_List() {
-    document.getElementById('Tulpas').style.visibility = 'visible';
+    document.getElementById('Tulpas').classList.toggle("hidethis", false);
     let html = '';
     for (Slot in Player.Tulpas) {
         if (Slot.startsWith('Slot')) {
@@ -137,34 +137,34 @@ async function swapTulpa(Slot) {
 }
 
 function close_Tulpas() {
-    document.getElementById('Tulpas').style.visibility = 'hidden';
+    document.getElementById('Tulpas').classList.toggle("hidethis", true);
 }
 
 function Info() {
-    document.getElementById('Info').style.visibility = 'visible';
+    document.getElementById('Info').classList.toggle("hidethis", false);
     let html = '';
-    html +='<table><tr>'+
-        '<td>Spielername:</td>'+
-        '<td>'+Player.name+'</td></tr>'+
-        '<tr><td>Gold:</td>'+
-        '<td>'+Player.Gold+'</td></tr>'+
-        '<tr><td>Gefangene Tulpas:</td>'+
-        '<td>'+Player.catchedTulpas+'</td></tr>'+
-        '<tr><td>Besiegte Trainer:</td>'+
-        '<td>'+Player.defeatedTrainer.length+'</td></tr>'+
-        '<tr><td>Cheats:</td>'+
-        '<td>'+Player.Cheats+'</td></tr>';
+    html += '<table><tr>' +
+        '<td>Spielername:</td>' +
+        '<td>' + Player.name + '</td></tr>' +
+        '<tr><td>Gold:</td>' +
+        '<td>' + Player.Gold + '</td></tr>' +
+        '<tr><td>Gefangene Tulpas:</td>' +
+        '<td>' + Player.catchedTulpas + '</td></tr>' +
+        '<tr><td>Besiegte Trainer:</td>' +
+        '<td>' + Player.defeatedTrainer.length + '</td></tr>' +
+        '<tr><td>Cheats:</td>' +
+        '<td>' + Player.Cheats + '</td></tr>';
     document.getElementById('Info_List').innerHTML = html;
 }
 
 function close_Info() {
-    document.getElementById('Info').style.visibility = 'hidden';
+    document.getElementById('Info').classList.toggle("hidethis", true);
 }
 
 function Karte() {
-    document.getElementById('Karte').style.visibility = 'visible';
+    document.getElementById('Karte').classList.toggle("hidethis", false);
     const standortMarker = document.getElementById('standort-marker');
-    standortMarker.style.visibility = 'visible';
+    standortMarker.classList.toggle("hidethis", false);
 
     // Karten- und Anzeigedimensionen
     const mapWidth = parseInt(maps[activeMap].Width);   // Original-Kartenbreite (z. B. 3250)
@@ -202,12 +202,12 @@ function Karte() {
 }
 
 function close_Karte() {
-    document.getElementById('Karte').style.visibility = 'hidden';
-    document.getElementById('standort-marker').style.visibility = 'hidden';
+    document.getElementById('Karte').classList.toggle("hidethis", true);
+    document.getElementById('standort-marker').classList.toggle("hidethis", true);
 }
 
 function Items() {
-    document.getElementById('Items').style.visibility = 'visible';
+    document.getElementById('Items').classList.toggle("hidethis", false);
     let html = "<div id='Bälle' class='Item_Title'>Bälle: </div><br>";
     for (ball in Player.inventory.balls) {
         html += '<div><button title="Kann nur im Kampf eingesetzt werden." class="Item_list" disabled>' + Item_List[ball].name + ': ' + Player.inventory.balls[ball] + '</button><br>';
@@ -224,7 +224,7 @@ function Items() {
 }
 
 function close_Items() {
-    document.getElementById('Items').style.visibility = 'hidden';
+    document.getElementById('Items').classList.toggle("hidethis", true);
 }
 
 async function Use(itm, qty) {

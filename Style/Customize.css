@@ -14,6 +14,10 @@
     transition: all 0.3s ease;
 }
 
+.hidethis{
+    display: none !important;
+}
+
 .custom-modal-overlay.visible {
     visibility: visible;
     opacity: 1;

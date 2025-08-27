@@ -43,7 +43,7 @@ async function Trainer000monolog(Trainer){
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
     TrainerDialogBox.innerHTML = Trainer.text1;
     clearInterval(moveIntervalID);
-    TrainerDialogBox.style.visibility = "visible";
+    TrainerDialogBox.classList.toggle("hidethis",false);
     await Click();
     TrainerDialogBox.innerHTML = Trainer.text2;
     await Click();
@@ -53,7 +53,7 @@ async function Trainer000monolog(Trainer){
     await Click();
     TrainerDialogBox.innerHTML = Trainer.text5;
     await Click();
-    TrainerDialogBox.style.visibility = "hidden";
+    TrainerDialogBox.classList.toggle("hidethis",true);
     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
     activeDirection = "a";
     moveMap();

@@ -1,7 +1,7 @@
 function TulpaPC() {
     let pcTulpas = Player.Tulpas.PC;
     let html = "";  
-    document.getElementById('TulpaPC').style.visibility = 'visible';
+    document.getElementById('TulpaPC').classList.toggle("hidethis",false);
     clearInterval(moveIntervalID);
     for (Tulpa in pcTulpas) {
             let tulpa = pcTulpas[Tulpa];
@@ -19,7 +19,7 @@ function TulpaPC() {
         //console.log(pcTulpas)
 }
 function close_Tulpa_PC() {
-    document.getElementById('TulpaPC').style.visibility = 'hidden';
+    document.getElementById('TulpaPC').classList.toggle("hidethis",true);
     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
 }
 

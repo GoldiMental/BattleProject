@@ -8,30 +8,30 @@ let activeShop = "";
 
 async function shopHandel(SHOP) {
   clearInterval(moveIntervalID);
-  document.getElementById("ShopHandel").style.visibility = "hidden";
+  document.getElementById("ShopHandel").classList.toggle("hidethis",true);
   activeShop = SHOP;
   let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
   let shopMenu = document.getElementById("shopMenu");
-  monologBox.style.visibility = "visible";
+  monologBox.classList.toggle("hidethis",false);
   monologBox.innerHTML = "Herzlich Willkommen im Shop von Lavazza!"; await Delay(300); await Click();
   monologBox.innerHTML = "Wie kann ich Ihnen weiterhelfen?"; await Delay(300);
-  shopMenu.style.visibility = "visible";
+  shopMenu.classList.toggle("hidethis",false);
 };
 
 function closeShop() {
   let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
   let shopMenu = document.getElementById("shopMenu");
-  shopMenu.style.visibility = "hidden";
-  monologBox.style.visibility = "hidden";
-  document.getElementById("ShopHandel").style.visibility = "visible";
+  shopMenu.classList.toggle("hidethis",true);
+  monologBox.classList.toggle("hidethis",true);
+  document.getElementById("ShopHandel").classList.toggle("hidethis",false);
   moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
 }
 
 function buyItems() {
   let ShopBuyList = document.getElementById("ShopBuyList");
   let html = "";
-  document.getElementById("shopMenu").style.visibility = "hidden";
-  ShopBuyList.style.visibility = "visible";
+  document.getElementById("shopMenu").classList.toggle("hidethis",true);
+  ShopBuyList.classList.toggle("hidethis",false);
   for (itm in Shops[activeShop]) {
     html += '<div style="height:50px;"><div class="producttitle">' + Item_List[Shops[activeShop][itm]].name + '</div>' +
       '<input id="qty_' + itm + '" class="number_input" type="number" min="1" onchange="calculate(this.value ,\'product_' + itm + '\' ,' + Item_List[Shops[activeShop][itm]].price + ')" value="1">' +
@@ -48,8 +48,8 @@ function calculate(qty, Product, Price) {
 }
 
 function close_BuyList() {
-  document.getElementById("ShopBuyList").style.visibility = "hidden";
-  document.getElementById("shopMenu").style.visibility = "visible";
+  document.getElementById("ShopBuyList").classList.toggle("hidethis",true);
+  document.getElementById("shopMenu").classList.toggle("hidethis",false);
 }
 
 function BuyThis(idnr) {
@@ -94,8 +94,8 @@ function BuyThis(idnr) {
 function sellItems() {
   let ShopSellList = document.getElementById("ShopSellList");
   let html = "";
-  document.getElementById("shopMenu").style.visibility = "hidden";
-  ShopSellList.style.visibility = "visible";
+  document.getElementById("shopMenu").classList.toggle("hidethis",true);
+  ShopSellList.classList.toggle("hidethis",false);
 
   for (itm in Shops[activeShop]) {
     let itemId = Shops[activeShop][itm];
@@ -121,8 +121,8 @@ function calculateSell(qty, Product, Price) {
 }
 
 function close_SellList() {
-  document.getElementById("ShopSellList").style.visibility = "hidden";
-  document.getElementById("shopMenu").style.visibility = "visible";
+  document.getElementById("ShopSellList").classList.toggle("hidethis",true);
+  document.getElementById("shopMenu").classList.toggle("hidethis",false);
 }
 
 function getPlayerItemQty(itemName) {
