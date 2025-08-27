@@ -42,7 +42,7 @@ body {
     min-width: 250px;
     color: silver;
     font-size: 20px;
-    background: radial-gradient(rgb(0, 0, 100), rgb(0, 0, 25));
+    background: radial-gradient(rgba(0, 0, 100,0.85), rgba(0, 0, 25,0.85));
     animation: pulseLight 2s infinite;
     transition: opacity 0.5s ease, transform 1s ease;
     z-index: 10;
