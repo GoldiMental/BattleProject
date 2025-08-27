@@ -409,3 +409,38 @@ async function shopAusgang() {
 function zonenName() {
     console.log()
 }
+
+function Click_W_down() {
+    simulateKeyDown("w");
+}
+function Click_W_up() {
+    simulateKeyUp("w");
+}
+
+function Click_A_down() {
+    simulateKeyDown("a");
+}
+function Click_A_up() {
+    simulateKeyUp("a");
+}
+
+function Click_S_down() {
+    simulateKeyDown("s");
+}
+function Click_S_up() {
+    simulateKeyUp("s");
+}
+
+function Click_D_down() {
+    simulateKeyDown("d");
+}
+function Click_D_up() {
+    simulateKeyUp("d");
+}
+
+function simulateKeyDown(key) {
+    document.dispatchEvent(new KeyboardEvent("keydown", { key: key }));
+}
+function simulateKeyUp(key) {
+    document.dispatchEvent(new KeyboardEvent("keyup", { key: key }));
+}
