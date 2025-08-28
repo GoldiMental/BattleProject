@@ -301,3 +301,45 @@ async function SaveGame() {
         await showCustomAlert('Verbindungsfehler beim Speichern. Bitte überprüfe deine Internetverbindung oder versuche es später erneut.');
     }
 }
+
+// Liste aller Sounds, die du steuern willst
+const sounds = [
+    document.getElementById('bg01-sound'),
+    document.getElementById('bg02-sound'),
+    document.getElementById('bg03-sound'),
+    document.getElementById('bgr01-sound'),
+    document.getElementById('bgr02-sound'),
+    document.getElementById('alarm-sound'),
+    document.getElementById('win-sound'),
+    document.getElementById('door-sound')
+];
+
+// Anfangslautstärke setzen
+sounds.forEach(s => { if (s) s.volume = 0.1; });
+
+const volumeSlider = document.getElementById("volumeSlider");
+const muteBtn = document.getElementById("muteBtn");
+
+let lastVolume = 0.1; // merkt sich die Lautstärke für "unmute"
+
+// Schieberegler -> Lautstärke aller Sounds ändern
+volumeSlider.addEventListener("input", (e) => {
+    const vol = parseFloat(e.target.value);
+    sounds.forEach(s => { if (s) s.volume = vol; });
+    if (vol > 0) lastVolume = vol;
+});
+
+// Mute-Button -> zwischen stumm und letzter Lautstärke wechseln
+muteBtn.addEventListener("click", () => {
+    if (volumeSlider.value > 0) {
+        // stumm schalten
+        volumeSlider.value = 0;
+        sounds.forEach(s => { if (s) s.volume = 0; });
+        muteBtn.textContent = "🔇";
+    } else {
+        // zurück zur letzten Lautstärke
+        volumeSlider.value = lastVolume;
+        sounds.forEach(s => { if (s) s.volume = lastVolume; });
+        muteBtn.textContent = "🔊";
+    }
+});

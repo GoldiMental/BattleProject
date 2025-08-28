@@ -26,25 +26,34 @@
     </div>
     <img style="position: relative; left: 5px;" src="img/TulpaTopLogo.png" height="300px" alt="Tulpa-King-Logo">
     <div class="Playground">
-        <div id="GameOver"  class="hidethis">Du bist ohnmächtig!<br /><br /><span id="Countdown"></span></div>
+        <div id="GameOver" class="hidethis">Du bist ohnmächtig!<br /><br /><span id="Countdown"></span></div>
         <div id="movement_game">
             <div class="map MAP">
                 <div class="Trainer"></div>
                 <div class="TrainerText"></div>
                 <div id="Haendler"></div>
                 <div id="Professor"><button id="ProfessorButton" onclick="Professor001monolog()"> </button></div>
-                <button id="tuerSelfIn" title="Mein Haus" class="Inside MeinHaus_B hidethis" onclick="meinEingang()"></button>
+                <button id="tuerSelfIn" title="Mein Haus" class="Inside MeinHaus_B hidethis"
+                    onclick="meinEingang()"></button>
                 <button id="tuerSelfOut" title="MeinStadt" class="Outside MeinHausOut_B hidethis"
                     onclick="meinAusgang()"></button>
-                <button id="tuerTroyIn" title="Troys Haus" class="Inside TroysHaus_B hidethis" onclick="troysEingang()"></button>
+                <button id="tuerTroyIn" title="Troys Haus" class="Inside TroysHaus_B hidethis"
+                    onclick="troysEingang()"></button>
                 <button id="tuerTroyOut" title="TroyStadt" class="Outside TroysHausOut_B hidethis"
                     onclick="troysAusgang()"></button>
-                <button id="tuerShopIn" title="Shop Haus" class="Inside ShopHaus_B hidethis" onclick="shopEingang()"></button>
+                <button id="tuerShopIn" title="Shop Haus" class="Inside ShopHaus_B hidethis"
+                    onclick="shopEingang()"></button>
                 <button id="tuerShopOut" title="ShopStadt" class="Outside ShopHausOut_B hidethis"
                     onclick="shopAusgang()"></button>
                 <button id="ShopHandel" title="Händler" class="Handler ShopHandel_B hidethis"
                     onclick="shopHandel('Shop_1')"></button>
-                <button id="TulpaPC-Button" title="TulpaComputer" class="Tulpa-PC hidethis" onclick="TulpaPC();Click()"></button>
+                <button id="TulpaPC-Button" title="TulpaComputer" class="Tulpa-PC hidethis"
+                    onclick="TulpaPC();Click()"></button>
+            </div>
+            <div id="audio-controls">
+                <label for="volumeSlider"></label>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.1">
+                <button id="muteBtn">🔊</button>
             </div>
             <div id="user" class="Player down"></div>
             <button class="WASD" id="W_Click" onmousedown="Click_W_down()" onmouseup="Click_W_up()"

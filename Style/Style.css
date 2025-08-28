@@ -1280,3 +1280,21 @@ button {
         opacity: 0.4;
     }
 }
+
+#audio-controls {
+    position: absolute;
+    color: black;
+    width: 160px;
+    height: 27px;
+    font-size: 20px;
+    background-color: silver;
+    border: 3px outset silver;
+    border-radius: 10px;
+    right: 8px;
+    bottom: 8px;
+    opacity: 0.8;
+}
+
+#audio-controls input[type=range] {
+  width: 100px;
+}
