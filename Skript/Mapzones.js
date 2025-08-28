@@ -48,6 +48,23 @@ var maps = {
             { minX: -1475, maxX: -1475, minY: -425, maxY: -375 },
             //Map(DunkelWald). Max=Min und Min=Max!!!!
             { minX: -3175, maxX: -3025, minY: -475, maxY: -125 },
+            { minX: -3675, maxX: -3025, minY: -975, maxY: -625 },
+            { minX: -3675, maxX: -3325, minY: -575, maxY: -325 },
+            { minX: -3975, maxX: -3875, minY: -675, maxY: -25  },
+            { minX: -4475, maxX: -3875, minY: -975, maxY: -775 },
+            { minX: -4475, maxX: -4425, minY: -725, maxY: 225 },
+            { minX: -4375, maxX: -3475, minY: 225, maxY: 225 },
+            { minX: -3425, maxX: -3275, minY: 25, maxY: 225 },
+            { minX: -3525, maxX: -3375, minY: -175, maxY: -25 },
+            { minX: -3575, maxX: -3525, minY: -225, maxY: -225 },
+            { minX: -3225, maxX: -3175, minY: -25, maxY: -25 },
+            { minX: -3275, maxX: -3025, minY: 25, maxY: 225 },
+            { minX: -3025, maxX: -3025, minY: -75, maxY: -25 },
+            { minX: -3825, maxX: -3725, minY: -975, maxY: -975 },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
         ],
         //BattleMapZone. 
         battleArea: [
@@ -60,6 +77,16 @@ var maps = {
             { minX: -2825, maxX: -1925, minY: -25, maxY: 75 },
             { minX: -2825, maxX: -2575, minY: -425, maxY: -75 },
             { minX: -2875, maxX: -2775, minY: -625, maxY: -525 },
+        ],
+        battleAreaDW: [
+            { minX: -3225, maxX: -3225, minY: 525, maxY: -125 },
+            { minX: -3475, maxX: -3375, minY: -225, maxY: -225 },
+            { minX: -3675, maxX: -3475, minY: -225, maxY: 175 },
+            { minX: -4375, maxX: -3725, minY: 75, maxY: 175 },
+            { minX: -4375, maxX: -4125, minY: -725, maxY: 25 },
+            { minX: -4025, maxX: -4025, minY: -675, maxY: -25 },
+            { minX: -3825, maxX: -3725, minY: -675, maxY: -325 },
+            { minX: -3825, maxX: -3775, minY: -275, maxY: -25 },
         ],
         //ProfHome. 
         profHome: [
