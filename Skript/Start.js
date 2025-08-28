@@ -10,6 +10,7 @@ let Player = {};
 
 // Event-Listener für das Laden des DOMs
 document.addEventListener('DOMContentLoaded', async () => {
+    console.log("Starte Spiel...");
     const storedUsername = localStorage.getItem('loggedInUsername');
     const authToken = localStorage.getItem('authToken');
     const storedPlayerData = localStorage.getItem('playerData');
@@ -22,14 +23,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Authentifizierung prüfen
     if (!authToken) {
+        console.error("TOKEN fehlt. Fehlerhafter Login oder Login fehlt komplett.");
         await showCustomAlert('Nicht eingeloggt. Bitte melde dich an.');
-        await Delay(500); // Kurze Verzögerung nach dem Alert
+        await Delay(1000); // Kurze Verzögerung nach dem Alert
         window.location.href = 'index.html';
         return;
     }
 
     // Versuche, Spielerdaten aus LocalStorage zu laden (als Fallback/vorab Anzeige)
     if (storedPlayerData) {
+        console.log("Versuche Spielerdaten zu laden...");
         try {
             Player = JSON.parse(storedPlayerData);
             // Optional: Setze den Namen, falls er im Player-Objekt nicht korrekt ist
@@ -115,22 +118,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = 'index.html';
         return;
     }
-
-    // Audio-Lautstärken einstellen
-    document.getElementById('bg01-sound').volume = 0.1;
-    document.getElementById('bg02-sound').volume = 0.1;
-    document.getElementById('bg03-sound').volume = 0.1;
-    document.getElementById('bgr01-sound').volume = 0.1;
-    document.getElementById('bgr02-sound').volume = 0.1;
-    document.getElementById('alarm-sound').volume = 0.1;
-    document.getElementById('win-sound').volume = 0.1;
-    document.getElementById('door-sound').volume = 0.4;
-
     // Funktion zum Starten der Musik nach erster Benutzerinteraktion
     const startMusik = () => {
         const bgMusic = document.getElementById('bg03-sound');
+        console.log("Starte Hintergrungmusik...");
         if (bgMusic) {
-            bgMusic.play().catch(e => console.warn("Autoplay für Musik fehlgeschlagen:", e));
+            bgMusic.play().catch(e => console.warn("Autoplay für Hintergrundmusik fehlgeschlagen:", e));
         }
         document.removeEventListener('click', startMusik);
         document.removeEventListener('mousedown', startMusik);
@@ -247,10 +240,11 @@ function showCustomPrompt(title, defaultValue = '') {
 
 // --- Speichern der Spielerdaten ---
 async function SaveGame() {
-    console.log("Speicherfunktion aufgerufen.");
+    console.log("Versuche Spiel zu speichern...");
 
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
+        console.error("Login fehlgeschlagen...");
         await showCustomAlert('Nicht eingeloggt. Bitte melde dich an.');
         await Delay(500);
         window.location.href = 'index.html';
@@ -263,7 +257,7 @@ async function SaveGame() {
         await showCustomAlert('Keine gültigen Spielerdaten zum Speichern vorhanden.');
         return;
     }
-
+    console.log("Verbinde mit Datenbank...");
     try {
         const res = await fetch('http://20.79.178.244:3000/api/savegame', {
             method: 'POST',
@@ -301,7 +295,6 @@ async function SaveGame() {
         await showCustomAlert('Verbindungsfehler beim Speichern. Bitte überprüfe deine Internetverbindung oder versuche es später erneut.');
     }
 }
-
 // Liste aller Sounds, die du steuern willst
 const sounds = [
     document.getElementById('bg01-sound'),
@@ -316,6 +309,7 @@ const sounds = [
 
 // Anfangslautstärke setzen
 sounds.forEach(s => { if (s) s.volume = 0.1; });
+console.log("Soundeinstellungen übernommen.");
 
 const volumeSlider = document.getElementById("volumeSlider");
 const muteBtn = document.getElementById("muteBtn");

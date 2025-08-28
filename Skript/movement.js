@@ -14,11 +14,13 @@ let minY = -(parseInt(maps[activeMap].Height) - 250);
 let maxY = 250;
 
 function changeMap(mapname) {
+    console.log("Führe changeMap(",mapname,") aus...");
     activeMap = maps[mapname].name;
     Player.actualMap = activeMap;
 }
 
 function refreshMap() {
+    console.log("Aktualiere die MAP...");
     minX = -(parseInt(maps[activeMap].Width) - 250);
     maxX = 250;
     minY = -(parseInt(maps[activeMap].Height) - 250);
@@ -183,6 +185,7 @@ function stopMovement() {
         let lastDir = player.className.split('_')[1];
         player.className = 'Player ' + lastDir;
     } else { player.className = 'Player down'; }
+    console.log("Bewegung gestoppt.");
 }
 
 document.addEventListener('keydown', (event) => {

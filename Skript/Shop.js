@@ -7,6 +7,7 @@ const Shops = {
 let activeShop = "";
 
 async function shopHandel(SHOP) {
+  console.log("Öffne Shop und stoppe die Bewegung...");
   clearInterval(moveIntervalID);
   document.getElementById("ShopHandel").classList.toggle("hidethis",true);
   activeShop = SHOP;
@@ -28,6 +29,7 @@ function closeShop() {
 }
 
 function buyItems() {
+  console.log("Zeige Items zum Kaufen an...");
   let ShopBuyList = document.getElementById("ShopBuyList");
   let html = "";
   document.getElementById("shopMenu").classList.toggle("hidethis",true);
@@ -44,6 +46,7 @@ function buyItems() {
 
 function calculate(qty, Product, Price) {
   let output = document.getElementById(Product);
+  console.log("Berechne: ",qty," * ",Price," Gold"," = ",qty * Price, " Gold.");
   output.innerHTML = qty * Price + " Gold";
 }
 
@@ -53,10 +56,13 @@ function close_BuyList() {
 }
 
 function BuyThis(idnr) {
+  console.log("Kaufe Produkt ID:",idnr);
   let product = Item_List[Shops[activeShop][idnr]].name;
   let qty = document.getElementById("qty_" + idnr).value
   let price = qty * Item_List[Shops[activeShop][idnr]].price
+  console.log("Spieler kauft: ",qty,"x ",product," für ",price," Gold. Prüfe finanzielle Mittel des Spielers...");
   if (Player.Gold >= price) {
+    console.log("Finanzielle Mittle vorhanden. Kauf wird durchgeführt...");
     switch (product) {
       case "Tulpaball":
         Player.inventory.balls.Tulpaball += parseInt(qty); break;
@@ -86,6 +92,7 @@ function BuyThis(idnr) {
     Player.Gold -= price;
     showCustomAlert("Du hast " + qty + "x " + product + " für " + price + " Gold erhalten!");
   } else {
+    console.log("Spieler kann sich das Produkt in der Menge nicht leisten. Kauf wird abgebrochen...");
     showCustomAlert("Das scheint mir, als könntest Du dir das nicht leisten.")
   }
 }
@@ -143,14 +150,16 @@ function getPlayerItemQty(itemName) {
 }
 
 function SellThis(idnr) {
+  console.log("Verkaufe Produkt des Spielers ID: ",idnr);
   let itemId = Shops[activeShop][idnr];
   let product = Item_List[itemId].name;
   let qty = parseInt(document.getElementById("sellqty_" + idnr).value);
   let price = qty * Item_List[itemId].price_sell;
-
+  console.log("Spieler möchte: ",qty,"x ",product," verkaufen. Prüfe Inventar des Spielers...");
   let currentQty = getPlayerItemQty(product);
 
   if (currentQty >= qty) {
+    console.log("Spieler hat Produkt in der Menge verfügbar. Verkauf wird durchgeführt...");
     switch (product) {
       case "Tulpaball":
         Player.inventory.balls.Tulpaball -= qty; break;
@@ -177,21 +186,26 @@ function SellThis(idnr) {
       default:
         break;
     }
+    console.log("Der Spieler erhält: ",qty," * ",Item_List[itemId].price_sell," = ",price," Gold.");
     Player.Gold += price;
     showCustomAlert("Du hast " + qty + "x " + product + " für " + price + " Gold verkauft!");
     sellItems();
   } else {
+    console.log("Spieler verfügt nicht über die Menge an Produkten. Verkauf wird abgebrochen...");
     showCustomAlert("Du hast nicht genug " + product + " zum Verkaufen.");
   }
 }
 
 async function healTulpas() {
+  console.log("Tulpas werden geheilt...");
   Player.Tulpas.Slot_1.HP = Player.Tulpas.Slot_1.HP_Total;
   Player.Tulpas.Slot_2.HP = Player.Tulpas.Slot_2.HP_Total;
   Player.Tulpas.Slot_3.HP = Player.Tulpas.Slot_3.HP_Total;
   Player.Tulpas.Slot_4.HP = Player.Tulpas.Slot_4.HP_Total;
   Player.Tulpas.Slot_5.HP = Player.Tulpas.Slot_5.HP_Total;
   Player.Tulpas.Slot_6.HP = Player.Tulpas.Slot_6.HP_Total;
-  document.getElementsByClassName("TrainerDialogBox")[0].innerHTML = "Alle Deine Tulpas, die Du bei dir hast, wurden vollständig geheilt!"; await Delay(2500); await Click();
+  document.getElementsByClassName("TrainerDialogBox")[0].innerHTML = "Alle Deine Tulpas, die Du bei dir hast, wurden vollständig geheilt!";
+  console.log("Tulpas vollständig geheilt.");
+  await Delay(2500); await Click();
   document.getElementsByClassName("TrainerDialogBox")[0].innerHTML = "Wie kann ich Ihnen weiterhelfen?";
 }
