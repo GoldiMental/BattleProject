@@ -200,7 +200,7 @@ async function opp_Attack() {
     document.getElementById('Tulpa-opp').style.right = "10px"; await Delay(1000);
     let dmg = Attacks[attack].ATK_Power + (tulpa_opp_lv * 2);
     tulpa_self.HP -= dmg;
-    console.log("Berechnerter gegenerischer Schaden:", Attacks[attack].ATK_Power, " + ", tulpa_opp_lv * 2, " = ", dmg); // Log für Gegnerschaden
+    console.log("Berechnerter gegenerischer Schaden:", Attacks[attack].ATK_Power, "+", tulpa_opp_lv * 2, "=", dmg); // Log für Gegnerschaden
     if (tulpa_self.HP > 0) {
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%"; await Delay(300);
         document.getElementById("battle_menu").classList.toggle("hidethis", false);
@@ -285,7 +285,7 @@ async function self_attack(attack) {
         let tulpa_opp_name = tulpa_opp.split(' ')[0];
         let tulpa_opp_lv = tulpa_opp.split(' ')[2];
         let dmg = Attacks[attack].ATK_Power + (tulpa_self.Lv * 2);
-        console.log("Berechneter Schaden des Spielers:", Attacks[attack].ATK_Power, " + ", tulpa_self.Lv * 2, " = ", dmg); //Log für Spielerschaden
+        console.log("Berechneter Schaden des Spielers:", Attacks[attack].ATK_Power, "+", tulpa_self.Lv * 2, "=", dmg); //Log für Spielerschaden
         document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play(); await Delay(350);
         document.getElementById('Tulpa-self').style.left = "50px"; await Delay(200);
@@ -310,9 +310,9 @@ async function self_attack(attack) {
             let exp = Math.round(((Tulpas[tulpa_opp_name].HP_Total + (3 ** tulpa_opp_lv)) / 2));
             if (tulpa_opp_lv > tulpa_self.Lv) { exp = Math.round(exp * (1 + ((tulpa_opp_lv - tulpa_self.Lv) / 10))); };
             document.getElementById('battle_text').innerText = "Du hast " + exp + " EXP. erhalten!";
-            console.log("XP vorher: ", tulpa_self.XP, " XP nachher:", tulpa_self.XP, " + ", exp, " = ", tulpa_self.XP += exp); //EXP-Berechnung
+            console.log("XP vorher: ", tulpa_self.XP, " XP nachher:", tulpa_self.XP, "+", exp, "=", tulpa_self.XP += exp); //EXP-Berechnung
             tulpa_self.XP += exp;
-            console.log("Prüfe auf Level-Up: ", tulpa_self.XP, " >= ", 10 * (2 ** tulpa_self.Lv), " ? Ergebnis: ", tulpa_self.XP >= 10 * (2 ** tulpa_self.Lv)); //Level-Up-Prüfung
+            console.log("Prüfe auf Level-Up: ", tulpa_self.XP, ">=", 10 * (2 ** tulpa_self.Lv), "? Ergebnis: ", tulpa_self.XP >= 10 * (2 ** tulpa_self.Lv)); //Level-Up-Prüfung
             if (tulpa_self.XP >= 10 * (2 ** tulpa_self.Lv)) {
                 tulpa_self.Lv += 1;
                 tulpa_self.XP = 0;
@@ -327,8 +327,9 @@ async function self_attack(attack) {
             document.getElementById('LP-opp').style.opacity = "0";
             document.getElementById('Name-self').style.opacity = "0";
             document.getElementById('LP-self').style.opacity = "0";
-            console.log("Ist es ein Trainerbattle?", trainerbattle == 0);//Trainerbattle?
+            console.log("Ist es ein Trainerbattle?", trainerbattle != 0);//Trainerbattle?
             if (trainerbattle == 0) {
+                console.log("Leite Spieler zurück zur Karte...");
                 document.getElementById("movement_game").classList.toggle("hidethis", false);
                 document.getElementById("battle_game").classList.toggle("hidethis", true);
                 document.getElementById('fill-opp').style.width = "100%";
