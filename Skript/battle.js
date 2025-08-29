@@ -191,6 +191,7 @@ async function opp_Attack() {
     let zufall = Math.round((Math.random()) * 4);
     let attack = Tulpas[tulpa_opp.toString()].attacks[zufall];
     if (attack == "-" || attack == undefined) {
+        console.error("Zufall traf keine gültige Attacke. Starte opp_Attack() neu...");
         opp_Attack();
         return;
     }
@@ -202,6 +203,7 @@ async function opp_Attack() {
     tulpa_self.HP -= dmg;
     console.log("Berechnerter gegenerischer Schaden:", Attacks[attack].ATK_Power, "+", tulpa_opp_lv * 2, "=", dmg); // Log für Gegnerschaden
     if (tulpa_self.HP > 0) {
+        console.log("Tulpa des Spieler bleibt am Leben. Eröffne Optionen...");
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%"; await Delay(300);
         document.getElementById("battle_menu").classList.toggle("hidethis", false);
     } else {
@@ -366,7 +368,7 @@ async function self_attack(attack) {
                     document.getElementsByClassName("TrainerDialogBox")[0].setAttribute("TrainerID", "");
                     trainerbattle = 0;
                     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-                    console.log("Animation abgeschlossen. Bewegung wieder freigegeben...");
+                    console.log("Animation abgeschlossen. Bewegung wird freigegeben...");
                 }
             }
         }
@@ -458,7 +460,7 @@ function useItem() {
 }
 
 async function UseBall(ball) {
-    console.log("Ball benutzen...");
+    console.log("Ball benutzen... Ball: ", ball);
     console.log("Prüfe ob Trainerkampf stattfindet...");
     if (trainerbattle == 0) {
         console.log("Kein Trainerkampf erkannt. Leite Wurfanimation ein...");
@@ -466,8 +468,9 @@ async function UseBall(ball) {
         document.getElementById('battle_game_menu').classList.toggle("hidethis", true);
         document.getElementById('use_item').classList.toggle("hidethis", true);
         document.getElementById("battle_menu").classList.toggle("hidethis", true);
-        console.log("Ziehe Ball vom Spiele ab: ", Player.inventory.balls[ball], " - 1", " = ", Player.inventory.balls[ball] -= 1);
+        console.log("Ziehe Ball vom Spielerinventar ab: ", Player.inventory.balls[ball], " - 1", " = ");
         Player.inventory.balls[ball] -= 1;
+        console.log(Player.inventory.balls[ball]);
         document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[ball].name + " ein";
         let ballElement = document.createElement("div");
         ballElement.id = "tulpaball";
@@ -549,7 +552,7 @@ async function UseBall(ball) {
 }
 
 async function UseDrink(drink) {
-    console.log("Benutzt ein Trank...");
+    console.log("Benutze ein Trank... Trank: ",drink);
     document.getElementById('use_item').classList.toggle("hidethis", true);
     changeTulpa();
     document.getElementById('change_tulpa').classList.toggle("hidethis", false); await Delay(100);
@@ -578,19 +581,19 @@ async function UseDrink(drink) {
                 await Delay(2000);
                 opp_Attack();
             } else {
-                console.log("Das gewählte Tulpa ist bereits zu 100% geheilt.");
+                console.error("Das gewählte Tulpa ist bereits zu 100% geheilt.");
                 document.getElementById('battle_text').innerText = Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";
                 document.getElementById('use_item').classList.toggle("hidethis", false);
                 document.getElementById('change_tulpa').classList.toggle("hidethis", true);
             }
         } else {
-            console.log("Auf dem Slot wurde kein Tulpa gefunden.");
+            console.error("Auf dem Slot wurde kein Tulpa gefunden.");
             document.getElementById('battle_text').innerText = "Slot ist nicht belegt. Versuche es nochmal";
             document.getElementById('use_item').classList.toggle("hidethis", false);
             document.getElementById('change_tulpa').classList.toggle("hidethis", true);
         }
     } else {
-        console.log("Es wurde keine Zahl erkannt.");
+        console.error("Es wurde keine Zahl erkannt.");
         document.getElementById('battle_text').innerText = "Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.";
         document.getElementById('use_item').classList.toggle("hidethis", false);
         document.getElementById('change_tulpa').classList.toggle("hidethis", true);
