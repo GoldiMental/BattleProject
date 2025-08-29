@@ -323,8 +323,8 @@ async function self_attack(attack) {
             console.log("XP vorher: ", tulpa_self.XP, " XP nachher:", tulpa_self.XP, "+", exp, "="); //EXP-Berechnung
             tulpa_self.XP += exp;
             console.log(tulpa_self.XP);
-            console.log("Prüfe auf Level-Up: ", tulpa_self.XP, ">=", 10 * (2 ** tulpa_self.Lv), "? Ergebnis: ", tulpa_self.XP >= 10 * (2 ** tulpa_self.Lv)); //Level-Up-Prüfung
-            if (tulpa_self.XP >= 10 * (2 ** tulpa_self.Lv)) {
+            console.log("Prüfe auf Level-Up: ", tulpa_self.XP, ">=", 10 * (2 ** tulpa_self.Lv), "? Ergebnis: ", tulpa_self.XP >= 10 * Math.round(1.5 ** tulpa_self.Lv)); //Level-Up-Prüfung
+            if (tulpa_self.XP >= 10 * Math.round(1.5 ** tulpa_self.Lv)) {
                 tulpa_self.Lv += 1;
                 tulpa_self.XP = 0;
                 tulpa_self.HP += 3;
