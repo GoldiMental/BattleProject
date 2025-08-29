@@ -1,5 +1,6 @@
 require('dotenv').config();
-
+const nodemailer = require('nodemailer');
+const sgTransport = require('nodemailer-sendgrid-transport');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -22,6 +23,54 @@ if (!MongoDB_Uri) {
     process.exit(1);
 }
 
+const options = {
+    auth: {
+        api_key: process.env.SENDGRID_API_KEY
+    }
+}
+const transporter = nodemailer.createTransport(sgTransport(options));
+const privateMail = process.env.PRIVATE_MAIL;
+
+app.post('/forgot-password', async (req, res) => {
+    try {
+        const { email } = req.body;
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(200).json({ message: 'Wenn eine E-Mail-Adresse mit diesem Konto verknüpft ist, haben wir Ihnen Anweisungen zum Zurücksetzen des Passworts gesendet.' });
+        }
+
+        const resetToken = jwt.sign({ id: user._id }, jwt_Key, { expiresIn: '15m' });
+
+        const mailOptions = {
+            from: privateMail,
+            to: user.email,
+            subject: 'TulpaKing® - Passwort zurücksetzen',
+            html: `
+                <h2>Hallo Trainer ${user.username},</h2>
+                <p>Du hast eine Anfrage zum Zurücksetzen des Passworts auf TulpaKing gestellt.</p>
+                <p>Klicke auf den folgenden Link, um dein Passwort zurückzusetzen:</p>
+                <a href="${azureVmUrl}/reset-password.html?token=${resetToken}">Link zum Zurücksetzen des Passworts</a>
+                <p>Dieser Link ist 15 Minuten gültig.</p>
+                <p>Wenn Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail.</p>
+            `,
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Fehler beim Senden der E-Mail:', error);
+            } else {
+                console.log('E-Mail gesendet:', info.response);
+            }
+        });
+
+        res.status(200).json({ message: 'Wenn eine E-Mail-Adresse mit diesem Konto verknüpft ist, haben wir Ihnen Anweisungen zum Zurücksetzen des Passworts gesendet.' });
+    } catch (error) {
+        console.error('Fehler beim Passwort-Reset:', error);
+        res.status(500).json({ message: 'Interner Serverfehler.' });
+    }
+});
+
 app.use(cors());
 app.use(express.json());
 
@@ -29,8 +78,8 @@ mongoose.connect(MongoDB_Uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-.then(() => console.log('MongoDB Atlas verbunden...'))
-.catch(err => console.error('MongoDB Atlas Verbindungsfehler:', err));
+    .then(() => console.log('MongoDB Atlas verbunden...'))
+    .catch(err => console.error('MongoDB Atlas Verbindungsfehler:', err));
 
 const User = mongoose.model('User', new mongoose.Schema({
     username: { type: String, required: true, unique: true },
