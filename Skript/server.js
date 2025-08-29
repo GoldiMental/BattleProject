@@ -85,7 +85,7 @@ app.post('/forgot-password', async (req, res) => {
                 <h2>Hallo Trainer ${user.username},</h2>
                 <p>Du hast eine Anfrage zum Zurücksetzen des Passworts auf TulpaKing gestellt.</p>
                 <p>Klicke auf den folgenden Link, um dein Passwort zurückzusetzen:</p>
-                <a href="${azureVmUrl}/reset-password.html?token=${resetToken}">Link zum Zurücksetzen des Passworts</a>
+                <a href="http://20.79.178.244:3000/reset-password.html?token=${resetToken}">Link zum Zurücksetzen des Passworts</a>
                 <p>Dieser Link ist 15 Minuten gültig.</p>
                 <p>Wenn Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail.</p>
             `,
