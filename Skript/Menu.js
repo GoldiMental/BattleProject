@@ -60,6 +60,11 @@ async function Cheat() {
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             console.log("Anwendung erfolgreich.");
             break;
+        case "MAIKYTULPA":
+            Player.Tulpas.Slot_4 = {name:"Böser_Wolf",Lv:5,HP:250,HP_Total:250,XP:0};
+            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+            console.log("Anwendung erfolgreich.");
+            break;
         default:
             console.error("Cheatcode nicht gefunden oder falsch geschrieben!");
             showCustomAlert("Cheat nicht gefunden...");
