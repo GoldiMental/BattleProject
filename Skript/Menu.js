@@ -1,10 +1,4 @@
-document.getElementById('MenuList').classList.toggle("hidethis", true);
-document.getElementById('Tulpa_Dex').classList.toggle("hidethis", true);
-document.getElementById('Info').classList.toggle("hidethis", true);
-document.getElementById('Karte').classList.toggle("hidethis", true);
-document.getElementById('Items').classList.toggle("hidethis", true);
-document.getElementById('Tulpas').classList.toggle("hidethis", true);
-
+//Javascript Menu
 function MenuList() {
     console.log("Öffne/Schließe Menü...");
     if (document.getElementById('MenuList').classList.contains('hidethis')) {

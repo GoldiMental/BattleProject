@@ -177,8 +177,6 @@ function moveMap() {
     bg.style.top = mapY + 'px';
 }
 
-
-
 function stopMovement() {
     const player = document.getElementById('user');
     if (player.className.startsWith('Player m_')) {
