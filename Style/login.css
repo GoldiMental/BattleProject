@@ -89,6 +89,9 @@ body {
     height: auto;
 }
 
+forgot-password-link {
+    color:gold;
+}
 
 .container h2 {
     text-align: center;
