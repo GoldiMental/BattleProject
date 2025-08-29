@@ -94,6 +94,8 @@ forgot-password-link {
 }
 
 main-container {
+    border: 3px outset silver;
+    background-color: rgba(250,250,250,0.8);
     color:gold;
 }
 
