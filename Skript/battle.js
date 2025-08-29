@@ -290,8 +290,9 @@ async function self_attack(attack) {
         document.getElementById('attack-sound').play(); await Delay(350);
         document.getElementById('Tulpa-self').style.left = "50px"; await Delay(200);
         document.getElementById('Tulpa-self').style.left = "10px"; await Delay(1000);
-        console.log("Berechne Tulpa-HP: ",tulpa_HP," - ",dmg," = ",tulpa_HP -= dmg);
+        console.log("Berechne Tulpa-HP: ",tulpa_HP," - ",dmg," = ");
         tulpa_HP -= dmg;
+        console.log(tulpa_HP);
         if (tulpa_HP > 0) {
             console.log("Gegner bleibt am Leben. Führe Animationen aus. Führe gegnerischen Angriff aus...");
             document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
@@ -310,8 +311,9 @@ async function self_attack(attack) {
             let exp = Math.round(((Tulpas[tulpa_opp_name].HP_Total + (3 ** tulpa_opp_lv)) / 2));
             if (tulpa_opp_lv > tulpa_self.Lv) { exp = Math.round(exp * (1 + ((tulpa_opp_lv - tulpa_self.Lv) / 10))); };
             document.getElementById('battle_text').innerText = "Du hast " + exp + " EXP. erhalten!";
-            console.log("XP vorher: ", tulpa_self.XP, " XP nachher:", tulpa_self.XP, "+", exp, "=", tulpa_self.XP += exp); //EXP-Berechnung
+            console.log("XP vorher: ", tulpa_self.XP, " XP nachher:", tulpa_self.XP, "+", exp, "="); //EXP-Berechnung
             tulpa_self.XP += exp;
+            console.log(tulpa_self.XP);
             console.log("Prüfe auf Level-Up: ", tulpa_self.XP, ">=", 10 * (2 ** tulpa_self.Lv), "? Ergebnis: ", tulpa_self.XP >= 10 * (2 ** tulpa_self.Lv)); //Level-Up-Prüfung
             if (tulpa_self.XP >= 10 * (2 ** tulpa_self.Lv)) {
                 tulpa_self.Lv += 1;
