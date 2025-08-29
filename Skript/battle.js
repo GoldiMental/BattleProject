@@ -97,9 +97,9 @@ async function Trainerbattle(TulpaIndex) {
         tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 3);
         tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 3);
         document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
-        battleInfo.innerText = "" + trainer.name + " schickt " + tulpa_opp + " Lv. " + tulpa_lv + " in den Kampf!";
+        battleInfo.innerText = "" + trainer.name + " schickt " + Tulpas[tulpa_opp].name + " Lv. " + tulpa_lv + " in den Kampf!";
         await Delay(500);
-        document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
+        document.getElementById('Name-opp').innerHTML = Tulpas[tulpa_opp].name + " Lv. " + tulpa_lv;
         document.getElementById('Tulpa-opp').innerHTML = '<div class="' + tulpa_opp + '_Front"></div>';
 
         document.getElementById('Tulpa-opp').style.right = "10px";
@@ -113,9 +113,12 @@ async function Trainerbattle(TulpaIndex) {
 async function battle() {
     console.log("Erstelle Kampfsequenz...");
     let battleInfo = document.getElementById('battle_text');
+    console.log("Ermittele Tulpa...");
     let zufall = Math.round(Math.random() * (maps[Player.actualMap].opp_List.length - 1));
     let tulpa_opp = maps[Player.actualMap].opp_List[zufall];
+    console.log("Tulpa:",tulpa_opp);
     tulpa_lv = Math.round((Math.random() + 1) * (maps[Player.actualMap].maxLv - 1));
+    console.log("Level:",tulpa_lv);
     for (Slot in Player.Tulpas) {
         if (Slot.startsWith("Slot")) {
             if (Player.Tulpas[Slot].HP > 0) { tulpa_self = Player.Tulpas[Slot]; break; }
@@ -127,10 +130,11 @@ async function battle() {
     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
 
     tulpa_HP = Tulpas[tulpa_opp].HP_Total + (tulpa_lv * 3);
+    console.log("Gegnerische HP:",Tulpas[tulpa_opp].HP_Total ,"+", (tulpa_lv * 3),"=",tulpa_HP);
     tulpa_HP_Total = Tulpas[tulpa_opp].HP_Total + (tulpa_lv * 3);
     document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
-    battleInfo.innerText = "Ein wildes " + tulpa_opp + " Lv. " + tulpa_lv + " greift an!";
-    document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
+    battleInfo.innerText = "Ein wildes " + Tulpas[tulpa_opp].name + " Lv. " + tulpa_lv + " greift an!";
+    document.getElementById('Name-opp').innerHTML = Tulpas[tulpa_opp].name + " Lv. " + tulpa_lv;
     document.getElementById('Tulpa-opp').innerHTML = '<div class="' + tulpa_opp + '_Front"></div>';
 
     document.getElementById('Tulpa-opp').style.right = "10px";
@@ -141,7 +145,7 @@ async function battle() {
     document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
     document.getElementById('Tulpa-self').style.left = "10px";
     document.getElementById("battle_menu").classList.toggle("hidethis", false);
-    document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
+    document.getElementById('Name-self').innerHTML = Tulpas[tulpa_self.name].name + " Lv. " + tulpa_self.Lv;
     document.getElementById('Name-self').style.opacity = "1";
     document.getElementById('LP-self').style.opacity = "1";
     console.log("Kampf hat begonnen.");
