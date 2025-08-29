@@ -7,7 +7,7 @@ let tulpa_lv = 0;
 let tulpa_self;
 
 async function traineranimation(Trainer, name) {
-    console.log("Beginne Trainerkampf...");
+    console.log("Beginne Trainerdialog...");
     trainer = Trainer;
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
     TrainerDialogBox.setAttribute("TrainerID", name);
@@ -56,6 +56,7 @@ async function battleanimation(trainerbattle) {
 }
 
 async function Trainerbattle(TulpaIndex) {
+    console.warn("Trainerkampf erkannt. Anpassungen werden übernommen...");
     let battleInfo = document.getElementById('battle_text');
     let tulpa_opp = trainer[TulpaIndex].name;
     tulpa_lv = trainer[TulpaIndex].Lv;
@@ -110,6 +111,7 @@ async function Trainerbattle(TulpaIndex) {
 }
 
 async function battle() {
+    console.log("Erstelle Kampfsequenz...");
     let battleInfo = document.getElementById('battle_text');
     let zufall = Math.round(Math.random() * (maps[Player.actualMap].opp_List.length - 1));
     let tulpa_opp = maps[Player.actualMap].opp_List[zufall];
@@ -142,6 +144,7 @@ async function battle() {
     document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
     document.getElementById('Name-self').style.opacity = "1";
     document.getElementById('LP-self').style.opacity = "1";
+    console.log("Kampf hat begonnen.");
 }
 
 async function escape() {
@@ -376,12 +379,13 @@ async function self_attack(attack) {
 }
 
 function changeTulpa() {
-    console.log("Öffne Tulpa Liste des Spielers...");
     if (document.getElementById('change_tulpa').classList.contains("hidethis")) {
+        console.log("Öffne Tulpa Liste des Spielers...");
         document.getElementById('use_item').classList.toggle("hidethis", true);
         document.getElementById('battle_game_menu').classList.toggle("hidethis", false);
         document.getElementById('change_tulpa').classList.toggle("hidethis", false);
         let html = '';
+        console.log("Erstelle HTML-Element...");
         for (Slot in Player.Tulpas) {
             if (Slot.startsWith('Slot')) {
                 let tulpa = Player.Tulpas[Slot];
@@ -395,7 +399,9 @@ function changeTulpa() {
             }
         };
         document.getElementById('change_tulpa').innerHTML = html;
+        console.log("HTML-Element erstellt und eingefügt.");
     } else {
+        console.log("Schließe Tulpa Liste des Spielers...");
         document.getElementById('change_tulpa').classList.toggle("hidethis", true);
         document.getElementById('battle_game_menu').classList.toggle("hidethis", true);
     }
@@ -437,10 +443,12 @@ async function selectTulpa(Slot) {
 
 function useItem() {
     if (document.getElementById('use_item').classList.contains("hidethis")) {
+        console.log("Öffne Inventar des Spielers...");
         document.getElementById('change_tulpa').classList.toggle("hidethis", true);
         document.getElementById('battle_game_menu').classList.toggle("hidethis", false);
         document.getElementById('use_item').classList.toggle("hidethis", false);
         let html = '';
+        console.log("Erstelle HTML-Element...");
         for (ball in Player.inventory.balls) {
             if (Player.inventory.balls[ball] > 0) {
                 html += '<button class="change_tulpa_button" onclick="UseBall(\'' + ball + '\')">' + Player.inventory.balls[ball] + 'x ' + Item_List[ball].name + '</button>';
@@ -452,7 +460,9 @@ function useItem() {
             }
         }
         document.getElementById('use_item').innerHTML = html;
+        console.log("HTML-Element erstellt und eingefügt.");
     } else {
+        console.log("Schließe Inventar des Spielers...");
         document.getElementById('change_tulpa').classList.toggle("hidethis", true);
         document.getElementById('battle_game_menu').classList.toggle("hidethis", true);
         document.getElementById('use_item').classList.toggle("hidethis", true);
@@ -546,7 +556,7 @@ async function UseBall(ball) {
             opp_Attack();
         }
     } else {
-        console.log("Es findet ein Trainerkampf statt. Unnterbreche die Nutzung des Balls...");
+        console.error("Trainerkampf erkannt. Unnterbreche die Nutzung des Balls...");
         document.getElementById('battle_text').innerText = "Dieses Tulpa gehört schon jemandem!";
     }
 }
