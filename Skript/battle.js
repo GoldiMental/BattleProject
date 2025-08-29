@@ -206,9 +206,9 @@ async function opp_Attack() {
     document.getElementById('attack-sound').play(); await Delay(350);
     document.getElementById('Tulpa-opp').style.right = "50px"; await Delay(200);
     document.getElementById('Tulpa-opp').style.right = "10px"; await Delay(1000);
-    let dmg = Attacks[attack].ATK_Power + (tulpa_opp_lv * 2);
+    let dmg = Attacks[attack].ATK_Power + (tulpa_opp_lv * 2) * (Tulpas[tulpa_opp].ANG/Tulpas[tulpa_self].VER);
     tulpa_self.HP -= dmg;
-    console.log("Berechnerter gegenerischer Schaden:", Attacks[attack].ATK_Power, "+", tulpa_opp_lv * 2, "=", dmg); // Log für Gegnerschaden
+    console.log("Berechnerter gegenerischer Schaden:", Attacks[attack].ATK_Power, "+", tulpa_opp_lv * 2,"*",Tulpas[tulpa_self].ANG,"/",Tulpas[tulpa_opp].VER, "=", dmg); // Log für Gegnerschaden
     if (tulpa_self.HP > 0) {
         console.log("Tulpa des Spieler bleibt am Leben. Eröffne Optionen...");
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%"; await Delay(300);
@@ -293,7 +293,7 @@ async function self_attack(attack) {
         let tulpa_opp = document.getElementById('Name-opp').innerHTML;
         let tulpa_opp_name = tulpa_opp.split(' ')[0];
         let tulpa_opp_lv = tulpa_opp.split(' ')[2];
-        let dmg = Attacks[attack].ATK_Power + (tulpa_self.Lv * 2);
+        let dmg = Attacks[attack].ATK_Power + (tulpa_self.Lv * 2) * (Tulpas[tulpa_self].ANG/Tulpas[tulpa_opp].VER);
         console.log("Berechneter Schaden des Spielers:", Attacks[attack].ATK_Power, "+", tulpa_self.Lv * 2, "=", dmg); //Log für Spielerschaden
         document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play(); await Delay(350);

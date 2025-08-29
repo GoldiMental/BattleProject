@@ -1,6 +1,6 @@
 const Attacks = {
     "Tackle": { name: "Tackle", ATK_Power: 20, DEF_Value: 0 },
-    "Kratzer": { name: "Kratzer", ATK_Power: 25, DEF_Value: 0 },
+    "Kratzer": { name: "Kratzer", ATK_Power: 21, DEF_Value: 0 },
     "Hufschlag": { name: "Hufschlag", ATK_Power: 30, DEF_Value: 0 },
     "Biss": { name: "Biss", ATK_Power: 35, DEF_Value: 0 },
     "Blutlust": { name: "Blutdurst", ATK_Power: 40, DEF_Value: 0 },
