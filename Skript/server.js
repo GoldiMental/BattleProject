@@ -11,6 +11,9 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
+app.use(cors());
+app.use(express.json());
+
 const jwt_Key = process.env.jwt_Key;
 if (!jwt_Key) {
     console.warn('Warning: jwt_Key is not set in .env! Using a fallback (NOT SECURE FOR PRODUCTION).');
@@ -23,13 +26,45 @@ if (!MongoDB_Uri) {
     process.exit(1);
 }
 
+const User = mongoose.model('User', new mongoose.Schema({
+    username: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    playerdata: {
+        type: Object,
+        default: {
+            name: "", Gold: 500, Cheats: 0, catchedTulpas: 0, actualMap: "MAP",
+            Tulpas: {
+                Slot_1: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" }, Slot_2: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
+                Slot_3: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" }, Slot_4: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
+                Slot_5: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" }, Slot_6: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
+                PC: [],
+            },
+            inventory: {
+                balls: { Tulpaball: 5, Super_Tulpaball: 0, Hyper_Tulpaball: 0, Ultra_Tulpaball: 0, },
+                drinks: { Heiltrank: 5, Super_Heiltrank: 0, Manatrank: 0, Super_Manatrank: 0, },
+                bonbons: { Bonbon: 0, Super_Bonbon: 0, Hyper_Bonbon: 0, }
+            },
+            defeatedTrainer: [], tulpaGegeben: false,
+        }
+    }
+}));
+
 const options = {
     auth: {
         api_key: process.env.SENDGRID_API_KEY
     }
 }
+
 const transporter = nodemailer.createTransport(sgTransport(options));
 const privateMail = process.env.PRIVATE_MAIL;
+
+mongoose.connect(MongoDB_Uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(() => console.log('MongoDB Atlas verbunden...'))
+    .catch(err => console.error('MongoDB Atlas Verbindungsfehler:', err));
 
 app.post('/forgot-password', async (req, res) => {
     try {
@@ -70,40 +105,6 @@ app.post('/forgot-password', async (req, res) => {
         res.status(500).json({ message: 'Interner Serverfehler.' });
     }
 });
-
-app.use(cors());
-app.use(express.json());
-
-mongoose.connect(MongoDB_Uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-    .then(() => console.log('MongoDB Atlas verbunden...'))
-    .catch(err => console.error('MongoDB Atlas Verbindungsfehler:', err));
-
-const User = mongoose.model('User', new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    playerdata: {
-        type: Object,
-        default: {
-            name: "", Gold: 500, Cheats: 0, catchedTulpas: 0, actualMap: "MAP",
-            Tulpas: {
-                Slot_1: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" }, Slot_2: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
-                Slot_3: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" }, Slot_4: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
-                Slot_5: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" }, Slot_6: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
-                PC: [],
-            },
-            inventory: {
-                balls: { Tulpaball: 5, Super_Tulpaball: 0, Hyper_Tulpaball: 0, Ultra_Tulpaball: 0, },
-                drinks: { Heiltrank: 5, Super_Heiltrank: 0, Manatrank: 0, Super_Manatrank: 0, },
-                bonbons: { Bonbon: 0, Super_Bonbon: 0, Hyper_Bonbon: 0, }
-            },
-            defeatedTrainer: [], tulpaGegeben: false,
-        }
-    }
-}));
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
