@@ -371,8 +371,6 @@ async function self_attack(attack) {
     }
 }
 
-document.getElementById('change_tulpa').classList.toggle("hidethis", true);
-
 function changeTulpa() {
     console.log("Öffne Tulpa Liste des Spielers...");
     if (document.getElementById('change_tulpa').classList.contains("hidethis")) {
@@ -432,8 +430,6 @@ async function selectTulpa(Slot) {
         opp_Attack();
     }
 }
-
-document.getElementById('use_item').classList.toggle("hidethis", true);
 
 function useItem() {
     if (document.getElementById('use_item').classList.contains("hidethis")) {
