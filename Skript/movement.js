@@ -1,5 +1,6 @@
 const moveSpeed = 50;
 const moveInterval = 300;
+let lastArea = "";
 let activeDirection = null;
 
 const documentMap = document.querySelector('.map');
@@ -162,6 +163,20 @@ function moveMap() {
                 let zufall = Math.round(Math.random() * 100);
                 if (zufall <= 10) {
                     clearInterval(moveIntervalID);
+                    lastArea = "wald"; 
+                    console.log("Erkannter Bereich: ",lastArea);
+                    battleanimation(0);
+                }
+            }
+        }
+        for (let i = 0; i < maps[activeMap].battleAreaDW.length; i++) {
+            const area = maps[activeMap].battleAreaDW[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                let zufall = Math.round(Math.random() * 100);
+                if (zufall <= 10) {
+                    clearInterval(moveIntervalID);
+                    lastArea = "dunkelwald";
+                    console.log("Erkannter Bereich: ",lastArea);
                     battleanimation(0);
                 }
             }
@@ -169,7 +184,7 @@ function moveMap() {
     }
     mapX = newMapX;
     mapY = newMapY;
-    console.log(mapX, mapY); //Log für Koordinaten
+    //console.log("X: ", mapX, "Y: ", mapY); //Log für Koordinaten
     if (direction) {
         player.className = 'Player m_' + direction;
     }

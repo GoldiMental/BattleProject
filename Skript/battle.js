@@ -113,9 +113,9 @@ async function Trainerbattle(TulpaIndex) {
 async function battle() {
     console.log("Erstelle Kampfsequenz...");
     let battleInfo = document.getElementById('battle_text');
-    let zufall = Math.round(Math.random() * (maps[Player.actualMap].opp_List.length - 1));
-    let tulpa_opp = maps[Player.actualMap].opp_List[zufall];
-    tulpa_lv = Math.round((Math.random() + 1) * (maps[Player.actualMap].maxLv - 1));
+    let zufall = Math.round(Math.random() * (maps[Player.actualMap].battleMaps[lastArea].opp_List.length - 1));
+    let tulpa_opp = maps[Player.actualMap].battleMaps[lastArea].opp_List[zufall];
+    tulpa_lv = Math.round((Math.random() + 1) * (maps[Player.actualMap].battleMaps[lastArea].maxLv - 1));
     for (Slot in Player.Tulpas) {
         if (Slot.startsWith("Slot")) {
             if (Player.Tulpas[Slot].HP > 0) { tulpa_self = Player.Tulpas[Slot]; break; }

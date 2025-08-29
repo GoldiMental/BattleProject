@@ -105,10 +105,17 @@ var maps = {
             { minX: -1075, maxX: -1075, minY: -325, maxY: -275, name:"Trainer000"},
             { minX: -2675, maxX: -2675, minY: -675, maxY: -525, name:"Trainer001"},
         ],
-        opp_List: [
-            "Mäusschen", "Kaninchen", "Streuner",
-        ],
-        maxLv: 4,
+    battleMaps:  {
+        wald: {
+            opp_List: ["Mäusschen", "Kaninchen", "Streuner", ],
+            maxLv: 4
+        },
+        
+        dunkelwald: {
+            opp_List: ["Kampfmaus", "Wachhund", "Kleiner_Wolf", "Zosse", ],
+            maxLv: 9
+        },
+    },
     },
     TroysHaus:{
         name:"TroysHaus",

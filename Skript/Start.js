@@ -297,6 +297,7 @@ async function SaveGame() {
 }
 // Liste aller Sounds, die du steuern willst
 const sounds = [
+    document.getElementById('click-sound'),
     document.getElementById('attack-sound'),
     document.getElementById('bg01-sound'),
     document.getElementById('bg02-sound'),
