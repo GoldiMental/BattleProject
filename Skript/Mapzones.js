@@ -50,7 +50,7 @@ var maps = {
             { minX: -3175, maxX: -3025, minY: -475, maxY: -125 },
             { minX: -3675, maxX: -3025, minY: -975, maxY: -625 },
             { minX: -3675, maxX: -3325, minY: -575, maxY: -325 },
-            { minX: -3975, maxX: -3875, minY: -675, maxY: -25  },
+            { minX: -3975, maxX: -3875, minY: -675, maxY: -25 },
             { minX: -4475, maxX: -3875, minY: -975, maxY: -775 },
             { minX: -4475, maxX: -4425, minY: -725, maxY: 225 },
             { minX: -4375, maxX: -3475, minY: 225, maxY: 225 },
@@ -102,27 +102,34 @@ var maps = {
         ],
         //trainerBattle. 
         trainerBattle: [
-            { minX: -1075, maxX: -1075, minY: -325, maxY: -275, name:"Trainer000"},
-            { minX: -2675, maxX: -2675, minY: -675, maxY: -525, name:"Trainer001"},
+            { minX: -1075, maxX: -1075, minY: -325, maxY: -275, name: "Trainer000" },
+            { minX: -2675, maxX: -2675, minY: -675, maxY: -525, name: "Trainer001" },
         ],
-        opp_List: [
-            "Mäusschen", "Kaninchen", "Streuner",
-        ],
-        maxLv: 4,
+        battleMaps: {
+            wald: {
+                opp_List: ["Mäusschen", "Kaninchen", "Streuner",],
+                maxLv: 4
+            },
+
+            dunkelwald: {
+                opp_List: ["Kampfmaus", "Wachhund", "Kleiner_Wolf", "Zosse",],
+                maxLv: 9
+            },
+        },
     },
-    TroysHaus:{
-        name:"TroysHaus",
+    TroysHaus: {
+        name: "TroysHaus",
         Height: 300,
         Width: 500,
-        startX:-25,
-        startY:-25,
+        startX: -25,
+        startY: -25,
         startStadtX: -925,
         startStadtY: -525,
         blockedArea: [
-            {minX: 75, maxX: 255, minY: -25, maxY: 25},
-            {minX: -225, maxX: -125, minY: -25, maxY: 25},
-            {minX: -225, maxX: 225, minY: 175, maxY: 225},
-            {minX: -225, maxX: -225, minY: 125, maxY: 125},
+            { minX: 75, maxX: 255, minY: -25, maxY: 25 },
+            { minX: -225, maxX: -125, minY: -25, maxY: 25 },
+            { minX: -225, maxX: 225, minY: 175, maxY: 225 },
+            { minX: -225, maxX: -225, minY: 125, maxY: 125 },
         ],
         //ProfHome. 
         profHome: [
@@ -133,34 +140,20 @@ var maps = {
             { minX: -175, maxX: -175, minY: 125, maxY: 125 },
         ],
     },
-
-    ZoneAreal:{
-        Lavazza:[
-
-        ],
-        HohesGras:[
-
-            
-        ],
-        Dunkelwald:[
-,
-        ],
-    },
-
-    MeinHaus:{
-        name:"MeinHaus",
+    MeinHaus: {
+        name: "MeinHaus",
         Height: 250,
         Width: 250,
-        startX:125,
-        startY:25,
+        startX: 125,
+        startY: 25,
         startStadtX: -125,
         startStadtY: -75,
         blockedArea: [
-            {minX: 175, maxX: 225, minY: 25, maxY: 25},
-            {minX: 25, maxX: 75, minY: 25, maxY: 25},
-            {minX: 225, maxX: 225, minY: 175, maxY: 175},
-            {minX: 25, maxX: 225, minY: 225, maxY: 225},
-            {minX: 25, maxX: 25, minY: 125, maxY: 125},
+            { minX: 175, maxX: 225, minY: 25, maxY: 25 },
+            { minX: 25, maxX: 75, minY: 25, maxY: 25 },
+            { minX: 225, maxX: 225, minY: 175, maxY: 175 },
+            { minX: 25, maxX: 225, minY: 225, maxY: 225 },
+            { minX: 25, maxX: 25, minY: 125, maxY: 125 },
         ],
         //SelfHome. 
         selfHome: [
@@ -170,29 +163,29 @@ var maps = {
             { minX: 225, maxX: 225, minY: 125, maxY: 125 },
         ],
     },
-    ShopHaus:{
-        name:"ShopHaus",
+    ShopHaus: {
+        name: "ShopHaus",
         Height: 300,
         Width: 500,
-        startX:75,
-        startY:-25,
+        startX: 75,
+        startY: -25,
         startStadtX: -275,
         startStadtY: -575,
         blockedArea: [
-            {minX: 125, maxX: 225, minY: -25, maxY: 25},
-            {minX: -225, maxX: 25, minY: -25, maxY: -25},
-            {minX: -225, maxX: -175, minY: 25, maxY: 25},
-            {minX: -125, maxX: -25, minY: 75, maxY: 75},
-            {minX: -225, maxX: -175, minY: 125, maxY: 125},
-            {minX: -175, maxX: 75, minY: 175, maxY: 175},
-            {minX: 75, maxX: 225, minY: 125, maxY: 125},
+            { minX: 125, maxX: 225, minY: -25, maxY: 25 },
+            { minX: -225, maxX: 25, minY: -25, maxY: -25 },
+            { minX: -225, maxX: -175, minY: 25, maxY: 25 },
+            { minX: -125, maxX: -25, minY: 75, maxY: 75 },
+            { minX: -225, maxX: -175, minY: 125, maxY: 125 },
+            { minX: -175, maxX: 75, minY: 175, maxY: 175 },
+            { minX: 75, maxX: 225, minY: 125, maxY: 125 },
         ],
         //ShopHome. 
         shopHome: [
-            {minX: 75, maxX: 75, minY: -25, maxY: -25},
+            { minX: 75, maxX: 75, minY: -25, maxY: -25 },
         ],
         shopHandel: [
-            {minX: 175, maxX: 175, minY: 75, maxY: 75},
+            { minX: 175, maxX: 175, minY: 75, maxY: 75 },
         ],
     },
 }

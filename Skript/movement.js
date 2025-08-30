@@ -1,5 +1,6 @@
 const moveSpeed = 50;
 const moveInterval = 300;
+let lastArea = "";
 let activeDirection = null;
 
 const documentMap = document.querySelector('.map');
@@ -14,7 +15,7 @@ let minY = -(parseInt(maps[activeMap].Height) - 250);
 let maxY = 250;
 
 function changeMap(mapname) {
-    console.log("Führe changeMap(",mapname,") aus...");
+    console.log("Führe changeMap(", mapname, ") aus...");
     activeMap = maps[mapname].name;
     Player.actualMap = activeMap;
 }
@@ -63,17 +64,17 @@ function moveMap() {
         for (let i = 0; i < maps[activeMap].shopHandel.length; i++) {
             const area = maps[activeMap].shopHandel[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHandel_B")[0].classList.toggle("hidethis",false);
+                document.getElementsByClassName("ShopHandel_B")[0].classList.toggle("hidethis", false);
             } else {
-                document.getElementsByClassName("ShopHandel_B")[0].classList.toggle("hidethis",true);
+                document.getElementsByClassName("ShopHandel_B")[0].classList.toggle("hidethis", true);
             }
         }
         for (let i = 0; i < maps[activeMap].shopHome.length; i++) {
             const area = maps[activeMap].shopHome[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHausOut_B")[0].classList.toggle("hidethis",false);
+                document.getElementsByClassName("ShopHausOut_B")[0].classList.toggle("hidethis", false);
             } else {
-                document.getElementsByClassName("ShopHausOut_B")[0].classList.toggle("hidethis",true);
+                document.getElementsByClassName("ShopHausOut_B")[0].classList.toggle("hidethis", true);
             }
         }
     }
@@ -81,17 +82,17 @@ function moveMap() {
         for (let i = 0; i < maps[activeMap].tulpaPc.length; i++) {
             const area = maps[activeMap].tulpaPc[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("Tulpa-PC")[0].classList.toggle("hidethis",false);
+                document.getElementsByClassName("Tulpa-PC")[0].classList.toggle("hidethis", false);
             } else {
-                document.getElementsByClassName("Tulpa-PC")[0].classList.toggle("hidethis",true);
+                document.getElementsByClassName("Tulpa-PC")[0].classList.toggle("hidethis", true);
             }
         }
         for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
             const area = maps[activeMap].selfHome[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("MeinHausOut_B")[0].classList.toggle("hidethis",false);
+                document.getElementsByClassName("MeinHausOut_B")[0].classList.toggle("hidethis", false);
             } else {
-                document.getElementsByClassName("MeinHausOut_B")[0].classList.toggle("hidethis",true);
+                document.getElementsByClassName("MeinHausOut_B")[0].classList.toggle("hidethis", true);
             }
         }
     }
@@ -99,10 +100,10 @@ function moveMap() {
         for (let i = 0; i < maps[activeMap].profHome.length; i++) {
             const area = maps[activeMap].profHome[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("TroysHausOut_B")[0].classList.toggle("hidethis",false);
+                document.getElementsByClassName("TroysHausOut_B")[0].classList.toggle("hidethis", false);
             }
             else {
-                document.getElementsByClassName("TroysHausOut_B")[0].classList.toggle("hidethis",true);
+                document.getElementsByClassName("TroysHausOut_B")[0].classList.toggle("hidethis", true);
             }
         }
     }
@@ -110,26 +111,26 @@ function moveMap() {
         for (let i = 0; i < maps[activeMap].shopHome.length; i++) {
             const area = maps[activeMap].shopHome[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHaus_B")[0].classList.toggle("hidethis",false);
+                document.getElementsByClassName("ShopHaus_B")[0].classList.toggle("hidethis", false);
             } else {
-                document.getElementsByClassName("ShopHaus_B")[0].classList.toggle("hidethis",true);
+                document.getElementsByClassName("ShopHaus_B")[0].classList.toggle("hidethis", true);
             }
         }
         for (let i = 0; i < maps[activeMap].profHome.length; i++) {
             const area = maps[activeMap].profHome[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("TroysHaus_B")[0].classList.toggle("hidethis",false);
+                document.getElementsByClassName("TroysHaus_B")[0].classList.toggle("hidethis", false);
             } else {
-                document.getElementsByClassName("TroysHaus_B")[0].classList.toggle("hidethis",true);
+                document.getElementsByClassName("TroysHaus_B")[0].classList.toggle("hidethis", true);
             }
         }
         for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
             const area = maps[activeMap].selfHome[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("MeinHaus_B")[0].classList.toggle("hidethis",false);
+                document.getElementsByClassName("MeinHaus_B")[0].classList.toggle("hidethis", false);
             }
             else {
-                document.getElementsByClassName("MeinHaus_B")[0].classList.toggle("hidethis",true);
+                document.getElementsByClassName("MeinHaus_B")[0].classList.toggle("hidethis", true);
             }
         }
         for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
@@ -162,6 +163,20 @@ function moveMap() {
                 let zufall = Math.round(Math.random() * 100);
                 if (zufall <= 10) {
                     clearInterval(moveIntervalID);
+                    lastArea = "wald";
+                    console.log("Erkannter Bereich: ", lastArea);
+                    battleanimation(0);
+                }
+            }
+        }
+        for (let i = 0; i < maps[activeMap].battleAreaDW.length; i++) {
+            const area = maps[activeMap].battleAreaDW[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                let zufall = Math.round(Math.random() * 100);
+                if (zufall <= 10) {
+                    clearInterval(moveIntervalID);
+                    lastArea = "dunkelwald";
+                    console.log("Erkannter Bereich: ", lastArea);
                     battleanimation(0);
                 }
             }
@@ -169,7 +184,7 @@ function moveMap() {
     }
     mapX = newMapX;
     mapY = newMapY;
-    console.log(mapX, mapY); //Log für Koordinaten
+    console.log("X:", mapX, " Y:", mapY); //Log für Koordinaten
     if (direction) {
         player.className = 'Player m_' + direction;
     }
@@ -205,7 +220,7 @@ moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, move
 async function meinEingang() {
     document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
-    movementGame.classList.toggle("hidethis",true);
+    movementGame.classList.toggle("hidethis", true);
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
 
@@ -232,14 +247,14 @@ async function meinEingang() {
     document.getElementById("tuerSelfOut").disabled = false;
     document.getElementById("tuerSelfOut").style.opacity = "1";
     await Delay(500);
-    movementGame.classList.toggle("hidethis",false);
+    movementGame.classList.toggle("hidethis", false);
     movementGame.style.opacity = "1";
 }
 
 async function troysEingang() {
     document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
-    movementGame.classList.toggle("hidethis",true);
+    movementGame.classList.toggle("hidethis", true);
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
 
@@ -266,7 +281,7 @@ async function troysEingang() {
     document.getElementById("tuerTroyOut").style.opacity = "1";
     document.getElementById("Professor").style.opacity = "1";
     await Delay(500);
-    movementGame.classList.toggle("hidethis",false);
+    movementGame.classList.toggle("hidethis", false);
     movementGame.style.opacity = "1";
     console.log("Eintritt in Troys Haus erfolgreich!");
 }
@@ -274,7 +289,7 @@ async function troysEingang() {
 async function meinAusgang() {
     document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
-    movementGame.classList.toggle("hidethis",true);
+    movementGame.classList.toggle("hidethis", true);
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
 
@@ -301,14 +316,14 @@ async function meinAusgang() {
     document.getElementById("tuerSelfIn").disabled = false;
     document.getElementById("tuerSelfIn").style.opacity = "0.5";
     await Delay(500);
-    movementGame.classList.toggle("hidethis",false);
+    movementGame.classList.toggle("hidethis", false);
     movementGame.style.opacity = "1";
 }
 
 async function troysAusgang() {
     document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
-    movementGame.classList.toggle("hidethis",true);
+    movementGame.classList.toggle("hidethis", true);
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
 
@@ -335,13 +350,13 @@ async function troysAusgang() {
     document.getElementById("tuerTroyOut").style.opacity = "0";
     document.getElementById("Professor").style.opacity = "0";
     await Delay(500);
-    movementGame.classList.toggle("hidethis",false);
+    movementGame.classList.toggle("hidethis", false);
     movementGame.style.opacity = "1";
 }
 async function shopEingang() {
     document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
-    movementGame.classList.toggle("hidethis",true);
+    movementGame.classList.toggle("hidethis", true);
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
     await Delay(500);
@@ -369,13 +384,13 @@ async function shopEingang() {
     document.getElementById("tuerShopOut").style.opacity = "1";
 
     await Delay(500);
-    movementGame.classList.toggle("hidethis",false);
+    movementGame.classList.toggle("hidethis", false);
     movementGame.style.opacity = "1";
 }
 async function shopAusgang() {
     document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
-    movementGame.classList.toggle("hidethis",true);
+    movementGame.classList.toggle("hidethis", true);
     movementGame.style.transition = "opacity 0.5s";
     movementGame.style.opacity = "0";
 
@@ -403,7 +418,7 @@ async function shopAusgang() {
     document.getElementById("tuerShopIn").disabled = false;
     document.getElementById("tuerShopIn").style.opacity = "0.5";
     await Delay(500);
-    movementGame.classList.toggle("hidethis",false);
+    movementGame.classList.toggle("hidethis", false);
     movementGame.style.opacity = "1";
 }
 

@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // Hier kannst du weitere Initialisierungen starten, die Player-Daten benötigen
             InitializeGameWorld(); // Beispiel: Funktion, die die Spielwelt mit Player-Daten aufbaut
-            
+
         } else {
             console.error('Serverfehler beim Abrufen der Playerdata:', data);
             if (pageMessageElement) {
@@ -297,6 +297,7 @@ async function SaveGame() {
 }
 // Liste aller Sounds, die du steuern willst
 const sounds = [
+    document.getElementById('click-sound'),
     document.getElementById('attack-sound'),
     document.getElementById('bg01-sound'),
     document.getElementById('bg02-sound'),
