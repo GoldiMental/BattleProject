@@ -380,11 +380,11 @@ forgot-password-link {
 #forgot-password-form button:active{
     transform: scale(0.9);
 }
-.back-link{
+.back-link,.forgot-password-link{
     color:rgba(255,215,0,0.5);
     transition: all 0.3s ease;
 }
-.back-link:hover{
+.back-link:hover,.forgot-password-link:hover{
     color:rgb(255,215,0);
 }
 
