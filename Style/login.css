@@ -54,6 +54,18 @@ body {
     transform: translateY(-20px);
 }
 
+.main-container {
+    border: 3px outset silver;
+    box-shadow: 0 0 15px red;
+    border-radius:2.5em 5em;
+    background-color: rgba(0,0,0,0.8);
+    padding: 2.75em;
+    margin: 1.25em;
+    color:gold;
+    animation: pulseLight 2s infinite;
+    transition: opacity 0.5s ease, transform 1s ease;
+}
+
 @keyframes pulseLight {
     0% {
         box-shadow: 0 0 15px red;
@@ -90,12 +102,6 @@ body {
 }
 
 forgot-password-link {
-    color:gold;
-}
-
-main-container {
-    border: 3px outset silver;
-    background-color: rgba(250,250,250,0.8);
     color:gold;
 }
 
@@ -345,6 +351,40 @@ main-container {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
+}
+
+.TulpaKingTitle {
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-shadow: 0.1em 0.05em 0.15em rgb(255,0,0);
+}
+
+#forgot-password-form button,input{
+    border: 2px outset rgb(255,215,0);
+    border-radius: 2.5em;
+    background: radial-gradient(rgb(0,0,50),rgb(0,0,100));
+    color: rgb(255,215,0);
+    font-size: 1.05rem;
+    font-weight: bold;
+    padding:0.75em;
+    margin:0.1em;
+    transition: all 0.3s ease;
+}
+#forgot-password-form input{
+    width:13em;
+}
+#forgot-password-form button:hover{
+    transform: scale(1.1);
+}
+#forgot-password-form button:active{
+    transform: scale(0.9);
+}
+.back-link{
+    color:rgba(255,215,0,0.5);
+    transition: all 0.3s ease;
+}
+.back-link:hover{
+    color:rgb(255,215,0);
 }
 
 @media (max-width: 830px) {
