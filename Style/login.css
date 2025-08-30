@@ -359,7 +359,8 @@ forgot-password-link {
     text-shadow: 0.1em 0.05em 0.15em rgb(255,0,0);
 }
 
-#forgot-password-form button,input{
+#forgot-password-form button,
+#forgot-password-form input{
     border: 2px outset rgb(255,215,0);
     border-radius: 2.5em;
     background: radial-gradient(rgb(0,0,50),rgb(0,0,100));
