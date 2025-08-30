@@ -106,6 +106,35 @@ app.post('/forgot-password', async (req, res) => {
     }
 });
 
+app.post('/reset-password', async (req, res) => {
+    try {
+        const { token, newPassword } = req.body;
+
+        let decoded;
+        try {
+            decoded = jwt.verify(token, jwt_Key);
+        } catch (err) {
+            return res.status(400).json({ message: 'Ungültiger oder abgelaufener Token.' });
+        }
+
+        const userId = decoded.id;
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'Benutzer nicht gefunden.' });
+        }
+
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+        user.password = hashedPassword;
+        await user.save();
+
+        res.status(200).json({ message: 'Passwort erfolgreich zurückgesetzt!' });
+    } catch (error) {
+        console.error('Fehler beim Passwort-Reset:', error);
+        res.status(500).json({ message: 'Interner Serverfehler.' });
+    }
+});
+
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
