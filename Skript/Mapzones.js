@@ -112,7 +112,7 @@ var maps = {
             },
 
             dunkelwald: {
-                opp_List: ["Kampfmaus", "Wachhund", "Kleiner_Wolf", "Zosse",],
+                opp_List: ["Kampfmaus", "Wachhund", "Kleiner Wolf", "Zosse",],
                 maxLv: 9
             },
         },
