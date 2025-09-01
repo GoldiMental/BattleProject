@@ -187,10 +187,10 @@ async function InitializeGameWorld() {
         console.log(`Spieler auf Startposition (Update!) gesetzt. Folgende Koordinaten werden in Player gesetzt.`);
         console.log("MapX:", Player.MapX, " MapY:", Player.MapY);
         console.warn("Speichern nicht vergessen!!!");
-    } else if (Player.MapX == 0 && Player.MapY == 0) {
+    } else if ((Player.MapX == 0 && Player.MapY == 0) || (!Player.MapX && !Player.MapX && !Player.tulpaGegeben)) {
         starteTutorial();
-        mapX = maps[activeMap].startX;
-        mapY = maps[activeMap].startY;
+        mapX = maps.MAP.startX;
+        mapY = maps.MAP.startY;
         Player.MapX = mapX;
         Player.MapY = mapY;
     }

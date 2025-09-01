@@ -9,4 +9,7 @@ function ProfTalk_2(){
 
 function starteTutorial(){
     console.log("Tutorial wird gestartet...");
+    showCustomAlert("Herzlich Willkommen Trainer ",Player.name);
+    showCustomAlert('Ich hoffe Du bist gut vorbereitet. Wenn nicht, sieh Dir gerne mal die "TulpaKing Info & Impressum"-Seite an.');
+    showCustomAlert('Für Probleme wende dich bitte an: goldimental@gmx.de');
 }

@@ -118,7 +118,8 @@
             <a href="https://store.steampowered.com/app/431730/Aseprite/">Aseprite über Steam</a><br>
             <a href="https://www.mapeditor.org/">Tiled über mapeditor.org</a><br>
             <a href="https://www.gimp.org/">GIMP GNU Image Manipulation Programm</a><br>
-            <a href="https://www.google.com/intl/de_de/chrome/">Google Chrome Browser</a> <i>Browser Konsole (F12)</i><br>
+            <a href="https://www.google.com/intl/de_de/chrome/">Google Chrome Browser</a> <i>Browser Konsole
+                (F12)</i><br>
             <a href="https://code.visualstudio.com/">Visual Studio Code</a><br>
         </p>
         <h2>Dienste:</h2>
@@ -147,14 +148,15 @@
             Hoffmann, Johnny
         </p>
     </div>
+    <p>Kontakt & Support: <a href="mailto:goldimental@gmx.de">goldimental@gmx.de</a></p>
     <a id="ToLogin" class="ToLogin" href="<%= gameServerIP %>" target="_self">Zum Login</a>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             const ToLoginElement = document.getElementById("ToLogin");
             ToLoginElement.classList.add("ToLoginHover");
-            setTimeout(function() {
+            setTimeout(function () {
                 ToLoginElement.classList.remove("ToLoginHover");
-            },3000);
+            }, 3000);
         };
     </script>
 </body>
