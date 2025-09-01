@@ -166,14 +166,14 @@ function InitializeGameWorld() {
         console.log("Karte:", Player.actualMap);
         changeMap(Player.actualMap);
         refreshMap();
-        globalThis.mapX = Player.MapX;
-        globalThis.mapY = Player.MapY;
+        mapX = Player.MapX;
+        mapY = Player.MapY;
         moveMap();
         console.log("MapX:", mapX, " MapY:", mapY);
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
     } else if ((Player.MapX == 0 || Player.MapX == 0) && (Player.MapX == undefined || Player.MapY == undefined) && Player.tulpaGegeben) {
-        globalThis.mapX = maps[activeMap].startX;
-        globalThis.mapY = maps[activeMap].startY;
+        mapX = maps[activeMap].startX;
+        mapY = maps[activeMap].startY;
         moveMap();
         Player.MapX = mapX;
         Player.MapY = mapY;
@@ -182,8 +182,8 @@ function InitializeGameWorld() {
         console.warn("Speichern nicht vergessen!!!");
     } else if (Player.MapX == 0 && Player.MapY == 0) {
         startTutorial();
-        globalThis.mapX = maps[activeMap].startX;
-        globalThis.mapY = maps[activeMap].startY;
+        mapX = maps[activeMap].startX;
+        mapY = maps[activeMap].startY;
         Player.MapX = mapX;
         Player.MapY = mapY;
     }
