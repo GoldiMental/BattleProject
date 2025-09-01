@@ -162,7 +162,7 @@ function InitializeGameWorld() {
     // z.B. Position des Spielers, Tulpa-Stats, Inventar, etc.
     // Beispiel: Stelle den Spieler auf die letzte gespeicherte Karte
 
-    if (Player.actualMap && Player.MapX == 0 && Player.MapY == 0 || (Player.MapX==undefined || Player.MapY==undefined)) {
+    if (Player.actualMap && (Player.MapX != 0 || Player.MapY != 0 || Player.MapX!=undefined || Player.MapY!=undefined)) {
         console.log("Karte:",Player.actualMap);
         changeMap(Player.actualMap);
         refreshMap();
@@ -171,7 +171,7 @@ function InitializeGameWorld() {
         moveMap();
         console.log("MapX:",mapX," MapY:",mapY);
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
-    } else if ((!Player.MapX || !Player.MapX) && Player.tulpaGegeben) {
+    } else if ((!Player.MapX || !Player.MapX || Player.MapX==undefined || Player.MapY==undefined) && Player.tulpaGegeben) {
         globalThis.mapX = maps[activeMap].startX;
         globalThis.mapY = maps[activeMap].startY;
         moveMap();
