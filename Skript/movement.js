@@ -62,7 +62,7 @@ function refreshMap() {
 async function meinEingang() {
     document.getElementById('door-sound').play();
     Player.MapX = maps.MeinHaus.startX;
-    Player.MapY = maps.MainHaus.startY;
+    Player.MapY = maps.MeinHaus.startY;
     changeMap('MeinHaus');
 }
 async function meinAusgang() {
