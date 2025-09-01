@@ -161,9 +161,31 @@ function InitializeGameWorld() {
     // Hier würdest du die Spielwelt basierend auf 'Player' initialisieren:
     // z.B. Position des Spielers, Tulpa-Stats, Inventar, etc.
     // Beispiel: Stelle den Spieler auf die letzte gespeicherte Karte
-    if (Player.actualMap) {
-        document.querySelector('.map').className = 'map ' + Player.actualMap;
-        console.log(`Spieler auf Karte ${Player.actualMap} gesetzt.`);
+
+    if (Player.actualMap && Player.MapX != 0 && Player.MapY != 0) {
+        console.log("Karte:",Player.actualMap);
+        changeMap(Player.actualMap);
+        refreshMap();
+        globalThis.mapX = Player.MapX;
+        globalThis.mapY = Player.MapY;
+        moveMap();
+        console.log("MapX:",mapX," MapY:",mapY);
+        console.log(`Spieler auf letzte bekannte Position gesetzt.`);
+    } else if ((!Player.MapX || !Player.MapX) && Player.tulpaGegeben) {
+        globalThis.mapX = maps[activeMap].startX;
+        globalThis.mapY = maps[activeMap].startY;
+        moveMap();
+        Player.MapX = mapX;
+        Player.MapY = mapY;
+        console.log(`Spieler auf Startposition (Update!) gesetzt. Folgende Koordinaten werden in Player gesetzt.`);
+        console.log("MapX:",Player.MapX," MapY:",Player.MapY);
+        console.warn("Speichern nicht vergessen!!!");
+    } else if (Player.MapX == 0 && Player.MapY == 0){
+        startTutorial();
+        globalThis.mapX = maps[activeMap].startX;
+        globalThis.mapY = maps[activeMap].startY;
+        Player.MapX = mapX;
+        Player.MapY = mapY;
     }
     // Stelle sicher, dass diese Funktion alle notwendigen Initialisierungen für dein Spiel ausführt.
 }

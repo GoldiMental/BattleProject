@@ -38,7 +38,7 @@ const User = mongoose.model('User', new mongoose.Schema({
     playerdata: {
         type: Object,
         default: {
-            name: "", Gold: 500, Cheats: 0, catchedTulpas: 0, actualMap: "MAP",
+            name: "", Gold: 500, Cheats: 0, catchedTulpas: 0, actualMap: "MAP", MapX: 0, MapY: 0,
             Tulpas: {
                 Slot_1: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" }, Slot_2: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },
                 Slot_3: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" }, Slot_4: { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" },

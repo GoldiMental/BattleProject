@@ -6,9 +6,6 @@ let activeDirection = null;
 const documentMap = document.querySelector('.map');
 let activeMap = "MAP";
 
-let mapX = maps[activeMap].startX;
-let mapY = maps[activeMap].startY;
-
 let minX = -(parseInt(maps[activeMap].Width) - 250);
 let maxX = 250;
 let minY = -(parseInt(maps[activeMap].Height) - 250);
@@ -184,6 +181,8 @@ function moveMap() {
     }
     mapX = newMapX;
     mapY = newMapY;
+    Player.MapX = mapX;
+    Player.MapY = mapY;
     console.log("X:", mapX, " Y:", mapY); //Log für Koordinaten
     if (direction) {
         player.className = 'Player m_' + direction;

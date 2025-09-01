@@ -6,3 +6,7 @@ function ProfTalk_1(){
 function ProfTalk_2(){
     console.log('Gespräch 2 mit Prof');
 }
+
+function starteTutorial(){
+    console.log("Tutorial wird gestartet...");
+}
