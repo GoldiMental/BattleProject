@@ -49,9 +49,9 @@ document.getElementById("loginForm").addEventListener('submit', async (e) => {
     const password = e.target.password.value;
 
     showMessage(loginMessageElement, 'Anmeldung läuft...', '');
-
+    let link = GAME_SERVER_IP + "/login";
     try {
-        const res = await fetch('${GAME_SERVER_IP}/login', {
+        const res = await fetch(link, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
@@ -96,9 +96,9 @@ document.getElementById("registerForm").addEventListener('submit', async (e) => 
     }
 
     showMessage(registerMessageElement, 'Registrierung läuft...', '');
-
+    let link = GAME_SERVER_IP + "/register";
     try {
-        const res = await fetch('${GAME_SERVER_IP}/register', {
+        const res = await fetch(link, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, password }),

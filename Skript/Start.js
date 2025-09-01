@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("TOKEN fehlt. Fehlerhafter Login oder Login fehlt komplett.");
         await showCustomAlert('Nicht eingeloggt. Bitte melde dich an.');
         await Delay(1000); // Kurze Verzögerung nach dem Alert
-        window.location.href = 'index.html';
+        window.location.href = GAME_SERVER_IP;
         return;
     }
 
@@ -56,8 +56,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     // Spielerdaten vom Server abrufen
+    let link = GAME_SERVER_IP + "/api/playerdata";
     try {
-        const res = await fetch('${GAME_SERVER_IP}/api/playerdata', {
+        const res = await fetch(link, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -96,14 +97,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 await showCustomAlert('Sitzung abgelaufen oder ungültig. Bitte melde dich erneut an.');
                 localStorage.clear(); // Alle Token/Daten entfernen
                 await Delay(500);
-                window.location.href = 'index.html';
+                window.location.href = GAME_SERVER_IP;
                 return;
             } else {
                 await showCustomAlert(`Fehler beim Laden der Daten: ${data.message || 'Unbekannter Fehler.'}`);
                 // Optional: Auch hier zum Login umleiten, wenn das Laden komplett fehlschlägt
                 localStorage.clear();
                 await Delay(500);
-                window.location.href = 'index.html';
+                window.location.href = GAME_SERVER_IP;
                 return;
             }
         }
@@ -114,8 +115,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         await showCustomAlert('Verbindungsfehler zum Server. Bitte überprüfe deine Internetverbindung oder versuche es später erneut.');
         localStorage.clear();
-        await Delay(500);
-        window.location.href = 'index.html';
         return;
     }
     // Funktion zum Starten der Musik nach erster Benutzerinteraktion
@@ -247,7 +246,7 @@ async function SaveGame() {
         console.error("Login fehlgeschlagen...");
         await showCustomAlert('Nicht eingeloggt. Bitte melde dich an.');
         await Delay(500);
-        window.location.href = 'index.html';
+        window.location.href = GAME_SERVER_IP;
         return;
     }
 
@@ -259,7 +258,8 @@ async function SaveGame() {
     }
     console.log("Verbinde mit Datenbank...");
     try {
-        const res = await fetch('${GAME_SERVER_IP}/api/savegame', {
+        let link = GAME_SERVER_IP +"/api/savegame";
+        const res = await fetch(link, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
