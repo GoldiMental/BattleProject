@@ -16,7 +16,7 @@ app.use(express.json());
 
 const jwt_Key = process.env.jwt_Key;
 if (!jwt_Key) {
-    console.warn('Warning: jwt_Key is not set in .env! Using a fallback (NOT SECURE FOR PRODUCTION).');
+    console.warn('Fehler: jwt_Key ist nicht in der .env-Datei gesetzt oder wurde nicht geladen.');
     process.exit(1);
 }
 
@@ -72,7 +72,7 @@ app.post('/forgot-password', async (req, res) => {
         const user = await User.findOne({ email });
 
         if (!user) {
-            return res.status(200).json({ message: 'Wenn eine E-Mail-Adresse mit diesem Konto verknüpft ist, haben wir Ihnen Anweisungen zum Zurücksetzen des Passworts gesendet.' });
+            return res.status(200).json({ message: 'Wenn eine E-Mail-Adresse mit diesem Konto verknüpft ist, haben wir Ihnen Anweisungen zum Zurücksetzen des Passwortes gesendet.' });
         }
 
         const resetToken = jwt.sign({ id: user._id }, jwt_Key, { expiresIn: '15m' });
@@ -86,8 +86,12 @@ app.post('/forgot-password', async (req, res) => {
                 <p>Du hast eine Anfrage zum Zurücksetzen des Passworts auf TulpaKing gestellt.</p>
                 <p>Klicke auf den folgenden Link, um dein Passwort zurückzusetzen:</p>
                 <a href="http://20.79.178.244:3000/reset-password.html?token=${resetToken}">Link zum Zurücksetzen des Passworts</a>
-                <p>Dieser Link ist 15 Minuten gültig.</p>
-                <p>Wenn Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail.</p>
+                <strong>Dieser Link ist nur 15 Minuten lang gültig.</strong>
+                <p>Wenn Sie diese Anfrage nicht gestellt haben, können Sie diese Email ignorieren.</p>
+                <p>Bei Bedenken antworten Sie gerne auch auf diese Email. Unser Team wird sich zeitnah um Ihre Bedenken kümmern.</p><br>
+                <p>Wir wünschen Ihnen weiterhin viel Spaß mit TulpaKing</p>
+                <p>Mit freundlichen Grüßen</p>
+                <p>GoldiMental Entertainment</p>
             `,
         };
 
@@ -99,7 +103,7 @@ app.post('/forgot-password', async (req, res) => {
             }
         });
 
-        res.status(200).json({ message: 'Wenn eine E-Mail-Adresse mit diesem Konto verknüpft ist, haben wir Ihnen Anweisungen zum Zurücksetzen des Passworts gesendet.' });
+        res.status(200).json({ message: 'Wenn eine E-Mail-Adresse mit diesem Konto verknüpft ist, haben wir Ihnen Anweisungen zum Zurücksetzen des Passwortes gesendet. Überprüfen Sie auch den Spam-Ordner!' });
     } catch (error) {
         console.error('Fehler beim Passwort-Reset:', error);
         res.status(500).json({ message: 'Interner Serverfehler.' });

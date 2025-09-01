@@ -42,7 +42,7 @@ body {
     min-width: 250px;
     color: silver;
     font-size: 20px;
-    background: radial-gradient(rgba(0, 0, 100,0.85), rgba(0, 0, 25,0.85));
+    background: radial-gradient(rgba(0, 0, 100, 0.85), rgba(0, 0, 25, 0.85));
     animation: pulseLight 2s infinite;
     transition: opacity 0.5s ease, transform 1s ease;
     z-index: 10;
@@ -57,11 +57,11 @@ body {
 .main-container {
     border: 3px outset silver;
     box-shadow: 0 0 15px red;
-    border-radius:2.5em 5em;
-    background-color: rgba(0,0,0,0.8);
+    border-radius: 2.5em 5em;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 2.75em;
     margin: 1.25em;
-    color:gold;
+    color: gold;
     animation: pulseLight 2s infinite;
     transition: opacity 0.5s ease, transform 1s ease;
 }
@@ -102,7 +102,7 @@ body {
 }
 
 forgot-password-link {
-    color:gold;
+    color: gold;
 }
 
 .container h2 {
@@ -356,36 +356,83 @@ forgot-password-link {
 .TulpaKingTitle {
     font-size: 2.5em;
     font-weight: bolder;
-    text-shadow: 0.1em 0.05em 0.15em rgb(255,0,0);
+    text-shadow: 0.1em 0.05em 0.15em rgb(255, 0, 0);
 }
 
 #forgot-password-form button,
-#forgot-password-form input{
-    border: 2px outset rgb(255,215,0);
+#forgot-password-form input {
+    border: 2px outset rgb(255, 215, 0);
     border-radius: 2.5em;
-    background: radial-gradient(rgb(0,0,50),rgb(0,0,100));
-    color: rgb(255,215,0);
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 100));
+    color: rgb(255, 215, 0);
     font-size: 1.05rem;
     font-weight: bold;
-    padding:0.75em;
-    margin:0.1em;
+    padding: 0.75em;
+    margin: 0.1em;
     transition: all 0.3s ease;
 }
-#forgot-password-form input{
-    width:13em;
+
+#forgot-password-form input {
+    width: 13em;
 }
-#forgot-password-form button:hover{
+
+#forgot-password-form button:hover {
     transform: scale(1.1);
 }
-#forgot-password-form button:active{
+
+#forgot-password-form button:active {
     transform: scale(0.9);
 }
-.back-link,.forgot-password-link{
-    color:rgba(255,215,0,0.5);
+
+.back-link,
+.forgot-password-link {
+    color: rgba(255, 215, 0, 0.5);
     transition: all 0.3s ease;
 }
-.back-link:hover,.forgot-password-link:hover{
-    color:rgb(255,215,0);
+
+.back-link:hover,
+.forgot-password-link:hover {
+    color: rgb(255, 215, 0);
+}
+
+#reset-password-form button,
+#reset-password-form input {
+    border: 2px outset rgb(255, 215, 0);
+    border-radius: 2.5em;
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 100));
+    color: rgb(255, 215, 0);
+    font-size: 1.05rem;
+    font-weight: bold;
+    padding: 0.75em;
+    margin: 0.1em;
+    transition: all 0.3s ease;
+}
+
+#reset-password-form button:hover {
+    transform: scale(1.1);
+}
+
+#reset-password-form button:active {
+    transform: scale(0.9);
+}
+
+#message-container {
+    font-size: larger;
+    font-weight: bolder;
+    border-radius: 2em;
+    max-width: 40em;
+}
+
+.success-message {
+    padding: 1em;
+    background-color: rgba(0,255,0,0.2);
+    color: rgb(0, 255, 0) !important;
+}
+
+.error-message {
+    padding: 1em;
+    background-color: rgba(255,0,0,0.2);
+    color: rgb(255, 0, 0) !important;
 }
 
 @media (max-width: 830px) {
