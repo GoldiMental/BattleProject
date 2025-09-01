@@ -24,8 +24,7 @@ function refreshMap() {
     maxX = 250;
     minY = -(parseInt(maps[activeMap].Height) - 250);
     maxY = 250;
-    documentMap.style.left = Player.MapX + 'px';
-    documentMap.style.top = Player.MapY + 'px';
+    moveMap();
 }
 
 function moveMap() {
@@ -33,8 +32,8 @@ function moveMap() {
     const player = document.getElementById('user');
     let direction = "";
 
-    let newMapX = mapX;
-    let newMapY = mapY;
+    let newMapX = Player.MapX;
+    let newMapY = Player.MapY;
 
 
     if (activeDirection === "w" && mapY + moveSpeed <= maxY) {
