@@ -13,6 +13,6 @@ async function starteTutorial(){
     await showCustomConfirm("Herzlich Willkommen Trainer "+ Player.name);
     await showCustomConfirm('Ich hoffe Du bist gut vorbereitet. Wenn nicht, sieh Dir gerne mal die "TulpaKing Info & Impressum"-Seite an.');
     await showCustomConfirm('Für Probleme wende dich bitte an: goldimental@gmx.de');
-    await showCustomConfirm('Vergiss nicht regelmäßig zu speichern! 😉\nViel Spaß beim Spielen');
+    await showCustomConfirm('Vergiss nicht regelmäßig zu speichern! 😉\n\nViel Spaß beim Spielen');
     movementGame.classList.toggle("hidethis",false);
 }
