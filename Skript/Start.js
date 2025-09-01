@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     // Spielerdaten vom Server abrufen
-    
+
     try {
         let link = GAME_SERVER_IP + "/api/playerdata";
         const res = await fetch(link, {
@@ -161,26 +161,26 @@ function InitializeGameWorld() {
     // Hier würdest du die Spielwelt basierend auf 'Player' initialisieren:
     // z.B. Position des Spielers, Tulpa-Stats, Inventar, etc.
     // Beispiel: Stelle den Spieler auf die letzte gespeicherte Karte
-
-    if (Player.actualMap && (Player.MapX != 0 || Player.MapY != 0 || Player.MapX!=undefined || Player.MapY!=undefined)) {
-        console.log("Karte:",Player.actualMap);
+    console.log("MapX=0?:", Player.MapX != 0, " MapY=0?:", Player.MapY != 0, " MapX-undefined?:", Player.MapX != undefined, " MapY-undefined?:", Player.MapY != undefined)
+    if (Player.MapX != 0 && Player.MapY != 0 && Player.MapX != undefined && Player.MapY != undefined) {
+        console.log("Karte:", Player.actualMap);
         changeMap(Player.actualMap);
         refreshMap();
         globalThis.mapX = Player.MapX;
         globalThis.mapY = Player.MapY;
         moveMap();
-        console.log("MapX:",mapX," MapY:",mapY);
+        console.log("MapX:", mapX, " MapY:", mapY);
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
-    } else if ((!Player.MapX || !Player.MapX || Player.MapX==undefined || Player.MapY==undefined) && Player.tulpaGegeben) {
+    } else if ((!Player.MapX || !Player.MapX || Player.MapX == undefined || Player.MapY == undefined) && Player.tulpaGegeben) {
         globalThis.mapX = maps[activeMap].startX;
         globalThis.mapY = maps[activeMap].startY;
         moveMap();
         Player.MapX = mapX;
         Player.MapY = mapY;
         console.log(`Spieler auf Startposition (Update!) gesetzt. Folgende Koordinaten werden in Player gesetzt.`);
-        console.log("MapX:",Player.MapX," MapY:",Player.MapY);
+        console.log("MapX:", Player.MapX, " MapY:", Player.MapY);
         console.warn("Speichern nicht vergessen!!!");
-    } else if (Player.MapX == 0 && Player.MapY == 0){
+    } else if (Player.MapX == 0 && Player.MapY == 0) {
         startTutorial();
         globalThis.mapX = maps[activeMap].startX;
         globalThis.mapY = maps[activeMap].startY;
@@ -281,7 +281,7 @@ async function SaveGame() {
     }
     console.log("Verbinde mit Datenbank...");
     try {
-        let link = GAME_SERVER_IP +"/api/savegame";
+        let link = GAME_SERVER_IP + "/api/savegame";
         const res = await fetch(link, {
             method: 'POST',
             headers: {
