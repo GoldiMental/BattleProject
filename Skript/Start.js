@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Spielerdaten vom Server abrufen
     try {
-        const res = await fetch('http://20.79.178.244:3000/api/playerdata', {
+        const res = await fetch('${GAME_SERVER_IP}/api/playerdata', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -259,7 +259,7 @@ async function SaveGame() {
     }
     console.log("Verbinde mit Datenbank...");
     try {
-        const res = await fetch('http://20.79.178.244:3000/api/savegame', {
+        const res = await fetch('${GAME_SERVER_IP}/api/savegame', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

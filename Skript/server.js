@@ -14,6 +14,9 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '..'));
+
 const jwt_Key = process.env.jwt_Key;
 if (!jwt_Key) {
     console.warn('Fehler: jwt_Key ist nicht in der .env-Datei gesetzt oder wurde nicht geladen.');
@@ -270,9 +273,6 @@ app.post('/api/savegame', authenticateToken, async (req, res) => {
 const frontendPath = path.join(__dirname, '..');
 
 app.use(express.static(frontendPath));
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '..'));
 
 app.get('/', (req, res) => {
     res.render('index', { gameServerIP: `http://${OpenIP}:3000` });
