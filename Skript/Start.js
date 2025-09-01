@@ -56,8 +56,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     // Spielerdaten vom Server abrufen
-    let link = GAME_SERVER_IP + "/api/playerdata";
+    
     try {
+        let link = GAME_SERVER_IP + "/api/playerdata";
         const res = await fetch(link, {
             method: 'GET',
             headers: {
