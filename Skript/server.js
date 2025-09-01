@@ -282,6 +282,22 @@ app.get('/game.html', (req, res) => {
     res.render('game', { gameServerIP: `http://${OpenIP}:3000` });
 });
 
+app.get('/forgot-password.html', (req, res) => {
+    res.render('forgot-password', { gameServerIP: `http://${OpenIP}:3000` });
+});
+
+app.get('/reset-password.html', (req, res) => {
+    res.render('reset-password', { gameServerIP: `http://${OpenIP}:3000` });
+});
+
+app.get('/impressum.html', (req, res) => {
+    res.render('impressum', { gameServerIP: `http://${OpenIP}:3000` });
+});
+
+app.get('/Info.html', (req, res) => {
+    res.render('Info', { gameServerIP: `http://${OpenIP}:3000` });
+});
+
 app.use((req, res, next) => {
     res.status(404).sendFile(path.join(frontendPath, '404.html'), (err) => {
         if (err) {
