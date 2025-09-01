@@ -61,38 +61,38 @@ function refreshMap() {
 
 async function meinEingang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps[mapName].startX;
-    Player.MapY = maps[mapName].startY;
+    Player.MapX = maps.MeinHaus.startX;
+    Player.MapY = maps.MainHaus.startY;
     changeMap('MeinHaus');
 }
 async function meinAusgang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps[activeMap].startStadtX;
-    Player.MapY = maps[activeMap].startStadtY;
+    Player.MapX = maps.MeinHaus.startStadtX;
+    Player.MapY = maps.MeinHaus.startStadtY;
     changeMap('MAP');
 }
 async function troysEingang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps[mapName].startX;
-    Player.MapY = maps[mapName].startY;
+    Player.MapX = maps.TroysHaus.startX;
+    Player.MapY = maps.TroysHaus.startY;
     changeMap('TroysHaus');
 }
 async function troysAusgang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps[activeMap].startStadtX;
-    Player.MapY = maps[activeMap].startStadtY;
+    Player.MapX = maps.TroysHaus.startStadtX;
+    Player.MapY = maps.TroysHaus.startStadtY;
     changeMap('MAP');
 }
 async function shopEingang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps[mapName].startX;
-    Player.MapY = maps[mapName].startY;
+    Player.MapX = maps.ShopHaus.startX;
+    Player.MapY = maps.ShopHaus.startY;
     changeMap('ShopHaus');
 }
 async function shopAusgang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps[activeMap].startStadtX;
-    Player.MapY = maps[activeMap].startStadtY;
+    Player.MapX = maps.ShopHaus.startStadtX;
+    Player.MapY = maps.ShopHaus.startStadtY;
     changeMap('MAP');
 }
 
