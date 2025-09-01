@@ -11,11 +11,43 @@ let maxX = 250;
 let minY = -(parseInt(maps[activeMap].Height) - 250);
 let maxY = 250;
 
-function changeMap(mapname) {
+async function changeMap(mapname) {
+    movementGame.classList.toggle("hidethis", true);
     console.log("Führe changeMap(", mapname, ") aus...");
+    switch (mapname) {
+        case MAP:
+            document.getElementById("karte").disabled = false;
+            document.getElementById("tuerSelfOut").classList.toggle("hidethis", true);
+            document.getElementById("tuerSelfIn").classList.toggle("hidethis", false);
+            document.getElementById("tuerTroyOut").classList.toggle("hidethis", true);
+            document.getElementById("Professor").classList.toggle("hidethis", true);
+            document.getElementById("tuerShopIn").classList.toggle("hidethis", false);
+            document.getElementById("Haendler").classList.toggle("hidethis", true);
+            document.getElementById("tuerShopOut").classList.toggle("hidethis", true);
+            break;
+        case MeinHaus:
+            document.getElementById("karte").disabled = true;
+            document.getElementById("tuerSelfIn").classList.toggle("hidethis", true);
+            document.getElementById("tuerSelfOut").classList.toggle("hidethis", false);
+            break;
+        case TroysHaus:
+            document.getElementById("karte").disabled = true;
+            document.getElementById("tuerTroyOut").classList.toggle("hidethis", false);
+            document.getElementById("Professor").classList.toggle("hidethis", false);
+            break;
+        case ShopHaus:
+            document.getElementById("karte").disabled = true;
+            document.getElementById("tuerShopIn").classList.toggle("hidethis", true);
+            document.getElementById("Haendler").classList.toggle("hidethis", false);
+            document.getElementById("tuerShopOut").classList.toggle("hidethis", false);
+            break;
+    }
     activeMap = maps[mapname].name;
     documentMap.className = "map " + activeMap;
     Player.actualMap = activeMap;
+    refreshMap();
+    await Delay(500);
+    movementGame.classList.toggle("hidethis", false);
 }
 
 function refreshMap() {
@@ -25,6 +57,43 @@ function refreshMap() {
     minY = -(parseInt(maps[activeMap].Height) - 250);
     maxY = 250;
     moveMap();
+}
+
+async function meinEingang() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps[mapName].startX;
+    Player.MapY = maps[mapName].startY;
+    changeMap('MeinHaus');
+}
+async function meinAusgang() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps[activeMap].startStadtX;
+    Player.MapY = maps[activeMap].startStadtY;
+    changeMap('MAP');
+}
+async function troysEingang() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps[mapName].startX;
+    Player.MapY = maps[mapName].startY;
+    changeMap('TroysHaus');
+}
+async function troysAusgang() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps[activeMap].startStadtX;
+    Player.MapY = maps[activeMap].startStadtY;
+    changeMap('MAP');
+}
+async function shopEingang() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps[mapName].startX;
+    Player.MapY = maps[mapName].startY;
+    changeMap('ShopHaus');
+}
+async function shopAusgang() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps[activeMap].startStadtX;
+    Player.MapY = maps[activeMap].startStadtY;
+    changeMap('MAP');
 }
 
 function moveMap() {
@@ -37,20 +106,16 @@ function moveMap() {
 
 
     if (activeDirection === "w" && mapY + moveSpeed <= maxY) {
-        direction = "up";
-        newMapY = mapY + moveSpeed;
+        direction = "up"; newMapY = mapY + moveSpeed;
     }
     else if (activeDirection === 's' && mapY - moveSpeed >= minY) {
-        direction = "down";
-        newMapY = mapY - moveSpeed;
+        direction = "down"; newMapY = mapY - moveSpeed;
     }
     if (activeDirection === 'a' && mapX + moveSpeed <= maxX) {
-        direction = "left";
-        newMapX = mapX + moveSpeed;
+        direction = "left"; newMapX = mapX + moveSpeed;
     }
     if (activeDirection === 'd' && mapX - moveSpeed >= minX) {
-        direction = "right";
-        newMapX = mapX - moveSpeed;
+        direction = "right"; newMapX = mapX - moveSpeed;
     }
 
     for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
@@ -218,143 +283,21 @@ document.addEventListener('keyup', (event) => {
 let moveIntervalID;
 moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
 
-async function meinEingang() {
-    document.getElementById('door-sound').play();
-    movementGame.classList.toggle("hidethis", true);
-    await Delay(500);
-    document.getElementById("karte").disabled = true;
-    document.getElementById("tuerSelfIn").classList.toggle("hidethis", true);
-    const mapName = "MeinHaus";
-    activeMap = mapName;
-    changeMap(mapName);
-    Player.MapX = maps[mapName].startX;
-    Player.MapY = maps[mapName].startY;
-    refreshMap();
-    document.getElementById("tuerSelfOut").classList.toggle("hidethis", false);
-    await Delay(500);
-    movementGame.classList.toggle("hidethis", false);
-}
-
-async function troysEingang() {
-    document.getElementById('door-sound').play();
-    movementGame.classList.toggle("hidethis", true);
-    await Delay(500);
-    document.getElementById("karte").disabled = true;
-    const mapName = "TroysHaus";
-    activeMap = mapName;
-    changeMap(mapName);
-    Player.MapX = maps[mapName].startX;
-    Player.MapY = maps[mapName].startY;
-    refreshMap();
-    document.getElementById("tuerTroyOut").classList.toggle("hidethis", false);
-    document.getElementById("Professor").classList.toggle("hidethis", false);
-    movementGame.classList.toggle("hidethis", false);
-    console.log("Eintritt in Troys Haus erfolgreich!");
-}
-
-async function meinAusgang() {
-    document.getElementById('door-sound').play();
-    movementGame.classList.toggle("hidethis", true);
-    await Delay(500);
-    document.getElementById("karte").disabled = false;
-    document.getElementById("tuerSelfOut").classList.toggle("hidethis", true);
-    const mapName = "MAP";
-    Player.MapX = maps[activeMap].startStadtX;
-    Player.MapY = maps[activeMap].startStadtY;
-    activeMap = mapName;
-    changeMap(mapName);
-    refreshMap();
-    document.getElementById("tuerSelfIn").classList.toggle("hidethis", false);
-    await Delay(500);
-    movementGame.classList.toggle("hidethis", false);
-}
-async function troysAusgang() {
-    document.getElementById('door-sound').play();
-    movementGame.classList.toggle("hidethis", true);
-    await Delay(500);
-    document.getElementById("karte").disabled = false;
-    const mapName = "MAP";
-    activeMap = mapName;
-    changeMap(mapName);
-    Player.MapX = maps[activeMap].startStadtX;
-    Player.MapY = maps[activeMap].startStadtY;
-    refreshMap();
-    document.getElementById("tuerTroyOut").classList.toggle("hidethis", true);
-    document.getElementById("Professor").classList.toggle("hidethis", true);
-    await Delay(500);
-    movementGame.classList.toggle("hidethis", false);
-}
-async function shopEingang() {
-    document.getElementById('door-sound').play();
-    movementGame.classList.toggle("hidethis", true);
-    await Delay(500);
-    document.getElementById("karte").disabled = true;
-    document.getElementById("tuerShopIn").classList.toggle("hidethis", true);
-    document.getElementById("Haendler").classList.toggle("hidethis", false);
-    const mapName = "ShopHaus";
-    activeMap = mapName;
-    changeMap(mapName);
-    Player.MapX = maps[mapName].startX;
-    Player.MapY = maps[mapName].startY;
-    refreshMap();
-    document.getElementById("tuerShopOut").classList.toggle("hidethis", false);
-    await Delay(500);
-    movementGame.classList.toggle("hidethis", false);
-}
-async function shopAusgang() {
-    document.getElementById('door-sound').play();
-    const movementGame = document.getElementById("movement_game");
-    movementGame.classList.toggle("hidethis", true);
-    await Delay(500);
-    document.getElementById("karte").disabled = false;
-    document.getElementById("tuerShopOut").classList.toggle("hidethis", true);
-    document.getElementById("Haendler").classList.toggle("hidethis", true);
-    const mapName = "MAP";
-    Player.MapX = maps[activeMap].startStadtX;
-    Player.MapY = maps[activeMap].startStadtY;
-    activeMap = mapName;
-    changeMap(mapName);
-    refreshMap();
-    document.getElementById("tuerShopIn").classList.toggle("hidethis", false);
-    await Delay(500);
-    movementGame.classList.toggle("hidethis", false);
-}
-
 function zonenName() {
-    console.log()
+    console.log();
 }
 
-function Click_W_down() {
-    simulateKeyDown("w");
-}
-function Click_W_up() {
-    simulateKeyUp("w");
-}
+function Click_W_down() {simulateKeyDown("w");}
+function Click_W_up() {simulateKeyUp("w");}
 
-function Click_A_down() {
-    simulateKeyDown("a");
-}
-function Click_A_up() {
-    simulateKeyUp("a");
-}
+function Click_A_down() {simulateKeyDown("a");}
+function Click_A_up() {simulateKeyUp("a");}
 
-function Click_S_down() {
-    simulateKeyDown("s");
-}
-function Click_S_up() {
-    simulateKeyUp("s");
-}
+function Click_S_down() {simulateKeyDown("s");}
+function Click_S_up() {simulateKeyUp("s");}
 
-function Click_D_down() {
-    simulateKeyDown("d");
-}
-function Click_D_up() {
-    simulateKeyUp("d");
-}
+function Click_D_down() {simulateKeyDown("d");}
+function Click_D_up() {simulateKeyUp("d");}
 
-function simulateKeyDown(key) {
-    document.dispatchEvent(new KeyboardEvent("keydown", { key: key }));
-}
-function simulateKeyUp(key) {
-    document.dispatchEvent(new KeyboardEvent("keyup", { key: key }));
-}
+function simulateKeyDown(key) {document.dispatchEvent(new KeyboardEvent("keydown", { key: key }));}
+function simulateKeyUp(key) {document.dispatchEvent(new KeyboardEvent("keyup", { key: key }));}
