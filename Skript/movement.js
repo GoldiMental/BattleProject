@@ -310,8 +310,8 @@ async function shopAusgang() {
     document.getElementById("tuerShopOut").classList.toggle("hidethis", true);
     document.getElementById("Haendler").classList.toggle("hidethis", true);
     const mapName = "MAP";
-    mapX = maps[activeMap].startStadtX;
-    mapY = maps[activeMap].startStadtY;
+    Player.MapX = maps[activeMap].startStadtX;
+    Player.MapY = maps[activeMap].startStadtY;
     activeMap = mapName;
     changeMap(mapName);
     refreshMap();
