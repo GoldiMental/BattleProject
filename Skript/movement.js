@@ -15,8 +15,6 @@ function changeMap(mapname) {
     console.log("Führe changeMap(", mapname, ") aus...");
     activeMap = maps[mapname].name;
     documentMap.className = "map " + activeMap;
-    documentMap.style.left = Player.MapX + 'px';
-    documentMap.style.top = Player.MapY + 'px';
     Player.actualMap = activeMap;
 }
 
@@ -26,7 +24,8 @@ function refreshMap() {
     maxX = 250;
     minY = -(parseInt(maps[activeMap].Height) - 250);
     maxY = 250;
-
+    documentMap.style.left = Player.MapX + 'px';
+    documentMap.style.top = Player.MapY + 'px';
 }
 
 function moveMap() {
@@ -299,7 +298,6 @@ async function shopEingang() {
     Player.MapX = maps[mapName].startX;
     Player.MapY = maps[mapName].startY;
     refreshMap();
-    document.getElementById("tuerShopOut").classList.toggle("hidethis", false);
     document.getElementById("tuerShopOut").classList.toggle("hidethis", false);
     await Delay(500);
     movementGame.classList.toggle("hidethis", false);
