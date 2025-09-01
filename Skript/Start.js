@@ -171,7 +171,7 @@ function InitializeGameWorld() {
         moveMap();
         console.log("MapX:", mapX, " MapY:", mapY);
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
-    } else if ((!Player.MapX || !Player.MapX || Player.MapX == undefined || Player.MapY == undefined) && Player.tulpaGegeben) {
+    } else if ((Player.MapX == 0 || Player.MapX == 0) && (Player.MapX == undefined || Player.MapY == undefined) && Player.tulpaGegeben) {
         globalThis.mapX = maps[activeMap].startX;
         globalThis.mapY = maps[activeMap].startY;
         moveMap();
