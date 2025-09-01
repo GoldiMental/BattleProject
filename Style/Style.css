@@ -134,6 +134,7 @@ button {
 
 #movement_game {
     visibility: visible;
+    transition: all 0.3s ease;
 }
 
 #battle_game {

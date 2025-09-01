@@ -156,8 +156,10 @@ function updatePlayerDataDisplay() {
 
 
 // Beispiel für eine Funktion zur Spielinitialisierung (Aufruf nach Laden der Playerdaten)
-function InitializeGameWorld() {
+async function InitializeGameWorld() {
     console.log("Spielwelt wird mit geladenen Spielerdaten initialisiert...");
+    const movementGame = document.getElementById("movement_game");
+    movementGame.classList.toggle("hidethis", true);
     // Hier würdest du die Spielwelt basierend auf 'Player' initialisieren:
     // z.B. Position des Spielers, Tulpa-Stats, Inventar, etc.
     // Beispiel: Stelle den Spieler auf die letzte gespeicherte Karte
@@ -170,6 +172,8 @@ function InitializeGameWorld() {
         mapY = Player.MapY;
         moveMap();
         console.log("MapX:", mapX, " MapY:", mapY);
+        await Delay(300);
+        movementGame.classList.toggle("hidethis", false);
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
     } else if ((Player.MapX == 0 || Player.MapX == 0) && (Player.MapX == undefined || Player.MapY == undefined) && Player.tulpaGegeben) {
         mapX = maps[activeMap].startX;
@@ -177,6 +181,8 @@ function InitializeGameWorld() {
         moveMap();
         Player.MapX = mapX;
         Player.MapY = mapY;
+        await Delay(300);
+        movementGame.classList.toggle("hidethis", false);
         console.log(`Spieler auf Startposition (Update!) gesetzt. Folgende Koordinaten werden in Player gesetzt.`);
         console.log("MapX:", Player.MapX, " MapY:", Player.MapY);
         console.warn("Speichern nicht vergessen!!!");

@@ -2,7 +2,7 @@ const moveSpeed = 50;
 const moveInterval = 300;
 let lastArea = "";
 let activeDirection = null;
-
+const movementGame = document.getElementById("movement_game");
 const documentMap = document.querySelector('.map');
 let activeMap = "MAP";
 
@@ -14,7 +14,9 @@ let maxY = 250;
 function changeMap(mapname) {
     console.log("Führe changeMap(", mapname, ") aus...");
     activeMap = maps[mapname].name;
-    documentMap.className = "map "+activeMap;
+    documentMap.className = "map " + activeMap;
+    documentMap.style.left = Player.MapX + 'px';
+    documentMap.style.top = Player.MapY + 'px';
     Player.actualMap = activeMap;
 }
 
@@ -24,6 +26,7 @@ function refreshMap() {
     maxX = 250;
     minY = -(parseInt(maps[activeMap].Height) - 250);
     maxY = 250;
+
 }
 
 function moveMap() {
@@ -219,201 +222,105 @@ moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, move
 
 async function meinEingang() {
     document.getElementById('door-sound').play();
-    const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
-    movementGame.style.transition = "opacity 0.5s";
-    movementGame.style.opacity = "0";
-
     await Delay(500);
     document.getElementById("karte").disabled = true;
-    document.getElementById("tuerSelfIn").disabled = true;
-    document.getElementById("tuerSelfIn").style.opacity = "0";
+    document.getElementById("tuerSelfIn").classList.toggle("hidethis", true);
     const mapName = "MeinHaus";
-    if (!maps[mapName]) {
-        console.error("Map existiert nicht:", mapName);
-        return;
-    }
     activeMap = mapName;
     changeMap(mapName);
-
-    mapX = maps[mapName].startX;
-    mapY = maps[mapName].startY;
-
+    Player.MapX = maps[mapName].startX;
+    Player.MapY = maps[mapName].startY;
     refreshMap();
-    const bg = document.querySelector('.map');
-    bg.style.left = mapX + 'px';
-    bg.style.top = mapY + 'px';
-    document.getElementById("tuerSelfOut").disabled = false;
-    document.getElementById("tuerSelfOut").style.opacity = "1";
+    document.getElementById("tuerSelfOut").classList.toggle("hidethis", false);
     await Delay(500);
     movementGame.classList.toggle("hidethis", false);
-    movementGame.style.opacity = "1";
 }
 
 async function troysEingang() {
     document.getElementById('door-sound').play();
-    const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
-    movementGame.style.transition = "opacity 0.5s";
-    movementGame.style.opacity = "0";
-
     await Delay(500);
     document.getElementById("karte").disabled = true;
     const mapName = "TroysHaus";
-    if (!maps[mapName]) {
-        console.error("Map existiert nicht:", mapName);
-        return;
-    }
-
     activeMap = mapName;
     changeMap(mapName);
-
-    mapX = maps[mapName].startX;
-    mapY = maps[mapName].startY;
-
+    Player.MapX = maps[mapName].startX;
+    Player.MapY = maps[mapName].startY;
     refreshMap();
-    const bg = document.querySelector('.map');
-    bg.style.left = mapX + 'px';
-    bg.style.top = mapY + 'px';
-    document.getElementById("tuerTroyOut").disabled = false;
-    document.getElementById("tuerTroyOut").style.opacity = "1";
-    document.getElementById("Professor").style.opacity = "1";
-    await Delay(500);
+    document.getElementById("tuerTroyOut").classList.toggle("hidethis", false);
+    document.getElementById("Professor").classList.toggle("hidethis", false);
     movementGame.classList.toggle("hidethis", false);
-    movementGame.style.opacity = "1";
     console.log("Eintritt in Troys Haus erfolgreich!");
 }
 
 async function meinAusgang() {
     document.getElementById('door-sound').play();
-    const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
-    movementGame.style.transition = "opacity 0.5s";
-    movementGame.style.opacity = "0";
-
     await Delay(500);
     document.getElementById("karte").disabled = false;
-    document.getElementById("tuerSelfOut").disabled = true;
-    document.getElementById("tuerSelfOut").style.opacity = "0";
+    document.getElementById("tuerSelfOut").classList.toggle("hidethis", true);
     const mapName = "MAP";
-    if (!maps[mapName]) {
-        console.error("Map existiert nicht:", mapName);
-        return;
-    }
-    mapX = maps[activeMap].startStadtX;
-    mapY = maps[activeMap].startStadtY;
-    //console.log(mapX, mapY) //Log-Koordinaten beim Übergang
-
+    Player.MapX = maps[activeMap].startStadtX;
+    Player.MapY = maps[activeMap].startStadtY;
     activeMap = mapName;
     changeMap(mapName);
     refreshMap();
-    const bg = document.querySelector('.map');
-    bg.style.left = mapX + 'px';
-    bg.style.top = mapY + 'px';
-    document.getElementById("tuerSelfIn").disabled = false;
-    document.getElementById("tuerSelfIn").style.opacity = "0.5";
+    document.getElementById("tuerSelfIn").classList.toggle("hidethis", false);
     await Delay(500);
     movementGame.classList.toggle("hidethis", false);
-    movementGame.style.opacity = "1";
 }
-
 async function troysAusgang() {
     document.getElementById('door-sound').play();
-    const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
-    movementGame.style.transition = "opacity 0.5s";
-    movementGame.style.opacity = "0";
-
     await Delay(500);
     document.getElementById("karte").disabled = false;
     const mapName = "MAP";
-    if (!maps[mapName]) {
-        console.error("Map existiert nicht:", mapName);
-        return;
-    }
-
-    mapX = maps[activeMap].startStadtX;
-    mapY = maps[activeMap].startStadtY;
-
     activeMap = mapName;
     changeMap(mapName);
-
+    Player.MapX = maps[activeMap].startStadtX;
+    Player.MapY = maps[activeMap].startStadtY;
     refreshMap();
-    const bg = document.querySelector('.map');
-    bg.style.left = mapX + 'px';
-    bg.style.top = mapY + 'px';
-    document.getElementById("tuerTroyOut").disabled = true;
-    document.getElementById("tuerTroyOut").style.opacity = "0";
-    document.getElementById("Professor").style.opacity = "0";
+    document.getElementById("tuerTroyOut").classList.toggle("hidethis", true);
+    document.getElementById("Professor").classList.toggle("hidethis", true);
     await Delay(500);
     movementGame.classList.toggle("hidethis", false);
-    movementGame.style.opacity = "1";
 }
 async function shopEingang() {
     document.getElementById('door-sound').play();
-    const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
-    movementGame.style.transition = "opacity 0.5s";
-    movementGame.style.opacity = "0";
     await Delay(500);
     document.getElementById("karte").disabled = true;
-    document.getElementById("tuerShopIn").disabled = true;
-    document.getElementById("tuerShopIn").style.opacity = "0";
-    document.getElementById("Haendler").style.opacity = "1";
+    document.getElementById("tuerShopIn").classList.toggle("hidethis", true);
+    document.getElementById("Haendler").classList.toggle("hidethis", false);
     const mapName = "ShopHaus";
-    if (!maps[mapName]) {
-        console.error("Map existiert nicht:", mapName);
-        return;
-    }
     activeMap = mapName;
     changeMap(mapName);
-
-    mapX = maps[mapName].startX;
-    mapY = maps[mapName].startY;
-
+    Player.MapX = maps[mapName].startX;
+    Player.MapY = maps[mapName].startY;
     refreshMap();
-    const bg = document.querySelector('.map');
-    bg.style.left = mapX + 'px';
-    bg.style.top = mapY + 'px';
-    document.getElementById("tuerShopOut").disabled = false;
-    document.getElementById("tuerShopOut").style.opacity = "1";
-
+    document.getElementById("tuerShopOut").classList.toggle("hidethis", false);
+    document.getElementById("tuerShopOut").classList.toggle("hidethis", false);
     await Delay(500);
     movementGame.classList.toggle("hidethis", false);
-    movementGame.style.opacity = "1";
 }
 async function shopAusgang() {
     document.getElementById('door-sound').play();
     const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
-    movementGame.style.transition = "opacity 0.5s";
-    movementGame.style.opacity = "0";
-
     await Delay(500);
     document.getElementById("karte").disabled = false;
-    document.getElementById("tuerShopOut").disabled = true;
-    document.getElementById("tuerShopOut").style.opacity = "0";
-    document.getElementById("Haendler").style.opacity = "0";
+    document.getElementById("tuerShopOut").classList.toggle("hidethis", true);
+    document.getElementById("Haendler").classList.toggle("hidethis", true);
     const mapName = "MAP";
-    if (!maps[mapName]) {
-        console.error("Map existiert nicht:", mapName);
-        return;
-    }
     mapX = maps[activeMap].startStadtX;
     mapY = maps[activeMap].startStadtY;
-    //console.log(mapX, mapY) //Log-Koordinaten beim Übergang
-
     activeMap = mapName;
     changeMap(mapName);
     refreshMap();
-    const bg = document.querySelector('.map');
-    bg.style.left = mapX + 'px';
-    bg.style.top = mapY + 'px';
-    document.getElementById("tuerShopIn").disabled = false;
-    document.getElementById("tuerShopIn").style.opacity = "0.5";
+    document.getElementById("tuerShopIn").classList.toggle("hidethis", false);
     await Delay(500);
     movementGame.classList.toggle("hidethis", false);
-    movementGame.style.opacity = "1";
 }
 
 function zonenName() {
