@@ -14,6 +14,7 @@ let maxY = 250;
 function changeMap(mapname) {
     console.log("Führe changeMap(", mapname, ") aus...");
     activeMap = maps[mapname].name;
+    documentMap.className = "map "+activeMap;
     Player.actualMap = activeMap;
 }
 
@@ -242,7 +243,6 @@ async function meinEingang() {
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map MeinHaus";
     document.getElementById("tuerSelfOut").disabled = false;
     document.getElementById("tuerSelfOut").style.opacity = "1";
     await Delay(500);
@@ -275,7 +275,6 @@ async function troysEingang() {
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map TroysHaus";
     document.getElementById("tuerTroyOut").disabled = false;
     document.getElementById("tuerTroyOut").style.opacity = "1";
     document.getElementById("Professor").style.opacity = "1";
@@ -311,7 +310,6 @@ async function meinAusgang() {
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map MAP";
     document.getElementById("tuerSelfIn").disabled = false;
     document.getElementById("tuerSelfIn").style.opacity = "0.5";
     await Delay(500);
@@ -344,7 +342,6 @@ async function troysAusgang() {
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map MAP";
     document.getElementById("tuerTroyOut").disabled = true;
     document.getElementById("tuerTroyOut").style.opacity = "0";
     document.getElementById("Professor").style.opacity = "0";
@@ -378,7 +375,6 @@ async function shopEingang() {
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map ShopHaus";
     document.getElementById("tuerShopOut").disabled = false;
     document.getElementById("tuerShopOut").style.opacity = "1";
 
@@ -413,7 +409,6 @@ async function shopAusgang() {
     const bg = document.querySelector('.map');
     bg.style.left = mapX + 'px';
     bg.style.top = mapY + 'px';
-    bg.className = "map MAP";
     document.getElementById("tuerShopIn").disabled = false;
     document.getElementById("tuerShopIn").style.opacity = "0.5";
     await Delay(500);
