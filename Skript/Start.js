@@ -1,7 +1,5 @@
 // Skript/Start.js
 
-const { ref } = require("process");
-
 // Hilfsfunktion für Verzögerungen
 function Delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
