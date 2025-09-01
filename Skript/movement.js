@@ -15,7 +15,7 @@ async function changeMap(mapname) {
     movementGame.classList.toggle("hidethis", true);
     console.log("Führe changeMap(", mapname, ") aus...");
     switch (mapname) {
-        case MAP:
+        case "MAP":
             document.getElementById("karte").disabled = false;
             document.getElementById("tuerSelfOut").classList.toggle("hidethis", true);
             document.getElementById("tuerSelfIn").classList.toggle("hidethis", false);
@@ -25,17 +25,17 @@ async function changeMap(mapname) {
             document.getElementById("Haendler").classList.toggle("hidethis", true);
             document.getElementById("tuerShopOut").classList.toggle("hidethis", true);
             break;
-        case MeinHaus:
+        case "MeinHaus":
             document.getElementById("karte").disabled = true;
             document.getElementById("tuerSelfIn").classList.toggle("hidethis", true);
             document.getElementById("tuerSelfOut").classList.toggle("hidethis", false);
             break;
-        case TroysHaus:
+        case "TroysHaus":
             document.getElementById("karte").disabled = true;
             document.getElementById("tuerTroyOut").classList.toggle("hidethis", false);
             document.getElementById("Professor").classList.toggle("hidethis", false);
             break;
-        case ShopHaus:
+        case "ShopHaus":
             document.getElementById("karte").disabled = true;
             document.getElementById("tuerShopIn").classList.toggle("hidethis", true);
             document.getElementById("Haendler").classList.toggle("hidethis", false);
