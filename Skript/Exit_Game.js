@@ -16,7 +16,7 @@ function Exit_Game() {
     document.body.appendChild(popup);
 
     document.getElementById('retroPopupYes').addEventListener('click', function () {
-        try {window.location.replace('index.html');}
+        try {window.location(GAME_SERVER_IP);}
         catch (e) {window.location.href = 'about:blank';}
     });
 
