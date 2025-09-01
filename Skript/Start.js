@@ -161,7 +161,7 @@ function InitializeGameWorld() {
     // Hier würdest du die Spielwelt basierend auf 'Player' initialisieren:
     // z.B. Position des Spielers, Tulpa-Stats, Inventar, etc.
     // Beispiel: Stelle den Spieler auf die letzte gespeicherte Karte
-    console.log("MapX=0?:", Player.MapX != 0, " MapY=0?:", Player.MapY != 0, " MapX-undefined?:", Player.MapX != undefined, " MapY-undefined?:", Player.MapY != undefined)
+    console.log("MapX=0?:", Player.MapX == 0, " MapY=0?:", Player.MapY == 0, " MapX-undefined?:", Player.MapX == undefined, " MapY-undefined?:", Player.MapY == undefined)
     if (Player.MapX != 0 && Player.MapY != 0 && Player.MapX != undefined && Player.MapY != undefined) {
         console.log("Karte:", Player.actualMap);
         changeMap(Player.actualMap);

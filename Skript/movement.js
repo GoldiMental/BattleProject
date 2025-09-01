@@ -11,6 +11,9 @@ let maxX = 250;
 let minY = -(parseInt(maps[activeMap].Height) - 250);
 let maxY = 250;
 
+let mapX = undefined;
+let mapY = undefined;
+
 function changeMap(mapname) {
     console.log("Führe changeMap(", mapname, ") aus...");
     activeMap = maps[mapname].name;
