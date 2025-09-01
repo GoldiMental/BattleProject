@@ -181,7 +181,7 @@ function InitializeGameWorld() {
         console.log("MapX:", Player.MapX, " MapY:", Player.MapY);
         console.warn("Speichern nicht vergessen!!!");
     } else if (Player.MapX == 0 && Player.MapY == 0) {
-        startTutorial();
+        starteTutorial();
         mapX = maps[activeMap].startX;
         mapY = maps[activeMap].startY;
         Player.MapX = mapX;
