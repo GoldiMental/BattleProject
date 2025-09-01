@@ -3,6 +3,7 @@ let TulpaIndex = "Tulpa1";
 let trainerbattle = 0;
 let tulpa_HP = 0;
 let tulpa_HP_Total = 0;
+let tulpa_opp = "";
 let tulpa_lv = 0;
 let tulpa_self;
 
@@ -58,7 +59,7 @@ async function battleanimation(trainerbattle) {
 async function Trainerbattle(TulpaIndex) {
     console.warn("Trainerkampf erkannt. Anpassungen werden übernommen...");
     let battleInfo = document.getElementById('battle_text');
-    let tulpa_opp = trainer[TulpaIndex].name;
+    tulpa_opp = trainer[TulpaIndex].name;
     tulpa_lv = trainer[TulpaIndex].Lv;
     for (Slot in Player.Tulpas) {
         if (Slot.startsWith("Slot")) {
@@ -115,7 +116,7 @@ async function battle() {
     let battleInfo = document.getElementById('battle_text');
     console.log("Ermittele Tulpa...");
     let zufall = Math.round(Math.random() * (maps[Player.actualMap].battleMaps[lastArea].opp_List.length - 1));
-    let tulpa_opp = maps[Player.actualMap].battleMaps[lastArea].opp_List[zufall];
+    tulpa_opp = maps[Player.actualMap].battleMaps[lastArea].opp_List[zufall];
     tulpa_lv = Math.round((Math.random() + 1) * (maps[Player.actualMap].battleMaps[lastArea].maxLv - 1));
     console.log("Tulpa:", tulpa_opp);
     console.log("Level:", tulpa_lv);
@@ -193,8 +194,6 @@ async function escape() {
 async function opp_Attack() {
     console.log("Starte Attacke des Gegners...");
     document.getElementById("battle_menu").classList.toggle("hidethis", true);
-    let tulpa_opp = document.getElementById('Name-opp').innerHTML.split(" ")[0];
-    let tulpa_opp_lv = document.getElementById('Name-opp').innerHTML.split(" ")[2];
     let zufall = Math.round((Math.random()) * 4);
     let attack = Tulpas[tulpa_opp.toString()].attacks[zufall];
     if (attack == "-" || attack == undefined) {
@@ -206,9 +205,9 @@ async function opp_Attack() {
     document.getElementById('attack-sound').play(); await Delay(350);
     document.getElementById('Tulpa-opp').style.right = "50px"; await Delay(200);
     document.getElementById('Tulpa-opp').style.right = "10px"; await Delay(1000);
-    let dmg = Attacks[attack].ATK_Power + (tulpa_opp_lv * 2) * (Tulpas[tulpa_opp].ANG / Tulpas[tulpa_self.name].VER);
+    let dmg = Attacks[attack].ATK_Power + (tulpa_lv * 2) * (Tulpas[tulpa_opp].ANG / Tulpas[tulpa_self.name].VER);
     tulpa_self.HP -= Math.round(dmg);
-    console.log("Berechnerter gegenerischer Schaden:", Attacks[attack].ATK_Power, "+", tulpa_opp_lv * 2, "*", Tulpas[tulpa_opp].ANG, "/", Tulpas[tulpa_self.name].VER, "=", Math.round(dmg)); // Log für Gegnerschaden
+    console.log("Berechnerter gegenerischer Schaden:", Attacks[attack].ATK_Power, "+", tulpa_lv * 2, "*", Tulpas[tulpa_opp].ANG, "/", Tulpas[tulpa_self.name].VER, "=", Math.round(dmg)); // Log für Gegnerschaden
     if (tulpa_self.HP > 0) {
         console.log("Tulpa des Spieler bleibt am Leben. Eröffne Optionen...");
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%"; await Delay(300);
@@ -290,12 +289,9 @@ async function self_attack(attack) {
     console.log("Versuche Angriff: ", attack, " auszuführen");
     if (attack != "-") {
         document.getElementById("attack_menu").classList.toggle("hidethis", true);
-        let tulpa_opp = document.getElementById('Name-opp').innerHTML;
-        let tulpa_opp_name = tulpa_opp.split(' ')[0];
-        let tulpa_opp_lv = tulpa_opp.split(' ')[2];
-        let dmg = Attacks[attack].ATK_Power + (tulpa_self.Lv * 2) * (Tulpas[tulpa_self.name].ANG / Tulpas[tulpa_opp_name].VER);
-        console.log("Berechneter Schaden des Spielers:", Attacks[attack].ATK_Power, "+", tulpa_self.Lv * 2, "*", Tulpas[tulpa_self.name].ANG, "/", Tulpas[tulpa_opp_name].VER, "=", Math.round(dmg)); //Log für Spielerschaden
-        document.getElementById('battle_text').innerText = tulpa_self.name + " setzt " + attack + " ein.";
+        let dmg = Attacks[attack].ATK_Power + (tulpa_self.Lv * 2) * (Tulpas[tulpa_self.name].ANG / Tulpas[tulpa_opp].VER);
+        console.log("Berechneter Schaden des Spielers:", Attacks[attack].ATK_Power, "+", tulpa_self.Lv * 2, "*", Tulpas[tulpa_self.name].ANG, "/", Tulpas[tulpa_opp].VER, "=", Math.round(dmg)); //Log für Spielerschaden
+        document.getElementById('battle_text').innerText = Tulpas[tulpa_self].name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play(); await Delay(350);
         document.getElementById('Tulpa-self').style.left = "50px"; await Delay(200);
         document.getElementById('Tulpa-self').style.left = "10px"; await Delay(1000);
@@ -317,8 +313,8 @@ async function self_attack(attack) {
             document.getElementById('bgr02-sound').currentTime = 0;
             document.getElementById('win-sound').play(); await Delay(2000);
             document.getElementById('bg03-sound').play(); await Delay(500);
-            let exp = Math.round(((Tulpas[tulpa_opp_name].HP_Total + (3 ** tulpa_opp_lv)) / 2));
-            if (tulpa_opp_lv > tulpa_self.Lv) { exp = Math.round(exp * (1 + ((tulpa_opp_lv - tulpa_self.Lv) / 10))); };
+            let exp = Math.round(((Tulpas[tulpa_opp].HP_Total + (3 ** tulpa_lv)) / 2));
+            if (tulpa_lv > tulpa_self.Lv) { exp = Math.round(exp * (1 + ((tulpa_lv - tulpa_self.Lv) / 10))); };
             document.getElementById('battle_text').innerText = "Du hast " + exp + " EXP. erhalten!";
             console.log("XP vorher: ", tulpa_self.XP, " XP nachher:", tulpa_self.XP, "+", exp, "="); //EXP-Berechnung
             tulpa_self.XP += exp;
@@ -374,6 +370,7 @@ async function self_attack(attack) {
                     document.getElementById('fill-opp').style.width = "100%";
                     document.getElementsByClassName("TrainerDialogBox")[0].setAttribute("TrainerID", "");
                     trainerbattle = 0;
+                    TulpaIndex = "Tulpa1";
                     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
                     console.log("Animation abgeschlossen. Bewegung wird freigegeben...");
                 }
