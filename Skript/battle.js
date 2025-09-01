@@ -291,7 +291,7 @@ async function self_attack(attack) {
         document.getElementById("attack_menu").classList.toggle("hidethis", true);
         let dmg = Attacks[attack].ATK_Power + (tulpa_self.Lv * 2) * (Tulpas[tulpa_self.name].ANG / Tulpas[tulpa_opp].VER);
         console.log("Berechneter Schaden des Spielers:", Attacks[attack].ATK_Power, "+", tulpa_self.Lv * 2, "*", Tulpas[tulpa_self.name].ANG, "/", Tulpas[tulpa_opp].VER, "=", Math.round(dmg)); //Log für Spielerschaden
-        document.getElementById('battle_text').innerText = Tulpas[tulpa_self].name + " setzt " + attack + " ein.";
+        document.getElementById('battle_text').innerText = Tulpas[tulpa_self.name].name + " setzt " + attack + " ein.";
         document.getElementById('attack-sound').play(); await Delay(350);
         document.getElementById('Tulpa-self').style.left = "50px"; await Delay(200);
         document.getElementById('Tulpa-self').style.left = "10px"; await Delay(1000);
