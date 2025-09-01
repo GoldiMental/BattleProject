@@ -26,6 +26,8 @@ if (!MongoDB_Uri) {
     process.exit(1);
 }
 
+const OpenIP = process.env.OPEN_IP;
+
 const User = mongoose.model('User', new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
@@ -85,7 +87,7 @@ app.post('/forgot-password', async (req, res) => {
                 <h2>Hallo Trainer ${user.username},</h2>
                 <p>Du hast eine Anfrage zum Zurücksetzen des Passworts auf TulpaKing gestellt.</p>
                 <p>Klicke auf den folgenden Link, um dein Passwort zurückzusetzen:</p>
-                <a href="http://20.79.178.244:3000/reset-password.html?token=${resetToken}">Link zum Zurücksetzen des Passworts</a>
+                <a href="http://${OpenIP}:3000/reset-password.html?token=${resetToken}">Link zum Zurücksetzen des Passworts</a>
                 <strong>Dieser Link ist nur 15 Minuten lang gültig.</strong>
                 <p>Wenn Sie diese Anfrage nicht gestellt haben, können Sie diese Email ignorieren.</p>
                 <p>Bei Bedenken antworten Sie gerne auch auf diese Email. Unser Team wird sich zeitnah um Ihre Bedenken kümmern.</p><br>
@@ -269,12 +271,15 @@ const frontendPath = path.join(__dirname, '..');
 
 app.use(express.static(frontendPath));
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '..'));
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'));
+    res.render('index', { gameServerIP: `http://${OpenIP}:3000` });
 });
 
 app.get('/game.html', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'game.html'));
+    res.render('game', { gameServerIP: `http://${OpenIP}:3000` });
 });
 
 app.use((req, res, next) => {
@@ -286,5 +291,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server läuft auf http://20.79.178.244:${PORT}`);
+    console.log(`Server läuft auf http://${OpenIP}:${PORT}`);
 });
