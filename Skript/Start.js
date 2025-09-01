@@ -1,5 +1,7 @@
 // Skript/Start.js
 
+const { ref } = require("process");
+
 // Hilfsfunktion für Verzögerungen
 function Delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
@@ -175,12 +177,13 @@ async function InitializeGameWorld() {
         await Delay(300);
         movementGame.classList.toggle("hidethis", false);
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
-    } else if ((Player.MapX == 0 || Player.MapX == 0) && (Player.MapX == undefined || Player.MapY == undefined) && Player.tulpaGegeben) {
-        mapX = maps[activeMap].startX;
-        mapY = maps[activeMap].startY;
-        moveMap();
+    } else if (!Player.MapX && !Player.MapX && Player.tulpaGegeben) {
+        mapX = maps.MAP.startX;
+        mapY = maps.MAP.startY;
         Player.MapX = mapX;
         Player.MapY = mapY;
+        changeMap('MAP');
+        refreshMap();
         await Delay(300);
         movementGame.classList.toggle("hidethis", false);
         console.log(`Spieler auf Startposition (Update!) gesetzt. Folgende Koordinaten werden in Player gesetzt.`);
