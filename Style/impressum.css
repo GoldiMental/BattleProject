@@ -8,7 +8,7 @@ body {
     user-select: none;
 }
 
-.hidethis{
+.hidethis {
     display: none !important;
 }
 
@@ -25,12 +25,12 @@ i {
 }
 
 a {
-    color: silver;
+    color: rgb(192, 192, 192);
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: gold;
+    color: rgb(255, 215, 0);
 }
 
 .background-lines {
@@ -47,7 +47,7 @@ a:hover {
     position: absolute;
     height: 1px;
     width: 50%;
-    background: linear-gradient(90deg, transparent, red, transparent);
+    background: linear-gradient(90deg, transparent, rgb(255, 0, 0), transparent);
     animation: moveLine 10s linear infinite;
 }
 
@@ -55,7 +55,7 @@ a:hover {
     position: absolute;
     height: 1px;
     width: 50%;
-    background: linear-gradient(90deg, transparent, gold, transparent);
+    background: linear-gradient(90deg, transparent, rgb(255, 215, 0), transparent);
     animation: moveLine 10s linear infinite;
 }
 
@@ -124,16 +124,16 @@ a:hover {
     left: 50%;
     width: 50%;
     padding: 2.5rem;
-    color: silver;
+    color: rgb(192, 192, 192);
     background-color: rgba(0, 0, 0, 0.8);
-    border: 0.3rem outset silver;
+    border: 0.3rem outset rgb(192, 192, 192);
     border-radius: 1.5rem 4.5rem;
 }
 
 .ToLogin:hover {
     transform: translate(0.5em, 0.5em);
     opacity: 1;
-    box-shadow: 0 0 30px red;
+    box-shadow: 0 0 30px rgb(255, 215, 0);
 }
 
 .ToLoginHover {
@@ -146,12 +146,12 @@ a:hover {
     top: 0.5em;
     left: 0.5em;
     padding: 0.3em;
-    color: silver;
+    color: rgb(192, 192, 192);
     text-decoration: none;
-    border: 2px outset silver;
+    border: 2px outset rgb(192, 192, 192);
     background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
     border-radius: 10px;
-    box-shadow: 0 0 20px red;
+    box-shadow: 0 0 20px rgb(255, 0, 0);
     transition: opacity 0.5s linear, transform 1s ease;
     opacity: 0;
 }

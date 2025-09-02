@@ -3,7 +3,7 @@ body {
   padding: 0;
   background: radial-gradient(rgb(0, 0, 70), rgb(0, 0, 25));
   font-family: 'Press Start 2P', monospace;
-  color: silver;
+  color: rgb(192, 192, 192);
   line-height: 1.6;
   font-size: 14px;
 }
@@ -133,7 +133,7 @@ body {
   position: sticky;
   top: 0;
   border-radius: 20px;
-  box-shadow: 0 0 20px silver;
+  box-shadow: 0 0 20px rgb(192, 192, 192);
   flex-shrink: 0;
   margin-right: 20px;
   transition: transform 0.3s ease-in-out;
@@ -147,7 +147,7 @@ body {
 
 .sidebar a {
   display: block;
-  color: silver;
+  color: rgb(192, 192, 192);
   text-decoration: none;
   margin-bottom: 10px;
   transition: color 0.5s ease, text-shadow 0.5s ease;
@@ -206,13 +206,13 @@ img {
   border-radius: 15px;
   border: 3px outset gold;
   text-shadow: 0 0 5px gold;
-  box-shadow: 0 0 10px silver;
+  box-shadow: 0 0 10px rgb(192, 192, 192);
   animation: pulse-shadow 2s infinite alternate;
 }
 
 @keyframes pulse-shadow {
   0% {
-    box-shadow: 0 0 10px silver;
+    box-shadow: 0 0 10px rgb(192, 192, 192);
     text-shadow: 0 0 5px gold;
   }
 
@@ -222,7 +222,7 @@ img {
   }
 
   100% {
-    box-shadow: 0 0 10px silver;
+    box-shadow: 0 0 10px rgb(192, 192, 192);
     text-shadow: 0 0 5px gold;
   }
 }
