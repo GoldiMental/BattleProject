@@ -534,7 +534,7 @@ async function UseBall(ball) {
             document.getElementById('battle_text').innerText = "Hurra! Du hast es gefangen";
             Player.catchedTulpas += 1;
             console.log("Tulpa gefangen +1");
-            let catchedName = document.getElementById('Name-opp').innerHTML.split(' ')[0];
+            let catchedName = tulpa_opp;
             console.log("Tulpaname: ", catchedName, " Level: ", tulpa_lv, " HP: ", tulpa_HP, " HP-Max: ", tulpa_HP_Total);
             let catchedTulpa = { name: catchedName, Lv: tulpa_lv, HP: tulpa_HP, HP_Total: tulpa_HP_Total, XP: 0, ID: Math.round(Math.random() * 1000000).toString() }
             console.log("Prüfe Platz des Spielers...");
