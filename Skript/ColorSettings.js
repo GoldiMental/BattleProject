@@ -5,10 +5,10 @@ function setcolor() {
             document.getElementById('stil').setAttribute('href', 'Style/Style.css');
             break;
         case "Darkviolett":
-            //document.getElementById('stil').setAttribute('href', 'Styles/Style-' + color + '.css');
+            //document.getElementById('stil').setAttribute('href', 'Style/Style-' + color + '.css');
             break;
         case "Darkred":
-            document.getElementById('stil').setAttribute('href', 'Styles/Style-Darkred.css');
+            document.getElementById('stil').setAttribute('href', 'Style/Style-Darkred.css');
             break;
         case "Darkgreen":
             document.getElementById('stil').setAttribute('href', 'Style/Style-Darkgreen.css');
