@@ -391,7 +391,8 @@
 
 .HohesGras {
     position: absolute;
-    top: 270px;
+    top: 295px;
+    left: 0px;
     background-image: url(../img/textures/HohesGras.png);
     background-size: 100%;
     background-repeat: no-repeat;
