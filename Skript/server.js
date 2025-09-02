@@ -7,10 +7,9 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const path = require('path');
-
 const app = express();
 const PORT = 3000;
-
+const MAINTENANCE_MODE = false;
 app.use(cors());
 app.use(express.json());
 
@@ -28,6 +27,13 @@ if (!MongoDB_Uri) {
     console.error('Fehler: MongoDB_Uri ist nicht in der .env-Datei gesetzt oder wurde nicht geladen.');
     process.exit(1);
 }
+
+app.use((req, res, next) => {
+    if (MAINTENANCE_MODE) {
+        return res.render('Support', { gameServerIP: `http://${OpenIP}:3000` });
+    }
+    next();
+})
 
 const OpenIP = process.env.OPEN_IP;
 
@@ -275,11 +281,6 @@ const frontendPath = path.join(__dirname, '..');
 app.use(express.static(frontendPath));
 
 app.get('/', (req, res) => {
-    res.render('index', { gameServerIP: `http://${OpenIP}:3000` });
-    //res.render('Support', { gameServerIP: `http://${OpenIP}:3000` });
-});
-
-app.get('/TEST', (req, res) => {
     res.render('index', { gameServerIP: `http://${OpenIP}:3000` });
 });
 
