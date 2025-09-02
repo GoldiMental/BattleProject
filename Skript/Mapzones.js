@@ -71,10 +71,8 @@ var maps = {
             { minX: -3925, maxX: -3825, minY: -1875, maxY: -1575 },
             { minX: -4475, maxX: -3975, minY: -1875, maxY: -1825 },
             { minX: -3825, maxX: -3725, minY: -1725, maxY: -1675 },
-            //{ minX: , maxX: , minY: , maxY:  },
-            //{ minX: , maxX: , minY: , maxY:  },
-
-
+            { minX: 225, maxX: 225, minY: -2225, maxY: -1875 },
+            { minX: -4475, maxX: 225, minY: -2225, maxY: -2225 },
         ],
         //BattleMapZone. 
         battleArea: [
