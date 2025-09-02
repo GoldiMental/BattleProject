@@ -397,5 +397,5 @@
     background-repeat: no-repeat;
     height: 100%;
     width: 200%;
-    transition: left 10s linear;
+    transition: all 10s linear;
 }
