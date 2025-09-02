@@ -1,5 +1,21 @@
 function setcolor() {
-    if (firmcolor != undefined) {
-        document.getElementById('stil').setAttribute('href', 'Styles/Style_DarkGalaxyHome-' + firmcolor + '.css');
+    let color = Player.color;
+    switch (color){
+        case "Darkblue":
+            document.getElementById('stil').setAttribute('href', 'Styles/Style.css');
+            break;
+        case "Darkviolet":
+            //document.getElementById('stil').setAttribute('href', 'Styles/Style-' + color + '.css');
+            break;
+        case "Lightblue":
+            //document.getElementById('stil').setAttribute('href', 'Styles/Style-' + color + '.css');
+            break;
+        case "Darkgreen":
+            document.getElementById('stil').setAttribute('href', 'Styles/Style-Darkgreen.css');
+            break;
+        case undefined:
+            Player.color = "Darkblue";
+            break;
     }
+    console.log("Eingeloggte Farbe:",Player.color);
 }

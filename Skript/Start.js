@@ -160,6 +160,7 @@ async function InitializeGameWorld() {
     console.log("Spielwelt wird mit geladenen Spielerdaten initialisiert...");
     const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
+    setcolor();
     // Hier würdest du die Spielwelt basierend auf 'Player' initialisieren:
     // z.B. Position des Spielers, Tulpa-Stats, Inventar, etc.
     // Beispiel: Stelle den Spieler auf die letzte gespeicherte Karte

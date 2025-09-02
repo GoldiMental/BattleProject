@@ -1,5 +1,5 @@
 body {
-    background: radial-gradient(rgb(0, 0, 60), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 60, 0), rgb(0, 25, 0));
     color: rgb(192, 192, 192);
     min-height: 850px;
     min-width: 600px;
@@ -114,7 +114,7 @@ body {
 
 
 a {
-    color: black;
+    color: rgb(0, 0, 0);
     width: 500px;
     font-size: 20px;
     background-color: rgb(192, 192, 192);
@@ -405,7 +405,7 @@ button {
 #MenuList {
 
     position: absolute;
-    background: radial-gradient(rgb(0, 0, 100), rgb(0, 0, 50));
+    background: radial-gradient(rgb(0, 100, 0), rgb(0, 50, 0));
     height: 450px;
     width: 180px;
     top: 10px;
@@ -420,7 +420,7 @@ button {
     margin: 5px;
     width: 170px;
     color: rgb(192, 192, 192);
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     text-align: left;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
@@ -471,7 +471,7 @@ button {
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     color: rgb(192, 192, 192);
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     border: 5px ridge rgb(192, 192, 192);
     border-radius: 10px;
 }
@@ -498,7 +498,7 @@ button {
     bottom: 10px;
     right: 10px;
     color: rgb(192, 192, 192);
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
     border: 3px outset rgb(192, 192, 192);
@@ -548,7 +548,7 @@ button {
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     color: rgb(192, 192, 192);
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     border: 5px ridge rgb(192, 192, 192);
     border-radius: 10px;
 }
@@ -563,7 +563,7 @@ button {
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     color: rgb(192, 192, 192);
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     border: 5px ridge rgb(192, 192, 192);
     border-radius: 10px;
 }
@@ -578,7 +578,7 @@ button {
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     color: rgb(192, 192, 192);
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     border: 5px ridge rgb(192, 192, 192);
     border-radius: 10px;
 }
@@ -593,7 +593,7 @@ button {
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     color: rgb(192, 192, 192);
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     border: 5px ridge rgb(192, 192, 192);
     border-radius: 10px;
     font-size: large;
@@ -790,7 +790,7 @@ button {
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     color: rgb(192, 192, 192);
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     border: 5px ridge rgb(192, 192, 192);
     border-radius: 10px;
 }
@@ -1033,7 +1033,7 @@ button {
 #shopMenu {
 
     position: absolute;
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     color: rgb(192, 192, 192);
     right: 5px;
     top: 5px;
@@ -1045,7 +1045,7 @@ button {
 #ShopBuyList {
 
     position: absolute;
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     color: rgb(192, 192, 192);
     left: 5px;
     top: 5px;
@@ -1064,7 +1064,7 @@ button {
     margin: 10px 0;
     padding: 10px;
     font-size: 16px;
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     color: rgb(192, 192, 192);
     border: 3px outset rgb(192, 192, 192);
     border-radius: 5px;
@@ -1096,7 +1096,7 @@ button {
 .SellButton {
     position: absolute;
     right: 5px;
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     color: rgb(192, 192, 192);
     border: 3px outset rgb(192, 192, 192);
     border-radius: 5px;
@@ -1117,7 +1117,7 @@ button {
 
 .ExitBuyButton,
 .ExitSellButton {
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     color: rgb(192, 192, 192);
     border: 3px outset rgb(192, 192, 192);
     border-radius: 6px;
@@ -1152,7 +1152,7 @@ button {
 #ShopSellList {
 
     position: absolute;
-    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
     color: rgb(192, 192, 192);
     left: 5px;
     top: 5px;

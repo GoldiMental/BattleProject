@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style/Customize.css">
-    <link rel="stylesheet" href="Style/Style.css">
+    <link rel="stylesheet" id="stil" href="Style/Style.css">
     <link rel="stylesheet" href="Style/Tulpas.css">
     <link rel="icon" href="img/TulpaIcon.png" type="image/png">
     <title>TulpaKing® - Spiel</title>
@@ -175,6 +175,15 @@
         </div>
     </div>
     <a id="ToInfo" onclick="OpenInfo()">TulpaKing<sup>&reg;</sup> Info & Impressum</a>
+    <div id="ColorSettings">
+        <button type="button" onclick='document.getElementById("ColorList").classList.toggle("hidethis");'>⚙️</button>
+        <div id="ColorList" class="hidethis">
+            <button type="button" onclick='console.log("Darkblue")'>Dunkelblau</button>
+            <button type="button" onclick='console.log("Darkgreen")'>Dunkelgrün</button>
+            <button type="button" onclick='console.log("Darkred")'>Dunkelrot</button>
+            <button type="button" onclick='console.log("Darkviolett")'>Dunkelviolett</button>
+        </div>
+    </div>
 
     <audio id="attack-sound" src="audio/Attack-001.mp3"></audio>
     <audio id="bg01-sound" src="audio/background-001.mp3" loop></audio>
