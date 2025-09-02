@@ -1327,3 +1327,36 @@ button {
 #audio-controls input[type=range] {
     width: 100px;
 }
+
+.custom-modal-content {
+    background: radial-gradient(rgb(50, 0, 0), rgb(25, 0, 0));
+    color: rgb(192, 192, 192);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    border: 5px ridge rgb(192, 192, 192);
+}
+
+.custom-modal-button {
+    background: radial-gradient(rgb(50, 0, 0), rgb(25, 0, 0));
+    color: rgb(192, 192, 192);
+    height: 27px;
+    width: 100px;
+}
+
+.custom-modal-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    border: 3px ridge rgb(192, 192, 192);
+    border-radius: 6px;
+    background: radial-gradient(rgb(50, 0, 0), rgb(25, 0, 0));
+    color: rgb(192, 192, 192);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
