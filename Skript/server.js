@@ -275,7 +275,8 @@ const frontendPath = path.join(__dirname, '..');
 app.use(express.static(frontendPath));
 
 app.get('/', (req, res) => {
-    res.render('Support', { gameServerIP: `http://${OpenIP}:3000` });
+    res.render('index', { gameServerIP: `http://${OpenIP}:3000` });
+    //res.render('Support', { gameServerIP: `http://${OpenIP}:3000` });
 });
 
 app.get('/TEST', (req, res) => {
