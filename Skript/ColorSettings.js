@@ -7,8 +7,8 @@ function setcolor() {
         case "Darkviolett":
             //document.getElementById('stil').setAttribute('href', 'Styles/Style-' + color + '.css');
             break;
-        case "Lightblue":
-            //document.getElementById('stil').setAttribute('href', 'Styles/Style-' + color + '.css');
+        case "Darkred":
+            document.getElementById('stil').setAttribute('href', 'Styles/Style-Darkred.css');
             break;
         case "Darkgreen":
             document.getElementById('stil').setAttribute('href', 'Style/Style-Darkgreen.css');
