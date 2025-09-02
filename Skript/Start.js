@@ -154,13 +154,13 @@ function updatePlayerDataDisplay() {
     }
 }
 
-
 // Beispiel für eine Funktion zur Spielinitialisierung (Aufruf nach Laden der Playerdaten)
 async function InitializeGameWorld() {
     console.log("Spielwelt wird mit geladenen Spielerdaten initialisiert...");
     const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
     setcolor();
+    document.getElementById("HohesGras").style.left = "0%";
     // Hier würdest du die Spielwelt basierend auf 'Player' initialisieren:
     // z.B. Position des Spielers, Tulpa-Stats, Inventar, etc.
     // Beispiel: Stelle den Spieler auf die letzte gespeicherte Karte
