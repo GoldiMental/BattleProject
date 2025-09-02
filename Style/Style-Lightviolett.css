@@ -20,7 +20,6 @@ body {
 }
 
 #ColorSettings button {
-    background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
     border: 2px outset rgb(192, 192, 192);
     color: rgb(192, 192, 192);
     font-family: 'Courier New', Courier, monospace;
