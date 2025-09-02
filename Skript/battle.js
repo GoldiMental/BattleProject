@@ -141,7 +141,10 @@ async function battle() {
     document.getElementById('Tulpa-opp').style.right = "10px";
     document.getElementById('Name-opp').style.opacity = "1";
     document.getElementById('LP-opp').style.opacity = "1";
-    document.getElementById("HohesGras").style.left = "-200%"; await Delay(2000);
+    console.log(document.getElementById("HohesGras").style.left);
+    document.getElementById("HohesGras").style.left = "-200%";
+    console.log(document.getElementById("HohesGras").style.left);
+    await Delay(2000);
 
     document.getElementById('Tulpa-self').style.left = "-500px"; await Delay(500);
     document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
