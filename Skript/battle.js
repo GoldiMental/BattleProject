@@ -127,8 +127,6 @@ async function battle() {
     }
     document.getElementById("movement_game").classList.toggle("hidethis", true);
     document.getElementById("battle_game").classList.toggle("hidethis", false);
-    document.getElementById("HohesGras").classList.toggle("hidethis", false);
-    document.getElementById("HohesGras").style.left = "-200%";
     document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
 
@@ -142,7 +140,9 @@ async function battle() {
 
     document.getElementById('Tulpa-opp').style.right = "10px";
     document.getElementById('Name-opp').style.opacity = "1";
-    document.getElementById('LP-opp').style.opacity = "1"; await Delay(2000);
+    document.getElementById('LP-opp').style.opacity = "1";
+    document.getElementById("HohesGras").classList.toggle("hidethis", false);
+    document.getElementById("HohesGras").style.left = "-200%"; await Delay(2000);
 
     document.getElementById('Tulpa-self').style.left = "-500px"; await Delay(500);
     document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
