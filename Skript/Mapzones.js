@@ -60,10 +60,16 @@ var maps = {
             { minX: -3225, maxX: -3175, minY: -25, maxY: -25 },
             { minX: -3275, maxX: -3025, minY: 25, maxY: 225 },
             { minX: -3025, maxX: -3025, minY: -75, maxY: -25 },
+            //Map(Hohes Graß Arena) Max=Min und Min=Max!!!!
+            { minX: -3725, maxX: 225, minY: -1075, maxY: -975 },
+            { minX: -625, maxX: 225, minY: -1525, maxY: -1125 },
+            { minX: -125, maxX: 225, minY: -1825, maxY: -1575 },
+            { minX: -625, maxX: -175, minY: -1825, maxY: -1775 },
+            { minX: -625, maxX: -225, minY: -1675, maxY: -1575 },
             //{ minX: , maxX: , minY: , maxY:  },
             //{ minX: , maxX: , minY: , maxY:  },
             //{ minX: , maxX: , minY: , maxY:  },
-            //{ minX: , maxX: , minY: , maxY:  },
+
         ],
         //BattleMapZone. 
         battleArea: [
