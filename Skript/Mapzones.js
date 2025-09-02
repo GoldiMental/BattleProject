@@ -96,6 +96,16 @@ var maps = {
             { minX: -3825, maxX: -3725, minY: -675, maxY: -325 },
             { minX: -3825, maxX: -3775, minY: -275, maxY: -25 },
         ],
+        battleAreaHG: [
+            { minX: -625, maxX: 175, minY: -2175, maxY: -1875 },
+            { minX: -3625, maxX: -675, minY: -2175, maxY: -1125 },
+            { minX: -3675, maxX: -3675, minY: -2175, maxY: -1625 },
+            { minX: -3775, maxX: -3725, minY: -2175, maxY: -1775 },
+            { minX: -4475, maxX: -3825, minY: -2175, maxY: -1925 },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+        ],
         //ProfHome. 
         profHome: [
             { minX: -925, maxX: -925, minY: -525, maxY: -525 },
@@ -118,10 +128,13 @@ var maps = {
                 opp_List: ["Mäusschen", "Kaninchen", "Streuner",],
                 maxLv: 4
             },
-
             dunkelwald: {
-                opp_List: ["Maus", "Wachhund","Kleiner_Wolf", "Wolf", "Zosse",],
+                opp_List: ["Maus", "Wachhund", "Kleiner_Wolf", "Wolf", "Zosse",],
                 maxLv: 9
+            },
+            hohesgras: {
+                opp_List: ["Böser_Wolf", "Kampfmaus", "Kaninchen_des_Todes", "Schutzhund", "Streitross",],
+                maxLv: 25
             },
         },
     },

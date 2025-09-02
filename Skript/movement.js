@@ -245,6 +245,18 @@ function moveMap() {
                 }
             }
         }
+        for (let i = 0; i < maps[activeMap].battleAreaHG.length; i++) {
+            const area = maps[activeMap].battleAreaHG[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                let zufall = Math.round(Math.random() * 50);
+                if (zufall <= 10) {
+                    clearInterval(moveIntervalID);
+                    lastArea = "hohesgras";
+                    console.log("Erkannter Bereich: ", lastArea);
+                    battleanimation(0);
+                }
+            }
+        }
     }
     mapX = newMapX;
     mapY = newMapY;
@@ -287,17 +299,17 @@ function zonenName() {
     console.log();
 }
 
-function Click_W_down() {simulateKeyDown("w");}
-function Click_W_up() {simulateKeyUp("w");}
+function Click_W_down() { simulateKeyDown("w"); }
+function Click_W_up() { simulateKeyUp("w"); }
 
-function Click_A_down() {simulateKeyDown("a");}
-function Click_A_up() {simulateKeyUp("a");}
+function Click_A_down() { simulateKeyDown("a"); }
+function Click_A_up() { simulateKeyUp("a"); }
 
-function Click_S_down() {simulateKeyDown("s");}
-function Click_S_up() {simulateKeyUp("s");}
+function Click_S_down() { simulateKeyDown("s"); }
+function Click_S_up() { simulateKeyUp("s"); }
 
-function Click_D_down() {simulateKeyDown("d");}
-function Click_D_up() {simulateKeyUp("d");}
+function Click_D_down() { simulateKeyDown("d"); }
+function Click_D_up() { simulateKeyUp("d"); }
 
-function simulateKeyDown(key) {document.dispatchEvent(new KeyboardEvent("keydown", { key: key }));}
-function simulateKeyUp(key) {document.dispatchEvent(new KeyboardEvent("keyup", { key: key }));}
+function simulateKeyDown(key) { document.dispatchEvent(new KeyboardEvent("keydown", { key: key })); }
+function simulateKeyUp(key) { document.dispatchEvent(new KeyboardEvent("keyup", { key: key })); }
