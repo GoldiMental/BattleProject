@@ -128,8 +128,7 @@ async function battle() {
     document.getElementById("movement_game").classList.toggle("hidethis", true);
     document.getElementById("battle_game").classList.toggle("hidethis", false);
     document.getElementById("HohesGras").classList.toggle("hidethis", false);
-    document.getElementById("HohesGras").style.left = "-100%";
-    document.getElementById("HohesGras").style.opacity = "0";
+    document.getElementById("HohesGras").style.left = "-200%";
     document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
 
