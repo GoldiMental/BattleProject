@@ -44,6 +44,38 @@ body {
     flex-direction: column;
 }
 
+#Darkblue {
+    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+}
+
+#Darkgreen {
+    background: linear-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
+}
+
+#Darkred {
+    background: linear-gradient(rgb(50, 0, 0), rgb(25, 0, 0));
+}
+
+#Darkviolett {
+    background: linear-gradient(rgb(50, 0, 50), rgb(25, 0, 25));
+}
+
+#Lightblue {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 100));
+}
+
+#Lightgreen {
+    background: linear-gradient(rgb(0, 150, 0), rgb(0, 100, 0));
+}
+
+#Lightred {
+    background: linear-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
+}
+
+#Lightviolett {
+    background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
+}
+
 .hidethis {
     display: none !important;
 }
