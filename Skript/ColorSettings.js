@@ -2,7 +2,7 @@ function setcolor() {
     let color = Player.color;
     switch (color){
         case "Darkblue":
-            document.getElementById('stil').setAttribute('href', 'Styles/Style.css');
+            document.getElementById('stil').setAttribute('href', 'Style/Style.css');
             break;
         case "Darkviolet":
             //document.getElementById('stil').setAttribute('href', 'Styles/Style-' + color + '.css');
@@ -11,7 +11,7 @@ function setcolor() {
             //document.getElementById('stil').setAttribute('href', 'Styles/Style-' + color + '.css');
             break;
         case "Darkgreen":
-            document.getElementById('stil').setAttribute('href', 'Styles/Style-Darkgreen.css');
+            document.getElementById('stil').setAttribute('href', 'Style/Style-Darkgreen.css');
             break;
         case undefined:
             Player.color = "Darkblue";
