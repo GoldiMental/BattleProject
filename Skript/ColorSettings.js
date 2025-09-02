@@ -13,7 +13,7 @@ function setcolor() {
         case "Darkgreen":
             document.getElementById('stil').setAttribute('href', 'Style/Style-Darkgreen.css');
             break;
-        case "Darkgreen":
+        case "Lightblue":
             document.getElementById('stil').setAttribute('href', 'Style/Style-Lightblue.css');
             break;
         case undefined:
