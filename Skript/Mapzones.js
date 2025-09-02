@@ -1,7 +1,7 @@
 var maps = {
     MAP: {
         name: "MAP",
-        Height: 1250,
+        Height: 2500,
         Width: 4750,
         startX: -25,
         startY: -75,
@@ -60,7 +60,6 @@ var maps = {
             { minX: -3225, maxX: -3175, minY: -25, maxY: -25 },
             { minX: -3275, maxX: -3025, minY: 25, maxY: 225 },
             { minX: -3025, maxX: -3025, minY: -75, maxY: -25 },
-            { minX: -3825, maxX: -3725, minY: -975, maxY: -975 },
             //{ minX: , maxX: , minY: , maxY:  },
             //{ minX: , maxX: , minY: , maxY:  },
             //{ minX: , maxX: , minY: , maxY:  },
