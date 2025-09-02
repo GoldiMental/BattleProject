@@ -4,7 +4,7 @@ function setcolor() {
         case "Darkblue":
             document.getElementById('stil').setAttribute('href', 'Style/Style.css');
             break;
-        case "Darkviolet":
+        case "Darkviolett":
             //document.getElementById('stil').setAttribute('href', 'Styles/Style-' + color + '.css');
             break;
         case "Lightblue":
