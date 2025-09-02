@@ -13,6 +13,9 @@ function setcolor() {
         case "Darkgreen":
             document.getElementById('stil').setAttribute('href', 'Style/Style-Darkgreen.css');
             break;
+        case "Darkgreen":
+            document.getElementById('stil').setAttribute('href', 'Style/Style-Lightblue.css');
+            break;
         case undefined:
             Player.color = "Darkblue";
             break;
