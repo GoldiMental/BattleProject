@@ -134,7 +134,7 @@ var maps = {
             },
             hohesgras: {
                 opp_List: ["Böser_Wolf", "Kampfmaus", "Kaninchen_des_Todes", "Schutzhund", "Streitross",],
-                maxLv: 35
+                maxLv: 25
             },
         },
     },
