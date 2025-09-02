@@ -248,7 +248,7 @@ function moveMap() {
         for (let i = 0; i < maps[activeMap].battleAreaHG.length; i++) {
             const area = maps[activeMap].battleAreaHG[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                let zufall = Math.round(Math.random() * 100);
+                let zufall = Math.round(Math.random() * 50);
                 if (zufall <= 10) {
                     clearInterval(moveIntervalID);
                     lastArea = "hohesgras";
