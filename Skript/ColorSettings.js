@@ -5,7 +5,7 @@ function setcolor() {
             document.getElementById('stil').setAttribute('href', 'Style/Style.css');
             break;
         case "Darkviolett":
-            //document.getElementById('stil').setAttribute('href', 'Style/Style-' + color + '.css');
+            document.getElementById('stil').setAttribute('href', 'Style/Style-Darkviolett.css');
             break;
         case "Darkred":
             document.getElementById('stil').setAttribute('href', 'Style/Style-Darkred.css');
