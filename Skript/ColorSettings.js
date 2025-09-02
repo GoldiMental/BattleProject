@@ -1,6 +1,6 @@
 function setcolor() {
     let color = Player.color;
-    switch (color){
+    switch (color) {
         case "Darkblue":
             document.getElementById('stil').setAttribute('href', 'Style/Style.css');
             break;
@@ -16,9 +16,15 @@ function setcolor() {
         case "Lightblue":
             document.getElementById('stil').setAttribute('href', 'Style/Style-Lightblue.css');
             break;
+        case "Lightgreen":
+            document.getElementById('stil').setAttribute('href', 'Style/Style-Lightgreen.css');
+            break;
+        case "Lightred":
+            document.getElementById('stil').setAttribute('href', 'Style/Style-Lightred.css');
+            break;
         case undefined:
             Player.color = "Darkblue";
             break;
     }
-    console.log("Eingeloggte Farbe:",Player.color);
+    console.log("Eingeloggte Farbe:", Player.color);
 }
