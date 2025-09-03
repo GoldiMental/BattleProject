@@ -232,7 +232,7 @@ var maps = {
         ],
         //ShopHome. 
         shopHomeHG: [
-            { minX: 125, maxX: 125, minY: -25, maxY: -25 },
+            { minX: 125, maxX: 125, minY: 25, maxY: 25 },
         ],
         //shopHandel: [
         //    { minX: 175, maxX: 175, minY: 75, maxY: 75 },
