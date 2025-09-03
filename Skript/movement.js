@@ -107,6 +107,12 @@ function moveMap() {
         case "d": if (Player.MapX - moveSpeed >= minX) { direction = "right"; newMapX = Player.MapX - moveSpeed; }; break;
         default: console.error("moveMap()-ERROR: unknown activeDirection:", activeDirection); break;
     }
+    for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
+        const a = maps[activeMap].blockedArea[i];
+        if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
+            return;
+        }
+    }
     switch (activeMap) {
         case "ShopHaus":
             for (let i = 0; i < maps.ShopHaus.shopHandel.length; i++) {
@@ -206,14 +212,6 @@ function moveMap() {
                         clearInterval(moveIntervalID); lastArea = "hohesgras";
                         console.log("Erkannter Bereich: ", lastArea); battleanimation(0);
                     }
-                }
-            }
-            break;
-        default:
-            for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
-                const a = maps[activeMap].blockedArea[i];
-                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
-                    return;
                 }
             }
             break;
