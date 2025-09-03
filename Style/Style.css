@@ -925,6 +925,16 @@ button {
     left: 55px;
 }
 
+.ShopHandeHohesGras {
+    top: 120px;
+    left: 105px;
+}
+
+.ShopHausHohesGrasOut {
+    top: 250px;
+    left: 110px;
+}
+
 .Outside {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔻</text></svg>");
     background-size: 50px;

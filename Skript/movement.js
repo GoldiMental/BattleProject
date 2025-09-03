@@ -127,6 +127,11 @@ function moveMap() {
             }
             break;
         case "ShopHausHG":
+            for (let i = 0; i < maps.ShopHausHG.shopHandel.length; i++) {
+                const a = maps.ShopHausHG.shopHandel[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHandel_B', false); }
+                else { toggleClassElement('ShopHandelHohesGras', true); }
+            }
             for (let i = 0; i < maps.ShopHausHG.shopHomeHG.length; i++) {
                 const a = maps.ShopHausHG.shopHomeHG[i];
                 if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHausHohesGrasOut', false); }
