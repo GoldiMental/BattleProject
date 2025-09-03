@@ -24,7 +24,7 @@ function showCustomModal(title, message, options = {}) {
         if (options.inputType) { customModalInput.value = options.inputValue || ''; customModalInput.classList.toggle("hidethis", false); }
         else { customModalInput.classList.toggle("hidethis", true); }
 
-        if (options.showCancelButton) { customModalCancelButton.classList.remove('hidden'); }
+        if (options.showCancelButton) { customModalCancelButton.classList.toggle("hidethis",false); }
         else { customModalCancelButton.classList.toggle("hidethis", true); }
 
         customModalOverlay.classList.toggle("hidethis", false);
@@ -44,9 +44,9 @@ function showCustomPrompt(message, defaultValue = '') {
     });
 }
 
-function showCustomAlert(message) { return showCustomModal('Information', message, { showCancelButton: false }); }
+function showCustomAlert(message) { return showCustomModal('Information', message, { showCancelButton: false, inputType: false }); }
 
-function showCustomConfirm(message) { return showCustomModal('Bestätigung', message, { showCancelButton: true }); }
+function showCustomConfirm(message) { return showCustomModal('Bestätigung', message, { showCancelButton: true, inputType: false }); }
 
 function closeModal(value) {
     customModalOverlay.classList.toggle("hidethis", true);
