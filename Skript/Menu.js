@@ -99,8 +99,7 @@ function close_Tulpa_Dex() {
 function Tulpas_List() {
     console.log("Öffne Tulpa Liste des Spielers...");
     document.getElementById('Tulpas').classList.toggle("hidethis", false);
-    let html = '';
-    console.log("Erstelle HTML-Element...");
+    let html = ''; console.log("Erstelle HTML-Element...");
     for (Slot in Player.Tulpas) {
         if (Slot.startsWith('Slot')) {
             let tulpa = Player.Tulpas[Slot];
@@ -176,8 +175,7 @@ function close_Tulpas() {
 function Info() {
     console.log("Öffne Spielerinfo...");
     document.getElementById('Info').classList.toggle("hidethis", false);
-    let html = '';
-    console.log("Erstelle HTML-Element...");
+    let html = ''; console.log("Erstelle HTML-Element...");
     html += '<table><tr>' +
         '<td>Spielername:</td>' +
         '<td>' + Player.name + '</td></tr>' +
@@ -274,9 +272,7 @@ async function Use(itm, qty) {
     console.warn("Führe Use(", itm, qty, ") aus...");
     if (qty > 0) {
         if (itm in Player.inventory.drinks) {
-            close_Items();
-            Tulpas_List();
-            await Delay(200);
+            close_Items(); Tulpas_List(); await Delay(200);
             console.log("Trank erkannt. Warte auf Antwort des Spielers...");
             let antwort = await showCustomPrompt("Bei welchem Slot soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
             if (antwort > 0 && antwort <= 6) {
@@ -290,30 +286,24 @@ async function Use(itm, qty) {
                         }
                         Player.inventory.drinks[itm] -= 1;
                         console.log("Anwendung erfolgreich.");
-                        close_Tulpas();
-                        Items();
+                        close_Tulpas(); Items();
                     } else {
                         console.error("Tulpa ist bereits geheilt! Wird abgebrochen...");
                         showCustomAlert(Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
-                        close_Tulpas();
-                        Items();
+                        close_Tulpas(); Items();
                     }
                 } else {
                     console.error("Slot nicht gefunden: ", slot, ". Wird abgebrochen...");
                     showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
-                    close_Tulpas();
-                    Items();
+                    close_Tulpas(); Items();
                 }
             } else {
                 console.error("Spielereingabe fehlerhaft:", antwort);
                 showCustomAlert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
-                close_Tulpas();
-                Items();
+                close_Tulpas(); Items();
             }
         } else {
-            close_Items();
-            Tulpas_List();
-            await Delay(200);
+            close_Items(); Tulpas_List(); await Delay(200);
             console.log("Bonbon erkannt. Warte auf Spielereingabe...");
             let antwort = await showCustomPrompt("Bei welchem Slot soll das Bonbon verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
             console.log("Versuche Bonbon auf Slot ", antwort, " anzuwenden...");
@@ -321,14 +311,15 @@ async function Use(itm, qty) {
                 let slot = "Slot_" + antwort;
                 if (Player.Tulpas[slot].name != "") {
                     Player.Tulpas[slot].XP += Item_List[itm].XPB;
-                    if (Player.Tulpas[slot].XP >= 100) {
-                        Player.Tulpas[slot].XP -= 100;
+                    if (Player.Tulpas[slot].XP >= (25 * (Player.Tulpas[slot].Lv + 1) * (2 * (Player.Tulpas[slot].Lv + 1)))) {
+                        showCustomAlert(Tulpas[Player.Tulpas[slot].name].name," ist ein Level aufgestiegen.");
                         Player.Tulpas[slot].Lv += 1;
-                        Player.Tulpas[slot].HP += 3;
-                        Player.Tulpas[slot].HP_Total += 3;
+                        Player.Tulpas[slot].HP = Tulpas[Player.Tulpas[slot].name].HP + (3 * Player.Tulpas[slot].Lv);
+                        Player.Tulpas[slot].HP_Total = Tulpas[Player.Tulpas[slot].name].HP + (3 * Player.Tulpas[slot].Lv);
                     }
                     Player.inventory.bonbons[itm] -= 1;
-                    console.log("Anwendung erfolgreich.")
+                    console.log("Anwendung erfolgreich.");
+                    showCustomAlert("Bonbon erfolgreich bei ",Tulpas[Player.Tulpas[slot].name].name," angewendet.");
                     close_Tulpas();
                     Items();
                 } else {

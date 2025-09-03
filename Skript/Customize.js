@@ -4,46 +4,49 @@ const customModalMessage = document.getElementById('customModalMessage');
 const customModalInput = document.getElementById('customModalInput');
 const customModalOkButton = document.getElementById('customModalOkButton');
 const customModalCancelButton = document.getElementById('customModalCancelButton');
+
 let resolveModalPromise;
-
-async function showCustomPrompt(message, defaultValue = '') {
+/**
+ * Eine einzige Funktion zur Verarbeitung aller Modal-Typen.
+ * @param {string} title Der Titel des Modals.
+ * @param {string} message Die Nachricht des Modals.
+ * @param {object} options Optionale Konfiguration für das Modal.
+ * @param {string} [options.inputType] Der Eingabetyp (z.B. 'text').
+ * @param {string} [options.inputValue] Der Anfangswert der Eingabe.
+ * @param {boolean} [options.showCancelButton] Ob die Abbrechen-Schaltfläche angezeigt werden soll.
+ **/
+function showCustomModal(title, message, options = {}) {
     return new Promise(resolve => {
         resolveModalPromise = resolve;
-        customModalTitle.textContent = "Eingabe erforderlich";
+        customModalTitle.textContent = title;
         customModalMessage.textContent = message;
-        customModalInput.placeholder = defaultValue;
-        customModalInput.classList.remove('hidden');
-        customModalCancelButton.classList.remove('hidden');
+
+        if (options.inputType) { customModalInput.value = options.inputValue || ''; customModalInput.classList.remove('hidden'); }
+        else { customModalInput.classList.add('hidden'); }
+
+        if (options.showCancelButton) { customModalCancelButton.classList.remove('hidden'); }
+        else { customModalCancelButton.classList.add('hidden'); }
+
         customModalOverlay.classList.add('visible');
-        customModalOkButton.onclick = () => { closeModal(customModalInput.value);; Click() };
-        customModalCancelButton.onclick = () => { closeModal(null);; Click() };
+
+        const handleOkClick = () => { const result = options.inputType ? customModalInput.value : true; closeModal(result); };
+
+        const handleCancelClick = () => { const result = options.inputType ? null : false; closeModal(result); };
+
+        customModalOkButton.addEventListener('click', handleOkClick); customModalOkButton.addEventListener('click', Click);
+        customModalCancelButton.addEventListener('click', handleCancelClick); customModalCancelButton.addEventListener('click', Click);
     });
 }
 
-function showCustomAlert(message) {
-    return new Promise(resolve => {
-        resolveModalPromise = resolve;
-        customModalTitle.textContent = "Information";
-        customModalMessage.textContent = message;
-        customModalInput.classList.add('hidden');
-        customModalCancelButton.classList.add('hidden');
-        customModalOverlay.classList.add('visible');
-        customModalOkButton.onclick = () => { closeModal();; Click() };
+function showCustomPrompt(message, defaultValue = '') {
+    return showCustomModal('Eingabe erforderlich', message, {
+        inputType: 'text', inputValue: defaultValue, showCancelButton: true
     });
 }
 
-function showCustomConfirm(message) {
-    return new Promise(resolve => {
-        resolveModalPromise = resolve;
-        customModalTitle.textContent = "Bestätigung";
-        customModalMessage.textContent = message;
-        customModalInput.classList.add('hidden');
-        customModalCancelButton.classList.remove('hidden');
-        customModalOverlay.classList.add('visible');
-        customModalOkButton.onclick = () => { closeModal(true);; Click() };
-        customModalCancelButton.onclick = () => { closeModal(false);; Click() };
-    });
-}
+function showCustomAlert(message) { return showCustomModal('Information', message); }
+
+function showCustomConfirm(message) { return showCustomModal('Bestätigung', message, { showCancelButton: true }); }
 
 function closeModal(value) {
     customModalOverlay.classList.remove('visible');
