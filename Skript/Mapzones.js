@@ -215,8 +215,8 @@ var maps = {
         Width: 250,
         startX: 125,
         startY: 25,
-        startStadtX: -275,
-        startStadtY: -575,
+        startStadtX: -4225,
+        startStadtY: -1525,
         blockedArea: [
             { minX: 25, maxX: 225, minY: 125, maxY: 225 },
             { minX: 25, maxX: 25, minY: 25, maxY: 75 },
@@ -227,8 +227,8 @@ var maps = {
             //{ minX: , maxX: , minY: , maxY:  },
         ],
         //ShopHome. 
-        shopHome: [
-            { minX: 75, maxX: 75, minY: -25, maxY: -25 },
+        shopHomeHG: [
+            { minX: 125, maxX: 125, minY: -25, maxY: -25 },
         ],
         shopHandel: [
             { minX: 175, maxX: 175, minY: 75, maxY: 75 },
