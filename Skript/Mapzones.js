@@ -118,6 +118,10 @@ var maps = {
         shopHome: [
             { minX: -275, maxX: -275, minY: -575, maxY: -575 },
         ],
+        //ShopHomeHG. 
+        shopHomeHG: [
+            { minX: -4425, maxX: -4425, minY: -1525, maxY: -1525 },
+        ],
         //trainerBattle. 
         trainerBattle: [
             { minX: -1075, maxX: -1075, minY: -325, maxY: -275, name: "Trainer000" },
