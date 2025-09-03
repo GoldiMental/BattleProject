@@ -21,13 +21,13 @@ function showCustomModal(title, message, options = {}) {
         customModalTitle.textContent = title;
         customModalMessage.textContent = message;
 
-        if (options.inputType) { customModalInput.value = options.inputValue || ''; customModalInput.classList.remove('hidden'); }
-        else { customModalInput.classList.add('hidden'); }
+        if (options.inputType) { customModalInput.value = options.inputValue || ''; customModalInput.classList.toggle("hidethis", false); }
+        else { customModalInput.classList.toggle("hidethis", true); }
 
         if (options.showCancelButton) { customModalCancelButton.classList.remove('hidden'); }
-        else { customModalCancelButton.classList.add('hidden'); }
+        else { customModalCancelButton.classList.toggle("hidethis", true); }
 
-        customModalOverlay.classList.add('visible');
+        customModalOverlay.classList.toggle("hidethis", false);
 
         const handleOkClick = () => { const result = options.inputType ? customModalInput.value : true; closeModal(result); };
 
@@ -44,11 +44,11 @@ function showCustomPrompt(message, defaultValue = '') {
     });
 }
 
-function showCustomAlert(message) { return showCustomModal('Information', message); }
+function showCustomAlert(message) { return showCustomModal('Information', message, { showCancelButton: false }); }
 
 function showCustomConfirm(message) { return showCustomModal('Bestätigung', message, { showCancelButton: true }); }
 
 function closeModal(value) {
-    customModalOverlay.classList.remove('visible');
+    customModalOverlay.classList.toggle("hidethis", true);
     if (resolveModalPromise) { resolveModalPromise(value); resolveModalPromise = null; }
 }
