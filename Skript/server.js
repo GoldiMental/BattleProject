@@ -49,10 +49,11 @@ app.use((req, res, next) => {
     }
 })
 
-app.get('/dev', (req, res) => {
+app.get('/dev', (req, res, next) => {
     const clientIp = getClientIp(req);
     if (DEV_IP.includes(clientIp)) {
         res.send('Willkommen im Entwickler-Panel!');
+        next();
     } else {
         res.status(403).send('Zugriff verweigert.');
     }
