@@ -227,14 +227,14 @@ function moveMap() {
                 document.getElementsByClassName("MeinHaus_B")[0].classList.toggle("hidethis", true);
             }
         }
-        for (let i = 0; i < maps[activeMap].shopHomeHG.length; i++) {
-            const area = maps[activeMap].shopHomeHG[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHausHG")[0].classList.toggle("hidethis", false);
-            } else {
-                document.getElementsByClassName("ShopHausHG")[0].classList.toggle("hidethis", true);
-            }
-        }
+        //for (let i = 0; i < maps[activeMap].shopHomeHG.length; i++) {
+        //    const area = maps[activeMap].shopHomeHG[i];
+        //    if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+        //        document.getElementsByClassName("ShopHausHG")[0].classList.toggle("hidethis", false);
+        //    } else {
+        //        document.getElementsByClassName("ShopHausHG")[0].classList.toggle("hidethis", true);
+        //    }
+        //}
         for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
             const area = maps[activeMap].trainerBattle[i];
             if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
