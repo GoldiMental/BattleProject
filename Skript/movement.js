@@ -171,6 +171,14 @@ function moveMap() {
                 document.getElementsByClassName("ShopHausHohesGrasOut")[0].classList.toggle("hidethis", true);
             }
         }
+                for (let i = 0; i < maps[activeMap].shopHomeHG.length; i++) {
+            const area = maps[activeMap].shopHomeHG[i];
+            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
+                document.getElementsByClassName("ShopHausHohesGrasIn")[0].classList.toggle("hidethis", false);
+            } else {
+                document.getElementsByClassName("ShopHausHohesGrasIn")[0].classList.toggle("hidethis", true);
+            }
+        }
     }
     if (activeMap == "MeinHaus") {
         for (let i = 0; i < maps[activeMap].tulpaPc.length; i++) {
@@ -225,14 +233,6 @@ function moveMap() {
             }
             else {
                 document.getElementsByClassName("MeinHaus_B")[0].classList.toggle("hidethis", true);
-            }
-        }
-        for (let i = 0; i < maps[activeMap].ShopHomeHG.length; i++) {
-            const area = maps[activeMap].ShopHomeHG[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHausHohesGrasIn")[0].classList.toggle("hidethis", false);
-            } else {
-                document.getElementsByClassName("ShopHausHohesGrasIn")[0].classList.toggle("hidethis", true);
             }
         }
         for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
