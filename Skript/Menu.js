@@ -14,7 +14,7 @@ function MenuList() {
 
 async function Cheat() {
     let CheatInput = await showCustomPrompt("Bitte gib den Cheat ein:", "Eingabe");
-    console.log("Versuche den Cheat: ",CheatInput," auszuführen...");
+    console.log("Versuche den Cheat: ", CheatInput, " auszuführen...");
     switch (CheatInput) {
         case "MOREGOLD":
             Player.Gold += 1000;
@@ -56,18 +56,23 @@ async function Cheat() {
             console.log("Anwendung erfolgreich.");
             break;
         case "GETBOSSTULPA":
-            Player.Tulpas.Slot_1 = {name:"Böser_Wolf",Lv:100,HP:450,HP_Total:450,XP:0};
+            Player.Tulpas.Slot_1 = { name: "Streitross", Lv: 250, HP: 850, HP_Total: 850, XP: 3125000 };
+            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+            console.log("Anwendung erfolgreich.");
+            break;
+        case "GETUBERTULPA":
+            Player.Tulpas.Slot_1 = { name: "Böser_Wolf", Lv: 1000, HP: 3100, HP_Total: 3100, XP: 50000000 };
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             console.log("Anwendung erfolgreich.");
             break;
         case "MAIKYTULPA":
-            Player.Tulpas.Slot_4 = {name:"Böser_Wolf",Lv:5,HP:250,HP_Total:250,XP:0};
+            Player.Tulpas.Slot_4 = { name: "Böser_Wolf", Lv: 50, HP: 250, HP_Total: 250, XP: 125000 };
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             console.log("Anwendung erfolgreich.");
             break;
         default:
-            console.error("Cheatcode nicht gefunden oder falsch geschrieben!");
-            showCustomAlert("Cheat nicht gefunden...");
+            console.error("Cheatcode nicht gefunden!");
+            showCustomAlert("Cheat nicht gefunde!");
             break;
     }
 }
@@ -136,7 +141,7 @@ async function removeTulpa(Slot) {
                 }
             }
         }
-        console.log("Entfernung erfolgreich: Slot ",antwort," ist wieder frei.");
+        console.log("Entfernung erfolgreich: Slot ", antwort, " ist wieder frei.");
         Tulpas_List();
     } else if (Slot == "Slot_1") {
         console.error("Slot 1 muss belegt bleiben. Tulpa bleibt erhalten. Entfernen wird abgebrochen...");
@@ -147,9 +152,9 @@ async function removeTulpa(Slot) {
 }
 
 async function swapTulpa(Slot) {
-    console.warn("Führe swapTulpa(",Slot,") aus...");
+    console.warn("Führe swapTulpa(", Slot, ") aus...");
     let antwort = await showCustomPrompt("Mit welchem Slot soll " + Slot + " getauscht werden? Gib dazu die Slotnummer (1-6) an:", "0 beendet den Tausch");
-    console.log("Versuche ",Slot," mit ",antwort," zu tauschen...");
+    console.log("Versuche ", Slot, " mit ", antwort, " zu tauschen...");
     if (antwort != 0 && antwort <= 6 && Player.Tulpas["Slot_" + antwort].name != "" && Slot != "Slot_" + antwort) {
         let tulpa_1 = Player.Tulpas[Slot];
         let tulpa_2 = Player.Tulpas["Slot_" + antwort];
@@ -266,7 +271,7 @@ function close_Items() {
 }
 
 async function Use(itm, qty) {
-    console.warn("Führe Use(",itm,qty,") aus...");
+    console.warn("Führe Use(", itm, qty, ") aus...");
     if (qty > 0) {
         if (itm in Player.inventory.drinks) {
             close_Items();
@@ -276,7 +281,7 @@ async function Use(itm, qty) {
             let antwort = await showCustomPrompt("Bei welchem Slot soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
             if (antwort > 0 && antwort <= 6) {
                 let slot = "Slot_" + antwort;
-                console.log("Versuche Trank auf ",slot," anzuwenden...");
+                console.log("Versuche Trank auf ", slot, " anzuwenden...");
                 if (Player.Tulpas[slot].name != "") {
                     if (Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total) {
                         Player.Tulpas[slot].HP += Item_List[itm].HP;
@@ -294,13 +299,13 @@ async function Use(itm, qty) {
                         Items();
                     }
                 } else {
-                    console.error("Slot nicht gefunden: ",slot,". Wird abgebrochen...");
+                    console.error("Slot nicht gefunden: ", slot, ". Wird abgebrochen...");
                     showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
                     close_Tulpas();
                     Items();
                 }
             } else {
-                console.error("Spielereingabe fehlerhaft:",antwort);
+                console.error("Spielereingabe fehlerhaft:", antwort);
                 showCustomAlert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
                 close_Tulpas();
                 Items();
@@ -311,7 +316,7 @@ async function Use(itm, qty) {
             await Delay(200);
             console.log("Bonbon erkannt. Warte auf Spielereingabe...");
             let antwort = await showCustomPrompt("Bei welchem Slot soll das Bonbon verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
-            console.log("Versuche Bonbon auf Slot ",antwort," anzuwenden...");
+            console.log("Versuche Bonbon auf Slot ", antwort, " anzuwenden...");
             if (antwort > 0 && antwort <= 6) {
                 let slot = "Slot_" + antwort;
                 if (Player.Tulpas[slot].name != "") {
@@ -327,13 +332,13 @@ async function Use(itm, qty) {
                     close_Tulpas();
                     Items();
                 } else {
-                    console.error("Slot nicht gefunden: ",slot,". Wird abgebrochen...");
+                    console.error("Slot nicht gefunden: ", slot, ". Wird abgebrochen...");
                     showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
                     close_Tulpas();
                     Items();
                 }
             } else {
-                console.error("Spielereingabe fehlerhaft:",antwort);
+                console.error("Spielereingabe fehlerhaft:", antwort);
                 showCustomAlert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
                 close_Tulpas();
                 Items();
