@@ -211,7 +211,7 @@ var maps = {
     },
     ShopHausHG: {
         name: "ShopHausHG",
-        Height: 300,
+        Height: 500,
         Width: 500,
         startX: 75,
         startY: -25,
