@@ -327,7 +327,7 @@ async function self_attack(attack) {
             console.log("Prüfe auf Level-Up: ", tulpa_self.XP, ">=", (25 * tulpa_self.Lv) * (2 * tulpa_self.Lv), "? Ergebnis: ", tulpa_self.XP >= (25 * tulpa_self.Lv) * (2 * tulpa_self.Lv)); //Level-Up-Prüfung
             if (tulpa_self.XP >= (25 * tulpa_self.Lv) * (2 * tulpa_self.Lv)) {
                 tulpa_self.Lv = Math.floor(Math.sqrt(tulpa_self.XP / 25 / 2));
-                tulpa_self.HP = Tulpas[tulpa_self].HP + (3 * tulpa_self.Lv);
+                tulpa_self.HP = Tulpas[tulpa_self.name].HP + (3 * tulpa_self.Lv);
                 tulpa_self.HP_Total = tulpa_self.HP;
                 await Delay(1000);
                 document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
