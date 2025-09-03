@@ -459,6 +459,12 @@ button {
     background-image: url(../img/textures/mapShop_01.png);
 }
 
+.ShopHausHG {
+    width: 500px;
+    height: 300px;
+    background-image: url(../img/textures/ShopHG.png);
+}
+
 #MenuList {
 
     position: absolute;
