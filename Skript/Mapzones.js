@@ -120,7 +120,7 @@ var maps = {
         ],
         //ShopHomeHG. 
         shopHomeHG: [
-            { minX: -4425, maxX: -4425, minY: -1525, maxY: -1525 },
+            { minX: -4225, maxX: -4225, minY: -1525, maxY: -1525 },
         ],
         //trainerBattle. 
         trainerBattle: [
