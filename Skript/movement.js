@@ -101,10 +101,10 @@ function moveMap() {
     const player = document.getElementById('user');
     let direction = ""; let newMapX = Player.MapX; let newMapY = Player.MapY;
     switch (activeDirection) {
-        case "w": if (mapY + moveSpeed <= maxY) { direction = "up"; newMapY = mapY + moveSpeed; }; break;
-        case "a": if (mapX + moveSpeed <= maxX) { direction = "left"; newMapX = mapX + moveSpeed; }; break;
-        case "s": if (mapY - moveSpeed >= minY) { direction = "down"; newMapY = mapY - moveSpeed; }; break;
-        case "d": if (mapX - moveSpeed >= minX) { direction = "right"; newMapX = mapX - moveSpeed; }; break;
+        case "w": if (Player.MapY + moveSpeed <= maxY) { direction = "up"; newMapY = mapY + moveSpeed; }; break;
+        case "a": if (Player.MapX + moveSpeed <= maxX) { direction = "left"; newMapX = mapX + moveSpeed; }; break;
+        case "s": if (Player.MapY - moveSpeed >= minY) { direction = "down"; newMapY = mapY - moveSpeed; }; break;
+        case "d": if (Player.MapX - moveSpeed >= minX) { direction = "right"; newMapX = mapX - moveSpeed; }; break;
         default: console.error("moveMap()-ERROR: unknown activeDirection:", activeDirection); break;
     }
     switch (activeMap) {
