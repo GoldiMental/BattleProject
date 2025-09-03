@@ -9,7 +9,9 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 const app = express();
 const PORT = 3000;
-const MAINTENANCE_MODE = false;
+const MAINTENANCE_MODE = true;
+const DEV_IP = ['194.94.72.244','185.17.204.31'];
+const OpenIP = process.env.OPEN_IP;
 app.use(cors());
 app.use(express.json());
 
@@ -28,14 +30,33 @@ if (!MongoDB_Uri) {
     process.exit(1);
 }
 
-app.use((req, res, next) => {
-    if (MAINTENANCE_MODE) {
-        return res.render('503', { gameServerIP: `http://${OpenIP}:3000` });
+const getClientIp = (req) => {
+    const forwardedFor = req.headers['x-forwarded-for'];
+    if (forwardedFor) {
+        return forwardedFor.split(',')[0].trim();
     }
-    next();
+    return req.ip;
+};
+
+app.use((req, res, next) => {
+    const clientIp = getClientIp(req);
+    if (MAINTENANCE_MODE && !DEV_IP.includes(clientIp)) {
+        if (!req.path.startsWith('/developer') && !req.path.startsWith('/api/developer')) {
+            return res.status(503).render('503', { gameServerIP: `http://${OpenIP}:3000` });
+        }
+    } else {
+        next();
+    }
 })
 
-const OpenIP = process.env.OPEN_IP;
+app.get('/dev', (req, res) => {
+    const clientIp = getClientIp(req);
+    if (DEV_IP.includes(clientIp)) {
+        res.send('Willkommen im Entwickler-Panel!');
+    } else {
+        res.status(403).send('Zugriff verweigert.');
+    }
+});
 
 const User = mongoose.model('User', new mongoose.Schema({
     username: { type: String, required: true, unique: true },
