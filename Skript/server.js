@@ -11,7 +11,7 @@ const app = express();
 const PORT = 3000;
 
 const MAINTENANCE_MODE = true;
-const DEV_IP = ['194.94.72.244','185.17.204.31'];
+const DEV_IP = ['194.94.72.244', '185.17.204.31'];
 const OpenIP = process.env.OPEN_IP;
 app.use(cors());
 app.use(express.json());
@@ -49,9 +49,7 @@ const getClientIp = (req) => {
 app.use((req, res, next) => {
     const clientIp = getClientIp(req);
     if (MAINTENANCE_MODE && !DEV_IP.includes(clientIp)) {
-        if (!req.path.startsWith('/dev') && !req.path.startsWith('/api/dev')) {
-            return res.status(503).render('503', { gameServerIP: `http://${OpenIP}:3000` });
-        }
+        return res.status(503).render('503', { gameServerIP: `http://${OpenIP}:3000` });
     }
     next();
 });
