@@ -234,7 +234,7 @@ var maps = {
         shopHomeHG: [
             { minX: 125, maxX: 125, minY: 25, maxY: 25 },
         ],
-        shopHandel: [
+        shopHandelHG: [
             { minX: 125, maxX: 125, minY: 75, maxY: 75 },
         ],
     },
