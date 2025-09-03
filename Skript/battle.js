@@ -318,18 +318,17 @@ async function self_attack(attack) {
             document.getElementById('bgr02-sound').currentTime = 0;
             document.getElementById('win-sound').play(); await Delay(2000);
             document.getElementById('bg03-sound').play(); await Delay(500);
-            let exp = Math.round(((Tulpas[tulpa_opp].HP_Total + (3 ** tulpa_lv)) / 2));
-            if (tulpa_lv > tulpa_self.Lv) { exp = Math.round(exp * (1 + ((tulpa_lv - tulpa_self.Lv) / 10))); };
+            let exp = Math.round((25 * tulpa_lv) * ((8 + Math.random() * 4))/10);
+            if (tulpa_lv > tulpa_self.Lv) { exp *= 2; };
             document.getElementById('battle_text').innerText = "Du hast " + exp + " EXP. erhalten!";
             console.log("XP vorher: ", tulpa_self.XP, " XP nachher:", tulpa_self.XP, "+", exp, "="); //EXP-Berechnung
             tulpa_self.XP += exp;
             console.log(tulpa_self.XP);
-            console.log("Prüfe auf Level-Up: ", tulpa_self.XP, ">=", 10 * Math.round(1.5 ** tulpa_self.Lv), "? Ergebnis: ", tulpa_self.XP >= 10 * Math.round(1.5 ** tulpa_self.Lv)); //Level-Up-Prüfung
-            if (tulpa_self.XP >= 10 * Math.round(1.5 ** tulpa_self.Lv)) {
-                tulpa_self.Lv += 1;
-                tulpa_self.XP = 0;
-                tulpa_self.HP += 3;
-                tulpa_self.HP_Total += 3;
+            console.log("Prüfe auf Level-Up: ", tulpa_self.XP, ">=", (25 * tulpa_self.Lv) * (2 * tulpa_self.Lv), "? Ergebnis: ", tulpa_self.XP >= (25 * tulpa_self.Lv) * (2 * tulpa_self.Lv)); //Level-Up-Prüfung
+            if (tulpa_self.XP >= (25 * tulpa_self.Lv) * (2 * tulpa_self.Lv)) {
+                tulpa_self.Lv = Math.floor(Math.sqrt(tulpa_self.XP / 25 / 2));
+                tulpa_self.HP = Tulpas[tulpa_self].HP + (3 * tulpa_self.Lv);
+                tulpa_self.HP_Total = tulpa_self.HP;
                 await Delay(1000);
                 document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
                 document.getElementById('battle_text').innerText = tulpa_self.name + " ist ein Level aufgestiegen";

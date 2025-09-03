@@ -30,7 +30,7 @@ if (!MongoDB_Uri) {
 
 app.use((req, res, next) => {
     if (MAINTENANCE_MODE) {
-        return res.render('Support', { gameServerIP: `http://${OpenIP}:3000` });
+        return res.render('503', { gameServerIP: `http://${OpenIP}:3000` });
     }
     next();
 })
