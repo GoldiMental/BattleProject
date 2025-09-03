@@ -35,20 +35,23 @@ const getClientIp = (req) => {
     if (forwardedFor) {
         return forwardedFor.split(',')[0].trim();
     }
-    return req.ip;
+    const ip = req.ip;
+    if (ip.startsWith('::ffff:')) {
+        return ip.substring(7);
+    }
+    return ip;
 };
 
 app.use((req, res, next) => {
     const clientIp = getClientIp(req);
-    console.log(`Eingehende Anfrage von IP: ${clientIp}`,!DEV_IP.includes(clientIp));
+    console.log(`Eingehende Anfrage von IP: ${clientIp}`, !DEV_IP.includes(clientIp)); 
     if (MAINTENANCE_MODE && !DEV_IP.includes(clientIp)) {
         if (!req.path.startsWith('/developer') && !req.path.startsWith('/api/developer')) {
             return res.status(503).render('503', { gameServerIP: `http://${OpenIP}:3000` });
         }
-    } else {
-        next();
     }
-})
+    next();
+});
 
 app.get('/dev', (req, res, next) => {
     const clientIp = getClientIp(req);
