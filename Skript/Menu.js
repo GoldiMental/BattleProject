@@ -72,7 +72,7 @@ async function Cheat() {
             break;
         default:
             console.error("Cheatcode nicht gefunden!");
-            showCustomAlert("Cheat nicht gefunde!");
+            showCustomAlert("Cheat nicht gefunden!");
             break;
     }
 }
