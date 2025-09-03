@@ -209,4 +209,29 @@ var maps = {
             { minX: 175, maxX: 175, minY: 75, maxY: 75 },
         ],
     },
+    ShopHausHG: {
+        name: "ShopHausHG",
+        Height: 300,
+        Width: 500,
+        startX: 75,
+        startY: -25,
+        startStadtX: -275,
+        startStadtY: -575,
+        blockedArea: [
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+        ],
+        //ShopHome. 
+        shopHome: [
+            { minX: 75, maxX: 75, minY: -25, maxY: -25 },
+        ],
+        shopHandel: [
+            { minX: 175, maxX: 175, minY: 75, maxY: 75 },
+        ],
+    },
 }

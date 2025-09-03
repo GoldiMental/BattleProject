@@ -95,6 +95,18 @@ async function shopAusgang() {
     Player.MapY = maps.ShopHaus.startStadtY;
     changeMap('MAP');
 }
+async function shopEingangHG() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps.ShopHausHG.startX;
+    Player.MapY = maps.ShopHausHG.startY;
+    changeMap('ShopHausHG');
+}
+async function shopAusgangHG() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps.ShopHausHG.startStadtX;
+    Player.MapY = maps.ShopHausHG.startStadtY;
+    changeMap('MAP');
+}
 
 function moveMap() {
     const bg = documentMap;
