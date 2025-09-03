@@ -40,7 +40,7 @@ const getClientIp = (req) => {
 
 app.use((req, res, next) => {
     const clientIp = getClientIp(req);
-    console.log(`Eingehende Anfrage von IP: ${clientIp}`);
+    console.log(`Eingehende Anfrage von IP: ${clientIp}`,!DEV_IP.includes(clientIp));
     if (MAINTENANCE_MODE && !DEV_IP.includes(clientIp)) {
         if (!req.path.startsWith('/developer') && !req.path.startsWith('/api/developer')) {
             return res.status(503).render('503', { gameServerIP: `http://${OpenIP}:3000` });
