@@ -10,7 +10,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-const MAINTENANCE_MODE = false;
+const MAINTENANCE_MODE = true;
 const DEV_IP = ['194.94.72.244', '185.17.204.31'];
 const OpenIP = process.env.OPEN_IP;
 app.use(cors());
@@ -88,12 +88,7 @@ const User = mongoose.model('User', new mongoose.Schema({
     }
 }));
 
-const options = {
-    auth: {
-        api_key: process.env.SENDGRID_API_KEY
-    }
-}
-
+const options = { auth: { api_key: process.env.SENDGRID_API_KEY } }
 const transporter = nodemailer.createTransport(sgTransport(options));
 const privateMail = process.env.PRIVATE_MAIL;
 

@@ -141,9 +141,6 @@ async function battle() {
     document.getElementById('Tulpa-opp').style.right = "10px";
     document.getElementById('Name-opp').style.opacity = "1";
     document.getElementById('LP-opp').style.opacity = "1";
-    console.log(document.getElementById("HohesGras").style.left);
-    document.getElementById("HohesGras").style.left = "-200%";
-    console.log(document.getElementById("HohesGras").style.left);
     await Delay(2000);
 
     document.getElementById('Tulpa-self').style.left = "-500px"; await Delay(500);
@@ -174,7 +171,6 @@ async function escape() {
         document.getElementById("movement_game").classList.toggle("hidethis", false);
         document.getElementById("battle_game").classList.toggle("hidethis", true);
         document.getElementById("battle_menu").classList.toggle("hidethis", true);
-        document.getElementById("HohesGras").style.left = "0%";
         document.getElementById('escape').disabled = false;
         document.getElementById('Name-opp').style.opacity = "0";
         document.getElementById('LP-opp').style.opacity = "0";
@@ -265,8 +261,12 @@ async function opp_Attack() {
             document.getElementById("Countdown").innerHTML = "Transport nach Hause."; await Delay(500);
             document.getElementById("Countdown").innerHTML = "Transport nach Hause.."; await Delay(500)
             document.getElementById("Countdown").innerHTML = "Transport nach Hause..."; await Delay(800)
-            document.getElementById("Countdown").innerHTML = "WACH AUF!!!"; await Delay(500);
-            location.reload();
+            document.getElementById("Countdown").innerHTML = "WACH AUF!!!";
+            Player.actualMap = "MAP";
+            Player.MapX = maps.MAP.startX;
+            Player.MapY = maps.MAP.startX;
+            document.getElementById("GameOver").classList.toggle("hidethis", true);
+            changeMap(Player.actualMap);
             document.getElementById('Name-opp').style.opacity = "0";
             document.getElementById('LP-opp').style.opacity = "0";
             document.getElementById('Name-self').style.opacity = "0";
@@ -318,14 +318,14 @@ async function self_attack(attack) {
             document.getElementById('bgr02-sound').currentTime = 0;
             document.getElementById('win-sound').play(); await Delay(2000);
             document.getElementById('bg03-sound').play(); await Delay(500);
-            let exp = Math.round((25 * tulpa_lv) * ((8 + Math.random() * 4))/10);
+            let exp = Math.round((25 * tulpa_lv) * ((8 + Math.random() * 4)) / 10);
             if (tulpa_lv > tulpa_self.Lv) { exp *= 2; };
             document.getElementById('battle_text').innerText = "Du hast " + exp + " EXP. erhalten!";
             console.log("XP vorher: ", tulpa_self.XP, " XP nachher:", tulpa_self.XP, "+", exp, "="); //EXP-Berechnung
             tulpa_self.XP += exp;
             console.log(tulpa_self.XP);
-            console.log("Prüfe auf Level-Up: ", tulpa_self.XP, ">=", (25 * (tulpa_self.Lv+1)) * (2 * (tulpa_self.Lv+1)), "? Ergebnis: ", tulpa_self.XP >= (25 * (tulpa_self.Lv+1)) * (2 * (1+tulpa_self.Lv))); //Level-Up-Prüfung
-            if (tulpa_self.XP >= (25 * (tulpa_self.Lv+1) * (2 * (tulpa_self.Lv+1)))) {
+            console.log("Prüfe auf Level-Up: ", tulpa_self.XP, ">=", (25 * (tulpa_self.Lv + 1)) * (2 * (tulpa_self.Lv + 1)), "? Ergebnis: ", tulpa_self.XP >= (25 * (tulpa_self.Lv + 1)) * (2 * (1 + tulpa_self.Lv))); //Level-Up-Prüfung
+            if (tulpa_self.XP >= (25 * (tulpa_self.Lv + 1) * (2 * (tulpa_self.Lv + 1)))) {
                 tulpa_self.Lv = Math.floor(Math.sqrt(tulpa_self.XP / 25 / 2));
                 tulpa_self.HP = Tulpas[tulpa_self.name].HP + (3 * tulpa_self.Lv);
                 tulpa_self.HP_Total = tulpa_self.HP;

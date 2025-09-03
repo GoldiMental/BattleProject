@@ -15,11 +15,10 @@ async function showCustomPrompt(message, defaultValue = '') {
         customModalInput.classList.remove('hidden');
         customModalCancelButton.classList.remove('hidden');
         customModalOverlay.classList.add('visible');
-        customModalOkButton.onclick = () => { closeModal(customModalInput.value);;Click() };
-        customModalCancelButton.onclick = () => { closeModal(null);;Click() };
+        customModalOkButton.onclick = () => { closeModal(customModalInput.value);; Click() };
+        customModalCancelButton.onclick = () => { closeModal(null);; Click() };
     });
 }
-
 
 function showCustomAlert(message) {
     return new Promise(resolve => {
@@ -29,7 +28,7 @@ function showCustomAlert(message) {
         customModalInput.classList.add('hidden');
         customModalCancelButton.classList.add('hidden');
         customModalOverlay.classList.add('visible');
-        customModalOkButton.onclick = () => { closeModal();;Click() };
+        customModalOkButton.onclick = () => { closeModal();; Click() };
     });
 }
 
@@ -41,15 +40,12 @@ function showCustomConfirm(message) {
         customModalInput.classList.add('hidden');
         customModalCancelButton.classList.remove('hidden');
         customModalOverlay.classList.add('visible');
-        customModalOkButton.onclick = () => {closeModal(true);;Click()};
-        customModalCancelButton.onclick = () => {closeModal(false);;Click()};
+        customModalOkButton.onclick = () => { closeModal(true);; Click() };
+        customModalCancelButton.onclick = () => { closeModal(false);; Click() };
     });
 }
 
 function closeModal(value) {
     customModalOverlay.classList.remove('visible');
-    if (resolveModalPromise) {
-        resolveModalPromise(value);
-        resolveModalPromise = null;
-    }
+    if (resolveModalPromise) { resolveModalPromise(value); resolveModalPromise = null; }
 }

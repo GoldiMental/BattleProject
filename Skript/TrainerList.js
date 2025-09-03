@@ -35,29 +35,17 @@ const TrainerList = {
         Tulpa5: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
         Tulpa6: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
     },
-
-    
 }
-
-async function Trainer000monolog(Trainer){
+async function Trainer000monolog(Trainer) {
     TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
-    TrainerDialogBox.innerHTML = Trainer.text1;
-    clearInterval(moveIntervalID);
-    TrainerDialogBox.classList.toggle("hidethis",false);
-    await Click();
-    TrainerDialogBox.innerHTML = Trainer.text2;
-    await Click();
-    TrainerDialogBox.innerHTML = Trainer.text3;
-    await Click();
-    TrainerDialogBox.innerHTML = Trainer.text4;
-    await Click();
-    TrainerDialogBox.innerHTML = Trainer.text5;
-    await Click();
-    TrainerDialogBox.classList.toggle("hidethis",true);
+    TrainerDialogBox.innerHTML = Trainer.text1; clearInterval(moveIntervalID);
+    TrainerDialogBox.classList.toggle("hidethis", false); await Click();
+    TrainerDialogBox.innerHTML = Trainer.text2; await Click();
+    TrainerDialogBox.innerHTML = Trainer.text3; await Click();
+    TrainerDialogBox.innerHTML = Trainer.text4; await Click();
+    TrainerDialogBox.innerHTML = Trainer.text5; await Click();
+    TrainerDialogBox.classList.toggle("hidethis", true);
     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-    activeDirection = "a";
-    moveMap();
-    await Delay(100);
-    activeDirection = null;
-    stopMovement();
+    activeDirection = "a"; moveMap(); await Delay(100);
+    activeDirection = null; stopMovement();
 }

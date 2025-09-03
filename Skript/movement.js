@@ -45,269 +45,189 @@ async function changeMap(mapname) {
     activeMap = maps[mapname].name;
     documentMap.className = "map " + activeMap;
     Player.actualMap = activeMap;
-    refreshMap();
-    await Delay(500);
+    refreshMap(); await Delay(750);
     movementGame.classList.toggle("hidethis", false);
 }
 
 function refreshMap() {
     console.log("Aktualiere die MAP...");
-    minX = -(parseInt(maps[activeMap].Width) - 250);
-    maxX = 250;
-    minY = -(parseInt(maps[activeMap].Height) - 250);
-    maxY = 250;
+    minX = -(parseInt(maps[activeMap].Width) - 250); maxX = 250;
+    minY = -(parseInt(maps[activeMap].Height) - 250); maxY = 250;
     moveMap();
 }
 
-async function meinEingang() {
+function meinEingang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps.MeinHaus.startX;
-    Player.MapY = maps.MeinHaus.startY;
+    Player.MapX = maps.MeinHaus.startX; Player.MapY = maps.MeinHaus.startY;
     changeMap('MeinHaus');
 }
-async function meinAusgang() {
+function meinAusgang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps.MeinHaus.startStadtX;
-    Player.MapY = maps.MeinHaus.startStadtY;
+    Player.MapX = maps.MeinHaus.startStadtX; Player.MapY = maps.MeinHaus.startStadtY;
     changeMap('MAP');
 }
-async function troysEingang() {
+function troysEingang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps.TroysHaus.startX;
-    Player.MapY = maps.TroysHaus.startY;
+    Player.MapX = maps.TroysHaus.startX; Player.MapY = maps.TroysHaus.startY;
     changeMap('TroysHaus');
 }
-async function troysAusgang() {
+function troysAusgang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps.TroysHaus.startStadtX;
-    Player.MapY = maps.TroysHaus.startStadtY;
+    Player.MapX = maps.TroysHaus.startStadtX; Player.MapY = maps.TroysHaus.startStadtY;
     changeMap('MAP');
 }
-async function shopEingang() {
+function shopEingang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps.ShopHaus.startX;
-    Player.MapY = maps.ShopHaus.startY;
+    Player.MapX = maps.ShopHaus.startX; Player.MapY = maps.ShopHaus.startY;
     changeMap('ShopHaus');
 }
-async function shopAusgang() {
+function shopAusgang() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps.ShopHaus.startStadtX;
-    Player.MapY = maps.ShopHaus.startStadtY;
+    Player.MapX = maps.ShopHaus.startStadtX; Player.MapY = maps.ShopHaus.startStadtY;
     changeMap('MAP');
 }
-async function shopEingangHG() {
+function shopEingangHG() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps.ShopHausHG.startX;
-    Player.MapY = maps.ShopHausHG.startY;
+    Player.MapX = maps.ShopHausHG.startX; Player.MapY = maps.ShopHausHG.startY;
     changeMap('ShopHausHG');
 }
-async function shopAusgangHG() {
+function shopAusgangHG() {
     document.getElementById('door-sound').play();
-    Player.MapX = maps.ShopHausHG.startStadtX;
-    Player.MapY = maps.ShopHausHG.startStadtY;
+    Player.MapX = maps.ShopHausHG.startStadtX; Player.MapY = maps.ShopHausHG.startStadtY;
     changeMap('MAP');
 }
 
 function moveMap() {
-    const bg = documentMap;
     const player = document.getElementById('user');
-    let direction = "";
-
-    let newMapX = Player.MapX;
-    let newMapY = Player.MapY;
-
-
-    if (activeDirection === "w" && mapY + moveSpeed <= maxY) {
-        direction = "up"; newMapY = mapY + moveSpeed;
+    let direction = ""; let newMapX = Player.MapX; let newMapY = Player.MapY;
+    switch (activeDirection) {
+        case "w": if (mapY + moveSpeed <= maxY) { direction = "up"; newMapY = mapY + moveSpeed; }; break;
+        case "a": if (mapX + moveSpeed <= maxX) { direction = "left"; newMapX = mapX + moveSpeed; }; break;
+        case "s": if (mapY - moveSpeed >= minY) { direction = "down"; newMapY = mapY - moveSpeed; }; break;
+        case "d": if (mapX - moveSpeed >= minX) { direction = "right"; newMapX = mapX - moveSpeed; }; break;
+        default: console.error("moveMap()-ERROR: unknown activeDirection:", activeDirection); break;
     }
-    else if (activeDirection === 's' && mapY - moveSpeed >= minY) {
-        direction = "down"; newMapY = mapY - moveSpeed;
-    }
-    if (activeDirection === 'a' && mapX + moveSpeed <= maxX) {
-        direction = "left"; newMapX = mapX + moveSpeed;
-    }
-    if (activeDirection === 'd' && mapX - moveSpeed >= minX) {
-        direction = "right"; newMapX = mapX - moveSpeed;
-    }
-
-    for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
-        const area = maps[activeMap].blockedArea[i];
-        if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-            return;
-        }
-    }
-    if (activeMap == "ShopHaus") {
-        for (let i = 0; i < maps[activeMap].shopHandel.length; i++) {
-            const area = maps[activeMap].shopHandel[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHandel_B")[0].classList.toggle("hidethis", false);
-            } else {
-                document.getElementsByClassName("ShopHandel_B")[0].classList.toggle("hidethis", true);
+    switch (activeMap) {
+        case "ShopHaus":
+            for (let i = 0; i < maps.ShopHaus.shopHandel.length; i++) {
+                const a = maps.ShopHaus.shopHandel[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHandel_B', false); }
+                else { toggleClassElement('ShopHandel_B', true); }
             }
-        }
-        for (let i = 0; i < maps[activeMap].shopHome.length; i++) {
-            const area = maps[activeMap].shopHome[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHausOut_B")[0].classList.toggle("hidethis", false);
-            } else {
-                document.getElementsByClassName("ShopHausOut_B")[0].classList.toggle("hidethis", true);
+            for (let i = 0; i < maps.ShopHaus.shopHome.length; i++) {
+                const a = maps.ShopHaus.shopHome[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHausOut_B', false); }
+                else { toggleClassElement('ShopHausOut_B', true); }
             }
-        }
-    }
-    if (activeMap == "ShopHausHG") {
-        for (let i = 0; i < maps[activeMap].shopHomeHG.length; i++) {
-            const area = maps[activeMap].shopHomeHG[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHausHohesGrasOut")[0].classList.toggle("hidethis", false);
-            } else {
-                document.getElementsByClassName("ShopHausHohesGrasOut")[0].classList.toggle("hidethis", true);
+            break;
+        case "ShopHausHG":
+            for (let i = 0; i < maps.ShopHausHG.shopHomeHG.length; i++) {
+                const a = maps.ShopHausHG.shopHomeHG[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHausHohesGrasOut', false); }
+                else { toggleClassElement('ShopHausHohesGrasOut', true); }
             }
-        }
-    }
-    if (activeMap == "MeinHaus") {
-        for (let i = 0; i < maps[activeMap].tulpaPc.length; i++) {
-            const area = maps[activeMap].tulpaPc[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("Tulpa-PC")[0].classList.toggle("hidethis", false);
-            } else {
-                document.getElementsByClassName("Tulpa-PC")[0].classList.toggle("hidethis", true);
+            break;
+        case "MeinHaus":
+            for (let i = 0; i < maps.MeinHaus.tulpaPc.length; i++) {
+                const a = maps.MeinHaus.tulpaPc[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('Tulpa-PC', false); }
+                else { toggleClassElement('Tulpa-PC', true); }
             }
-        }
-        for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
-            const area = maps[activeMap].selfHome[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("MeinHausOut_B")[0].classList.toggle("hidethis", false);
-            } else {
-                document.getElementsByClassName("MeinHausOut_B")[0].classList.toggle("hidethis", true);
+            for (let i = 0; i < maps.MeinHaus.selfHome.length; i++) {
+                const a = maps.MeinHaus.selfHome[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('MeinHausOut_B', false); }
+                else { toggleClassElement('MeinHausOut_B', true); }
             }
-        }
-    }
-    if (activeMap == "TroysHaus") {
-        for (let i = 0; i < maps[activeMap].profHome.length; i++) {
-            const area = maps[activeMap].profHome[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("TroysHausOut_B")[0].classList.toggle("hidethis", false);
+            break;
+        case "TroysHaus":
+            for (let i = 0; i < maps.TroysHaus.profHome.length; i++) {
+                const a = maps.TroysHaus.profHome[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('TroysHausOut_B', false); }
+                else { toggleClassElement('TroysHausOut_B', true); }
             }
-            else {
-                document.getElementsByClassName("TroysHausOut_B")[0].classList.toggle("hidethis", true);
+            break;
+        case "MAP":
+            for (let i = 0; i < maps.MAP.shopHome.length; i++) {
+                const a = maps.MAP.shopHome[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHaus_B', false); }
+                else { toggleClassElement('ShopHaus_B', true); }
             }
-        }
-    }
-    if (activeMap == "MAP") {
-        for (let i = 0; i < maps[activeMap].shopHome.length; i++) {
-            const area = maps[activeMap].shopHome[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHaus_B")[0].classList.toggle("hidethis", false);
-            } else {
-                document.getElementsByClassName("ShopHaus_B")[0].classList.toggle("hidethis", true);
+            for (let i = 0; i < maps.MAP.profHome.length; i++) {
+                const a = maps.MAP.profHome[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('TroysHaus_B', false); }
+                else { toggleClassElement('TroysHaus_B', true); }
             }
-        }
-        for (let i = 0; i < maps[activeMap].profHome.length; i++) {
-            const area = maps[activeMap].profHome[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("TroysHaus_B")[0].classList.toggle("hidethis", false);
-            } else {
-                document.getElementsByClassName("TroysHaus_B")[0].classList.toggle("hidethis", true);
+            for (let i = 0; i < maps.MAP.selfHome.length; i++) {
+                const a = maps.MAP.selfHome[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('MeinHaus_B', false); }
+                else { toggleClassElement('MeinHaus_B', true); }
             }
-        }
-        for (let i = 0; i < maps[activeMap].selfHome.length; i++) {
-            const area = maps[activeMap].selfHome[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("MeinHaus_B")[0].classList.toggle("hidethis", false);
+            for (let i = 0; i < maps.MAP.shopHomeHG.length; i++) {
+                const a = maps[activeMap].shopHomeHG[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHausHohesGrasIn', false); }
+                else { toggleClassElement('ShopHausHohesGrasIn', true); }
             }
-            else {
-                document.getElementsByClassName("MeinHaus_B")[0].classList.toggle("hidethis", true);
-            }
-        }
-        for (let i = 0; i < maps[activeMap].shopHomeHG.length; i++) {
-            const area = maps[activeMap].shopHomeHG[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                document.getElementsByClassName("ShopHausHohesGrasIn")[0].classList.toggle("hidethis", false);
-            } 
-            else {
-                document.getElementsByClassName("ShopHausHohesGrasIn")[0].classList.toggle("hidethis", true);
-            }
-        }
-        for (let i = 0; i < maps[activeMap].trainerBattle.length; i++) {
-            const area = maps[activeMap].trainerBattle[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                trainername = area.name;
-                var Fight = true;
-                for (i = 0; i <= Player.defeatedTrainer.length; i++) {
-                    if (Player.defeatedTrainer[i] == area.name) {
-                        Fight = false;
-                    }
-                }
-                if (Fight) {
-                    if (area.name == "Trainer000") {
-                        if (Player.Tulpas.Slot_1.name == "") {
-                            clearInterval(moveIntervalID);
-                            Trainer000monolog(TrainerList[trainername]);
-                        }
-                    } else {
-                        clearInterval(moveIntervalID);
-                        traineranimation(TrainerList[trainername], trainername);
+            for (let i = 0; i < maps.MAP.trainerBattle.length; i++) {
+                const a = maps.MAP.trainerBattle[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
+                    trainername = a.name; var Fight = true;
+                    for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
+                    if (Fight) {
+                        if (a.name == "Trainer000") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
+                        else { clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername); }
                     }
                 }
             }
-        }
-
-        for (let i = 0; i < maps[activeMap].battleArea.length; i++) {
-            const area = maps[activeMap].battleArea[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                let zufall = Math.round(Math.random() * 100);
-                if (zufall <= 10) {
-                    clearInterval(moveIntervalID);
-                    lastArea = "wald";
-                    console.log("Erkannter Bereich: ", lastArea);
-                    battleanimation(0);
+            for (let i = 0; i < maps.MAP.battleArea.length; i++) {
+                const a = maps.MAP.battleArea[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
+                    let zufall = Math.round(Math.random() * 100);
+                    if (zufall <= 10) {
+                        clearInterval(moveIntervalID); lastArea = "wald";
+                        console.log("Erkannter Bereich: ", lastArea); battleanimation(0);
+                    }
                 }
             }
-        }
-        for (let i = 0; i < maps[activeMap].battleAreaDW.length; i++) {
-            const area = maps[activeMap].battleAreaDW[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                let zufall = Math.round(Math.random() * 100);
-                if (zufall <= 10) {
-                    clearInterval(moveIntervalID);
-                    lastArea = "dunkelwald";
-                    console.log("Erkannter Bereich: ", lastArea);
-                    battleanimation(0);
+            for (let i = 0; i < maps.MAP.battleAreaDW.length; i++) {
+                const a = maps.MAP.battleAreaDW[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
+                    let zufall = Math.round(Math.random() * 100);
+                    if (zufall <= 10) {
+                        clearInterval(moveIntervalID); lastArea = "dunkelwald";
+                        console.log("Erkannter Bereich: ", lastArea); battleanimation(0);
+                    }
                 }
             }
-        }
-        for (let i = 0; i < maps[activeMap].battleAreaHG.length; i++) {
-            const area = maps[activeMap].battleAreaHG[i];
-            if (newMapX >= area.minX && newMapX <= area.maxX && newMapY >= area.minY && newMapY <= area.maxY) {
-                let zufall = Math.round(Math.random() * 50);
-                if (zufall <= 10) {
-                    clearInterval(moveIntervalID);
-                    lastArea = "hohesgras";
-                    console.log("Erkannter Bereich: ", lastArea);
-                    battleanimation(0);
+            for (let i = 0; i < maps.MAP.battleAreaHG.length; i++) {
+                const a = maps.MAP.battleAreaHG[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
+                    let zufall = Math.round(Math.random() * 50);
+                    if (zufall <= 10) {
+                        clearInterval(moveIntervalID); lastArea = "hohesgras";
+                        console.log("Erkannter Bereich: ", lastArea); battleanimation(0);
+                    }
                 }
             }
-        }
+            break;
+        default:
+            for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
+                const a = maps[activeMap].blockedArea[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
+                    return;
+                }
+            }
+            break;
     }
-    mapX = newMapX;
-    mapY = newMapY;
-    Player.MapX = mapX;
-    Player.MapY = mapY;
-    console.log("X:", mapX, " Y:", mapY); //Log für Koordinaten
-    if (direction) {
-        player.className = 'Player m_' + direction;
-    }
-    bg.style.left = mapX + 'px';
-    bg.style.top = mapY + 'px';
+    Player.MapX = newMapX; Player.MapY = newMapY;
+    console.log("X:", Player.MapX, " Y:", Player.MapY); //Log für Koordinaten
+    if (direction) { player.className = 'Player m_' + direction; }
+    documentMap.style.left = Player.MapX + 'px'; documentMap.style.top = Player.MapY + 'px';
 }
 
 function stopMovement() {
     const player = document.getElementById('user');
-    if (player.className.startsWith('Player m_')) {
-        let lastDir = player.className.split('_')[1];
-        player.className = 'Player ' + lastDir;
-    } else { player.className = 'Player down'; }
-    console.log("Bewegung gestoppt.");
+    if (player.className.startsWith('Player m_')) { let lastDir = player.className.split('_')[1]; player.className = 'Player ' + lastDir; }
+    else { player.className = 'Player down'; }
 }
 
 document.addEventListener('keydown', (event) => {
@@ -318,17 +238,12 @@ document.addEventListener('keydown', (event) => {
 
 document.addEventListener('keyup', (event) => {
     if (event.key.toLocaleLowerCase() === activeDirection) {
-        activeDirection = null;
-        stopMovement();
+        activeDirection = null; stopMovement();
     }
 });
 
 let moveIntervalID;
 moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-
-function zonenName() {
-    console.log();
-}
 
 function Click_W_down() { simulateKeyDown("w"); }
 function Click_W_up() { simulateKeyUp("w"); }

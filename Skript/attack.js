@@ -7,5 +7,5 @@ const Attacks = {
     "Schlag": { name: "Schlag", ATK_Power: 27, DEF_Value: 0 },
     "Todeshauch": { name: "Todeshauch", ATK_Power: 35, DEF_Value: 0 },
     "Schild": { name: "Schild", ATK_Power: 0, DEF_Value: 20 },
-    "Ausweichen": { name: "Ausweichen", ATK_Power: 0, DEF_Value: 0 },
+    "Ausweichen": { name: "Ausweichen", ATK_Power: 0, DEF_Value: 10 },
 }
