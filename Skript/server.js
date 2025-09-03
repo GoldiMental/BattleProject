@@ -18,6 +18,9 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..'));
 
+const frontendPath = path.join(__dirname, '..');
+app.use(express.static(frontendPath));
+
 const jwt_Key = process.env.jwt_Key;
 if (!jwt_Key) {
     console.warn('Fehler: jwt_Key ist nicht in der .env-Datei gesetzt oder wurde nicht geladen.');
@@ -301,10 +304,6 @@ app.post('/api/savegame', authenticateToken, async (req, res) => {
         res.status(500).json({ message: 'Interner Serverfehler beim Speichern der Spielerdaten.' });
     }
 });
-
-const frontendPath = path.join(__dirname, '..');
-
-app.use(express.static(frontendPath));
 
 app.get('/', (req, res) => {
     res.render('index', { gameServerIP: `http://${OpenIP}:3000` });
