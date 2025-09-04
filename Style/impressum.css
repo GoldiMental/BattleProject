@@ -37,6 +37,11 @@ a {
     gap: 32px;
 }
 
+#KONTAKT img {
+    height: 40px;
+    width: 40px;
+}
+
 a:hover {
     color: rgb(255, 215, 0);
 }
