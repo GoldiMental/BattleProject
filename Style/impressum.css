@@ -31,16 +31,10 @@ a {
     vertical-align: middle;
 }
 
-#KONTAKT a,
-b {
-    height: 48px;
-    text-align: center;
-    justify-content: center;
-    vertical-align: middle;
-}
-
-#KONTAKT b {
-    vertical-align: middle;
+#KONTAKT a {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
 a:hover {
