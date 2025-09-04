@@ -127,8 +127,8 @@ function moveMap() {
             }
             break;
         case "ShopHausHG":
-            for (let i = 0; i < maps.ShopHausHG.shopHandel.length; i++) {
-                const a = maps.ShopHausHG.shopHandel[i];
+            for (let i = 0; i < maps.ShopHausHG.shopHandelHG.length; i++) {
+                const a = maps.ShopHausHG.shopHandelHG[i];
                 if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHandelHohesGras', false); }
                 else { toggleClassElement('ShopHandelHohesGras', true); }
             }
