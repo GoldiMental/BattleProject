@@ -1,5 +1,3 @@
-const { console } = require("inspector");
-
 let trainer = {};
 let TulpaIndex = "Tulpa1";
 let trainerbattle = 0;
