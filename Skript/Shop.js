@@ -22,7 +22,6 @@ function closeShop() {
   let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
   let shopMenu = document.getElementById("shopMenu");
   shopMenu.classList.toggle("hidethis", true); monologBox.classList.toggle("hidethis", true);
-  document.getElementById("ShopHandel").classList.toggle("hidethis", false);
   moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
 }
 
