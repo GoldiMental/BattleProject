@@ -116,49 +116,6 @@ function Click() {
     });
 }
 
-function showCustomAlert(message) {
-    const modalOverlay = document.getElementById('customModalOverlay');
-    const modalTitle = document.getElementById('customModalTitle');
-    const modalMessage = document.getElementById('customModalMessage');
-    const modalInput = document.getElementById('customModalInput');
-    const okButton = document.getElementById('customModalOkButton');
-    const cancelButton = document.getElementById('customModalCancelButton');
-
-    modalTitle.textContent = "Information";
-    modalMessage.textContent = message;
-    modalInput.classList.add('hidden');
-    cancelButton.classList.add('hidden');
-    modalOverlay.classList.add('visible');
-
-    return new Promise(resolve => {
-        okButton.onclick = () => {
-            modalOverlay.classList.remove('visible');
-            resolve(true);
-        };
-    });
-}
-
-function showCustomPrompt(title, defaultValue = '') {
-    const modalOverlay = document.getElementById('customModalOverlay');
-    const modalTitle = document.getElementById('customModalTitle');
-    const modalMessage = document.getElementById('customModalMessage');
-    const modalInput = document.getElementById('customModalInput');
-    const okButton = document.getElementById('customModalOkButton');
-    const cancelButton = document.getElementById('customModalCancelButton');
-
-    modalTitle.textContent = title;
-    modalMessage.textContent = "";
-    modalInput.value = defaultValue;
-    modalInput.classList.remove('hidden');
-    cancelButton.classList.remove('hidden');
-    modalOverlay.classList.add('visible');
-
-    return new Promise(resolve => {
-        okButton.onclick = () => { modalOverlay.classList.remove('visible'); resolve(modalInput.value); };
-        cancelButton.onclick = () => { modalOverlay.classList.remove('visible'); resolve(null); };
-    });
-}
-
 async function SaveGame() {
     console.log("Versuche Spiel zu speichern...");
     const authToken = localStorage.getItem('authToken');

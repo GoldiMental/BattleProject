@@ -87,7 +87,7 @@ function BuyThis(idnr) {
     showCustomAlert("Du hast " + qty + "x " + product + " für " + price + " Gold erhalten!");
   } else {
     console.log("Spieler kann sich das Produkt in der Menge nicht leisten. Kauf wird abgebrochen...");
-    showCustomAlert("Das scheint mir, als könntest Du dir das nicht leisten.")
+    showCustomAlert("Das scheint mir, als könntest Du dir das nicht leisten.");
   }
 }
 
