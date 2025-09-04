@@ -548,7 +548,7 @@ async function UseBall(ball) {
             document.getElementById("movement_game").classList.toggle("hidethis", false);
             document.getElementById("battle_game").classList.toggle("hidethis", true);
             document.getElementById("battle_menu").classList.toggle("hidethis", true);
-            document.getElementById("HohesGras").style.left = "0%";
+            //document.getElementById("HohesGras").style.left = "0%";
             document.getElementById('escape').disabled = false;
             document.getElementById('Tulpa-opp').style.opacity = "1";
             document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
