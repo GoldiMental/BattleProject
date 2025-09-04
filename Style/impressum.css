@@ -32,9 +32,8 @@ a {
 }
 
 #KONTAKT a,
-img,
 b {
-    height: 32px;
+    height: 48px;
     text-align: center;
     justify-content: center;
     vertical-align: middle;
