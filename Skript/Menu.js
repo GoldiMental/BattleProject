@@ -1,33 +1,35 @@
 //Javascript Menu
 function MenuList() {
-    console.log("Öffne/Schließe Menü...");
+    console.log("Führe MenuList() aus...");
     if (document.getElementById('MenuList').classList.contains('hidethis')) {
         document.getElementById('MenuList').classList.toggle("hidethis", false);
-        console.log("Menü geöffnet. Bewegung wird gesperrt...");
+        console.log("Menü öffnen => Bewegung sperren...");
         clearInterval(moveIntervalID);
+        console.log("MenuList() ✅");
     } else {
-        console.log("Menü geschlossen. Bewegung wird freigegeben...");
+        console.log("Menü schließen => Bewegung freigeben...");
         document.getElementById('MenuList').classList.toggle("hidethis", true);
         moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+        console.log("MenuList() ✅");
     }
 }
 
 async function Cheat() {
     let CheatInput = await showCustomPrompt("Bitte gib den Cheat ein:", "Eingabe");
-    console.log("Versuche den Cheat: ", CheatInput, " auszuführen...");
+    console.log("Führe Cheat(", CheatInput, ") aus...");
     switch (CheatInput) {
         case "MOREGOLD":
             Player.Gold += 1000;
             Player.Cheats += 1;
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Anwendung erfolgreich.");
+            console.log("Cheat() ✅");
             break;
         case "CHANGENAME":
             let newName = await showCustomPrompt("Gib deinen neuen Namen ein:", "Max");
             Player.name = newName;
             Player.Cheats += 1;
             showCustomAlert("Der Name wurde zu " + newName + " geändert.");
-            console.log("Anwendung erfolgreich.");
+            console.log("Cheat() ✅");
             break;
         case "GETBALLS":
             Player.inventory.balls.Tulpaball += 10;
@@ -36,7 +38,7 @@ async function Cheat() {
             Player.inventory.balls.Ultra_Tulpaball += 1;
             Player.Cheats += 1;
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Anwendung erfolgreich.");
+            console.log("Cheat() ✅");
             break;
         case "GETDRINKS":
             Player.inventory.drinks.Heiltrank += 10;
@@ -45,7 +47,7 @@ async function Cheat() {
             Player.inventory.drinks.Super_Manatrank += 1;
             Player.Cheats += 1;
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Anwendung erfolgreich.");
+            console.log("Cheat() ✅");
             break;
         case "GETBONBONS":
             Player.inventory.bonbons.Bonbon += 5;
@@ -53,32 +55,32 @@ async function Cheat() {
             Player.inventory.bonbons.Hyper_Bonbon += 1;
             Player.Cheats += 1;
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Anwendung erfolgreich.");
+            console.log("Cheat() ✅");
             break;
         case "GETBOSSTULPA":
             Player.Tulpas.Slot_1 = { name: "Streitross", Lv: 250, HP: 850, HP_Total: 850, XP: 3125000 };
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Anwendung erfolgreich.");
+            console.log("Cheat() ✅");
             break;
         case "GETUBERTULPA":
             Player.Tulpas.Slot_1 = { name: "Böser_Wolf", Lv: 1000, HP: 3100, HP_Total: 3100, XP: 50000000 };
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Anwendung erfolgreich.");
+            console.log("Cheat() ✅");
             break;
         case "MAIKYTULPA":
             Player.Tulpas.Slot_4 = { name: "Böser_Wolf", Lv: 50, HP: 250, HP_Total: 250, XP: 125000 };
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Anwendung erfolgreich.");
+            console.log("Cheat() ✅");
             break;
         default:
-            console.error("Cheatcode nicht gefunden!");
+            console.warn("catched Cheat()-ERROR: Cheat not found => Cheat() stopped");
             showCustomAlert("Cheat nicht gefunden!");
             break;
     }
 }
 
 function Tulpa_Dex() {
-    console.log("Öffne Tulpa Dex...");
+    console.log("Führe Tulpa_Dex() aus...");
     document.getElementById('Tulpa_Dex').classList.toggle("hidethis", false);
     let html = '';
     console.log("Erstelle HTML-Element...");
@@ -88,16 +90,17 @@ function Tulpa_Dex() {
             '<div class="description">' + Tulpas[Tulpa].des + '</div></div>';
     }
     document.getElementById('Tulpa_Dex_List').innerHTML = html;
-    console.log("HTML-Element erstellt und eingefügt.");
+    console.log("Tulpa_Dex() ✅");
 }
 
 function close_Tulpa_Dex() {
-    console.log("Schließe Tulpa Dex...");
+    console.log("Führe close_Tulpa_Dex() aus...");
     document.getElementById('Tulpa_Dex').classList.toggle("hidethis", true);
+    console.log("close_Tulpa_Dex() ✅");
 }
 
 function Tulpas_List() {
-    console.log("Öffne Tulpa Liste des Spielers...");
+    console.log("Führe Tulpas_List() aus...");
     document.getElementById('Tulpas').classList.toggle("hidethis", false);
     let html = ''; console.log("Erstelle HTML-Element...");
     for (Slot in Player.Tulpas) {
@@ -115,14 +118,14 @@ function Tulpas_List() {
         }
     };
     document.getElementById('Tulpa_List').innerHTML = html;
-    console.log("HTML-Element erstellt und eingefügt.");
+    console.log("Tulpas_List() ✅");
 }
 
 async function removeTulpa(Slot) {
-    console.warn("Tulpa soll entfernt werden!!! Warte auf Spielereingabe...");
+    console.log("Führe removeTulpa(", Slot, ") aus...");
     let antwort = await showCustomConfirm("Soll " + Player.Tulpas[Slot].name + " wirklich gelöscht werden?");
     if (antwort && Slot != "Slot_1") {
-        console.log("Betsätigt vom Spieler!");
+        console.log("removeTulpa() confirmed by User!");
         showCustomAlert(Player.Tulpas[Slot].name + " wurde gelöscht.");
         Player.Tulpas[Slot] = { name: "", Lv: 0, HP: 0, HP_Total: 0, XP: 0, ID: "" };
         if (Slot != "Slot_6") {
@@ -140,13 +143,13 @@ async function removeTulpa(Slot) {
                 }
             }
         }
-        console.log("Entfernung erfolgreich: Slot ", antwort, " ist wieder frei.");
+        console.log("removeTulpa(", Slot, ") ✅ => Tulpas_List()");
         Tulpas_List();
     } else if (Slot == "Slot_1") {
-        console.error("Slot 1 muss belegt bleiben. Tulpa bleibt erhalten. Entfernen wird abgebrochen...");
+        console.warn("catched removeTulpa()-ERROR: Slot_1 must be set => removeTulpa(", Slot, ") stopped");
         showCustomAlert("Der erste Slot muss immer belegt sein!");
     } else {
-        console.error("Abgelehnt vom Spieler!")
+        console.log("removeTulpa() canceled by User! => removeTulpa(", Slot, ") stopped")
     }
 }
 
@@ -160,20 +163,21 @@ async function swapTulpa(Slot) {
         Player.Tulpas[Slot] = tulpa_2;
         Player.Tulpas["Slot_" + antwort] = tulpa_1;
         Tulpas_List();
-        console.log("Tausch erfolgreich.");
+        console.log("swapTulpa(", Slot, ") ✅");
     } else {
-        console.error("Tausch fehlgeschlagen und abgebrochen...");
+        console.warn("catched swapTulpa()-ERROR: Inputerror by User! => swapTulpa(", slot, ") stopped");
         showCustomAlert("Tausch nicht möglich! \n Falsche Eingabe oder Slot nicht belegt.");
     }
 }
 
 function close_Tulpas() {
-    console.log("Schließe Tulpa Liste des Spielers...");
+    console.log("Führe close_Tulpas() aus...");
     document.getElementById('Tulpas').classList.toggle("hidethis", true);
+    console.log("close_Tulpas() ✅");
 }
 
 function Info() {
-    console.log("Öffne Spielerinfo...");
+    console.log("Führe Info() aus...");
     document.getElementById('Info').classList.toggle("hidethis", false);
     let html = ''; console.log("Erstelle HTML-Element...");
     html += '<table><tr>' +
@@ -188,16 +192,17 @@ function Info() {
         '<tr><td>Cheats:</td>' +
         '<td>' + Player.Cheats + '</td></tr>';
     document.getElementById('Info_List').innerHTML = html;
-    console.log("HTML-Element erstellt und eingefügt.");
+    console.log("Info() ✅");
 }
 
 function close_Info() {
-    console.log("Schließe Spielerinfo...");
+    console.log("Führe close_Info() aus...");
     document.getElementById('Info').classList.toggle("hidethis", true);
+    console.log("closeInfo() ✅");
 }
 
 function Karte() {
-    console.log("Öffne und Aktualisiere die Karte...");
+    console.log("Führe Karte() aus...");
     document.getElementById('Karte').classList.toggle("hidethis", false);
     const standortMarker = document.getElementById('standort-marker');
     standortMarker.classList.toggle("hidethis", false);
@@ -235,16 +240,18 @@ function Karte() {
 
     //console.log("Spieler-Position (Original):", playerX, playerY);
     //console.log("Marker-Position (Skaliert):", markerX, markerY);
+    console.log("Karte() ✅")
 }
 
 function close_Karte() {
-    console.log("Schließe Karte...");
+    console.log("Führe close_Karte() aus...");
     document.getElementById('Karte').classList.toggle("hidethis", true);
     document.getElementById('standort-marker').classList.toggle("hidethis", true);
+    console.log("close_Karte() ✅");
 }
 
 function Items() {
-    console.log("Öffne Inventar des Spielers...");
+    console.log("Führe Items() aus...");
     document.getElementById('Items').classList.toggle("hidethis", false);
     let html = "<div id='Bälle' class='Item_Title'>Bälle: </div><br>";
     console.log("Erstelle HTML-Element...");
@@ -260,12 +267,13 @@ function Items() {
         html += '<div><button title="' + Item_List[bonbon].des + '" class="Item_list" onclick="Use(\'' + bonbon + '\',\'' + Player.inventory.bonbons[bonbon] + '\')">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</button><br>';
     }
     document.getElementById('Item_List').innerHTML = html;
-    console.log("HTML-Element erstellt und eingefügt...");
+    console.log("Items() ✅");
 }
 
 function close_Items() {
-    console.log("Schließe Inventar...");
+    console.log("Führe close_Items() aus...");
     document.getElementById('Items').classList.toggle("hidethis", true);
+    console.log("close_Items() ✅");
 }
 
 async function Use(itm, qty) {
@@ -312,14 +320,14 @@ async function Use(itm, qty) {
                 if (Player.Tulpas[slot].name != "") {
                     Player.Tulpas[slot].XP += Item_List[itm].XPB;
                     if (Player.Tulpas[slot].XP >= (25 * (Player.Tulpas[slot].Lv + 1) * (2 * (Player.Tulpas[slot].Lv + 1)))) {
-                        showCustomAlert(Tulpas[Player.Tulpas[slot].name].name," ist ein Level aufgestiegen.");
+                        showCustomAlert(Tulpas[Player.Tulpas[slot].name].name, " ist ein Level aufgestiegen.");
                         Player.Tulpas[slot].Lv += 1;
                         Player.Tulpas[slot].HP = Tulpas[Player.Tulpas[slot].name].HP + (3 * Player.Tulpas[slot].Lv);
                         Player.Tulpas[slot].HP_Total = Tulpas[Player.Tulpas[slot].name].HP + (3 * Player.Tulpas[slot].Lv);
                     }
                     Player.inventory.bonbons[itm] -= 1;
                     console.log("Anwendung erfolgreich.");
-                    showCustomAlert("Bonbon erfolgreich bei ",Tulpas[Player.Tulpas[slot].name].name," angewendet.");
+                    showCustomAlert("Bonbon erfolgreich bei ", Tulpas[Player.Tulpas[slot].name].name, " angewendet.");
                     close_Tulpas();
                     Items();
                 } else {

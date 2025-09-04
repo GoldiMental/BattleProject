@@ -4,7 +4,7 @@ let lastArea = "";
 let activeDirection = null;
 const movementGame = document.getElementById("movement_game");
 const documentMap = document.querySelector('.map');
-let activeMap = "MAP";
+let activeMap = Player.actualMap;
 
 let minX = -(parseInt(maps[activeMap].Width) - 250);
 let maxX = 250;
@@ -47,13 +47,14 @@ async function changeMap(mapname) {
     Player.actualMap = activeMap;
     refreshMap(); await Delay(750);
     movementGame.classList.toggle("hidethis", false);
+    console.log("changeMap(", mapname, ") ✅");
 }
 
 function refreshMap() {
-    console.log("Aktualiere die MAP...");
+    console.log("Führe refreshMap() aus...");
     minX = -(parseInt(maps[activeMap].Width) - 250); maxX = 250;
     minY = -(parseInt(maps[activeMap].Height) - 250); maxY = 250;
-    moveMap();
+    moveMap(); console.log("refreshMap() ✅");
 }
 
 function meinEingang() {
@@ -105,7 +106,7 @@ function moveMap() {
         case "a": if (Player.MapX + moveSpeed <= maxX) { direction = "left"; newMapX = Player.MapX + moveSpeed; }; break;
         case "s": if (Player.MapY - moveSpeed >= minY) { direction = "down"; newMapY = Player.MapY - moveSpeed; }; break;
         case "d": if (Player.MapX - moveSpeed >= minX) { direction = "right"; newMapX = Player.MapX - moveSpeed; }; break;
-        default: console.warn("catched moveMap()-ERROR: unknown activeDirection:", activeDirection," => reset activeDirection"); break;
+        default: console.warn("catched moveMap()-ERROR: unknown activeDirection:", activeDirection, " => reset activeDirection"); break;
     }
     for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
         const a = maps[activeMap].blockedArea[i];
@@ -222,7 +223,7 @@ function moveMap() {
             break;
     }
     Player.MapX = newMapX; Player.MapY = newMapY;
-    console.log("X:", Player.MapX, " Y:", Player.MapY); //Log für Koordinaten
+    console.log("moveMap() => X:", Player.MapX, " Y:", Player.MapY); //Log für Koordinaten
     if (direction) { player.className = 'Player m_' + direction; }
     documentMap.style.left = Player.MapX + 'px'; documentMap.style.top = Player.MapY + 'px';
 }

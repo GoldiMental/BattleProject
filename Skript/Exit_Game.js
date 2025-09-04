@@ -1,4 +1,5 @@
 function Exit_Game() {
+    console.log("Führe Exit_Game() aus...");
     const popup = document.createElement('div');
     popup.className = 'retro-popup';
     popup.innerHTML = `
@@ -13,7 +14,8 @@ function Exit_Game() {
     `;
     document.body.appendChild(popup);
     document.getElementById('retroPopupYes').addEventListener('click', function () {
-        try { window.location.replace(GAME_SERVER_IP); } catch (e) { window.location.href = 'about:blank'; }
+        try { console.log("Exit_Game() ✅ => ()..."); window.location.replace(GAME_SERVER_IP); } catch (e) { window.location.href = 'about:blank'; }
     });
     document.getElementById('retroPopupNo').addEventListener('click', function () { document.body.removeChild(popup); });
+    console.log("Exit_Game() ✅ => Exit_Game() stopped by User");
 }
