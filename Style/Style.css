@@ -892,6 +892,7 @@ button {
 }
 
 .change_tulpa_button {
+    color: inherit;
     background-color: transparent;
     border: none;
     height: 30px;
