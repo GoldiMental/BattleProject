@@ -105,7 +105,7 @@ function moveMap() {
         case "a": if (Player.MapX + moveSpeed <= maxX) { direction = "left"; newMapX = Player.MapX + moveSpeed; }; break;
         case "s": if (Player.MapY - moveSpeed >= minY) { direction = "down"; newMapY = Player.MapY - moveSpeed; }; break;
         case "d": if (Player.MapX - moveSpeed >= minX) { direction = "right"; newMapX = Player.MapX - moveSpeed; }; break;
-        default: console.error("moveMap()-ERROR: unknown activeDirection:", activeDirection); break;
+        default: console.warn("moveMap()-ERROR: unknown activeDirection:", activeDirection); break;
     }
     for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
         const a = maps[activeMap].blockedArea[i];
