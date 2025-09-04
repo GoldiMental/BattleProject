@@ -20,7 +20,7 @@ body {
 }
 
 #toggleColorSettings {
-    background: linear-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
+    background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
 }
 
 #ColorSettings button {
@@ -48,35 +48,35 @@ body {
 }
 
 #Darkblue {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
 }
 
 #Darkgreen {
-    background: linear-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
+    background: radial-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
 }
 
 #Darkred {
-    background: linear-gradient(rgb(50, 0, 0), rgb(25, 0, 0));
+    background: radial-gradient(rgb(50, 0, 0), rgb(25, 0, 0));
 }
 
 #Darkviolett {
-    background: linear-gradient(rgb(50, 0, 50), rgb(25, 0, 25));
+    background: radial-gradient(rgb(50, 0, 50), rgb(25, 0, 25));
 }
 
 #Lightblue {
-    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 100));
+    background: radial-gradient(rgb(0, 0, 150), rgb(0, 0, 100));
 }
 
 #Lightgreen {
-    background: linear-gradient(rgb(0, 150, 0), rgb(0, 100, 0));
+    background: radial-gradient(rgb(0, 150, 0), rgb(0, 100, 0));
 }
 
 #Lightred {
-    background: linear-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
+    background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
 }
 
 #Lightviolett {
-    background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
+    background: radial-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
 }
 
 .hidethis {
@@ -97,7 +97,7 @@ body {
     position: absolute;
     height: 1px;
     width: 50%;
-    background: linear-gradient(90deg, transparent, rgb(255, 0, 0), transparent);
+    background: radial-gradient(90deg, transparent, rgb(255, 0, 0), transparent);
     animation: moveLine 10s linear infinite;
 }
 
@@ -105,7 +105,7 @@ body {
     position: absolute;
     height: 1px;
     width: 50%;
-    background: linear-gradient(90deg, transparent, rgb(255, 215, 0), transparent);
+    background: radial-gradient(90deg, transparent, rgb(255, 215, 0), transparent);
     animation: moveLine 10s linear infinite;
 }
 
@@ -206,7 +206,7 @@ button {
 #battle_game {
     position: absolute;
     background-size: 100%;
-    background-image: linear-gradient(rgb(0, 0, 0), rgb(200, 200, 200), rgb(160, 160, 160), rgb(100, 100, 100));
+    background-image: linear-gradient(rgb(20, 20, 20), rgb(200, 200, 200), rgb(160, 160, 160), rgb(100, 100, 100));
     width: 100%;
     height: 100%;
 }
@@ -322,8 +322,8 @@ button {
     height: 75px;
     text-align: left;
     border: 5px inset rgb(192, 192, 192);
-    border-radius: 5px;
-    background-color: rgb(192, 192, 192);
+    border-radius: 1em;
+    background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
 }
 
 .Playground {
@@ -561,7 +561,7 @@ button {
     bottom: 10px;
     right: 10px;
     color: rgb(192, 192, 192);
-    background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
+    background: radial-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
     border: 3px outset rgb(192, 192, 192);
@@ -731,10 +731,10 @@ button {
     position: absolute;
     right: 0px;
     top: 0px;
-    border: 2px inset rgb(100, 100, 100);
-    width: 230px;
-    height: 100%;
-    border-radius: 5px;
+    border: 3px inset rgb(192, 192, 192);
+    width: 220px;
+    height: 70px;
+    border-radius: 0.5em;
 }
 
 #battle_menu {
@@ -747,7 +747,6 @@ button {
 
 #attack_menu {
     position: absolute;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -756,17 +755,18 @@ button {
 }
 
 .battle_Button {
-    height: 37.5px;
-    width: 115px;
-    background-color: rgb(192, 192, 192);
+    height: 35px;
+    width: 110px;
+    background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
     border: none;
-    border-radius: 3px;
+    border-radius: 0.25em;
     font-family: 'Courier New', Courier, monospace;
+    color: rgb(192, 192, 192);
     transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .battle_Button:not(:disabled):hover {
-    background-color: rgb(100, 100, 100);
+    background: radial-gradient(rgba(192, 192, 192, 0.5), rgba(100, 100, 100, 0.5));
 }
 
 .Trainer {
@@ -925,7 +925,7 @@ button {
     left: 55px;
 }
 
-.ShopHandeHohesGras {
+.ShopHandelHohesGras {
     top: 120px;
     left: 105px;
 }
@@ -1041,19 +1041,17 @@ button {
 
 #battle_game_menu {
     position: absolute;
-
     height: 300px;
     width: 225px;
     right: 10px;
     bottom: 95px;
-    background-color: rgb(192, 192, 192);
+    background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
     border: 5px groove rgb(192, 192, 192);
     border-radius: 10px;
     font-family: 'Courier New', Courier, monospace;
 }
 
 #change_tulpa {
-
     position: absolute;
     text-align: center;
     display: flex;
@@ -1063,7 +1061,6 @@ button {
 }
 
 #use_item {
-
     position: absolute;
     text-align: center;
     display: flex;
@@ -1097,19 +1094,19 @@ button {
 
 .TrainerDialogBox {
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(0, 0, 0);
+    color: rgb(192, 192, 192);
     text-align: center;
     font-size: 22px;
     position: absolute;
     bottom: 0px;
     height: 100px;
     width: 490px;
-    background-color: rgb(192, 192, 192);
-    border: 5px ridge rgb(100, 100, 100);
+    background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
+    border: 5px ridge rgb(192, 192, 192);
+    border-radius: 1em;
 }
 
 #shopMenu {
-
     position: absolute;
     background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
     color: rgb(192, 192, 192);
@@ -1121,7 +1118,6 @@ button {
 }
 
 #ShopBuyList {
-
     position: absolute;
     background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
     color: rgb(192, 192, 192);
@@ -1368,16 +1364,22 @@ button {
 
 #audio-controls {
     position: absolute;
-    color: rgb(0, 0, 0);
-    width: 160px;
-    height: 27px;
-    font-size: 20px;
-    background-color: rgb(192, 192, 192);
+    padding: 0.5em;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    font-size: 1em;
+    background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
     border: 3px outset rgb(192, 192, 192);
-    border-radius: 10px;
-    right: 8px;
-    bottom: 8px;
-    opacity: 0.8;
+    border-radius: 2em;
+    right: 0.25em;
+    bottom: 0.25em;
+    opacity: 0.75;
+}
+
+#audio-controls button {
+    background-color: transparent;
+    border: none;
 }
 
 #audio-controls input[type=range] {
@@ -1389,8 +1391,8 @@ button {
     color: rgb(192, 192, 192);
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-    max-width: 400px;
+    box-shadow: 0.1em 0.15em 0.25em rgb(0, 0, 0);
+    max-width: 500px;
     width: 90%;
     text-align: center;
     border: 5px ridge rgb(192, 192, 192);
@@ -1399,22 +1401,24 @@ button {
 .custom-modal-button {
     background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
     color: rgb(192, 192, 192);
+    border: 3px outset rgb(192, 192, 192);
+    border-radius: 2em;
     height: 27px;
-    width: 100px;
+    width: 120px;
+    transition: all 0.3s ease;
 }
 
 .custom-modal-input {
     width: calc(100% - 20px);
     padding: 10px;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    border: 3px ridge rgb(192, 192, 192);
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    border: 3px inset rgb(192, 192, 192);
     border-radius: 6px;
     background: radial-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
     color: rgb(192, 192, 192);
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.2s ease;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
 }
 
 .custom-modal-overlay {
@@ -1431,27 +1435,17 @@ button {
     transition: all 0.3s ease;
 }
 
-.hidethis {
-    display: none !important;
-}
-
 .custom-modal-title {
-    font-size: 1.5rem;
+    font-size: 2.5em;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
     color: rgb(192, 192, 192);
 }
 
 .custom-modal-message {
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.5;
+    margin-bottom: 1.5em;
+    font-size: 1.2em;
     color: rgb(192, 192, 192);
-}
-
-.custom-modal-input:focus {
-    border-color: rgb(255, 215, 0);
-    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5);
 }
 
 .custom-modal-buttons {
@@ -1460,22 +1454,14 @@ button {
     gap: 1rem;
 }
 
-.custom-modal-button.ok {
-    border: 3px outset rgb(192, 192, 192);
-    border-radius: 5px;
-    transition: all 0.2s ease;
-}
-
-.custom-modal-button.cancel {
-    border: 3px outset rgb(192, 192, 192);
-    border-radius: 5px;
-    transition: all 0.2s ease;
-}
-
 .custom-modal-button:hover {
     border: 3px outset rgb(255, 215, 0);
     box-shadow: 0 0 10px rgb(255, 215, 0);
-    background-color: rgb(255, 215, 0);
+}
+
+.custom-modal-input:focus {
+    border: 3px outset rgb(255, 215, 0);
+    box-shadow: 0 0 10px rgb(255, 215, 0);
 }
 
 .custom-modal-button:active {
