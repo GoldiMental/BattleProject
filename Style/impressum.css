@@ -31,6 +31,10 @@ a {
     vertical-align: middle;
 }
 
+#KONTAKT a {
+    height: 32px;
+}
+
 a:hover {
     color: rgb(255, 215, 0);
 }
