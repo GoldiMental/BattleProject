@@ -31,8 +31,10 @@ a {
     vertical-align: middle;
 }
 
-#KONTAKT a {
-    height: fit-content;
+#KONTAKT a,
+img,
+b {
+    height: 32px;
     text-align: center;
     justify-content: center;
     vertical-align: middle;
