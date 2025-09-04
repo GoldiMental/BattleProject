@@ -9,7 +9,6 @@ let activeShop = "";
 async function shopHandel(SHOP) {
   console.log("Öffne Shop und stoppe die Bewegung...");
   clearInterval(moveIntervalID);
-  document.getElementById("ShopHandel").classList.toggle("hidethis", true);
   activeShop = SHOP;
   let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
   let shopMenu = document.getElementById("shopMenu");
