@@ -343,7 +343,6 @@ async function self_attack(attack) {
                 console.log("Leite Spieler zurück zur Karte...");
                 document.getElementById("movement_game").classList.toggle("hidethis", false);
                 document.getElementById("battle_game").classList.toggle("hidethis", true);
-                document.getElementById("HohesGras").style.left = "0%";
                 document.getElementById('fill-opp').style.width = "100%";
                 trainerbattle = 0;
                 moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
@@ -372,9 +371,6 @@ async function self_attack(attack) {
                     console.log("Speicher Trainer als Besiegt ab...")
                     document.getElementById("movement_game").classList.toggle("hidethis", false);
                     document.getElementById("battle_game").classList.toggle("hidethis", true);
-                    document.getElementById("HohesGras").classList.toggle("hidethis", true);
-                    document.getElementById("HohesGras").style.left = "0%";
-                    document.getElementById("HohesGras").style.opacity = "1";
                     document.getElementById('fill-opp').style.width = "100%";
                     document.getElementsByClassName("TrainerDialogBox")[0].setAttribute("TrainerID", "");
                     trainerbattle = 0;
@@ -535,7 +531,7 @@ async function UseBall(ball) {
             console.log("Tulpa gefangen +1");
             let catchedName = tulpa_opp;
             console.log("Tulpaname: ", catchedName, " Level: ", tulpa_lv, " HP: ", tulpa_HP, " HP-Max: ", tulpa_HP_Total);
-            let catchedTulpa = { name: catchedName, Lv: tulpa_lv, HP: tulpa_HP, HP_Total: tulpa_HP_Total, XP: 0, ID: Math.round(Math.random() * 1000000).toString() }
+            let catchedTulpa = { name: catchedName, Lv: tulpa_lv, HP: tulpa_HP, HP_Total: tulpa_HP_Total, XP: (25 * (tulpa_lv + 1)) * (2 * (tulpa_lv)), ID: Math.round(Math.random() * 1000000).toString() }
             console.log("Prüfe Platz des Spielers...");
             for (i in Player.Tulpas) {
                 if (Player.Tulpas[i].name == "") { Player.Tulpas[i] = catchedTulpa; console.log("Füge Tulpe zu ", Player.Tulpas[i], " hinzu."); break; }
@@ -548,7 +544,6 @@ async function UseBall(ball) {
             document.getElementById("movement_game").classList.toggle("hidethis", false);
             document.getElementById("battle_game").classList.toggle("hidethis", true);
             document.getElementById("battle_menu").classList.toggle("hidethis", true);
-            document.getElementById("HohesGras").style.left = "0%";
             document.getElementById('escape').disabled = false;
             document.getElementById('Tulpa-opp').style.opacity = "1";
             document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
