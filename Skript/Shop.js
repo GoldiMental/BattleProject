@@ -4,7 +4,7 @@ const Shops = {
   //weitere Shops folgen...
 }
 
-let activeShop = "";
+let activeShop = ""; 
 
 async function shopHandel(SHOP) {
   console.log("Öffne Shop und stoppe die Bewegung...");
