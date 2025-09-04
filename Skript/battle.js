@@ -261,7 +261,7 @@ async function opp_Attack() {
             document.getElementById("Countdown").innerHTML = "Transport nach Hause."; await Delay(500);
             document.getElementById("Countdown").innerHTML = "Transport nach Hause.."; await Delay(500)
             document.getElementById("Countdown").innerHTML = "Transport nach Hause..."; await Delay(800)
-            document.getElementById("Countdown").innerHTML = "WACH AUF!!!";
+            document.getElementById("Countdown").innerHTML = "WACH AUF!!!"; await Delay(500);
             meinEingang();
             document.getElementById("GameOver").classList.toggle("hidethis", true);
             document.getElementById('Name-opp').style.opacity = "0";
