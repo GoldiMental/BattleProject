@@ -27,6 +27,7 @@ i {
 a {
     color: rgb(192, 192, 192);
     transition: color 0.2s ease;
+    text-decoration: none;
 }
 
 a:hover {
