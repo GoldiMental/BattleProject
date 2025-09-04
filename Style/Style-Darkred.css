@@ -459,6 +459,12 @@ button {
     background-image: url(../img/textures/mapShop_01.png);
 }
 
+.ShopHausHG {
+    width: 250px;
+    height: 250px;
+    background-image: url(../img/textures/ShopHG.png);
+}
+
 #MenuList {
 
     position: absolute;
@@ -877,6 +883,11 @@ button {
     left: 500px;
 }
 
+.ShopHausHohesGrasIn {
+    top: 1700px;
+    right: 255px;
+}
+
 .Inside {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔺</text></svg>");
     background-size: 50px;
@@ -912,6 +923,16 @@ button {
 .ShopHandel_B {
     top: 70px;
     left: 55px;
+}
+
+.ShopHandeHohesGras {
+    top: 120px;
+    left: 105px;
+}
+
+.ShopHausHohesGrasOut {
+    top: 250px;
+    left: 110px;
 }
 
 .Outside {
