@@ -105,7 +105,7 @@ function moveMap() {
         case "a": if (Player.MapX + moveSpeed <= maxX) { direction = "left"; newMapX = Player.MapX + moveSpeed; }; break;
         case "s": if (Player.MapY - moveSpeed >= minY) { direction = "down"; newMapY = Player.MapY - moveSpeed; }; break;
         case "d": if (Player.MapX - moveSpeed >= minX) { direction = "right"; newMapX = Player.MapX - moveSpeed; }; break;
-        default: console.warn("moveMap()-ERROR: unknown activeDirection:", activeDirection); break;
+        default: console.error("moveMap()-ERROR: unknown activeDirection:", activeDirection); break;
     }
     for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
         const a = maps[activeMap].blockedArea[i];
@@ -129,7 +129,7 @@ function moveMap() {
         case "ShopHausHG":
             for (let i = 0; i < maps.ShopHausHG.shopHandel.length; i++) {
                 const a = maps.ShopHausHG.shopHandel[i];
-                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHandel_B', false); }
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHandelHohesGras', false); }
                 else { toggleClassElement('ShopHandelHohesGras', true); }
             }
             for (let i = 0; i < maps.ShopHausHG.shopHomeHG.length; i++) {
