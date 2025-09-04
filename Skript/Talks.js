@@ -14,4 +14,5 @@ async function starteTutorial() {
     await showCustomConfirm('Für Probleme wende dich bitte an: goldimental@gmx.de'); await Delay(100);
     await showCustomConfirm('Vergiss nicht regelmäßig zu speichern! 😉\n\nViel Spaß beim Spielen'); await Delay(100);
     movementGame.classList.toggle("hidethis", false);
+    console.log(movementGame);
 }
