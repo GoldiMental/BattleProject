@@ -32,9 +32,13 @@ a {
 }
 
 #KONTAKT a {
-    height: 32px;
+    height: fit-content;
     text-align: center;
     justify-content: center;
+    vertical-align: middle;
+}
+
+#KONTAKT b {
     vertical-align: middle;
 }
 
