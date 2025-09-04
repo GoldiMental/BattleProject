@@ -31,10 +31,6 @@ a {
     vertical-align: middle;
 }
 
-a label{
-    display: flex;
-}
-
 a:hover {
     color: rgb(255, 215, 0);
 }
