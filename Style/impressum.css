@@ -33,6 +33,9 @@ a {
 
 #KONTAKT a {
     height: 32px;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
 }
 
 a:hover {
