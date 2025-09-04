@@ -4,12 +4,7 @@ let lastArea = "";
 let activeDirection = null;
 const movementGame = document.getElementById("movement_game");
 const documentMap = document.querySelector('.map');
-let activeMap;
-
-let minX = -(parseInt(maps[activeMap].Width) - 250);
-let maxX = 250;
-let minY = -(parseInt(maps[activeMap].Height) - 250);
-let maxY = 250;
+let activeMap; let minX; let maxX; let minY; let maxY;
 
 async function changeMap(mapname) {
     movementGame.classList.toggle("hidethis", true);
