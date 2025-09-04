@@ -68,7 +68,7 @@ async function Cheat() {
             console.log("Cheat() ✅");
             break;
         case "MAIKYTULPA":
-            Player.Tulpas.Slot_4 = { name: "Böser_Wolf", Lv: 50, HP: 250, HP_Total: 250, XP: 125000 };
+            Player.Tulpas.Slot_4 = { name: "Böser_Wolf", Lv: 5, HP: 65, HP_Total: 65, XP: 1250 };
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             console.log("Cheat() ✅");
             break;
