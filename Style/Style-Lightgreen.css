@@ -97,7 +97,7 @@ body {
     position: absolute;
     height: 1px;
     width: 50%;
-    background: radial-gradient(90deg, transparent, rgb(255, 0, 0), transparent);
+    background: linear-gradient(90deg, transparent, rgb(255, 0, 0), transparent);
     animation: moveLine 10s linear infinite;
 }
 
@@ -105,7 +105,7 @@ body {
     position: absolute;
     height: 1px;
     width: 50%;
-    background: radial-gradient(90deg, transparent, rgb(255, 215, 0), transparent);
+    background: linear-gradient(90deg, transparent, rgb(255, 215, 0), transparent);
     animation: moveLine 10s linear infinite;
 }
 
