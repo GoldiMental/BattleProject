@@ -4,7 +4,7 @@ let lastArea = "";
 let activeDirection = null;
 const movementGame = document.getElementById("movement_game");
 const documentMap = document.querySelector('.map');
-let activeMap = Player.actualMap;
+let activeMap;
 
 let minX = -(parseInt(maps[activeMap].Width) - 250);
 let maxX = 250;
