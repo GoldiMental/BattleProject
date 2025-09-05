@@ -247,9 +247,9 @@ var maps = {
         startStadtX: -175,
         startStadtY: -1575,
         blockedArea: [
-            { minX: 25, maxX: 225, minY: 125, maxY: 225 },
-            { minX: 25, maxX: 25, minY: 25, maxY: 75 },
-            { minX: 225, maxX: 225, minY: 25, maxY: 25 },
+            //{ minX: 25, maxX: 225, minY: 125, maxY: 225 },
+            //{ minX: 25, maxX: 25, minY: 25, maxY: 75 },
+            //{ minX: 225, maxX: 225, minY: 25, maxY: 25 },
             //{ minX: , maxX: , minY: , maxY:  },
             //{ minX: , maxX: , minY: , maxY:  },
             //{ minX: , maxX: , minY: , maxY:  },
