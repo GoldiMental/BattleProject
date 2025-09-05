@@ -99,7 +99,6 @@ async function InitializeGameWorld() {
         console.warn("Speichern nicht vergessen!!!");
     } else if ((Player.MapX == 0 && Player.MapY == 0) || (!Player.MapX && !Player.MapX && !Player.tulpaGegeben)) {
         await Delay(200); starteTutorial();
-        Player.MapX = maps.MAP.startX; Player.MapY = maps.MAP.startY;
     }
 }
 
