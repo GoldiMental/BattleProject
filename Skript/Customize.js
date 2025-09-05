@@ -24,7 +24,7 @@ function showCustomModal(title, message, options = {}) {
         customModalTitle.textContent = title;
         customModalMessage.textContent = message;
         
-        const hasCustomButtons = options.buttons && options.buttons.length > 0;
+        const hasCustomButtons = !!options.buttons && options.buttons.length > 0;
         const hasInput = !!options.inputType;
         const showCancel = !!options.showCancelButton;
 
