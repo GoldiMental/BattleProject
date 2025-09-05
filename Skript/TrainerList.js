@@ -10,7 +10,7 @@ const TrainerList = {
     Trainer001: {
         name: "Laura",
         text1: "Hallo, ich bin Lady Laura.",
-        text2: "Ich bin Trainerin und fordere Dich zum Kampf heraus!",
+        text2: "Ich bin eine Trainerin und fordere Dich zum Kampf heraus!",
         text3: "Hehehe...",
         text4: "",
         gold: 150,
@@ -35,6 +35,7 @@ const TrainerList = {
         Tulpa4: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
         Tulpa5: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
         Tulpa6: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+        picture: "",
     },
 }
 async function Trainer000monolog(Trainer) {
