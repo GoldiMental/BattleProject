@@ -62,7 +62,7 @@ async function Cheat() {
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             console.log("Cheat() ✅");
             break;
-        case "GETUBERTULPA":
+        case "GETBOSSTULPA":
             Player.Tulpas.Slot_1 = { name: "Böser_Wolf", Lv: 1000, HP: 3100, HP_Total: 3100, XP: 50000000 };
             showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
             console.log("Cheat() ✅");
