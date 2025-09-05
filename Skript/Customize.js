@@ -26,11 +26,10 @@ function showCustomModal(title, message, options = {}) {
 
         const hasCustomButtons = options.buttons && options.buttons.length > 0;
         const hasInput = !!options.inputType;
-        const showCancel = !!options.showCancelButton;
 
         customModalInput.classList.toggle("hidethis", !hasInput);
-        customModalOkButton.classList.toggle("hidethis", hasCustomButtons);
-        customModalCancelButton.classList.toggle("hidethis", !showCancel);
+        customModalOkButton.classList.toggle("hidethis", OkButton && !hasCustomButtons);
+        customModalCancelButton.classList.toggle("hidethis", !showCancelButton);
 
         customModalButtonsContainer.innerHTML = '';
         customModalButtonsContainer.classList.toggle("hidethis", !hasCustomButtons);
@@ -48,7 +47,7 @@ function showCustomModal(title, message, options = {}) {
         customModalOkButton.onclick = () => { closeModal(hasInput ? customModalInput.value : true); };
         customModalCancelButton.onclick = () => { closeModal(false); };
 
-        customModalOverlay.classList.remove("hidethis");
+        customModalOverlay.classList.toggle("hidethis", false);
     });
 }
 
@@ -78,7 +77,7 @@ function showCustomMenu(message, buttons) {
 }
 
 function closeModal(value) {
-    customModalOverlay.classList.add("hidethis");
+    customModalOverlay.classList.toggle("hidethis", true);
     if (resolveModalPromise) {
         resolveModalPromise(value);
         resolveModalPromise = null;
