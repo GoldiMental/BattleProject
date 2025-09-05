@@ -374,14 +374,11 @@ async function self_attack(attack) {
 }
 
 function changeTulpa() {
-    console.log("Führe changeTulpa() aus...");
     if (document.getElementById('change_tulpa').classList.contains("hidethis")) {
-        console.log("Öffne Tulpa Liste des Spielers...");
         document.getElementById('use_item').classList.toggle("hidethis", true);
         document.getElementById('battle_game_menu').classList.toggle("hidethis", false);
         document.getElementById('change_tulpa').classList.toggle("hidethis", false);
         let html = '';
-        console.log("Erstelle HTML-Element...");
         for (Slot in Player.Tulpas) {
             if (Slot.startsWith('Slot')) {
                 let tulpa = Player.Tulpas[Slot];
@@ -395,12 +392,9 @@ function changeTulpa() {
             }
         };
         document.getElementById('change_tulpa').innerHTML = html;
-        console.log("changeTulpa() ✅");
     } else {
-        console.log("Schließe Tulpa Liste des Spielers...");
         document.getElementById('change_tulpa').classList.toggle("hidethis", true);
         document.getElementById('battle_game_menu').classList.toggle("hidethis", true);
-        console.log("changeTulpa() ✅");
     }
 }
 
@@ -442,14 +436,11 @@ async function selectTulpa(Slot) {
 }
 
 function useItem() {
-    console.log("Führe useItem() aus...");
     if (document.getElementById('use_item').classList.contains("hidethis")) {
-        console.log("Öffne Inventar des Spielers...");
         document.getElementById('change_tulpa').classList.toggle("hidethis", true);
         document.getElementById('battle_game_menu').classList.toggle("hidethis", false);
         document.getElementById('use_item').classList.toggle("hidethis", false);
         let html = '';
-        console.log("Erstelle HTML-Element...");
         for (ball in Player.inventory.balls) {
             if (Player.inventory.balls[ball] > 0) {
                 html += '<button class="change_tulpa_button" onclick="UseBall(\'' + ball + '\')">' + Player.inventory.balls[ball] + 'x ' + Item_List[ball].name + '</button>';
@@ -461,13 +452,10 @@ function useItem() {
             }
         }
         document.getElementById('use_item').innerHTML = html;
-        console.log("useItem() ✅");
     } else {
-        console.log("Schließe Inventar des Spielers...");
         document.getElementById('change_tulpa').classList.toggle("hidethis", true);
         document.getElementById('battle_game_menu').classList.toggle("hidethis", true);
         document.getElementById('use_item').classList.toggle("hidethis", true);
-        console.log("useItem() ✅");
     }
 }
 
