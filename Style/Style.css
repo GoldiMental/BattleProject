@@ -1222,7 +1222,7 @@ button {
 .modal-button {
     border-radius: 2em;
     padding: 0.5em;
-    font-size: 1.1em;
+    height: 48px;
     width: 120px;
     transition: all 0.3s ease;
 }
