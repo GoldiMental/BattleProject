@@ -20,6 +20,7 @@ const TrainerList = {
         Tulpa4: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
         Tulpa5: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
         Tulpa6: { name: "", Lv: 0, HP: 0, HP_Total: 0 },
+        picture: "Trainer_02",
     },
     Trainer002: {
         name: "Pascal",

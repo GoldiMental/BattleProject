@@ -388,3 +388,11 @@
     width: 100%;
     height: 100%;
 }
+
+.Trainer_02 {
+    background-image: url(../img/textures/trainer02_profile.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
