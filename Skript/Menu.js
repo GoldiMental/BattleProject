@@ -258,6 +258,7 @@ async function Use(itm, qty) {
                         }
                         Player.inventory.drinks[itm] -= 1;
                         console.log("Anwendung erfolgreich.");
+                        showCustomAlert("Anwendung erfolgreich.");
                     } else {
                         console.warn("catched Use()-ERROR: HP is already MAX => Use(", itm, qty, ") stopped");
                         showCustomAlert(Tulpas[Player.Tulpas[antwort].name].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
