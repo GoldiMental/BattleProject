@@ -40,7 +40,7 @@ function showCustomModal(title, message, options = {}) {
 
 function showCustomPrompt(message, defaultValue = '') {
     return showCustomModal('Eingabe erforderlich', message, {
-        inputType: 'text', inputValue: defaultValue, showCancelButton: true
+        inputType: 'string', inputValue: defaultValue, showCancelButton: true
     });
 }
 
