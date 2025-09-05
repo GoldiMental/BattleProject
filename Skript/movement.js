@@ -46,11 +46,11 @@ async function changeMap(mapname) {
             document.getElementById("Haendler").classList.toggle("hidethis", false);
             document.getElementById("tuerShopHgOut").classList.toggle("hidethis", false);
             break;
-        //case "ArenaField":
-            //document.getElementById("karte").disabled = true;
+        case "ArenaField":
+            document.getElementById("karte").disabled = true;
             //document.getElementById("ArenaBtnIn").classList.toggle("hidethis", false);
             //document.getElementById("ArenaBtnOut").classList.toggle("hidethis", false);
-            //break;
+            break;
     }
     activeMap = maps[mapname].name;
     documentMap.className = "map " + activeMap;
