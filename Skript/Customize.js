@@ -15,7 +15,6 @@ let resolveModalPromise;
  * @param {object} options Optionale Konfiguration für das Modal.
  * @param {string} [options.inputType] Der Eingabetyp (z.B. 'text').
  * @param {string} [options.inputValue] Der Anfangswert der Eingabe.
- * @param {boolean} [options.showCancelButton] Ob die Abbrechen-Schaltfläche angezeigt werden soll.
  * @param {array} [options.buttons] Ein Array von Objekten für benutzerdefinierte Buttons.
  **/
 function showCustomModal(title, message, options = {}) {
@@ -23,14 +22,15 @@ function showCustomModal(title, message, options = {}) {
         resolveModalPromise = resolve;
         customModalTitle.textContent = title;
         customModalMessage.textContent = message;
+
+        const hasCustomButtons = options.buttons && options.buttons.length > 0;
         
         // Verstecke Input und Standard-OK-Button, wenn benutzerdefinierte Buttons vorhanden sind
-        const hasCustomButtons = options.buttons && options.buttons.length > 0;
-        customModalInput.classList.toggle("hidethis", hasCustomButtons || !!options.inputType);
+        customModalInput.classList.toggle("hidethis", hasCustomButtons);
         customModalOkButton.classList.toggle("hidethis", hasCustomButtons);
 
-        // Der Abbrechen-Button wird nur versteckt, wenn er explizit nicht angezeigt werden soll.
-        customModalCancelButton.classList.toggle("hidethis", !options.showCancelButton);
+        // Der Abbrechen-Button wird immer angezeigt
+        customModalCancelButton.classList.remove("hidethis");
         
         // Entferne alte Buttons und verwalte den Container
         customModalButtonsContainer.innerHTML = '';
@@ -47,20 +47,16 @@ function showCustomModal(title, message, options = {}) {
         }
         
         // Event-Listener für Standard-Buttons
-        if (!hasCustomButtons) {
-            customModalOkButton.onclick = () => { closeModal(options.inputType ? customModalInput.value : true); };
-        }
-        
+        customModalOkButton.onclick = () => { closeModal(options.inputType ? customModalInput.value : true); };
         customModalCancelButton.onclick = () => { closeModal(false); };
 
         customModalOverlay.classList.remove("hidethis");
     });
 }
 
-function showCustomMenu(message, buttons, showCancel = false) {
+function showCustomMenu(message, buttons) {
     return showCustomModal('Wählen Sie eine Option', message, {
-        buttons: buttons,
-        showCancelButton: showCancel
+        buttons: buttons
     });
 }
 
