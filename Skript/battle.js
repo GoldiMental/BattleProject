@@ -550,10 +550,9 @@ async function UseBall(ball) {
             console.log("UseBall(", ball, ") ✅ => Gefangen => Leite Spieler zurück auf Karte...");
         }
         else {
-            ballElement.src = "img/textures/tBall_single.gif";; await Delay(1000);
-            ballElement.src = "img/textures/tBall.png";
-            document.getElementById('Tulpa-opp').style.opacity = "1";
+            ballElement.src = "img/textures/tBall_single.gif"; await Delay(1000);
             document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
+            document.getElementById('Tulpa-opp').style.opacity = "1";
             document.getElementById('battle_text').innerText = "Mist, es hat sich befreit"; await Delay(2000);
             console.log("UseBall(", ball, ") ✅ => Nicht gefangen => opp_Attack()");
             opp_Attack();
