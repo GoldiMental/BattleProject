@@ -23,12 +23,12 @@ function showCustomModal(title, message, options = {}) {
         resolveModalPromise = resolve;
         customModalTitle.textContent = title;
         customModalMessage.textContent = message;
-
+        
         const hasCustomButtons = options.buttons && options.buttons.length > 0;
         const hasInput = !!options.inputType;
 
         customModalInput.classList.toggle("hidethis", !hasInput);
-        customModalOkButton.classList.toggle("hidethis", OkButton && !hasCustomButtons);
+        customModalOkButton.classList.toggle("hidethis", OkButton ? !OkButton : true);
         customModalCancelButton.classList.toggle("hidethis", !showCancelButton);
 
         customModalButtonsContainer.innerHTML = '';
