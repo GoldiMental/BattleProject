@@ -1222,6 +1222,6 @@ button {
 .modal-button {
     border-radius: 2em;
     padding: 0.5em;
-    font-size: 48px;
+    font-size: 20px;
     transition: all 0.3s ease;
 }
