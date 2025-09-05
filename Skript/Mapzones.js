@@ -247,7 +247,7 @@ var maps = {
         startStadtX: -175,
         startStadtY: -1575,
         blockedArea: [
-            { minX: -225, maxX: 225, minY: -75, maxY: -125 },
+            { minX: -225, maxX: 225, minY: -75, maxY: -275 },
             { minX: 225, maxX: 225, minY: -325, maxY: -275 },
             { minX: -25, maxX: 225, minY: -425, maxY: -375 },
             { minX: -75, maxX: -75, minY: -425, maxY: -425 },
@@ -266,6 +266,8 @@ var maps = {
             { minX: 75, maxX: 175, minY: 75, maxY: 75 },
             { minX: -25, maxX: 25, minY: 25, maxY: 125 },
             { minX: 25, maxX: 175, minY: 175, maxY: 225 },
+            { minX: -75, maxX: 225, minY: -225, maxY: -125 },
+            { minX: -75, maxX: 25, minY: -75, maxY: -75 },
         ],
         //ArenaField. 
         ArenaHG: [
