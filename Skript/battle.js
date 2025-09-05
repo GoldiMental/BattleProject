@@ -74,8 +74,8 @@ async function Trainerbattle(TulpaIndex) {
         battleInfo.innerText = "" + trainer.name + " schickt " + tulpa_opp + " Lv. " + tulpa_lv + " in den Kampf!";
         document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
         document.getElementById('Tulpa-opp').innerHTML = '<div class="' + trainer.picture + '"></div>';
-        document.getElementById('Tulpa-opp').style.right = "10px"; await Delay(500);
-        document.getElementById('Tulpa-opp').style.right = "-500px"; await Delay(500);
+        document.getElementById('Tulpa-opp').style.right = "10px"; await Delay(1000);
+        document.getElementById('Tulpa-opp').style.right = "-500px"; await Delay(1000);
         document.getElementById('Tulpa-opp').innerHTML = '<div class="' + tulpa_opp + '_Front"></div>';
         document.getElementById('Tulpa-opp').style.right = "10px";
         document.getElementById('Name-opp').style.opacity = "1";
