@@ -48,8 +48,8 @@ async function changeMap(mapname) {
             break;
         case "ArenaField":
             document.getElementById("karte").disabled = true;
-            document.getElementById("ArenaBtnIn").classList.toggle("hidethis", true);
-            document.getElementById("ArenaBtnOut").classList.toggle("hidethis", false);
+            //document.getElementById("ArenaBtnIn").classList.toggle("hidethis", true);
+            //document.getElementById("ArenaBtnOut").classList.toggle("hidethis", false);
             break;
     }
     activeMap = maps[mapname].name;
@@ -176,6 +176,13 @@ function moveMap() {
                 else { toggleClassElement('TroysHausOut_B', true); }
             }
             break;
+        case "ArenaField":
+            for (let i = 0; i < maps.ArenaField.ArenaHGInnen.length; i++) {
+                const a = maps.ArenaField.ArenaHGInnen[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ArenaBtnOut', false); }
+                else { toggleClassElement('ArenaBtnOut', true); }
+            }
+            break;
         case "MAP":
             for (let i = 0; i < maps.MAP.shopHome.length; i++) {
                 const a = maps.MAP.shopHome[i];
@@ -196,6 +203,11 @@ function moveMap() {
                 const a = maps[activeMap].shopHomeHG[i];
                 if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHausHohesGrasIn', false); }
                 else { toggleClassElement('ShopHausHohesGrasIn', true); }
+            }
+            for (let i = 0; i < maps.MAP.ArenaField.length; i++) {
+                const a = maps[activeMap].ArenaField[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ArenaBtnIn', false); }
+                else { toggleClassElement('ArenaBtnIn', true); }
             }
             for (let i = 0; i < maps.MAP.trainerBattle.length; i++) {
                 const a = maps.MAP.trainerBattle[i];
