@@ -242,8 +242,8 @@ var maps = {
         name: "ArenaField",
         Height: 700,
         Width: 700,
-        startX: 25,
-        startY: 25,
+        startX: -75,
+        startY: -375,
         startStadtX: -175,
         startStadtY: -1575,
         blockedArea: [
@@ -255,12 +255,12 @@ var maps = {
             //{ minX: , maxX: , minY: , maxY:  },
             //{ minX: , maxX: , minY: , maxY:  },
         ],
-        //ShopHome. 
+        //ArenaField. 
         ArenaHG: [
             { minX: -175, maxX: -175, minY: -1575, maxY: -1575 },
         ],
-        //ArenaHGInne: [
-        //    { minX: -75, maxX: -75, minY: -375, maxY: -375 },
-        //],
+        ArenaHGInne: [
+            { minX: -75, maxX: -75, minY: -375, maxY: -375 },
+        ],
     },
 }
