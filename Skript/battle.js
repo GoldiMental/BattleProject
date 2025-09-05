@@ -560,7 +560,7 @@ async function UseDrink(drink) {
     for (i = 1; i <= 6; i++) {
         let slot = "Slot_" + i;
         if (Player.Tulpas[slot].name != "") {
-            let obj = { text: Tulpas[Player.Tulpas[slot].name].name, value: slot };
+            let obj = { text: Tulpas[Player.Tulpas[slot].name].name + " Lv. " + Player.Tulpas[slot].Lv, value: slot };
             buttonsArray.push(obj);
         }
     }

@@ -137,18 +137,25 @@ async function removeTulpa(Slot) {
 
 async function swapTulpa(Slot) {
     console.warn("Führe swapTulpa(", Slot, ") aus...");
-    let antwort = await showCustomPrompt("Mit welchem Slot soll " + Slot + " getauscht werden? Gib dazu die Slotnummer (1-6) an:", "0 beendet den Tausch");
+    const buttonsArray = [];
+    for (i = 1; i <= 6; i++) {
+        let slot = "Slot_" + i;
+        if (Player.Tulpas[slot].name != "") {
+            let obj = { text: Tulpas[Player.Tulpas[slot].name].name + " Lv. " + Player.Tulpas[slot].Lv, value: slot };
+            buttonsArray.push(obj);
+        }
+    }
+    let antwort = await showCustomMenu("Deine Tulpas:", buttonsArray);
     console.log("Versuche ", Slot, " mit ", antwort, " zu tauschen...");
-    if (antwort != 0 && antwort <= 6 && Player.Tulpas["Slot_" + antwort].name != "" && Slot != "Slot_" + antwort) {
-        let tulpa_1 = Player.Tulpas[Slot];
-        let tulpa_2 = Player.Tulpas["Slot_" + antwort];
-        Player.Tulpas[Slot] = tulpa_2;
-        Player.Tulpas["Slot_" + antwort] = tulpa_1;
+    if (antwort) {
+        let tulpa_1 = Player.Tulpas[Slot]; let tulpa_2 = Player.Tulpas[antwort];
+        Player.Tulpas[Slot] = tulpa_2; Player.Tulpas[antwort] = tulpa_1;
         Tulpas_List();
         console.log("swapTulpa(", Slot, ") ✅");
-    } else {
+    }
+    else {
         console.warn("catched swapTulpa()-ERROR: Inputerror by User! => swapTulpa(", slot, ") stopped");
-        showCustomAlert("Tausch nicht möglich! \n Falsche Eingabe oder Slot nicht belegt.");
+        showCustomAlert("Tausch abgebrochen.");
     }
 }
 
@@ -234,7 +241,7 @@ async function Use(itm, qty) {
     for (i = 1; i <= 6; i++) {
         let slot = "Slot_" + i;
         if (Player.Tulpas[slot].name != "") {
-            let obj = { text: Tulpas[Player.Tulpas[slot].name].name, value: slot };
+            let obj = { text: Tulpas[Player.Tulpas[slot].name].name + " Lv. " + Player.Tulpas[slot].Lv, value: slot };
             buttonsArray.push(obj);
         }
     }
