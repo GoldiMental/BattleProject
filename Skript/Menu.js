@@ -237,7 +237,7 @@ async function Use(itm, qty) {
             for (i = 0; i <= 6; i++) {
                 let slot = "Slot_" + i;
                 if (Player.Tulpas[slot].name != "") {
-                    let obj = { text: Player.Tulpas["Slot_" + i].name, value: i };
+                    let obj = { text: Player.Tulpas[slot].name, value: i };
                     buttonsArray.push(obj);
                 }
             }
