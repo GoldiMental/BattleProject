@@ -33,7 +33,7 @@ function showCustomModal(title, message, options = {}) {
             options.buttons.forEach(buttonConfig => {
                 const newButton = document.createElement('button');
                 newButton.textContent = buttonConfig.text;
-                newButton.className = 'modal-button'; 
+                newButton.className = 'modal-button';
                 newButton.onclick = () => { closeModal(buttonConfig.value); };
                 customModalButtonsContainer.appendChild(newButton);
             });
@@ -42,6 +42,28 @@ function showCustomModal(title, message, options = {}) {
         customModalCancelButton.onclick = () => { closeModal(false); };
 
         customModalOverlay.classList.remove("hidethis");
+    });
+}
+
+function showCustomPrompt(message, defaultValue = '') {
+    return showCustomModal('Eingabe erforderlich', message, {
+        inputType: 'string',
+        inputValue: defaultValue,
+        showCancelButton: true
+    });
+}
+
+function showCustomAlert(message) {
+    return showCustomModal('Information', message, {
+        showCancelButton: false,
+        inputType: false
+    });
+}
+
+function showCustomConfirm(message) {
+    return showCustomModal('Bestätigen', message, {
+        showCancelButton: true,
+        inputType: false
     });
 }
 
