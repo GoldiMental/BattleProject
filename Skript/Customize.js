@@ -15,6 +15,7 @@ let resolveModalPromise;
  * @param {object} options Optionale Konfiguration für das Modal.
  * @param {string} [options.inputType] Der Eingabetyp (z.B. 'text').
  * @param {string} [options.inputValue] Der Anfangswert der Eingabe.
+ * @param {boolean} [options.showCancelButton] Ob die Abbrechen-Schaltfläche angezeigt werden soll.
  * @param {array} [options.buttons] Ein Array von Objekten für benutzerdefinierte Buttons.
  **/
 function showCustomModal(title, message, options = {}) {
@@ -22,10 +23,15 @@ function showCustomModal(title, message, options = {}) {
         resolveModalPromise = resolve;
         customModalTitle.textContent = title;
         customModalMessage.textContent = message;
+
         const hasCustomButtons = options.buttons && options.buttons.length > 0;
-        customModalInput.classList.toggle("hidethis", hasCustomButtons);
+        const hasInput = !!options.inputType;
+        const showCancel = !!options.showCancelButton;
+
+        customModalInput.classList.toggle("hidethis", !hasInput);
         customModalOkButton.classList.toggle("hidethis", hasCustomButtons);
-        customModalCancelButton.classList.remove("hidethis");
+        customModalCancelButton.classList.toggle("hidethis", !showCancel);
+
         customModalButtonsContainer.innerHTML = '';
         customModalButtonsContainer.classList.toggle("hidethis", !hasCustomButtons);
 
@@ -38,7 +44,8 @@ function showCustomModal(title, message, options = {}) {
                 customModalButtonsContainer.appendChild(newButton);
             });
         }
-        customModalOkButton.onclick = () => { closeModal(options.inputType ? customModalInput.value : true); };
+        
+        customModalOkButton.onclick = () => { closeModal(hasInput ? customModalInput.value : true); };
         customModalCancelButton.onclick = () => { closeModal(false); };
 
         customModalOverlay.classList.remove("hidethis");
@@ -55,21 +62,20 @@ function showCustomPrompt(message, defaultValue = '') {
 
 function showCustomAlert(message) {
     return showCustomModal('Information', message, {
-        showCancelButton: false,
-        inputType: false
+        showCancelButton: false
     });
 }
 
 function showCustomConfirm(message) {
     return showCustomModal('Bestätigen', message, {
-        showCancelButton: true,
-        inputType: false
+        showCancelButton: true
     });
 }
 
-function showCustomMenu(message, buttons) {
+function showCustomMenu(message, buttons, showCancel = false) {
     return showCustomModal('Wählen Sie eine Option', message, {
-        buttons: buttons
+        buttons: buttons,
+        showCancelButton: showCancel
     });
 }
 
