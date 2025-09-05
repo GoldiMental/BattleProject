@@ -234,14 +234,14 @@ async function Use(itm, qty) {
     for (i = 1; i <= 6; i++) {
         let slot = "Slot_" + i;
         if (Player.Tulpas[slot].name != "") {
-            let obj = { text: Player.Tulpas[slot].name, value: slot };
+            let obj = { text: Tulpas[Player.Tulpas[slot].name].name, value: slot };
             buttonsArray.push(obj);
         }
     }
     if (qty > 0) {
         if (itm in Player.inventory.drinks) {
             console.log("Trank erkannt. Warte auf Antwort des Spielers...");
-            let antwort = await showCustomMenu("Wähle eine Option aus:", buttonsArray);
+            let antwort = await showCustomMenu("Deine Tulpas:", buttonsArray);
             if (antwort) {
                 console.log("Versuche Trank auf ", antwort, " anzuwenden...");
                 if (Player.Tulpas[antwort].name != "") {
@@ -254,20 +254,14 @@ async function Use(itm, qty) {
                         console.log("Anwendung erfolgreich.");
                     } else {
                         console.warn("catched Use()-ERROR: HP is already MAX => Use(", itm, qty, ") stopped");
-                        showCustomAlert(Player.Tulpas[antwort].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
+                        showCustomAlert(Tulpas[Player.Tulpas[slot].name].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
                     }
-                } else {
-                    console.warn("catched Use()-ERROR: Not found Slot: ", antwort, " => Use(", itm, qty, ") stopped");
-                    showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
                 }
-            } else {
-                console.error("Spielereingabe fehlerhaft:", antwort);
-                showCustomAlert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
             }
-        } else {
-            await Delay(200);
+        }
+        else {
             console.log("Bonbon erkannt. Warte auf Spielereingabe...");
-            let antwort = await showCustomMenu("Wähle eine Option aus:", buttonsArray);
+            let antwort = await showCustomMenu("Deine Tulpas:", buttonsArray);
             console.log("Versuche Bonbon auf Slot ", antwort, " anzuwenden...");
             if (antwort) {
                 if (Player.Tulpas[antwort].name != "") {
@@ -281,19 +275,10 @@ async function Use(itm, qty) {
                     Player.inventory.bonbons[itm] -= 1;
                     console.log("Anwendung erfolgreich.");
                     showCustomAlert("Bonbon erfolgreich bei ", Tulpas[Player.Tulpas[antwort].name].name, " angewendet.");
-                    close_Tulpas();
-                    Items();
-                } else {
-                    console.error("Slot nicht gefunden: ", antwort, ". Wird abgebrochen...");
-                    showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
-                    close_Tulpas();
-                    Items();
                 }
-            } else {
-                console.error("Spielereingabe fehlerhaft:", antwort);
-                showCustomAlert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
-                close_Tulpas();
-                Items();
+            }
+            else {
+                console.warn("Spielereingabe fehlerhaft:", antwort);
             }
         }
     }
