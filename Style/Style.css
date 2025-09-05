@@ -1218,6 +1218,7 @@ button {
 }
 
 .modal-button {
+    display: flex;
     border-radius: 2em;
     height: 27px;
     width: 120px;
