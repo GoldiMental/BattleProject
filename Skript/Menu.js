@@ -245,7 +245,7 @@ async function Use(itm, qty) {
             if (antwort) {
                 console.log("Versuche Trank auf ", antwort, " anzuwenden...");
                 if (Player.Tulpas[antwort].name != "") {
-                    if (Player.Tulpas[antwort].HP != Player.Tulpas[slot].HP_Total) {
+                    if (Player.Tulpas[antwort].HP != Player.Tulpas[antwort].HP_Total) {
                         Player.Tulpas[antwort].HP += Item_List[itm].HP;
                         if (Player.Tulpas[antwort].HP > Player.Tulpas[antwort].HP_Total) {
                             Player.Tulpas[antwort].HP = Player.Tulpas[antwort].HP_Total;
