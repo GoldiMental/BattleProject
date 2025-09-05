@@ -234,7 +234,7 @@ async function Use(itm, qty) {
         if (itm in Player.inventory.drinks) {
             close_Items(); Tulpas_List();
             const buttonsArray = [];
-            for (i = 0; i <= 6; i++) {
+            for (i = 1; i <= 6; i++) {
                 let slot = "Slot_" + i;
                 if (Player.Tulpas[slot].name != "") {
                     let obj = { text: Player.Tulpas[slot].name, value: i };
