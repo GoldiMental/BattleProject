@@ -46,7 +46,7 @@ function showCustomPrompt(message, defaultValue = '') {
 
 function showCustomAlert(message) { return showCustomModal('Information', message, { showCancelButton: false, inputType: false }); }
 
-function showCustomConfirm(message) { return showCustomModal('Bestätigung', message, { showCancelButton: true, inputType: false }); }
+function showCustomConfirm(message) { return showCustomModal('Bestätigen', message, { showCancelButton: true, inputType: false }); }
 
 function closeModal(value) {
     customModalOverlay.classList.toggle("hidethis", true);
