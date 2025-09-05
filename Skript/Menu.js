@@ -93,7 +93,7 @@ function Tulpas_List() {
             let tulpa = Player.Tulpas[Slot];
             if (tulpa.name != "") {
                 html += '<div style="display:block;margin-bottom:5px;"><div class="' + tulpa.name + '"></div><br>' +
-                    '<div style="position:relative;left:30px;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + '</div>' +
+                    '<div style="position:relative;left:30px;" onclick="console.log(this)">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + '</div>' +
                     '<div class="LP_Bar"><div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div></div>' +
                     '<button class="Change_Tulpa" onclick="swapTulpa(\'' + Slot + '\');Click()">🔄️</button>' +
                     '<button class="Delete_Tulpa" onclick="removeTulpa(\'' + Slot + '\');Click()">🗑️</button></div>';
@@ -248,12 +248,12 @@ async function Use(itm, qty) {
                         console.log("Anwendung erfolgreich.");
                         close_Tulpas(); Items();
                     } else {
-                        console.error("Tulpa ist bereits geheilt! Wird abgebrochen...");
+                        console.warn("catched Use()-ERROR: HP is already MAX => Use(", itm, qty, ") stopped");
                         showCustomAlert(Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
                         close_Tulpas(); Items();
                     }
                 } else {
-                    console.error("Slot nicht gefunden: ", slot, ". Wird abgebrochen...");
+                    console.warn("catched Use()-ERROR: Not found Slot: ", slot, " => Use(", itm, qty, ") stopped");
                     showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
                     close_Tulpas(); Items();
                 }
