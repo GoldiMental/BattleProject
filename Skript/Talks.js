@@ -12,6 +12,7 @@ async function starteTutorial() {
     await showCustomConfirm('Ich hoffe Du bist gut vorbereitet. Wenn nicht, sieh Dir gerne mal die "TulpaKing Info & Impressum"-Seite an.');
     await showCustomConfirm('Für Probleme wende dich bitte an: goldimental@gmx.de');
     await showCustomConfirm('Vergiss nicht regelmäßig zu speichern! 😉\n\nViel Spaß beim Spielen');
+    Player.MapX = maps.MAP.startX; Player.MapY = maps.MAP.startY;
     changeMap(Player.actualMap); await Delay(100);
     movementGame.classList.toggle("hidethis", false);
 }
