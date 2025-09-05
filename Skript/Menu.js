@@ -154,7 +154,6 @@ async function swapTulpa(Slot) {
         console.log("swapTulpa(", Slot, ") ✅");
     }
     else {
-        console.warn("catched swapTulpa()-ERROR: Inputerror by User! => swapTulpa(", slot, ") stopped");
         showCustomAlert("Tausch abgebrochen.");
     }
 }
@@ -285,7 +284,7 @@ async function Use(itm, qty) {
                 }
             }
             else {
-                console.warn("Spielereingabe fehlerhaft:", antwort);
+                showCustomAlert("Verwendung abgebrochen.");
             }
         }
     }
