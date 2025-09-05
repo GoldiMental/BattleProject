@@ -26,10 +26,11 @@ function showCustomModal(title, message, options = {}) {
         
         const hasCustomButtons = options.buttons && options.buttons.length > 0;
         const hasInput = !!options.inputType;
+        const showCancel = !!options.showCancelButton;
 
         customModalInput.classList.toggle("hidethis", !hasInput);
         customModalOkButton.classList.toggle("hidethis", !hasCustomButtons);
-        customModalCancelButton.classList.toggle("hidethis", !showCancelButton);
+        customModalCancelButton.classList.toggle("hidethis", !showCancel);
 
         customModalButtonsContainer.innerHTML = '';
         customModalButtonsContainer.classList.toggle("hidethis", !hasCustomButtons);
