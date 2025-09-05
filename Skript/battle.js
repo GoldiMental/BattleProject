@@ -549,7 +549,7 @@ async function UseBall(ball) {
             console.log("UseBall(", ball, ") ✅ => Gefangen => Leite Spieler zurück auf Karte...");
         }
         else {
-            document.getElementById('tulpaball').classList.toggle("tulpaballGIF", true); await Delay(2000);
+            document.getElementById('tulpaball').classList.toggle("tulpaballGIF", true); await Delay(1000);
             document.getElementById('tulpaball').classList.toggle("tulpaballGIF", false);
             document.getElementById('Tulpa-opp').style.opacity = "1";
             document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
