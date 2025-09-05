@@ -48,7 +48,7 @@ async function changeMap(mapname) {
             break;
         case "ArenaField":
             document.getElementById("karte").disabled = true;
-            document.getElementById("ArenaBtnIn").classList.toggle("hidethis", true);
+            //document.getElementById("ArenaBtnIn").classList.toggle("hidethis", true);
             document.getElementById("ArenaBtnOut").classList.toggle("hidethis", false);
             break;
     }
