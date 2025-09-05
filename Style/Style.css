@@ -911,6 +911,10 @@ button {
     transition: left 0.1s linear, top 0.1s linear;
 }
 
+.tulpaballGIF{
+    background-image: url(../img/textures/tBall_single.gif) !important;
+}
+
 .TrainerDialogBox {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
