@@ -795,30 +795,6 @@ button {
     width: 40px;
     transition: opacity 0.5s ease;
 }
-.ArenaBtnIn {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔵</text></svg>");
-    background-size: 50px;
-    background-color: transparent;
-    background-position: 50%;
-    opacity: 0.5;
-    position: absolute;
-    border: none;
-    height: 45px;
-    width: 40px;
-    transition: opacity 0.5s ease;
-}
-.ArenaBtnOut {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔻</text></svg>");
-    background-size: 50px;
-    background-color: transparent;
-    background-position: 50%;
-    opacity: 0.5;
-    position: absolute;
-    border: none;
-    height: 45px;
-    width: 40px;
-    transition: opacity 0.5s ease;
-}
 
 .Handler {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🪙</text></svg>");
