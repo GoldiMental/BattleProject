@@ -61,12 +61,12 @@ async function Trainerbattle(TulpaIndex) {
     let battleInfo = document.getElementById('battle_text');
     tulpa_opp = trainer[TulpaIndex].name;
     tulpa_lv = trainer[TulpaIndex].Lv;
-    for (Slot in Player.Tulpas) {
-        if (Slot.startsWith("Slot")) {
-            if (Player.Tulpas[Slot].HP > 0) { tulpa_self = Player.Tulpas[Slot]; break; }
-        }
-    }
     if (TulpaIndex == "Tulpa1") {
+        for (Slot in Player.Tulpas) {
+            if (Slot.startsWith("Slot")) {
+                if (Player.Tulpas[Slot].HP > 0) { tulpa_self = Player.Tulpas[Slot]; break; }
+            }
+        }
         document.getElementById("movement_game").classList.toggle("hidethis", true);
         document.getElementById("battle_game").classList.toggle("hidethis", false);
         document.getElementById("battle_menu").classList.toggle("hidethis", false);
