@@ -22,17 +22,10 @@ function showCustomModal(title, message, options = {}) {
         resolveModalPromise = resolve;
         customModalTitle.textContent = title;
         customModalMessage.textContent = message;
-
         const hasCustomButtons = options.buttons && options.buttons.length > 0;
-        
-        // Verstecke Input und Standard-OK-Button, wenn benutzerdefinierte Buttons vorhanden sind
         customModalInput.classList.toggle("hidethis", hasCustomButtons);
         customModalOkButton.classList.toggle("hidethis", hasCustomButtons);
-
-        // Der Abbrechen-Button wird immer angezeigt
         customModalCancelButton.classList.remove("hidethis");
-        
-        // Entferne alte Buttons und verwalte den Container
         customModalButtonsContainer.innerHTML = '';
         customModalButtonsContainer.classList.toggle("hidethis", !hasCustomButtons);
 
@@ -45,8 +38,6 @@ function showCustomModal(title, message, options = {}) {
                 customModalButtonsContainer.appendChild(newButton);
             });
         }
-        
-        // Event-Listener für Standard-Buttons
         customModalOkButton.onclick = () => { closeModal(options.inputType ? customModalInput.value : true); };
         customModalCancelButton.onclick = () => { closeModal(false); };
 

@@ -556,48 +556,40 @@ async function UseBall(ball) {
 
 async function UseDrink(drink) {
     console.log("Führe UseDrink(", drink, ") aus...");
-    document.getElementById('use_item').classList.toggle("hidethis", true);
-    console.log("Öffne Tulpa-Liste..."); changeTulpa();
-    document.getElementById('change_tulpa').classList.toggle("hidethis", false); await Delay(100);
-    console.log("Warte auf Eingabe...");
-    let antwort = await showCustomPrompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
-    if (0 <= antwort <= 6) {
-        let slot = "Slot_" + parseInt(antwort);
-        console.log("Eingabe", slot, "=> ()...");
+    const buttonsArray = [];
+    for (i = 1; i <= 6; i++) {
+        let slot = "Slot_" + i;
         if (Player.Tulpas[slot].name != "") {
-            if (Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total) {
-                console.log("Heile Tulpa...");
-                Player.Tulpas[slot].HP += Item_List[drink].HP;
-                if (Player.Tulpas[slot].HP > Player.Tulpas[slot].HP_Total) {
-                    Player.Tulpas[slot].HP = Player.Tulpas[slot].HP_Total;
-                }
-                document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[drink].name + " ein";
-                document.getElementById('change_tulpa').classList.toggle("hidethis", true);
-                document.getElementById('battle_game_menu').classList.toggle("hidethis", true);
-                document.getElementById('use_item').classList.toggle("hidethis", true);
-                document.getElementById("battle_menu").classList.toggle("hidethis", true);
-                if (Player.Tulpas[slot] == tulpa_self) {
-                    document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
-                }
-                Player.inventory.drinks[drink] -= 1;
-                console.log("UseDrink(", drink, ") ✅ => opp_Attack()");
-                await Delay(2000); opp_Attack();
-            } else {
-                console.warn("catched UseDrink()-ERROR: HP is max => UseDrink(", drink, ") stopped");
-                document.getElementById('battle_text').innerText = Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";
-                document.getElementById('use_item').classList.toggle("hidethis", false);
-                document.getElementById('change_tulpa').classList.toggle("hidethis", true);
+            let obj = { text: Tulpas[Player.Tulpas[slot].name].name, value: slot };
+            buttonsArray.push(obj);
+        }
+    }
+    console.log("Warte auf Eingabe...");
+    let antwort = await showCustomMenu("Deine Tulpas", buttonsArray);
+    if (antwort) {
+        console.log("Eingabe", antwort, "=> ()...");
+        if (Player.Tulpas[antwort].HP != Player.Tulpas[antwort].HP_Total) {
+            console.log("Heile Tulpa...");
+            Player.Tulpas[antwort].HP += Item_List[drink].HP;
+            if (Player.Tulpas[antwort].HP > Player.Tulpas[antwort].HP_Total) {
+                Player.Tulpas[antwort].HP = Player.Tulpas[antwort].HP_Total;
             }
+            document.getElementById('battle_text').innerText = Player.name + " setzt " + Item_List[drink].name + " ein";
+            document.getElementById('change_tulpa').classList.toggle("hidethis", true);
+            document.getElementById('battle_game_menu').classList.toggle("hidethis", true);
+            document.getElementById('use_item').classList.toggle("hidethis", true);
+            document.getElementById("battle_menu").classList.toggle("hidethis", true);
+            if (Player.Tulpas[antwort] == tulpa_self) {
+                document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
+            }
+            Player.inventory.drinks[drink] -= 1;
+            console.log("UseDrink(", drink, ") ✅ => opp_Attack()");
+            await Delay(2000); opp_Attack();
         } else {
-            console.warn("catched UseDrink()-ERROR: Slot is empty => UseDrink(", drink, ") stopped");
-            document.getElementById('battle_text').innerText = "Slot ist nicht belegt. Versuche es nochmal";
+            console.warn("catched UseDrink()-ERROR: HP is max => UseDrink(", drink, ") stopped");
+            document.getElementById('battle_text').innerText = Player.Tulpas[antwort].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.";
             document.getElementById('use_item').classList.toggle("hidethis", false);
             document.getElementById('change_tulpa').classList.toggle("hidethis", true);
         }
-    } else {
-        console.warn("catched UseDrink()-ERROR: Slot is NaN => UseDrink(", drink, ") stopped");
-        document.getElementById('battle_text').innerText = "Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.";
-        document.getElementById('use_item').classList.toggle("hidethis", false);
-        document.getElementById('change_tulpa').classList.toggle("hidethis", true);
     }
 }
