@@ -1206,9 +1206,15 @@ button {
 .custom-modal-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1em;
 }
 
 .modal-button{
+    border-radius: 2em;
+    height: 27px;
+    width: 120px;
+    transition: all 0.3s ease;
     display: flex;
+    justify-content: center;
+    gap: 1em;
 }
