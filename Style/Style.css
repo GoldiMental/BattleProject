@@ -1155,6 +1155,7 @@ button {
 }
 
 .custom-modal-content {
+    font-size: 1.2em;
     padding: 24px;
     border-radius: 12px;
     max-width: 500px;
@@ -1223,6 +1224,5 @@ button {
     padding: 0.5em;
     height: 27px;
     width: 120px;
-    margin-top: 1em;
     transition: all 0.3s ease;
 }
