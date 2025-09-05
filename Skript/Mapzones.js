@@ -239,7 +239,7 @@ var maps = {
         ],
     },
     ArenaField: {
-        name: "Arena-Field",
+        name: "ArenaField",
         Height: 700,
         Width: 700,
         startX: 25,
