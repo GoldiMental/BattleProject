@@ -574,7 +574,7 @@ async function UseDrink(drink) {
     console.log("Warte auf Eingabe...");
     let antwort = await showCustomPrompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
     if (antwort > 0 && antwort <= 6) {
-        let slot = "Slot_" + antwort;
+        let slot = "Slot_" + parseInt(antwort);
         console.log("Eingabe", slot, "=> ()...");
         if (Player.Tulpas[slot].name != "") {
             if (Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total) {
