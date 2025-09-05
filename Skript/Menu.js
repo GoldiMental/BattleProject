@@ -235,8 +235,8 @@ async function Use(itm, qty) {
             close_Items(); Tulpas_List();
             const buttonsArray = [];
             for (i = 0; i <= 6; i++) {
-                if (Player.Tulpas["Slot_"[i]].name != "") {
-                    let obj = { text: Player.Tulpas["Slot_"[i]].name, value: i };
+                if (Player.Tulpas["Slot_"+i].name != "") {
+                    let obj = { text: Player.Tulpas["Slot_"+i].name, value: i };
                     buttonsArray.push(obj);
                 }
             }
