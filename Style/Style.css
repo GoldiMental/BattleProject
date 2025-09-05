@@ -1210,7 +1210,6 @@ button {
 }
 
 #customModalButtonsContainer {
-    display: flex;
     justify-content: center;
     gap: 1em;
     margin-bottom: 1.5em;
@@ -1219,7 +1218,9 @@ button {
 .modal-button {
     display: block;
     border-radius: 2em;
+    padding: 0.5em;
     height: 27px;
     width: 120px;
+    margin-top: 1em;
     transition: all 0.3s ease;
 }
