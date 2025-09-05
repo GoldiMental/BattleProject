@@ -273,7 +273,7 @@ var maps = {
             { minX: -75, maxX: 25, minY: -75, maxY: -75 },
         ],
         //ArenaField. 
-        ArenaHGInne: [
+        ArenaHGInnen: [
             { minX: -75, maxX: -75, minY: -375, maxY: -375 },
         ],
     },
