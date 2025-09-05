@@ -40,6 +40,17 @@ async function changeMap(mapname) {
             document.getElementById("Haendler").classList.toggle("hidethis", false);
             document.getElementById("tuerShopOut").classList.toggle("hidethis", false);
             break;
+        case "ShopHausHG":
+            document.getElementById("karte").disabled = true;
+            document.getElementById("tuerShopHgIn").classList.toggle("hidethis", true);
+            document.getElementById("Haendler").classList.toggle("hidethis", false);
+            document.getElementById("tuerShopHgOut").classList.toggle("hidethis", false);
+            break;
+        case "ArenaField":
+            document.getElementById("karte").disabled = true;
+            document.getElementById("ArenaBtnIn").classList.toggle("hidethis", true);
+            document.getElementById("ArenaBtnOut").classList.toggle("hidethis", false);
+            break;
     }
     activeMap = maps[mapname].name;
     documentMap.className = "map " + activeMap;
@@ -94,6 +105,16 @@ function shopEingangHG() {
 function shopAusgangHG() {
     document.getElementById('door-sound').play();
     Player.MapX = maps.ShopHausHG.startStadtX; Player.MapY = maps.ShopHausHG.startStadtY;
+    changeMap('MAP');
+}
+function arenaIn() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps.ArenaField.startX; Player.MapY = maps.ArenaField.startY;
+    changeMap('ArenaField');
+}
+function arenaOut() {
+    document.getElementById('door-sound').play();
+    Player.MapX = maps.ArenaField.startStadtX; Player.MapY = maps.ArenaField.startStadtY;
     changeMap('MAP');
 }
 

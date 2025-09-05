@@ -238,4 +238,29 @@ var maps = {
             { minX: 125, maxX: 125, minY: 75, maxY: 75 },
         ],
     },
+    ArenaField: {
+        name: "Arena-Field",
+        Height: 700,
+        Width: 700,
+        startX: 125,
+        startY: 25,
+        startStadtX: -4225,
+        startStadtY: -1525,
+        blockedArea: [
+            { minX: 25, maxX: 225, minY: 125, maxY: 225 },
+            { minX: 25, maxX: 25, minY: 25, maxY: 75 },
+            { minX: 225, maxX: 225, minY: 25, maxY: 25 },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+            //{ minX: , maxX: , minY: , maxY:  },
+        ],
+        //ShopHome. 
+        shopHomeHG: [
+            { minX: -175, maxX: -175, minY: -1575, maxY: -1575 },
+        ],
+        //shopHandelHG: [
+        //    { minX: 125, maxX: 125, minY: 75, maxY: 75 },
+        //],
+    },
 }
