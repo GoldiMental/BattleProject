@@ -230,69 +230,61 @@ function close_Items() { document.getElementById('Items').classList.toggle("hide
 
 async function Use(itm, qty) {
     console.warn("Führe Use(", itm, qty, ") aus...");
+    const buttonsArray = [];
+    for (i = 1; i <= 6; i++) {
+        let slot = "Slot_" + i;
+        if (Player.Tulpas[slot].name != "") {
+            let obj = { text: Player.Tulpas[slot].name, value: slot };
+            buttonsArray.push(obj);
+        }
+    }
     if (qty > 0) {
         if (itm in Player.inventory.drinks) {
-            close_Items(); Tulpas_List();
-            const buttonsArray = [];
-            for (i = 1; i <= 6; i++) {
-                let slot = "Slot_" + i;
-                if (Player.Tulpas[slot].name != "") {
-                    let obj = { text: Player.Tulpas[slot].name, value: i };
-                    buttonsArray.push(obj);
-                }
-            }
-            await Delay(200);
             console.log("Trank erkannt. Warte auf Antwort des Spielers...");
             let antwort = await showCustomMenu("Wähle eine Option aus:", buttonsArray);
-            if (0 <= antwort <= 6) {
-                let slot = "Slot_" + antwort;
-                console.log("Versuche Trank auf ", slot, " anzuwenden...");
-                if (Player.Tulpas[slot].name != "") {
-                    if (Player.Tulpas[slot].HP != Player.Tulpas[slot].HP_Total) {
-                        Player.Tulpas[slot].HP += Item_List[itm].HP;
-                        if (Player.Tulpas[slot].HP > Player.Tulpas[slot].HP_Total) {
-                            Player.Tulpas[slot].HP = Player.Tulpas[slot].HP_Total;
+            if (antwort) {
+                console.log("Versuche Trank auf ", antwort, " anzuwenden...");
+                if (Player.Tulpas[antwort].name != "") {
+                    if (Player.Tulpas[antwort].HP != Player.Tulpas[slot].HP_Total) {
+                        Player.Tulpas[antwort].HP += Item_List[itm].HP;
+                        if (Player.Tulpas[antwort].HP > Player.Tulpas[antwort].HP_Total) {
+                            Player.Tulpas[antwort].HP = Player.Tulpas[antwort].HP_Total;
                         }
                         Player.inventory.drinks[itm] -= 1;
                         console.log("Anwendung erfolgreich.");
-                        close_Tulpas(); Items();
                     } else {
                         console.warn("catched Use()-ERROR: HP is already MAX => Use(", itm, qty, ") stopped");
-                        showCustomAlert(Player.Tulpas[slot].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
-                        close_Tulpas(); Items();
+                        showCustomAlert(Player.Tulpas[antwort].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
                     }
                 } else {
-                    console.warn("catched Use()-ERROR: Not found Slot: ", slot, " => Use(", itm, qty, ") stopped");
+                    console.warn("catched Use()-ERROR: Not found Slot: ", antwort, " => Use(", itm, qty, ") stopped");
                     showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
-                    close_Tulpas(); Items();
                 }
             } else {
                 console.error("Spielereingabe fehlerhaft:", antwort);
                 showCustomAlert("Ich sagte doch, gib eine Zahl zwischen 1 & 6 ein. Versuch es nochmal.");
-                close_Tulpas(); Items();
             }
         } else {
-            close_Items(); Tulpas_List(); await Delay(200);
+            await Delay(200);
             console.log("Bonbon erkannt. Warte auf Spielereingabe...");
-            let antwort = await showCustomPrompt("Bei welchem Slot soll das Bonbon verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
+            let antwort = await showCustomMenu("Wähle eine Option aus:", buttonsArray);
             console.log("Versuche Bonbon auf Slot ", antwort, " anzuwenden...");
-            if (0 <= antwort <= 6) {
-                let slot = "Slot_" + antwort;
-                if (Player.Tulpas[slot].name != "") {
-                    Player.Tulpas[slot].XP += Item_List[itm].XPB;
-                    if (Player.Tulpas[slot].XP >= (25 * (Player.Tulpas[slot].Lv + 1) * (2 * (Player.Tulpas[slot].Lv + 1)))) {
-                        showCustomAlert(Tulpas[Player.Tulpas[slot].name].name, " ist ein Level aufgestiegen.");
-                        Player.Tulpas[slot].Lv += 1;
-                        Player.Tulpas[slot].HP = Tulpas[Player.Tulpas[slot].name].HP + (3 * Player.Tulpas[slot].Lv);
-                        Player.Tulpas[slot].HP_Total = Tulpas[Player.Tulpas[slot].name].HP + (3 * Player.Tulpas[slot].Lv);
+            if (antwort) {
+                if (Player.Tulpas[antwort].name != "") {
+                    Player.Tulpas[antwort].XP += Item_List[itm].XPB;
+                    if (Player.Tulpas[antwort].XP >= (25 * (Player.Tulpas[antwort].Lv + 1) * (2 * (Player.Tulpas[antwort].Lv + 1)))) {
+                        showCustomAlert(Tulpas[Player.Tulpas[antwort].name].name, " ist ein Level aufgestiegen.");
+                        Player.Tulpas[antwort].Lv += 1;
+                        Player.Tulpas[antwort].HP = Tulpas[Player.Tulpas[antwort].name].HP + (3 * Player.Tulpas[antwort].Lv);
+                        Player.Tulpas[antwort].HP_Total = Tulpas[Player.Tulpas[antwort].name].HP + (3 * Player.Tulpas[antwort].Lv);
                     }
                     Player.inventory.bonbons[itm] -= 1;
                     console.log("Anwendung erfolgreich.");
-                    showCustomAlert("Bonbon erfolgreich bei ", Tulpas[Player.Tulpas[slot].name].name, " angewendet.");
+                    showCustomAlert("Bonbon erfolgreich bei ", Tulpas[Player.Tulpas[antwort].name].name, " angewendet.");
                     close_Tulpas();
                     Items();
                 } else {
-                    console.error("Slot nicht gefunden: ", slot, ". Wird abgebrochen...");
+                    console.error("Slot nicht gefunden: ", antwort, ". Wird abgebrochen...");
                     showCustomAlert("Slot ist nicht belegt. Versuche es nochmal");
                     close_Tulpas();
                     Items();
