@@ -263,7 +263,7 @@ async function Use(itm, qty) {
                         showCustomAlert(Tulpas[Player.Tulpas[slot].name].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
                     }
                 }
-            }
+            } else { showCustomAlert("Verwendung abgebrochen."); }
         }
         else {
             console.log("Bonbon erkannt. Warte auf Spielereingabe...");
@@ -282,10 +282,7 @@ async function Use(itm, qty) {
                     console.log("Anwendung erfolgreich.");
                     showCustomAlert("Bonbon erfolgreich bei ", Tulpas[Player.Tulpas[antwort].name].name, " angewendet.");
                 }
-            }
-            else {
-                showCustomAlert("Verwendung abgebrochen.");
-            }
+            } else { showCustomAlert("Verwendung abgebrochen."); }
         }
     }
 }

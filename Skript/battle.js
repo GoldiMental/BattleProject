@@ -591,5 +591,5 @@ async function UseDrink(drink) {
             document.getElementById('use_item').classList.toggle("hidethis", false);
             document.getElementById('change_tulpa').classList.toggle("hidethis", true);
         }
-    }
+    } else { showCustomAlert("Verwendung abgebrochen."); }
 }
