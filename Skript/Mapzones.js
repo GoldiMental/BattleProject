@@ -242,10 +242,10 @@ var maps = {
         name: "Arena-Field",
         Height: 700,
         Width: 700,
-        startX: 125,
+        startX: 25,
         startY: 25,
-        startStadtX: -4225,
-        startStadtY: -1525,
+        startStadtX: -175,
+        startStadtY: -1575,
         blockedArea: [
             { minX: 25, maxX: 225, minY: 125, maxY: 225 },
             { minX: 25, maxX: 25, minY: 25, maxY: 75 },
