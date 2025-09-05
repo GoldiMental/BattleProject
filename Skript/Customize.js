@@ -61,9 +61,7 @@ function showCustomPrompt(message, defaultValue = '') {
 }
 
 function showCustomAlert(message) {
-    return showCustomModal('Information', message, {
-        showCancelButton: false
-    });
+    return showCustomModal('Information', message);
 }
 
 function showCustomConfirm(message) {
