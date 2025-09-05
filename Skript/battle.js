@@ -72,14 +72,12 @@ async function Trainerbattle(TulpaIndex) {
         document.getElementById("battle_menu").classList.toggle("hidethis", false);
         document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
-
         tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 3);
         tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 3);
         document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
         battleInfo.innerText = "" + trainer.name + " schickt " + tulpa_opp + " Lv. " + tulpa_lv + " in den Kampf!";
         document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
         document.getElementById('Tulpa-opp').innerHTML = '<div class="' + tulpa_opp + '_Front"></div>';
-
         document.getElementById('Tulpa-opp').style.right = "10px";
         document.getElementById('Name-opp').style.opacity = "1";
         document.getElementById('LP-opp').style.opacity = "1";
@@ -89,7 +87,6 @@ async function Trainerbattle(TulpaIndex) {
         await Delay(500);
         document.getElementById('Tulpa-self').innerHTML = '<div class="' + tulpa_self.name + '_Back"></div>';
         document.getElementById('Tulpa-self').style.left = "10px";
-
         document.getElementById('Name-self').innerHTML = tulpa_self.name + " Lv. " + tulpa_self.Lv;
         document.getElementById('Name-self').style.opacity = "1";
         document.getElementById('LP-self').style.opacity = "1";
@@ -104,7 +101,6 @@ async function Trainerbattle(TulpaIndex) {
         await Delay(500);
         document.getElementById('Name-opp').innerHTML = Tulpas[tulpa_opp].name + " Lv. " + tulpa_lv;
         document.getElementById('Tulpa-opp').innerHTML = '<div class="' + tulpa_opp + '_Front"></div>';
-
         document.getElementById('Tulpa-opp').style.right = "10px";
         document.getElementById('Name-opp').style.opacity = "1";
         document.getElementById('LP-opp').style.opacity = "1";
