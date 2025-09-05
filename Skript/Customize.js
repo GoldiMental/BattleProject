@@ -28,7 +28,7 @@ function showCustomModal(title, message, options = {}) {
         const hasInput = !!options.inputType;
 
         customModalInput.classList.toggle("hidethis", !hasInput);
-        customModalOkButton.classList.toggle("hidethis", OkButton ? !OkButton : true);
+        customModalOkButton.classList.toggle("hidethis", !hasCustomButtons);
         customModalCancelButton.classList.toggle("hidethis", !showCancelButton);
 
         customModalButtonsContainer.innerHTML = '';
@@ -60,7 +60,7 @@ function showCustomPrompt(message, defaultValue = '') {
 }
 
 function showCustomAlert(message) {
-    return showCustomModal('Information', message, { OkButton: true });
+    return showCustomModal('Information', message);
 }
 
 function showCustomConfirm(message) {
