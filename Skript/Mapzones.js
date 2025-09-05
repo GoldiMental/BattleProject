@@ -122,6 +122,9 @@ var maps = {
         shopHomeHG: [
             { minX: -4225, maxX: -4225, minY: -1525, maxY: -1525 },
         ],
+        ArenaField: [
+            { minX: -175, maxX: -175, minY: -1575, maxY: -1575 },
+        ],
         //trainerBattle. 
         trainerBattle: [
             { minX: -1075, maxX: -1075, minY: -325, maxY: -275, name: "Trainer000" },
@@ -270,9 +273,6 @@ var maps = {
             { minX: -75, maxX: 25, minY: -75, maxY: -75 },
         ],
         //ArenaField. 
-        ArenaHG: [
-            { minX: -175, maxX: -175, minY: -1575, maxY: -1575 },
-        ],
         ArenaHGInne: [
             { minX: -75, maxX: -75, minY: -375, maxY: -375 },
         ],
