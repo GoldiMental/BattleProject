@@ -903,16 +903,11 @@ button {
 
 #tulpaball {
     position: absolute;
-    background-image: url(../img/textures/tBall.png);
     height: 50px;
     width: 50px;
     top: 350px;
     left: 0px;
     transition: left 0.1s linear, top 0.1s linear;
-}
-
-.tulpaballGIF{
-    background-image: url(../img/textures/tBall_single.gif) !important;
 }
 
 .TrainerDialogBox {
