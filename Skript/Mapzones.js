@@ -256,11 +256,11 @@ var maps = {
             //{ minX: , maxX: , minY: , maxY:  },
         ],
         //ShopHome. 
-        shopHomeHG: [
+        ArenaHG: [
             { minX: -175, maxX: -175, minY: -1575, maxY: -1575 },
         ],
-        //shopHandelHG: [
-        //    { minX: 125, maxX: 125, minY: 75, maxY: 75 },
+        //ArenaHGInne: [
+        //    { minX: -75, maxX: -75, minY: -375, maxY: -375 },
         //],
     },
 }
