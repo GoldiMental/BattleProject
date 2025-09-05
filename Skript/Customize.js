@@ -97,8 +97,7 @@ function showCustomConfirm(message) {
 function showCustomMenu(message, buttons) {
     return showCustomModal('Wählen Sie eine Option', message, {
         buttons: buttons,
-        showCancelButton: true,
-        inputType: false
+        showCancelButton: true
     });
 }
 
