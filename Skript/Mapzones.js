@@ -129,7 +129,7 @@ var maps = {
         ],
         battleMaps: {
             wald: {
-                opp_List: ["Mäusschen", "Kaninchen", "Streuner",],
+                opp_List: ["Mäuschen", "Kaninchen", "Streuner",],
                 maxLv: 4
             },
             dunkelwald: {

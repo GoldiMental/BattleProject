@@ -1,4 +1,4 @@
-.Mäusschen {
+.Mäuschen {
     background-image: url(../img/tulpaPic/mausi_f.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -8,7 +8,7 @@
     float: left;
 }
 
-.Mäusschen_Front {
+.Mäuschen_Front {
     background-image: url(../img/tulpaPic/mausi_f.png);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 
 }
 
-.Mäusschen_Back {
+.Mäuschen_Back {
     background-image: url(../img/tulpaPic/mausi_b.png);
     background-size: 100%;
     background-repeat: no-repeat;

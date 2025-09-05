@@ -1,6 +1,6 @@
 const Tulpas = {
 
-    Mäusschen: { name: "Mäusschen", className: "Mäusschen", HP: 50, HP_Total: 50, ANG: 5, VER: 3, attacks: { 1: "Kratzer", 2: "Biss", 3: "-", 4: "-" }, des: "Ein Süßer und netter Zeitgenosse. Immer Gut gelaunt und voller energie geht das Mäusschen seiner Täglichen Mäusearbeit nach. Ärgere sie doch einfach nicht.", },
+    Mäuschen: { name: "Mäuschen", className: "Mäuschen", HP: 50, HP_Total: 50, ANG: 5, VER: 3, attacks: { 1: "Kratzer", 2: "Biss", 3: "-", 4: "-" }, des: "Ein Süßer und netter Zeitgenosse. Immer Gut gelaunt und voller energie geht das Mäuschen seiner Täglichen Mäusearbeit nach. Ärgere sie doch einfach nicht.", },
     //ein simple braun/goldene kleine maus
     Maus: { name: "Maus", className: "Maus", HP: 75, HP_Total: 75, ANG: 5, VER: 4, attacks: { 1: "Tackle", 2: "Biss", 3: "Blutlust", 4: "-" }, des: "Eine sehr Gesellige Maus. Trotzdem mag sie kleine Auseinadnersetzungen, sie siehts sportlich.", },
     // änlich wie die erste , nur etwas grösser mit ernstem  gesicht
