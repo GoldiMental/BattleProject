@@ -1210,6 +1210,7 @@ button {
 }
 
 #customModalButtonsContainer {
+    display: flex;
     justify-content: center;
     gap: 1em;
     margin-bottom: 1.5em;
