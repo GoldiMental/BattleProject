@@ -179,7 +179,7 @@ function moveMap() {
         case "ArenaField":
             for (let i = 0; i < maps.ArenaField.ArenaHGInnen.length; i++) {
                 const a = maps.ArenaField.ArenaHGInnen[i];
-                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('TroysHausOut_B', false); }
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ArenaBtnOut', false); }
                 else { toggleClassElement('ArenaBtnOut', true); }
             }
             break;
@@ -206,7 +206,7 @@ function moveMap() {
             }
             for (let i = 0; i < maps.MAP.ArenaField.length; i++) {
                 const a = maps[activeMap].ArenaField[i];
-                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ShopHausHohesGrasIn', false); }
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ArenaBtnIn', false); }
                 else { toggleClassElement('ArenaBtnIn', true); }
             }
             for (let i = 0; i < maps.MAP.trainerBattle.length; i++) {
