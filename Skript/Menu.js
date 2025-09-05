@@ -232,9 +232,17 @@ async function Use(itm, qty) {
     console.warn("Führe Use(", itm, qty, ") aus...");
     if (qty > 0) {
         if (itm in Player.inventory.drinks) {
-            close_Items(); Tulpas_List(); await Delay(200);
+            close_Items(); Tulpas_List();
+            const buttonsArray = [];
+            for (i = 0; i <= 6; i++) {
+                if (Player.Tulpas["Slot_"[i]].name != "") {
+                    let obj = { text: Player.Tulpas["Slot_"[i]].name, value: i };
+                    buttonsArray.push(obj);
+                }
+            }
+            await Delay(200);
             console.log("Trank erkannt. Warte auf Antwort des Spielers...");
-            let antwort = await showCustomPrompt("Bei welchem Slot soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
+            let antwort = await showCustomMenu("Wähle eine Option aus:", buttonsArray);
             if (0 <= antwort <= 6) {
                 let slot = "Slot_" + antwort;
                 console.log("Versuche Trank auf ", slot, " anzuwenden...");
