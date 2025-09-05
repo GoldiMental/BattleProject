@@ -260,7 +260,7 @@ async function Use(itm, qty) {
                         console.log("Anwendung erfolgreich.");
                     } else {
                         console.warn("catched Use()-ERROR: HP is already MAX => Use(", itm, qty, ") stopped");
-                        showCustomAlert(Tulpas[Player.Tulpas[slot].name].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
+                        showCustomAlert(Tulpas[Player.Tulpas[antwort].name].name + " ist bereits vollständig geheilt!\nWähle ein anderes und versuche es nochmal.");
                     }
                 }
             } else { showCustomAlert("Verwendung abgebrochen."); }
