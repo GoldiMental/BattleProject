@@ -2,9 +2,13 @@ const moveSpeed = 50;
 const moveInterval = 300;
 let lastArea = "";
 let activeDirection = null;
+let activeMap;
+let minX;
+let maxX;
+let minY;
+let maxY;
 const movementGame = document.getElementById("movement_game");
 const documentMap = document.querySelector('.map');
-let activeMap; let minX; let maxX; let minY; let maxY;
 
 async function changeMap(mapname) {
     movementGame.classList.toggle("hidethis", true);
@@ -105,9 +109,7 @@ function moveMap() {
     }
     for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
         const a = maps[activeMap].blockedArea[i];
-        if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
-            return;
-        }
+        if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { return; }
     }
     switch (activeMap) {
         case "ShopHaus":
@@ -235,11 +237,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-document.addEventListener('keyup', (event) => {
-    if (event.key.toLocaleLowerCase() === activeDirection) {
-        activeDirection = null; stopMovement();
-    }
-});
+document.addEventListener('keyup', (event) => { if (event.key.toLocaleLowerCase() === activeDirection) { activeDirection = null; stopMovement(); } });
 
 let moveIntervalID;
 moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);

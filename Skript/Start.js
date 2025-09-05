@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function InitializeGameWorld() {
-    console.log("Spielwelt wird mit geladenen Spielerdaten initialisiert...");
+    console.log("Führe InitializeGameWorld() aus...");
     const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
     setcolor();
@@ -89,7 +89,7 @@ async function InitializeGameWorld() {
         await Delay(300);
         movementGame.classList.toggle("hidethis", false);
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
-    } else if (!Player.MapX && !Player.MapX && Player.tulpaGegeben) {
+    } else if (!Player.MapX && !Player.MapY && Player.tulpaGegeben) {
         Player.MapX = maps.MAP.startX; Player.MapY = maps.MAP.startY;
         changeMap('MAP');
         await Delay(300);
@@ -117,7 +117,7 @@ function Click() {
 }
 
 async function SaveGame() {
-    console.log("Versuche Spiel zu speichern...");
+    console.log("Führe SaveGame() aus...");
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
         console.error("Sitzung abgelaufen...");
@@ -125,7 +125,7 @@ async function SaveGame() {
         await Delay(500); window.location.href = GAME_SERVER_IP; return;
     }
     if (!Player || Object.keys(Player).length === 0) {
-        console.warn('Versuch, leere Spielerdaten zu speichern. Speichervorgang abgebrochen.');
+        console.warn('catched SaveGame()-Error: Data is empty => SaveGame() stopped');
         await showCustomAlert('Keine gültigen Spielerdaten zum Speichern vorhanden.');
         return;
     }

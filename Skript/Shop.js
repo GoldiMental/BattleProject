@@ -100,7 +100,6 @@ function sellItems() {
   console.log("Führe sellItems() aus...")
   let ShopSellList = document.getElementById("ShopSellList");
   let html = "";
-  console - log("Erstelle HTML-Element...")
   document.getElementById("shopMenu").classList.toggle("hidethis", true);
   ShopSellList.classList.toggle("hidethis", false);
   for (itm in Shops[activeShop]) {
@@ -188,7 +187,6 @@ function SellThis(idnr) {
 }
 
 async function healTulpas() {
-  console.log("Führe healTulpas() aus...");
   Player.Tulpas.Slot_1.HP = Player.Tulpas.Slot_1.HP_Total; Player.Tulpas.Slot_2.HP = Player.Tulpas.Slot_2.HP_Total;
   Player.Tulpas.Slot_3.HP = Player.Tulpas.Slot_3.HP_Total; Player.Tulpas.Slot_4.HP = Player.Tulpas.Slot_4.HP_Total;
   Player.Tulpas.Slot_5.HP = Player.Tulpas.Slot_5.HP_Total; Player.Tulpas.Slot_6.HP = Player.Tulpas.Slot_6.HP_Total;

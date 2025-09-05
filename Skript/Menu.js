@@ -1,16 +1,11 @@
 //Javascript Menu
 function MenuList() {
-    console.log("Führe MenuList() aus...");
     if (document.getElementById('MenuList').classList.contains('hidethis')) {
-        document.getElementById('MenuList').classList.toggle("hidethis", false);
-        console.log("Menü öffnen => Bewegung sperren...");
-        clearInterval(moveIntervalID);
-        console.log("MenuList() ✅");
-    } else {
-        console.log("Menü schließen => Bewegung freigeben...");
+        document.getElementById('MenuList').classList.toggle("hidethis", false); clearInterval(moveIntervalID);
+    }
+    else {
         document.getElementById('MenuList').classList.toggle("hidethis", true);
         moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
-        console.log("MenuList() ✅");
     }
 }
 
@@ -80,45 +75,32 @@ async function Cheat() {
 }
 
 function Tulpa_Dex() {
-    console.log("Führe Tulpa_Dex() aus...");
-    document.getElementById('Tulpa_Dex').classList.toggle("hidethis", false);
-    let html = '';
-    console.log("Erstelle HTML-Element...");
+    document.getElementById('Tulpa_Dex').classList.toggle("hidethis", false); let html = '';
     for (Tulpa in Tulpas) {
         html += '<div style="float:left;margin:5px;"><div class="Tulpa_Name">' + Tulpas[Tulpa].name + '</div>' +
             '<div class="' + Tulpas[Tulpa].className + '"></div>' +
             '<div class="description">' + Tulpas[Tulpa].des + '</div></div>';
     }
     document.getElementById('Tulpa_Dex_List').innerHTML = html;
-    console.log("Tulpa_Dex() ✅");
 }
 
-function close_Tulpa_Dex() {
-    console.log("Führe close_Tulpa_Dex() aus...");
-    document.getElementById('Tulpa_Dex').classList.toggle("hidethis", true);
-    console.log("close_Tulpa_Dex() ✅");
-}
+function close_Tulpa_Dex() { document.getElementById('Tulpa_Dex').classList.toggle("hidethis", true); }
 
 function Tulpas_List() {
-    console.log("Führe Tulpas_List() aus...");
-    document.getElementById('Tulpas').classList.toggle("hidethis", false);
-    let html = ''; console.log("Erstelle HTML-Element...");
+    document.getElementById('Tulpas').classList.toggle("hidethis", false); let html = '';
     for (Slot in Player.Tulpas) {
         if (Slot.startsWith('Slot')) {
             let tulpa = Player.Tulpas[Slot];
             if (tulpa.name != "") {
                 html += '<div style="display:block;margin-bottom:5px;"><div class="' + tulpa.name + '"></div><br>' +
                     '<div style="position:relative;left:30px;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + '</div>' +
-                    '<div class="LP_Bar">' +
-                    '<div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div>' +
-                    '</div>' +
+                    '<div class="LP_Bar"><div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div></div>' +
                     '<button class="Change_Tulpa" onclick="swapTulpa(\'' + Slot + '\');Click()">🔄️</button>' +
                     '<button class="Delete_Tulpa" onclick="removeTulpa(\'' + Slot + '\');Click()">🗑️</button></div>';
             }
         }
     };
     document.getElementById('Tulpa_List').innerHTML = html;
-    console.log("Tulpas_List() ✅");
 }
 
 async function removeTulpa(Slot) {
@@ -170,39 +152,21 @@ async function swapTulpa(Slot) {
     }
 }
 
-function close_Tulpas() {
-    console.log("Führe close_Tulpas() aus...");
-    document.getElementById('Tulpas').classList.toggle("hidethis", true);
-    console.log("close_Tulpas() ✅");
-}
+function close_Tulpas() { document.getElementById('Tulpas').classList.toggle("hidethis", true); }
 
 function Info() {
-    console.log("Führe Info() aus...");
-    document.getElementById('Info').classList.toggle("hidethis", false);
-    let html = ''; console.log("Erstelle HTML-Element...");
+    document.getElementById('Info').classList.toggle("hidethis", false); let html = '';
     html += '<table><tr>' +
-        '<td>Spielername:</td>' +
-        '<td>' + Player.name + '</td></tr>' +
-        '<tr><td>Gold:</td>' +
-        '<td>' + Player.Gold + '</td></tr>' +
-        '<tr><td>Gefangene Tulpas:</td>' +
-        '<td>' + Player.catchedTulpas + '</td></tr>' +
-        '<tr><td>Besiegte Trainer:</td>' +
-        '<td>' + Player.defeatedTrainer.length + '</td></tr>' +
-        '<tr><td>Cheats:</td>' +
-        '<td>' + Player.Cheats + '</td></tr>';
+        '<td>Spielername:</td><td>' + Player.name + '</td></tr><tr><td>Gold:</td><td>' + Player.Gold + '</td></tr>' +
+        '<tr><td>Gefangene Tulpas:</td><td>' + Player.catchedTulpas + '</td></tr>' +
+        '<tr><td>Besiegte Trainer:</td><td>' + Player.defeatedTrainer.length + '</td></tr>' +
+        '<tr><td>Cheats:</td><td>' + Player.Cheats + '</td></tr>';
     document.getElementById('Info_List').innerHTML = html;
-    console.log("Info() ✅");
 }
 
-function close_Info() {
-    console.log("Führe close_Info() aus...");
-    document.getElementById('Info').classList.toggle("hidethis", true);
-    console.log("closeInfo() ✅");
-}
+function close_Info() { document.getElementById('Info').classList.toggle("hidethis", true); }
 
 function Karte() {
-    console.log("Führe Karte() aus...");
     document.getElementById('Karte').classList.toggle("hidethis", false);
     const standortMarker = document.getElementById('standort-marker');
     standortMarker.classList.toggle("hidethis", false);
@@ -240,41 +204,29 @@ function Karte() {
 
     //console.log("Spieler-Position (Original):", playerX, playerY);
     //console.log("Marker-Position (Skaliert):", markerX, markerY);
-    console.log("Karte() ✅")
 }
 
 function close_Karte() {
-    console.log("Führe close_Karte() aus...");
     document.getElementById('Karte').classList.toggle("hidethis", true);
     document.getElementById('standort-marker').classList.toggle("hidethis", true);
-    console.log("close_Karte() ✅");
 }
 
 function Items() {
-    console.log("Führe Items() aus...");
     document.getElementById('Items').classList.toggle("hidethis", false);
     let html = "<div id='Bälle' class='Item_Title'>Bälle: </div><br>";
-    console.log("Erstelle HTML-Element...");
     for (ball in Player.inventory.balls) {
         html += '<div><button title="Kann nur im Kampf eingesetzt werden." class="Item_list" disabled>' + Item_List[ball].name + ': ' + Player.inventory.balls[ball] + '</button><br>';
-    }
-    html += "<br><div id='Tränke' class='Item_Title'>Tränke: </div><br>";
+    }; html += "<br><div id='Tränke' class='Item_Title'>Tränke: </div><br>";
     for (drink in Player.inventory.drinks) {
         html += '<div><button title="' + Item_List[drink].des + '" class="Item_list" onclick="Use(\'' + drink + '\',\'' + Player.inventory.drinks[drink] + '\')">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</button><br>';
-    }
-    html += "<br><div id='Bonbons' class='Item_Title'>Bonbons: </div><br>";
+    }; html += "<br><div id='Bonbons' class='Item_Title'>Bonbons: </div><br>";
     for (bonbon in Player.inventory.bonbons) {
         html += '<div><button title="' + Item_List[bonbon].des + '" class="Item_list" onclick="Use(\'' + bonbon + '\',\'' + Player.inventory.bonbons[bonbon] + '\')">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</button><br>';
     }
     document.getElementById('Item_List').innerHTML = html;
-    console.log("Items() ✅");
 }
 
-function close_Items() {
-    console.log("Führe close_Items() aus...");
-    document.getElementById('Items').classList.toggle("hidethis", true);
-    console.log("close_Items() ✅");
-}
+function close_Items() { document.getElementById('Items').classList.toggle("hidethis", true); }
 
 async function Use(itm, qty) {
     console.warn("Führe Use(", itm, qty, ") aus...");
