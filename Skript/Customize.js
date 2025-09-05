@@ -43,7 +43,7 @@ function showCustomModal(title, message, options = {}) {
                 customModalButtonsContainer.appendChild(newButton);
             });
         }
-        
+
         customModalOkButton.onclick = () => { closeModal(hasInput ? customModalInput.value : true); };
         customModalCancelButton.onclick = () => { closeModal(false); };
 
@@ -60,13 +60,11 @@ function showCustomPrompt(message, defaultValue = '') {
 }
 
 function showCustomAlert(message) {
-    return showCustomModal('Information', message);
+    return showCustomModal('Information', message, { OkButton: true });
 }
 
 function showCustomConfirm(message) {
-    return showCustomModal('Bestätigen', message, {
-        showCancelButton: true
-    });
+    return showCustomModal('Bestätigen', message, { showCancelButton: true });
 }
 
 function showCustomMenu(message, buttons) {
