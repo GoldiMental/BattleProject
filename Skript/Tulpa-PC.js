@@ -33,9 +33,17 @@ async function removeTulpaFromPC(index) {
 }
 
 async function promptSwapWithTeam(pcIndex) {
-    let antwort = await showCustomPrompt("Mit welchem Team-Slot soll getauscht werden? Gib dazu die Slotnummer (1-6) an:", "0 beendet den Tausch");
-    if (antwort == 0) return;
-    let teamSlot = "Slot_" + antwort;
+    const buttonsArray = [];
+    for (i = 1; i <= 6; i++) {
+        let slot = "Slot_" + i;
+        if (Player.Tulpas[slot].name != "") {
+            let obj = { text: Tulpas[Player.Tulpas[slot].name].name + " Lv. " + Player.Tulpas[slot].Lv, value: slot };
+            buttonsArray.push(obj);
+        }
+    }
+    let antwort = await showCustomMenu("Deine Tulpas:", buttonsArray);
+    if (!antwort) return;
+    let teamSlot = antwort;
     swapTulpaWithPC(teamSlot, pcIndex);
 }
 
