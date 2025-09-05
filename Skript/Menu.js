@@ -235,7 +235,7 @@ async function Use(itm, qty) {
             close_Items(); Tulpas_List(); await Delay(200);
             console.log("Trank erkannt. Warte auf Antwort des Spielers...");
             let antwort = await showCustomPrompt("Bei welchem Slot soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
-            if (antwort > 0 && antwort <= 6) {
+            if (0 <= antwort <= 6) {
                 let slot = "Slot_" + antwort;
                 console.log("Versuche Trank auf ", slot, " anzuwenden...");
                 if (Player.Tulpas[slot].name != "") {
@@ -267,7 +267,7 @@ async function Use(itm, qty) {
             console.log("Bonbon erkannt. Warte auf Spielereingabe...");
             let antwort = await showCustomPrompt("Bei welchem Slot soll das Bonbon verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
             console.log("Versuche Bonbon auf Slot ", antwort, " anzuwenden...");
-            if (antwort > 0 && antwort <= 6) {
+            if (0 <= antwort <= 6) {
                 let slot = "Slot_" + antwort;
                 if (Player.Tulpas[slot].name != "") {
                     Player.Tulpas[slot].XP += Item_List[itm].XPB;

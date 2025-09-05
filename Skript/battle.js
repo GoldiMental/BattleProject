@@ -561,7 +561,7 @@ async function UseDrink(drink) {
     document.getElementById('change_tulpa').classList.toggle("hidethis", false); await Delay(100);
     console.log("Warte auf Eingabe...");
     let antwort = await showCustomPrompt("Bei welchem Slot, soll der Trank verwendet werden?", "Bitte gib eine Zahl (1-6) ein.");
-    if (antwort > 0 && antwort <= 6) {
+    if (0 <= antwort <= 6) {
         let slot = "Slot_" + parseInt(antwort);
         console.log("Eingabe", slot, "=> ()...");
         if (Player.Tulpas[slot].name != "") {
