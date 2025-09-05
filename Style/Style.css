@@ -1208,3 +1208,7 @@ button {
     justify-content: center;
     gap: 1rem;
 }
+
+.modal-button{
+    display: flex;
+}
