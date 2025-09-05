@@ -549,7 +549,7 @@ async function UseBall(ball) {
             console.log("UseBall(", ball, ") ✅ => Gefangen => Leite Spieler zurück auf Karte...");
         }
         else {
-            document.getElementById('tulpaball').style.backgroundImage = "url(../img/textures/tBall_single)"; await Delay(2000);
+            document.getElementById('tulpaball').style.backgroundImage = "url(BattleProject/img/textures/tBall_single)"; await Delay(2000);
             document.getElementById('tulpaball').style = "";
             document.getElementById('Tulpa-opp').style.opacity = "1";
             document.getElementById('tulpaball').parentNode.removeChild(document.getElementById('tulpaball'));
