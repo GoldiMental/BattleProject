@@ -68,8 +68,8 @@ async function Trainerbattle(TulpaIndex) {
         document.getElementById("battle_menu").classList.toggle("hidethis", false);
         document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
         document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
-        tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 3);
-        tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 3);
+        tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 5);
+        tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 5);
         document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
         battleInfo.innerText = "" + trainer.name + " schickt " + tulpa_opp + " Lv. " + tulpa_lv + " in den Kampf!";
         document.getElementById('Name-opp').innerHTML = tulpa_opp + " Lv. " + tulpa_lv;
@@ -92,8 +92,8 @@ async function Trainerbattle(TulpaIndex) {
         console.log("Trainerbattle(", TulpaIndex, ") ✅");
     } else {
         document.getElementById("battle_menu").classList.toggle("hidethis", false);
-        tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 3);
-        tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 3);
+        tulpa_HP = trainer[TulpaIndex].HP + (tulpa_lv * 5);
+        tulpa_HP_Total = trainer[TulpaIndex].HP_Total + (tulpa_lv * 5);
         document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
         battleInfo.innerText = "" + trainer.name + " schickt " + Tulpas[tulpa_opp].name + " Lv. " + tulpa_lv + " in den Kampf!";
         console.log("Tulpa: ", tulpa_opp, " Level: ", tulpa_lv, " HP: ", tulpa_HP);
@@ -127,9 +127,9 @@ async function battle() {
     document.getElementById("battle_game").classList.toggle("hidethis", false);
     document.getElementById('Tulpa-self').innerHTML = '<div class="self_Back"></div>';
     document.getElementById('fill-self').style.width = Math.round(tulpa_self.HP / tulpa_self.HP_Total * 100) + "%";
-    tulpa_HP = Tulpas[tulpa_opp].HP_Total + (tulpa_lv * 3);
+    tulpa_HP = Tulpas[tulpa_opp].HP_Total + (tulpa_lv * 5);
     console.log("Gegnerische HP:", Tulpas[tulpa_opp].HP_Total, "+", (tulpa_lv * 3), "=", tulpa_HP);
-    tulpa_HP_Total = Tulpas[tulpa_opp].HP_Total + (tulpa_lv * 3);
+    tulpa_HP_Total = Tulpas[tulpa_opp].HP_Total + (tulpa_lv * 5);
     document.getElementById('fill-opp').style.width = Math.round(tulpa_HP / tulpa_HP_Total * 100) + "%";
     battleInfo.innerText = "Ein wildes " + Tulpas[tulpa_opp].name + " Lv. " + tulpa_lv + " greift an!";
     document.getElementById('Name-opp').innerHTML = Tulpas[tulpa_opp].name + " Lv. " + tulpa_lv;
@@ -317,7 +317,7 @@ async function self_attack(attack) {
             console.log("Prüfung Level-Up: ", tulpa_self.XP, ">=", (25 * (tulpa_self.Lv + 1)) * (2 * (tulpa_self.Lv + 1)), "? Ergebnis: ", tulpa_self.XP >= (25 * (tulpa_self.Lv + 1)) * (2 * (1 + tulpa_self.Lv))); //Level-Up-Prüfung
             if (tulpa_self.XP >= (25 * (tulpa_self.Lv + 1) * (2 * (tulpa_self.Lv + 1)))) {
                 tulpa_self.Lv = Math.floor(Math.sqrt(tulpa_self.XP / 25 / 2));
-                tulpa_self.HP = Tulpas[tulpa_self.name].HP + (3 * tulpa_self.Lv);
+                tulpa_self.HP = Tulpas[tulpa_self.name].HP + (5 * tulpa_self.Lv);
                 tulpa_self.HP_Total = tulpa_self.HP;
                 await Delay(1000);
                 console.log("Level-Up ✅ => Ändere Status des Tulpas...");

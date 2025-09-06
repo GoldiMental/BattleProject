@@ -23,12 +23,12 @@ async function Professor001monolog() {
         box.innerHTML = Professor.Dialog1.text3; await Delay(300); await Click();
         box.innerHTML = Professor.Dialog1.text4; await Delay(300); await Click();
         box.innerHTML = Professor.Dialog1.text5; await Delay(300); await Click();
-        box.innerHTML = "Hier... Bitte schön..."; document.getElementById('win-sound').play(); await Delay(3000); await Click();
+        box.innerHTML = "Hier... Bitte schön..."; document.getElementById('win-sound').play(); await Delay(2500); await Click();
         box.innerHTML = Professor.Dialog1.text6; await Delay(300); await Click();
         box.innerHTML = Professor.Dialog1.text7; await Delay(300); await Click();
         box.innerHTML = Professor.Dialog1.text8; await Delay(300); await Click();
         box.innerHTML = "Also los! Deine Reise beginnt...<br>Viel Erfolg, "+Player.name+"!"; await Delay(300); await Click();
-        Player.Tulpas.Slot_1 = { name: "Kaninchen", Lv: 10, HP: 80, HP_Total: 80, XP: 5000 };
+        Player.Tulpas.Slot_1 = { name: "Kaninchen", Lv: 10, HP: 100, HP_Total: 100, XP: 5000 };
         Player.tulpaGegeben = true;
     } else {
         box.innerHTML = "Ich habe dir bereits alles gegeben, was du aktuell benötigst. Geh nun hinaus, und hilf mir, die Geheimnisse der Tulpas zu erforschen."; await Delay(300); await Click();
