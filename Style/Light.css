@@ -22,7 +22,7 @@ a:active {
 
 button:not(:disabled) {
     background: linear-gradient(rgb(150, 150, 150), rgb(125, 125, 125));
-    color: rgb(50, 50,50);
+    color: rgb(50, 50, 50);
     border: 0.15em outset rgb(150, 150, 150);
 }
 
@@ -223,4 +223,8 @@ input:focus {
 
 .custom-modal-overlay {
     background: rgba(0, 0, 0, 0.8);
+}
+
+#Name-opp {
+    color: rgb(192, 192, 192);
 }
