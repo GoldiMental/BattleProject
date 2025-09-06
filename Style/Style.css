@@ -1097,6 +1097,7 @@ a:hover {
     padding: 0 !important;
     width: 100px !important;
     box-shadow: none !important;
+    height: 5px !important;
 }
 
 .custom-modal-content {
