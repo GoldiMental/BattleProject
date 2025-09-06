@@ -12,65 +12,67 @@ function MenuList() {
 async function Cheat() {
     let CheatInput = await showCustomPrompt("Bitte gib den Cheat ein:", "Eingabe");
     console.log("Führe Cheat(", CheatInput, ") aus...");
-    switch (CheatInput) {
-        case "MOREGOLD":
-            Player.Gold += 1000;
-            Player.Cheats += 1;
-            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Cheat() ✅");
-            break;
-        case "CHANGENAME":
-            let newName = await showCustomPrompt("Gib deinen neuen Namen ein:", "Max");
-            Player.name = newName;
-            Player.Cheats += 1;
-            showCustomAlert("Der Name wurde zu " + newName + " geändert.");
-            console.log("Cheat() ✅");
-            break;
-        case "GETBALLS":
-            Player.inventory.balls.Tulpaball += 10;
-            Player.inventory.balls.Super_Tulpaball += 5;
-            Player.inventory.balls.Hyper_Tulpaball += 2;
-            Player.inventory.balls.Ultra_Tulpaball += 1;
-            Player.Cheats += 1;
-            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Cheat() ✅");
-            break;
-        case "GETDRINKS":
-            Player.inventory.drinks.Heiltrank += 10;
-            Player.inventory.drinks.Super_Heiltrank += 5;
-            Player.inventory.drinks.Manatrank += 2;
-            Player.inventory.drinks.Super_Manatrank += 1;
-            Player.Cheats += 1;
-            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Cheat() ✅");
-            break;
-        case "GETBONBONS":
-            Player.inventory.bonbons.Bonbon += 5;
-            Player.inventory.bonbons.Super_Bonbon += 2;
-            Player.inventory.bonbons.Hyper_Bonbon += 1;
-            Player.Cheats += 1;
-            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Cheat() ✅");
-            break;
-        case "GETBOSSTULPA":
-            Player.Tulpas.Slot_1 = { name: "Streitross", Lv: 250, HP: 1350, HP_Total: 1350, XP: 3125000 };
-            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Cheat() ✅");
-            break;
-        case "GETUBERTULPA":
-            Player.Tulpas.Slot_1 = { name: "Böser_Wolf", Lv: 1000, HP: 5100, HP_Total: 5100, XP: 50000000 };
-            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Cheat() ✅");
-            break;
-        case "MAIKYTULPA":
-            Player.Tulpas.Slot_4 = { name: "Böser_Wolf", Lv: 5, HP: 75, HP_Total: 75, XP: 1250 };
-            showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
-            console.log("Cheat() ✅");
-            break;
-        default:
-            console.warn("catched Cheat()-ERROR: Cheat not found => Cheat() stopped");
-            showCustomAlert("Cheat nicht gefunden!");
-            break;
+    if (CheatInput) {
+        switch (CheatInput) {
+            case "MOREGOLD":
+                Player.Gold += 1000;
+                Player.Cheats += 1;
+                showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+                console.log("Cheat() ✅");
+                break;
+            case "CHANGENAME":
+                let newName = await showCustomPrompt("Gib deinen neuen Namen ein:", "Max");
+                Player.name = newName;
+                Player.Cheats += 1;
+                showCustomAlert("Der Name wurde zu " + newName + " geändert.");
+                console.log("Cheat() ✅");
+                break;
+            case "GETBALLS":
+                Player.inventory.balls.Tulpaball += 10;
+                Player.inventory.balls.Super_Tulpaball += 5;
+                Player.inventory.balls.Hyper_Tulpaball += 2;
+                Player.inventory.balls.Ultra_Tulpaball += 1;
+                Player.Cheats += 1;
+                showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+                console.log("Cheat() ✅");
+                break;
+            case "GETDRINKS":
+                Player.inventory.drinks.Heiltrank += 10;
+                Player.inventory.drinks.Super_Heiltrank += 5;
+                Player.inventory.drinks.Manatrank += 2;
+                Player.inventory.drinks.Super_Manatrank += 1;
+                Player.Cheats += 1;
+                showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+                console.log("Cheat() ✅");
+                break;
+            case "GETBONBONS":
+                Player.inventory.bonbons.Bonbon += 5;
+                Player.inventory.bonbons.Super_Bonbon += 2;
+                Player.inventory.bonbons.Hyper_Bonbon += 1;
+                Player.Cheats += 1;
+                showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+                console.log("Cheat() ✅");
+                break;
+            case "GETBOSSTULPA":
+                Player.Tulpas.Slot_1 = { name: "Streitross", Lv: 250, HP: 1350, HP_Total: 1350, XP: 3125000 };
+                showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+                console.log("Cheat() ✅");
+                break;
+            case "GETUBERTULPA":
+                Player.Tulpas.Slot_1 = { name: "Böser_Wolf", Lv: 1000, HP: 5100, HP_Total: 5100, XP: 50000000 };
+                showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+                console.log("Cheat() ✅");
+                break;
+            case "MAIKYTULPA":
+                Player.Tulpas.Slot_4 = { name: "Böser_Wolf", Lv: 5, HP: 75, HP_Total: 75, XP: 1250 };
+                showCustomAlert(CheatInput + " wurde erfolgreich ausgeführt!");
+                console.log("Cheat() ✅");
+                break;
+            default:
+                console.warn("catched Cheat()-ERROR: Cheat not found => Cheat() stopped");
+                showCustomAlert("Cheat nicht gefunden!");
+                break;
+        }
     }
 }
 
