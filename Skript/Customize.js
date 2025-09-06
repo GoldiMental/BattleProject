@@ -22,7 +22,7 @@ function showCustomModal(title, message, options = {}) {
     return new Promise(resolve => {
         resolveModalPromise = resolve;
         customModalTitle.textContent = title;
-        customModalMessage.textContent = message;
+        customModalMessage.innerHTML = message;
         
         const hasCustomButtons = !!options.buttons && options.buttons.length > 0;
         const hasInput = !!options.inputType;
