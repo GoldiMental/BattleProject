@@ -13,9 +13,13 @@ body {
 }
 
 #ColorSettings button:hover {
-    color: rgb(255, 215, 0);
-    border-color: rgb(255, 215, 0);
-    box-shadow: 0 0 0.5em rgb(255, 215, 0);
+    color: rgb(100, 250, 0);
+    border-color: rgb(100, 250, 0);
+    box-shadow: 0 0 0.5em rgb(100, 250, 0);
+}
+
+#Light{
+    background: linear-gradient(rgb(150,150,150), rgb(100,100,100));
 }
 
 #Dark {
@@ -61,13 +65,13 @@ a {
 }
 
 a:hover {
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0px 0px 15px rgb(255, 215, 0);
-    background-color: rgb(255, 215, 0);
+    border: 3px outset rgb(100, 250, 0);
+    box-shadow: 0px 0px 15px rgb(100, 250, 0);
+    background-color: rgb(100, 250, 0);
 }
 
 a:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(100, 250, 0);
 }
 
 #battle_game {
@@ -106,8 +110,8 @@ a:active {
 }
 
 #Menu:not(:disabled):hover {
-    background-color: rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    background-color: rgb(100, 250, 0);
+    box-shadow: 0 0 10px rgb(100, 250, 0);
 }
 
 .button {
@@ -117,16 +121,16 @@ a:active {
 }
 
 .button:not(:disabled):hover {
-    border-color: rgb(255, 215, 0);
-    background-color: rgb(255, 215, 0);
+    border-color: rgb(100, 250, 0);
+    background-color: rgb(100, 250, 0);
 }
 
 .button:not(:disabled):active {
-    border: 5px inset rgb(255, 215, 0);
+    border: 5px inset rgb(100, 250, 0);
 }
 
 #MenuList {
-    background: linear-gradient(rgb(0, 0, 100), rgb(0, 0, 50));
+    background: linear-gradient(rgb(100, 100, 100), rgb(50, 50, 50));
     border: 5px ridge rgb(192, 192, 192);
 }
 
@@ -141,12 +145,12 @@ a:active {
 }
 
 .MenuList:not(:disabled):hover {
-    border-color: rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border-color: rgb(100, 250, 0);
+    box-shadow: 0 0 10px rgb(100, 250, 0);
 }
 
 .MenuList:not(:disabled):active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(100, 250, 0);
 }
 
 #Tulpa_Dex {
@@ -162,12 +166,12 @@ a:active {
 }
 
 .Exit_Button:not(:disabled):hover {
-    border-color: rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border-color: rgb(100, 250, 0);
+    box-shadow: 0 0 10px rgb(100, 250, 0);
 }
 
 .Exit_Button:not(:disabled):active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(100, 250, 0);
 }
 
 .retro-popup {
@@ -317,13 +321,13 @@ a:active {
 }
 
 .menu-button:hover {
-    background-color: rgb(255, 215, 0);
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    background-color: rgb(100, 250, 0);
+    border: 3px outset rgb(100, 250, 0);
+    box-shadow: 0 0 10px rgb(100, 250, 0);
 }
 
 .menu-button:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(100, 250, 0);
 }
 
 .number_input {
@@ -341,14 +345,14 @@ a:active {
 
 .BuyButton:hover,
 .SellButton:hover {
-    background-color: rgb(255, 215, 0);
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: rgb(255, 215, 0);
+    background-color: rgb(100, 250, 0);
+    border: 3px outset rgb(100, 250, 0);
+    box-shadow: rgb(100, 250, 0);
 }
 
 .BuyButton:active,
 .SellButton:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(100, 250, 0);
 }
 
 .ExitBuyButton,
@@ -360,14 +364,14 @@ a:active {
 
 .ExitBuyButton:hover,
 .ExitSellButton:hover {
-    background-color: rgb(255, 215, 0);
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: rgb(255, 215, 0);
+    background-color: rgb(100, 250, 0);
+    border: 3px outset rgb(100, 250, 0);
+    box-shadow: rgb(100, 250, 0);
 }
 
 .ExitBuyButton:active,
 .ExitSellButton:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(100, 250, 0);
 }
 
 #ShopSellList {
@@ -378,7 +382,7 @@ a:active {
 
 #GameOver {
     color: rgb(255, 0, 0);
-    text-shadow: 5px 5px 10px rgb(255, 215, 0);
+    text-shadow: 5px 5px 10px rgb(100, 250, 0);
 }
 
 #Countdown {
@@ -427,17 +431,17 @@ a:active {
 }
 
 .custom-modal-button:hover {
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border: 3px outset rgb(100, 250, 0);
+    box-shadow: 0 0 10px rgb(100, 250, 0);
 }
 
 .custom-modal-input:focus {
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border: 3px outset rgb(100, 250, 0);
+    box-shadow: 0 0 10px rgb(100, 250, 0);
 }
 
 .custom-modal-button:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(100, 250, 0);
 }
 
 .modal-button {
@@ -447,6 +451,6 @@ a:active {
 }
 
 .modal-button:hover {
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border: 3px outset rgb(100, 250, 0);
+    box-shadow: 0 0 10px rgb(100, 250, 0);
 }
