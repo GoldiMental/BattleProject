@@ -10,33 +10,85 @@ body {
     font-family: 'Courier New', Courier, monospace;
     -webkit-user-select: none;
     user-select: none;
-    overflow: hidden;
+}
+
+.hidethis {
+    display: none !important;
+}
+
+button:disabled {
+    border: none;
+    cursor: default;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    transition: all 0.3s ease;
+}
+
+input {
+    border-radius: 0.75em;
+    padding: 0.25em;
 }
 
 #ColorSettings {
     position: fixed;
     top: 0.5em;
     right: 0.5em;
+    transition: all 0.3s ease;
 }
 
 #ColorSettings button {
-    font-family: 'Courier New', Courier, monospace;
+    float: right;
     font-size: 1.25em;
-    padding: 0.5em;
-    border-radius: 1em;
-    margin-bottom: 0.5em;
-    transition: all 0.5s ease;
 }
 
 #ColorList {
-    float: left;
     display: flex;
-    margin: 0.5em;
     flex-direction: column;
+    gap: 0.2em;
 }
 
-.hidethis {
-    display: none !important;
+#Light {
+    background: linear-gradient(rgb(150, 150, 150), rgb(100, 100, 100));
+}
+
+#Dark {
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
+}
+
+#Darkblue {
+    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+}
+
+#Darkgreen {
+    background: linear-gradient(rgb(0, 50, 0), rgb(0, 25, 0));
+}
+
+#Darkred {
+    background: linear-gradient(rgb(50, 0, 0), rgb(25, 0, 0));
+}
+
+#Darkviolett {
+    background: linear-gradient(rgb(50, 0, 50), rgb(25, 0, 25));
+}
+
+#Lightblue {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 100));
+}
+
+#Lightgreen {
+    background: linear-gradient(rgb(0, 150, 0), rgb(0, 100, 0));
+}
+
+#Lightred {
+    background: linear-gradient(rgb(150, 0, 0), rgb(100, 0, 0));
+}
+
+#Lightviolett {
+    background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
 }
 
 .background-lines {
@@ -53,7 +105,6 @@ body {
     position: absolute;
     height: 1px;
     width: 50%;
-    background: linear-gradient(90deg, transparent, rgb(255, 0, 0), transparent);
     animation: moveLine 10s linear infinite;
 }
 
@@ -61,7 +112,6 @@ body {
     position: absolute;
     height: 1px;
     width: 50%;
-    background: linear-gradient(90deg, transparent, rgb(255, 215, 0), transparent);
     animation: moveLine 10s linear infinite;
 }
 
@@ -133,19 +183,14 @@ a {
     margin-top: 5px;
     padding: 2px;
     opacity: 0.4;
-    transition: opacity 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 a:hover {
     opacity: 0.8;
 }
 
-button {
-    cursor: pointer;
-}
-
 #movement_game {
-    visibility: visible;
     transition: all 0.3s ease;
 }
 
@@ -255,16 +300,6 @@ button {
     transition: left 0.3s linear;
 }
 
-#battle-info {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    width: 480px;
-    height: 75px;
-    text-align: left;
-    border-radius: 1em;
-}
-
 .Playground {
     position: relative;
     width: 500px;
@@ -274,36 +309,23 @@ button {
 }
 
 #Menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: absolute;
-    height: 35px;
-    width: 35px;
-    left: 10px;
-    bottom: 10px;
-    font-size: 27px;
+    font-size: 2em;
     font-weight: bolder;
+    height: 48px;
+    width: 48px;
+    padding: 0.1em !important;
+    left: 0.25em;
+    bottom: 0.25em;
     opacity: 0.5;
-    border-radius: 12px;
     transition: border-color 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease-out;
 }
 
 #Menu:not(:disabled):hover {
     opacity: 1;
-}
-
-.button {
-    width: 240px;
-    min-height: 65px;
-    padding: 10px;
-    font-size: 20px;
-    text-align: center;
-    vertical-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-    cursor: pointer;
-    transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .Player {
@@ -394,23 +416,20 @@ button {
 
 #MenuList {
     position: absolute;
-    height: 450px;
-    width: 180px;
-    top: 10px;
-    right: 10px;
-    border-radius: 10px;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    right: 0.5em;
+    top: 0.5em;
+    width: 12em;
+    border-radius: 1em;
 }
 
 .MenuList {
-    min-height: 30px;
-    margin: 5px;
-    width: 170px;
-    text-align: left;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    border-radius: 10px 5px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: calc(100% - 0.5em);
 }
 
 #Karte_info {
@@ -466,29 +485,7 @@ button {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    text-align: left;
-    font-family: 'Courier New', Courier, monospace;
-    border-radius: 10px 5px;
     transition: border-color 0.5s ease, box-shadow 0.5s ease;
-}
-
-.retro-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.retro-popup-window {
-    padding: 15px;
-    width: 200px;
-    text-align: center;
 }
 
 #Info {
@@ -551,65 +548,79 @@ button {
 
 .Item_list {
     font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85em;
     text-align: left;
-    border: none;
-    height: 30px;
     width: 250px;
-    margin-bottom: 2px;
-    border-radius: 3px;
+    padding: 0.6em;
+    margin: 0.5em;
+    margin-bottom: 0;
+    border-radius: 2em;
     transition: background-color 0.5s ease;
 }
 
-.retro-popup-text {
-    margin-bottom: 15px;
-}
-
-.retro-popup-title {
-    padding: 5px;
-    margin: -15px -15px 10px -15px;
-    font-weight: bold;
-}
-
-.retro-popup-btn {
-    padding: 5px 15px;
-    margin: 0 5px;
-    font-weight: bold;
-    cursor: pointer;
+#battle-info {
+    position: absolute;
+    bottom: 0.25em;
+    left: 0.25em;
+    right: 0.25em;
+    height: 75px;
+    padding: 0.2em;
+    text-align: left;
+    border-radius: 0.5em;
 }
 
 #battle_box {
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0.1em;
     width: 220px;
-    height: 70px;
-    border-radius: 0.5em;
 }
 
 #battle_menu {
     position: absolute;
     display: grid;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0px;
+    gap: 0.1em;
 }
 
 #attack_menu {
     position: absolute;
     display: grid;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0px;
+    gap: 0.1em;
+}
+
+#battle_game_menu {
+    position: absolute;
+    height: 300px;
+    width: 225px;
+    right: 10px;
+    bottom: 95px;
+    border-radius: 1em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#battle_text {
+    margin: 3px;
+    max-width: 230px;
     font-family: 'Courier New', Courier, monospace;
 }
 
 .battle_Button {
-    height: 35px;
-    width: 110px;
-    border: none;
-    border-radius: 0.25em;
-    font-family: 'Courier New', Courier, monospace;
-    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+    border: none !important;
+    border-radius: 1em !important;
 }
 
 .Trainer {
@@ -635,54 +646,56 @@ button {
 }
 
 #Haendler {
-    background-image: url(../img/textures/tR4.png);
-    background-size: 160%;
-    background-position: 50%;
+    background-image: url(../img/textures/tR4.png) !important;
+    background-size: 160% !important;
+    background-position: 50% !important;
     position: absolute;
     top: 50px;
     left: 50px;
-    height: 50px;
-    width: 50px;
+    height: 50px !important;
+    width: 50px !important;
 }
 
 #Professor {
-    background-image: url(../img/textures/prTory_L.png);
-    background-size: 160%;
-    background-position: 50%;
+    background-image: url(../img/textures/prTory_L.png) !important;
+    background-size: 160% !important;
+    background-position: 50% !important;
     position: absolute;
     top: 100px;
     left: 450px;
-    height: 50px;
-    width: 50px;
+    height: 50px !important;
+    width: 50px !important;
 }
 
 #ProfessorButton {
     position: absolute;
-    border: none;
-    background: transparent;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
     right: 0px;
     height: 50px;
     width: 50px;
 }
 
 #TulpaPC-Button {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🖥️</text></svg>");
-    background-size: 30px;
-    background-color: transparent;
-    background-position: 50%;
-    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🖥️</text></svg>") !important;
+    background-size: 30px !important;
+    background-color: transparent !important;
+    background-position: 50% !important;
+    background-repeat: no-repeat !important;
     opacity: 0.5;
     position: absolute;
-    border: none;
-    top: 66px;
-    left: 5px;
-    height: 45px;
-    width: 18px;
-
+    border: none !important;
+    top: 66px !important;
+    left: 5px !important;
+    height: 45px !important;
+    width: 18px !;
     transition: opacity 0.5s ease;
 }
 
 #TulpaPC-Button:hover {
+    box-shadow: none !important;
+    border: none !important;
     opacity: 1;
 }
 
@@ -726,23 +739,6 @@ button {
     right: 255px;
 }
 
-.Inside {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔺</text></svg>");
-    background-size: 50px;
-    background-color: transparent;
-    background-position: 50%;
-    opacity: 0.5;
-    position: absolute;
-    border: none;
-    height: 45px;
-    width: 40px;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.Inside:hover {
-    opacity: 1;
-}
-
 .MeinHausOut_B {
     top: 250px;
     left: 105px;
@@ -783,46 +779,62 @@ button {
     left: 305px;
 }
 
-.Outside {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔻</text></svg>");
-    background-size: 50px;
-    background-color: transparent;
-    background-position: 50%;
+.Inside {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔺</text></svg>") !important;
+    background-size: 50px !important;
+    background-color: transparent !important;
+    background-position: 50% !important;
     opacity: 0.5;
     position: absolute;
-    border: none;
-    height: 45px;
-    width: 40px;
-    transition: opacity 0.5s ease;
+    border: none !important;
+    height: 45px !important;
+    width: 40px !important;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.Inside:hover {
+    box-shadow: none !important;
+    border: none !important;
+    opacity: 1;
+}
+
+.Outside {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🔻</text></svg>") !important;
+    background-size: 50px !important;
+    background-color: transparent !important;
+    background-position: 50% !important;
+    opacity: 0.5;
+    position: absolute;
+    border: none !important;
+    height: 45px !important;
+    width: 40px !important;
+    transition: opacity 0.5s ease !important;
+}
+
+.Outside:hover {
+    box-shadow: none !important;
+    border: none !important;
+    opacity: 1;
 }
 
 .Handler {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🪙</text></svg>");
-    background-size: 30px;
-    background-color: transparent;
-    background-position: 50%;
-    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><text x='50%' y='50%' font-size='40' dominant-baseline='middle' text-anchor='middle'>🪙</text></svg>") !important;
+    background-size: 30px !important;
+    background-color: transparent !important;
+    background-position: 50% !important;
+    background-repeat: no-repeat !important;
     opacity: 0.5;
     position: absolute;
-    border: none;
-    height: 45px;
-    width: 40px;
-
+    border: none !important;
+    height: 45px !important;
+    width: 40px !important;
     transition: opacity 0.5s ease;
 }
 
 .Handler:hover {
+    box-shadow: none !important;
+    border: none !important;
     opacity: 1;
-}
-
-.Outside:hover {
-    opacity: 1;
-}
-
-#battle_text {
-    margin: 3px;
-    max-width: 230px;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 #Tulpa_List {
@@ -834,11 +846,11 @@ button {
 
 .LP_Bar {
     position: relative;
-    left: 50px;
-    top: 20px;
+    left: 2em;
+    margin: 0.5em;
     width: 200px;
     height: 7px;
-    border-radius: 6px;
+    border-radius: 2em;
     overflow: hidden;
 }
 
@@ -849,24 +861,18 @@ button {
 
 .Delete_Tulpa {
     position: relative;
-    left: 265px;
-    height: 30px;
-    width: auto;
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
+    top: -1.25em;
+    left: 13.5em;
+    padding: 0.25em;
     font-size: larger;
     transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .Change_Tulpa {
     position: relative;
-    left: 265px;
-    height: 30px;
-    width: auto;
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
+    top: -1.25em;
+    left: 13em;
+    padding: 0.25em;
     font-size: larger;
     transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
@@ -877,16 +883,6 @@ button {
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-}
-
-#battle_game_menu {
-    position: absolute;
-    height: 300px;
-    width: 225px;
-    right: 10px;
-    bottom: 95px;
-    border-radius: 10px;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 #change_tulpa {
@@ -908,12 +904,11 @@ button {
 }
 
 .change_tulpa_button {
-    color: inherit;
-    background-color: transparent;
-    border: none;
-    height: 30px;
-    margin-bottom: 5px;
-    border-radius: 3px;
+    padding: 0.5em;
+    margin: 0.5em;
+    margin-bottom: 0;
+    border-radius: 2em;
+    width: 16em;
     transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
@@ -932,47 +927,67 @@ button {
     text-align: center;
     font-size: 22px;
     position: absolute;
-    bottom: 0px;
-    height: 100px;
-    width: 490px;
-    border-radius: 1em;
+    left: 0.25em;
+    right: 0.25em;
+    padding: 0.25em;
+    bottom: 0.25em;
+    height: 95px;
+    border-radius: 0.5em;
 }
 
 #shopMenu {
     position: absolute;
-    right: 5px;
-    top: 5px;
-    border-radius: 10px;
-    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    right: 0.5em;
+    top: 0.5em;
+    width: 13em;
+    border-radius: 1em;
+}
+
+.menu-button {
+    width: calc(100% - 0.5em);
 }
 
 #ShopBuyList {
     position: absolute;
-    left: 5px;
-    top: 5px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    left: 0.5em;
+    top: 0.5em;
+    padding: 0.5em;
+    border-radius: 1em;
     width: 300px;
     max-height: 350px;
     overflow-y: auto;
     text-align: center;
 }
 
-.menu-button {
-    font-family: 'Courier New', Courier, monospace;
-    left: 5px;
-    width: 240px;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+#ShopSellList {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    left: 0.5em;
+    top: 0.5em;
+    padding: 0.5em;
+    border-radius: 1em;
+    width: 300px;
+    max-height: 350px;
+    overflow-y: auto;
+    text-align: center;
 }
 
 .number_input {
     position: relative;
     left: 5px;
     width: 50px;
-    height: 20px;
+    height: 18px;
     float: left;
 }
 
@@ -980,15 +995,6 @@ button {
 .SellButton {
     position: absolute;
     right: 5px;
-    border-radius: 5px;
-    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
-}
-
-.ExitBuyButton,
-.ExitSellButton {
-    border-radius: 6px;
-    cursor: pointer;
-    transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 .productcost {
@@ -1003,23 +1009,11 @@ button {
     margin-bottom: 2px;
 }
 
-#ShopSellList {
-    position: absolute;
-    left: 5px;
-    top: 5px;
-    border-radius: 10px;
-    width: 300px;
-    max-height: 350px;
-    overflow-y: auto;
-    text-align: center;
-}
-
 #GameOver {
     position: absolute;
     height: 100px;
     width: 500px;
     font-size: 40px;
-    font-family: 'Courier New', Courier, monospace;
     top: 150px;
 }
 
@@ -1033,16 +1027,18 @@ button {
 }
 
 .WASD {
+    position: absolute;
     display: none;
-    position: static;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.75em;
+    font-size: 2em;
     height: 45px;
     width: 45px;
-    text-align: center;
-    font-size: 23px;
-    font-weight: bolder;
     opacity: 0.5;
-    border-radius: 12px;
-    transition: border-color 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease-out, transform 0.3s ease;
 }
 
 .WASD:active {
@@ -1050,85 +1046,28 @@ button {
 }
 
 #W_Click {
-    position: relative;
-    left: 75px;
-    top: 320px;
+    left: 2.75em;
+    bottom: 4.5em;
 }
 
 #A_Click {
-    position: relative;
-    left: 15px;
-    top: 340px;
+    left: 1em;
+    bottom: 2.75em;
 }
 
 #S_Click {
-    position: relative;
-    left: 75px;
-    top: 355px;
+    left: 2.75em;
+    bottom: 1em;
 }
 
 #D_Click {
-    position: relative;
-    left: 135px;
-    top: 250px;
+    left: 4.5em;
+    bottom: 2.75em;
 }
 
-@media only screen and (max-width: 830px) {
+@media only screen and (max-width: 850px) {
     .WASD {
-        display: inline-block;
-    }
-
-    #W_Click {
-        position: relative;
-        left: -68px;
-        top: 320px;
-    }
-
-    #A_Click {
-        left: -190px;
-        top: 385px;
-    }
-
-    #S_Click {
-        left: -178px;
-        top: 445px;
-    }
-
-    #D_Click {
-        left: -165px;
-        top: 385px;
-    }
-}
-
-@keyframes HintAnimationToInfo {
-    0% {
-        opacity: 0.4;
-        background-color: rgb(192, 192, 192);
-        border-color: rgb(192, 192, 192);
-    }
-
-    25% {
-        background-color: rgb(255, 215, 0);
-        border-color: rgb(255, 215, 0);
-        opacity: 0.8;
-    }
-
-    50% {
-        background-color: rgb(192, 192, 192);
-        border-color: rgb(192, 192, 192);
-        opacity: 0.8;
-    }
-
-    75% {
-        background-color: rgb(255, 215, 0);
-        border-color: rgb(255, 215, 0);
-        opacity: 0.8;
-    }
-
-    100% {
-        background-color: rgb(192, 192, 192);
-        border-color: rgb(192, 192, 192);
-        opacity: 0.4;
+        display: flex;
     }
 }
 
@@ -1147,7 +1086,8 @@ button {
 
 #audio-controls button {
     background-color: transparent;
-    border: none;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 #audio-controls input[type=range] {
@@ -1217,11 +1157,4 @@ button {
     justify-content: center;
     gap: 1em;
     margin-bottom: 1.5em;
-}
-
-.modal-button {
-    border-radius: 2em;
-    padding: 0.5em;
-    font-size: 20px;
-    transition: all 0.3s ease;
 }

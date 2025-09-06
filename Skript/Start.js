@@ -196,3 +196,10 @@ muteBtn.addEventListener("click", () => {
         muteBtn.textContent = "🔊";
     }
 });
+
+async function Exit_Game() {
+    let antwort = await showCustomConfirm("Möchten Sie das Spiel wirklich verlassen?");
+    if (antwort) {
+        window.location.href = GAME_SERVER_IP;
+    }
+}

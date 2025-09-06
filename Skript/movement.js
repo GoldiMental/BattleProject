@@ -275,17 +275,17 @@ document.addEventListener('keyup', (event) => { if (event.key.toLocaleLowerCase(
 let moveIntervalID;
 moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
 
-function Click_W_down() { simulateKeyDown("w"); }
-function Click_W_up() { simulateKeyUp("w"); }
+document.getElementById("W_Click").addEventListener("pointerdown", () => SimulateKeyDown("w"));
+document.getElementById("W_Click").addEventListener("pointerup", () => SimulateKeyUp("w"));
 
-function Click_A_down() { simulateKeyDown("a"); }
-function Click_A_up() { simulateKeyUp("a"); }
+document.getElementById("A_Click").addEventListener("pointerdown", () => SimulateKeyDown("a"));
+document.getElementById("A_Click").addEventListener("pointerup", () => SimulateKeyUp("a"));
 
-function Click_S_down() { simulateKeyDown("s"); }
-function Click_S_up() { simulateKeyUp("s"); }
+document.getElementById("S_Click").addEventListener("pointerdown", () => SimulateKeyDown("s"));
+document.getElementById("S_Click").addEventListener("pointerup", () => SimulateKeyUp("s"));
 
-function Click_D_down() { simulateKeyDown("d"); }
-function Click_D_up() { simulateKeyUp("d"); }
+document.getElementById("D_Click").addEventListener("pointerdown", () => SimulateKeyDown("d"));
+document.getElementById("D_Click").addEventListener("pointerup", () => SimulateKeyUp("d"));
 
-function simulateKeyDown(key) { document.dispatchEvent(new KeyboardEvent("keydown", { key: key })); }
-function simulateKeyUp(key) { document.dispatchEvent(new KeyboardEvent("keyup", { key: key })); }
+function SimulateKeyDown(key) { document.dispatchEvent(new KeyboardEvent("keydown", { key: key })); }
+function SimulateKeyUp(key) { document.dispatchEvent(new KeyboardEvent("keyup", { key: key })); }

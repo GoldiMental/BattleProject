@@ -1,7 +1,10 @@
 const Shops = {
+  Names: {
+    Shop_1: "von Lavazza!",
+    Shop_2: "an der großen Wiese!"
+  },
   Shop_1: ["Tulpaball", "Heiltrank"],
   Shop_2: ["Tulpaball", "Heiltrank", "Super_Tulpaball", "Super_Heiltrank"],
-  //weitere Shops folgen...
 }
 
 let activeShop = "";
@@ -13,7 +16,7 @@ async function shopHandel(SHOP) {
   let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
   let shopMenu = document.getElementById("shopMenu");
   monologBox.classList.toggle("hidethis", false);
-  monologBox.innerHTML = "Herzlich Willkommen im Shop von Lavazza!"; await Delay(300); await Click();
+  monologBox.innerHTML = "Herzlich Willkommen im Shop "+ Shops.Names[SHOP]; await Delay(300); await Click();
   monologBox.innerHTML = "Wie kann ich Ihnen weiterhelfen?"; await Delay(300);
   shopMenu.classList.toggle("hidethis", false);
   console.log("shopHandel(", SHOP, ") ✅");

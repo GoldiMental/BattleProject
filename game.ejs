@@ -32,7 +32,8 @@
                 <div class="Trainer"></div>
                 <div class="TrainerText"></div>
                 <div id="Haendler" class="hidethis"></div>
-                <div id="Professor" class="hidethis"><button id="ProfessorButton" onclick="Professor001monolog()"> </button></div>
+                <div id="Professor" class="hidethis"><button id="ProfessorButton" onclick="Professor001monolog()">
+                    </button></div>
                 <button id="tuerSelfIn" title="Mein Haus" class="Inside MeinHaus_B hidethis"
                     onclick="meinEingang()"></button>
                 <button id="tuerSelfOut" title="MeinStadt" class="Outside MeinHausOut_B hidethis"
@@ -52,11 +53,10 @@
                 <button id="ShopHandel" title="Händler" class="Handler ShopHandel_B hidethis"
                     onclick="shopHandel('Shop_1')"></button>
                 <button id="ShopHandelHG" title="Händler Hohes Gras" class="Handler ShopHandelHohesGras hidethis"
-                    onclick="shopHandel('Shop_1')"></button>
+                    onclick="shopHandel('Shop_2')"></button>
                 <button id="TulpaPC-Button" title="TulpaComputer" class="Tulpa-PC hidethis"
                     onclick="TulpaPC();Click()"></button>
-                <button id="ArenaButtonIn" title="Arena" class="Inside ArenaBtnIn hidethis"
-                    onclick="Click()"></button>
+                <button id="ArenaButtonIn" title="Arena" class="Inside ArenaBtnIn hidethis" onclick="Click()"></button>
                 <button id="ArenaButtonOut" title="Arena" class="Outside ArenaBtnOut hidethis"
                     onclick="Click()"></button>
             </div>
@@ -66,17 +66,10 @@
                 <button id="muteBtn">🔊</button>
             </div>
             <div id="user" class="Player down"></div>
-            <button class="WASD" id="W_Click" onmousedown="Click_W_down()" onmouseup="Click_W_up()"
-                ontouchstart="Click_W_down()" ontouchend="Click_W_up()">⬆️</button>
-
-            <button class="WASD" id="A_Click" onmousedown="Click_A_down()" onmouseup="Click_A_up()"
-                ontouchstart="Click_A_down()" ontouchend="Click_A_up()">⬅️</button>
-
-            <button class="WASD" id="S_Click" onmousedown="Click_S_down()" onmouseup="Click_S_up()"
-                ontouchstart="Click_S_down()" ontouchend="Click_S_up()">⬇️</button>
-
-            <button class="WASD" id="D_Click" onmousedown="Click_D_down()" onmouseup="Click_D_up()"
-                ontouchstart="Click_D_down()" ontouchend="Click_D_up()">➡️</button>
+            <button class="WASD" id="W_Click">⬆️</button>
+            <button class="WASD" id="A_Click">⬅️</button>
+            <button class="WASD" id="S_Click">⬇️</button>
+            <button class="WASD" id="D_Click">➡️</button>
             <button id="Menu" onclick="MenuList();Click()">≡</button>
             <div id="MenuList" class="hidethis">
                 <button class="MenuList" onclick="Tulpa_Dex();Click()">Tulpa-Dex<sup>®</sup></button>
@@ -177,7 +170,8 @@
                 <h3 id="customModalTitle" class="custom-modal-title"></h3>
                 <p id="customModalMessage" class="custom-modal-message"></p>
                 <div id="customModalButtonsContainer"></div>
-                <input type="text" id="customModalInput" class="custom-modal-input hidethis" title="Eingabe erforderlich...">
+                <input type="text" id="customModalInput" class="custom-modal-input hidethis"
+                    title="Eingabe erforderlich...">
                 <div class="custom-modal-buttons">
                     <button id="customModalOkButton" class="custom-modal-button">Ok</button>
                     <button id="customModalCancelButton" class="custom-modal-button hidethis">Abbrechen</button>
@@ -187,17 +181,14 @@
     </div>
     <a id="ToInfo" onclick="OpenInfo()">TulpaKing<sup>&reg;</sup> Info & Impressum</a>
     <div id="ColorSettings">
-        <button id="toggleColorSettings" type="button" onclick='document.getElementById("ColorList").classList.toggle("hidethis");'>⚙️</button>
+        <button id="toggleColorSettings" type="button"
+            onclick='document.getElementById("ColorList").classList.toggle("hidethis");'>⚙️</button>
         <div id="ColorList" class="hidethis">
             <button id="Dark" type="button" onclick='Player.color="Dark";setcolor();'>Dunkel</button>
             <button id="Darkblue" type="button" onclick='Player.color="Darkblue";setcolor();'>Dunkelblau</button>
             <button id="Darkgreen" type="button" onclick='Player.color="Darkgreen";setcolor();'>Dunkelgrün</button>
             <button id="Darkred" type="button" onclick='Player.color="Darkred";setcolor();'>Dunkelrot</button>
             <button id="Darkviolett" type="button" onclick='Player.color="Darkviolett";setcolor();'>Dunkelviolett</button>
-            <button id="Lightblue" type="button" onclick='Player.color="Lightblue";setcolor();'>Hellblau</button>
-            <button id="Lightgreen" type="button" onclick='Player.color="Lightgreen";setcolor();'>Hellgrün</button>
-            <button id="Lightred" type="button" onclick='Player.color="Lightred";setcolor();'>Hellrot</button>
-            <button id="Lightviolett" type="button" onclick='Player.color="Lightviolett";setcolor();'>Hellviolett</button>
             <button id="Light" type="button" onclick='Player.color="Light";setcolor();'>Hell</button>
         </div>
     </div>
