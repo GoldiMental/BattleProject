@@ -1093,7 +1093,7 @@ a:hover {
 }
 
 #audio-controls input[type=range] {
-    width: 100px;
+    width: 100px !important;
 }
 
 .custom-modal-content {
