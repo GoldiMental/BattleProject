@@ -11,6 +11,7 @@ function setcolor() {
         case "Lightgreen": document.getElementById('stil').setAttribute('href', 'Style/Lightgreen.css'); break;
         case "Lightred": document.getElementById('stil').setAttribute('href', 'Style/Lightred.css'); break;
         case "Lightviolett": document.getElementById('stil').setAttribute('href', 'Style/Lightviolett.css'); break;
+        case "Light": document.getElementById('stil').setAttribute('href', 'Style/Light.css'); break;
         case undefined: Player.color = "Darkblue"; break;
     }
     console.log("Farbe:", Player.color);
