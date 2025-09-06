@@ -1093,6 +1093,8 @@ a:hover {
 }
 
 #audio-controls input[type=range] {
+    margin: 0 !important;
+    padding: 0 !important;
     width: 100px !important;
     box-shadow: none !important;
 }
