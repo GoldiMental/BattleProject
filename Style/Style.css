@@ -1074,10 +1074,10 @@ a:hover {
 }
 
 #audio-controls {
-    position: absolute;
+    position: absolute !important;
     padding: 0.5em;
-    width: fit-content;
-    height: fit-content;
+    width: fit-content !important;
+    height: fit-content !important;
     display: flex;
     font-size: 1em;
     border-radius: 2em;
@@ -1087,13 +1087,14 @@ a:hover {
 }
 
 #audio-controls button {
-    background-color: transparent;
+    background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
 }
 
 #audio-controls input[type=range] {
     width: 100px !important;
+    box-shadow: none !important;
 }
 
 .custom-modal-content {
