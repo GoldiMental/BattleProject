@@ -198,7 +198,7 @@ muteBtn.addEventListener("click", () => {
 });
 
 async function Exit_Game() {
-    let antwort = await showCustomConfirm("Möchten Sie das Spiel wirklich verlassen?");
+    let antwort = await showCustomConfirm("Möchten Sie das Spiel wirklich verlassen?<br><br>Gespeichert?");
     if (antwort) {
         window.location.href = GAME_SERVER_IP;
     }
