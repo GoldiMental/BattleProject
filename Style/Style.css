@@ -931,7 +931,8 @@ a:hover {
     right: 0.25em;
     padding: 0.25em;
     bottom: 0.25em;
-    height: 95px;
+    height: fit-content;
+    min-height: 95px;
     border-radius: 0.5em;
 }
 
