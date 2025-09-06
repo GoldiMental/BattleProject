@@ -1,10 +1,10 @@
 body {
-    background: linear-gradient(rgb(0, 0, 60), rgb(0, 0, 25));
+    background: linear-gradient(rgb(60, 60, 60), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
 }
 
 #toggleColorSettings {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
 }
 
 #ColorSettings button {
@@ -92,7 +92,7 @@ a:active {
 
 #battle-info {
     border: 5px inset rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
 }
 
 .Playground {
@@ -132,7 +132,7 @@ a:active {
 
 .MenuList {
     color: rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 3px outset rgb(192, 192, 192);
 }
 
@@ -151,13 +151,13 @@ a:active {
 
 #Tulpa_Dex {
     color: rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 5px ridge rgb(192, 192, 192);
 }
 
 .Exit_Button {
     color: rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 3px outset rgb(192, 192, 192);
 }
 
@@ -181,25 +181,25 @@ a:active {
 
 #Info {
     color: rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 5px ridge rgb(192, 192, 192);
 }
 
 #Tulpas {
     color: rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 5px ridge rgb(192, 192, 192);
 }
 
 #Karte {
     color: rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 5px ridge rgb(192, 192, 192);
 }
 
 #Items {
     color: rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 5px ridge rgb(192, 192, 192);
 }
 
@@ -248,7 +248,7 @@ a:active {
 }
 
 .battle_Button {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
 }
 
@@ -258,7 +258,7 @@ a:active {
 
 #TulpaPC {
     color: rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 5px ridge rgb(192, 192, 192);
 }
 
@@ -284,7 +284,7 @@ a:active {
 }
 
 #battle_game_menu {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 5px groove rgb(192, 192, 192);
 }
 
@@ -294,24 +294,24 @@ a:active {
 
 .TrainerDialogBox {
     color: rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 5px ridge rgb(192, 192, 192);
 }
 
 #shopMenu {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
     border: 5px ridge rgb(192, 192, 192);
 }
 
 #ShopBuyList {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
     border: 5px ridge rgb(192, 192, 192);
 }
 
 .menu-button {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
     border: 3px outset rgb(192, 192, 192);
 }
@@ -334,7 +334,7 @@ a:active {
 
 .BuyButton,
 .SellButton {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
     border: 3px outset rgb(192, 192, 192);
 }
@@ -353,7 +353,7 @@ a:active {
 
 .ExitBuyButton,
 .ExitSellButton {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
     border: 3px outset rgb(192, 192, 192);
 }
@@ -371,7 +371,7 @@ a:active {
 }
 
 #ShopSellList {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
     border: 5px ridge rgb(192, 192, 192);
 }
@@ -391,26 +391,26 @@ a:active {
 }
 
 #audio-controls {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     border: 3px outset rgb(192, 192, 192);
 }
 
 .custom-modal-content {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
     box-shadow: 0.1em 0.15em 0.25em rgb(0, 0, 0);
     border: 5px ridge rgb(192, 192, 192);
 }
 
 .custom-modal-button {
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
     border: 3px outset rgb(192, 192, 192);
 }
 
 .custom-modal-input {
     border: 3px inset rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
     color: rgb(192, 192, 192);
 }
 
@@ -443,7 +443,7 @@ a:active {
 .modal-button {
     color: rgb(192, 192, 192);
     border: 3px outset rgb(192, 192, 192);
-    background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
 }
 
 .modal-button:hover {

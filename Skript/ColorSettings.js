@@ -2,6 +2,7 @@ function setcolor() {
     console.log("Führe setcolor() aus...");
     let color = Player.color;
     switch (color) {
+        case "Dark": document.getElementById('stil').setAttribute('href', 'Style/Dark.css'); break;
         case "Darkblue": document.getElementById('stil').setAttribute('href', 'Style/Darkblue.css'); break;
         case "Darkviolett": document.getElementById('stil').setAttribute('href', 'Style/Darkviolett.css'); break;
         case "Darkred": document.getElementById('stil').setAttribute('href', 'Style/Darkred.css'); break;

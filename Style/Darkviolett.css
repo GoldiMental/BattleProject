@@ -18,6 +18,10 @@ body {
     box-shadow: 0 0 0.5em rgb(255, 215, 0);
 }
 
+#Dark {
+    background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
+}
+
 #Darkblue {
     background: linear-gradient(rgb(0, 0, 50), rgb(0, 0, 25));
 }
