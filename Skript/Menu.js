@@ -127,11 +127,13 @@ async function removeTulpa(Slot) {
         }
         console.log("removeTulpa(", Slot, ") ✅ => Tulpas_List()");
         Tulpas_List();
-    } else if (Slot == "Slot_1") {
+    } else if (antwort && Slot == "Slot_1") {
         console.warn("catched removeTulpa()-ERROR: Slot_1 must be set => removeTulpa(", Slot, ") stopped");
-        showCustomAlert("Der erste Slot muss immer belegt sein!");
+        await showCustomConfirm("Der erste Slot muss immer belegt sein!");
+        showCustomAlert("Löschen abgebrochen.");
     } else {
-        console.log("removeTulpa() canceled by User! => removeTulpa(", Slot, ") stopped")
+        console.log("removeTulpa() canceled by User! => removeTulpa(", Slot, ") stopped");
+        showCustomAlert("Löschen abgebrochen.");
     }
 }
 
