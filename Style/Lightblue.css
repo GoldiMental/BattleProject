@@ -1,0 +1,221 @@
+body {
+    background: linear-gradient(rgb(0, 0, 160), rgb(0, 0, 125));
+    color: rgb(192, 192, 192);
+}
+
+a {
+    color: rgb(0, 0, 0);
+    background-color: rgb(100, 100, 192);
+    border: 3px outset rgb(100, 100, 192);
+}
+
+a:hover {
+    border: 3px outset rgb(255, 215, 0);
+    box-shadow: 0px 0px 15px rgb(255, 215, 0);
+    background-color: rgb(255, 215, 0);
+    cursor: pointer;
+}
+
+a:active {
+    border: 3px inset rgb(255, 215, 0);
+}
+
+button:not(:disabled) {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    color: rgb(192, 192, 192);
+    border: 0.15em outset rgb(100, 100, 192);
+}
+
+button:not(:disabled):hover {
+    border-color: rgb(255, 215, 0);
+    box-shadow: 0 0 1em rgb(255, 215, 0);
+    opacity: 1;
+    cursor: pointer;
+}
+
+button:not(:disabled):active {
+    border: 0.15em inset rgb(255, 215, 0);
+}
+
+input {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    color: rgb(192, 192, 192);
+    border: 0.15em outset rgb(100, 100, 192);
+}
+
+input:focus {
+    border-color: rgb(255, 215, 0);
+    box-shadow: 0 0 0.5em rgb(255, 215, 0);
+}
+
+.lineRed {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(255, 0, 0), rgba(0, 0, 0, 0));
+}
+
+.lineGold {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(255, 215, 0), rgba(0, 0, 0, 0));
+}
+
+#battle_game {
+    background-image: linear-gradient(rgb(20, 20, 20), rgb(200, 200, 200), rgb(160, 160, 160), rgb(100, 100, 100));
+}
+
+#LP-opp {
+    border: 2px solid;
+}
+
+#fill-opp {
+    background-color: rgb(0, 150, 0);
+}
+
+#LP-self {
+    border: 2px solid;
+}
+
+#fill-self {
+    background-color: rgb(0, 150, 0);
+}
+
+#battle-info {
+    border: 5px inset;
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+}
+
+.Playground {
+    border: 1em ridge rgb(100, 100, 192);
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 0 1em;
+}
+
+#MenuList {
+    background: linear-gradient(rgb(0, 0, 175), rgb(0, 0, 150));
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+#Tulpa_Dex {
+    color: rgb(192, 192, 192);
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+#Info {
+    color: rgb(192, 192, 192);
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+#Tulpas {
+    color: rgb(192, 192, 192);
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+#Karte {
+    color: rgb(192, 192, 192);
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+#Items {
+    color: rgb(192, 192, 192);
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+.Item_list {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.Item_list:not(:disabled):hover {
+    cursor: pointer;
+}
+
+.Item_list:disabled {
+    color: rgb(192, 192, 192);
+}
+
+#battle_box {
+    border: 3px inset rgb(100, 100, 192);
+}
+
+#TulpaPC {
+    color: rgb(192, 192, 192);
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+#TulpaPC_List {
+    color: rgb(192, 192, 192);
+}
+
+#battle_text {
+    color: rgb(192, 192, 192);
+}
+
+.LP_Bar {
+    border: 3px outset rgb(100, 100, 192);
+}
+
+.LP_Fill {
+    background-color: rgb(0, 150, 0);
+}
+
+#battle_game_menu {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    border: 0.3em ridge rgb(100, 100, 192);
+}
+
+.TrainerDialogBox {
+    color: rgb(192, 192, 192);
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+#shopMenu {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    color: rgb(192, 192, 192);
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+#ShopBuyList {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    color: rgb(192, 192, 192);
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+.number_input {
+    background-color: rgba(0, 0, 0, 0);
+    border: 3px inset rgb(100, 100, 192);
+    color: rgb(192, 192, 192);
+}
+
+#ShopSellList {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    color: rgb(192, 192, 192);
+    border: 5px ridge rgb(100, 100, 192);
+}
+
+#GameOver {
+    color: rgb(255, 0, 0);
+    text-shadow: 5px 5px 10px rgb(255, 215, 0);
+}
+
+#Countdown {
+    color: rgb(192, 192, 192);
+    text-shadow: 5px 5px 10px rgb(192, 192, 192);
+}
+
+#audio-controls {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    border: 3px outset rgb(100, 100, 192);
+}
+
+.custom-modal-content {
+    background: linear-gradient(rgb(0, 0, 150), rgb(0, 0, 125));
+    box-shadow: 0.15em 0.3em 1em rgb(0, 0, 0);
+    border: 0.2em ridge;
+}
+
+.custom-modal-overlay {
+    background: rgba(0, 0, 0, 0.8);
+}

@@ -7,6 +7,10 @@ function setcolor() {
         case "Darkviolett": document.getElementById('stil').setAttribute('href', 'Style/Darkviolett.css'); break;
         case "Darkred": document.getElementById('stil').setAttribute('href', 'Style/Darkred.css'); break;
         case "Darkgreen": document.getElementById('stil').setAttribute('href', 'Style/Darkgreen.css'); break;
+        case "Lightblue": document.getElementById('stil').setAttribute('href', 'Style/Lightblue.css'); break;
+        case "Lightviolett": document.getElementById('stil').setAttribute('href', 'Style/Lightviolett.css'); break;
+        case "Lightred": document.getElementById('stil').setAttribute('href', 'Style/Lightred.css'); break;
+        case "Lightgreen": document.getElementById('stil').setAttribute('href', 'Style/Lightgreen.css'); break;
         case "Light": document.getElementById('stil').setAttribute('href', 'Style/Light.css'); break;
         case undefined: Player.color = "Darkblue"; break;
     }
