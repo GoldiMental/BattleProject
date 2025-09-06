@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(rgb(170, 0, 170), rgb(120, 0, 120));
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 #toggleColorSettings {
@@ -8,18 +8,21 @@ body {
 }
 
 #ColorSettings button {
-    border: 2px outset rgb(255,255,255);
-    color: rgb(255,255,255);
+    border: 2px outset rgb(200, 150, 200);
+    color: rgb(255, 255, 255);
 }
 
 #ColorSettings button:hover {
-    color: rgb(255, 215, 0);
-    border-color: rgb(255, 215, 0);
-    box-shadow: 0 0 0.5em rgb(255, 215, 0);
+    color: rgb(255, 255, 255);
+    ;
+    border-color: rgb(255, 255, 255);
+    ;
+    box-shadow: 0 0 0.5em rgb(255, 255, 255);
+    ;
 }
 
-#Light{
-    background: linear-gradient(rgb(150,150,150), rgb(100,100,100));
+#Light {
+    background: linear-gradient(rgb(200, 150, 200), rgb(100, 100, 100));
 }
 
 #Dark {
@@ -60,18 +63,18 @@ body {
 
 a {
     color: rgb(0, 0, 0);
-    background-color: rgb(255,255,255);
-    border: 3px outset rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 a:hover {
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0px 0px 15px rgb(255, 215, 0);
-    background-color: rgb(255, 215, 0);
+    border: 3px outset rgb(255, 255, 255);
+    box-shadow: 0px 0px 15px rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
 }
 
 a:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(255, 255, 255);
 }
 
 #battle_game {
@@ -79,7 +82,7 @@ a:active {
 }
 
 #LP-opp {
-    border: 2px outset rgb(255,255,255);
+    border: 2px outset rgb(200, 150, 200);
 }
 
 #fill-opp {
@@ -87,7 +90,7 @@ a:active {
 }
 
 #LP-self {
-    border: 2px outset rgb(255,255,255);
+    border: 2px outset rgb(200, 150, 200);
 }
 
 #fill-self {
@@ -95,49 +98,49 @@ a:active {
 }
 
 #battle-info {
-    border: 5px inset rgb(255,255,255);
+    border: 5px inset rgb(200, 150, 200);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
 }
 
 .Playground {
-    border: 15px ridge rgb(255,255,255);
+    border: 15px ridge rgb(200, 150, 200);
     background-color: rgb(0, 0, 0);
-    box-shadow: 0 0 10px rgb(255,255,255);
+    box-shadow: 0 0 10px rgb(200, 150, 200);
 }
 
 #Menu {
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
 }
 
 #Menu:not(:disabled):hover {
-    background-color: rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .button {
-    background-color: rgb(255,255,255);
-    color: rgb(255,255,255);
-    border: 3px outset rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 .button:not(:disabled):hover {
-    border-color: rgb(255, 215, 0);
-    background-color: rgb(255, 215, 0);
+    border-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
 }
 
 .button:not(:disabled):active {
-    border: 5px inset rgb(255, 215, 0);
+    border: 5px inset rgb(255, 255, 255);
 }
 
 #MenuList {
     background: linear-gradient(rgb(170, 0, 170), rgb(120, 0, 120));
-    border: 5px ridge rgb(255,255,255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 .MenuList {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 3px outset rgb(255,255,255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 #standort-marker {
@@ -145,33 +148,33 @@ a:active {
 }
 
 .MenuList:not(:disabled):hover {
-    border-color: rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .MenuList:not(:disabled):active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(255, 255, 255);
 }
 
 #Tulpa_Dex {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 5px ridge rgb(255,255,255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 .Exit_Button {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 3px outset rgb(255,255,255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 .Exit_Button:not(:disabled):hover {
-    border-color: rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .Exit_Button:not(:disabled):active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(255, 255, 255);
 }
 
 .retro-popup {
@@ -179,41 +182,41 @@ a:active {
 }
 
 .retro-popup-window {
-    background: rgb(255,255,255);
+    background: rgb(200, 150, 200);
     border: 4px solid rgb(0, 0, 0);
 }
 
 #Info {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 5px ridge rgb(255,255,255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 #Tulpas {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 5px ridge rgb(255,255,255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 #Karte {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 5px ridge rgb(255,255,255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 #Items {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 5px ridge rgb(255,255,255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 .Item_Title {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 .Item_list {
     background-color: transparent;
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 .Item_list:not(:disabled):hover {
@@ -221,7 +224,7 @@ a:active {
 }
 
 .Item_list:disabled {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 .retro-popup-text {
@@ -230,7 +233,7 @@ a:active {
 
 .retro-popup-title {
     background: rgb(255, 0, 0);
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     border-bottom: 3px outset rgb(0, 0, 0);
 }
 
@@ -240,20 +243,20 @@ a:active {
 
 .retro-popup-btn-yes {
     background: rgb(255, 0, 0);
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 .retro-popup-btn-no {
-    background: rgb(255,255,255);
+    background: rgb(200, 150, 200);
 }
 
 #battle_box {
-    border: 3px inset rgb(255,255,255);
+    border: 3px inset rgb(200, 150, 200);
 }
 
 .battle_Button {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 .battle_Button:not(:disabled):hover {
@@ -261,21 +264,21 @@ a:active {
 }
 
 #TulpaPC {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 5px ridge rgb(255,255,255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 #TulpaPC_List {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 #battle_text {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 .LP_Bar {
-    border: 3px outset rgb(255,255,255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 .LP_Fill {
@@ -289,7 +292,7 @@ a:active {
 
 #battle_game_menu {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 5px groove rgb(255,255,255);
+    border: 5px groove rgb(200, 150, 200);
 }
 
 .change_tulpa_button:not(:disabled):hover {
@@ -297,125 +300,125 @@ a:active {
 }
 
 .TrainerDialogBox {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 5px ridge rgb(255,255,255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 #shopMenu {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
-    border: 5px ridge rgb(255,255,255);
+    color: rgb(255, 255, 255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 #ShopBuyList {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
-    border: 5px ridge rgb(255,255,255);
+    color: rgb(255, 255, 255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 .menu-button {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
-    border: 3px outset rgb(255,255,255);
+    color: rgb(255, 255, 255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 .menu-button:hover {
-    background-color: rgb(255, 215, 0);
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    background-color: rgb(255, 255, 255);
+    border: 3px outset rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .menu-button:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(255, 255, 255);
 }
 
 .number_input {
     background-color: rgba(0, 0, 0, 0);
-    border: 3px inset rgb(255,255,255);
-    color: rgb(255,255,255);
+    border: 3px inset rgb(200, 150, 200);
+    color: rgb(255, 255, 255);
 }
 
 .BuyButton,
 .SellButton {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
-    border: 3px outset rgb(255,255,255);
+    color: rgb(255, 255, 255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 .BuyButton:hover,
 .SellButton:hover {
-    background-color: rgb(255, 215, 0);
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: rgb(255, 215, 0);
+    background-color: rgb(255, 255, 255);
+    border: 3px outset rgb(255, 255, 255);
+    box-shadow: rgb(255, 255, 255);
 }
 
 .BuyButton:active,
 .SellButton:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(255, 255, 255);
 }
 
 .ExitBuyButton,
 .ExitSellButton {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
-    border: 3px outset rgb(255,255,255);
+    color: rgb(255, 255, 255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 .ExitBuyButton:hover,
 .ExitSellButton:hover {
-    background-color: rgb(255, 215, 0);
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: rgb(255, 215, 0);
+    background-color: rgb(255, 255, 255);
+    border: 3px outset rgb(255, 255, 255);
+    box-shadow: rgb(255, 255, 255);
 }
 
 .ExitBuyButton:active,
 .ExitSellButton:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(255, 255, 255);
 }
 
 #ShopSellList {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
-    border: 5px ridge rgb(255,255,255);
+    color: rgb(255, 255, 255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 #GameOver {
     color: rgb(255, 0, 0);
-    text-shadow: 5px 5px 10px rgb(255, 215, 0);
+    text-shadow: 5px 5px 10px rgb(255, 255, 255);
 }
 
 #Countdown {
-    color: rgb(255,255,255);
-    text-shadow: 5px 5px 10px rgb(255,255,255);
+    color: rgb(255, 255, 255);
+    text-shadow: 5px 5px 10px rgb(200, 150, 200);
 }
 
 .WASD {
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
 }
 
 #audio-controls {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    border: 3px outset rgb(255,255,255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 .custom-modal-content {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     box-shadow: 0.1em 0.15em 0.25em rgb(0, 0, 0);
-    border: 5px ridge rgb(255,255,255);
+    border: 5px ridge rgb(200, 150, 200);
 }
 
 .custom-modal-button {
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
-    border: 3px outset rgb(255,255,255);
+    color: rgb(255, 255, 255);
+    border: 3px outset rgb(200, 150, 200);
 }
 
 .custom-modal-input {
-    border: 3px inset rgb(255,255,255);
+    border: 3px inset rgb(200, 150, 200);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 .custom-modal-overlay {
@@ -423,34 +426,34 @@ a:active {
 }
 
 .custom-modal-title {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 .custom-modal-message {
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 .custom-modal-button:hover {
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border: 3px outset rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .custom-modal-input:focus {
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border: 3px outset rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .custom-modal-button:active {
-    border: 3px inset rgb(255, 215, 0);
+    border: 3px inset rgb(255, 255, 255);
 }
 
 .modal-button {
-    color: rgb(255,255,255);
-    border: 3px outset rgb(255,255,255);
+    color: rgb(255, 255, 255);
+    border: 3px outset rgb(200, 150, 200);
     background: linear-gradient(rgb(150, 0, 150), rgb(100, 0, 100));
 }
 
 .modal-button:hover {
-    border: 3px outset rgb(255, 215, 0);
-    box-shadow: 0 0 10px rgb(255, 215, 0);
+    border: 3px outset rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
 }
