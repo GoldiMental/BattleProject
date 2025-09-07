@@ -1099,7 +1099,10 @@ a:hover {
     padding: 0 !important;
     width: 100px !important;
     box-shadow: none !important;
-    font-size: 1.1em;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    transform: scale(1.2);
 }
 
 .custom-modal-content {
