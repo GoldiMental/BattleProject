@@ -7,6 +7,10 @@
     border-radius: 1em;
 }
 
+*::-webkit-scrollbar-thumb {
+    border-radius: 1em;
+}
+
 body {
     height: 100vh;
     min-height: 850px;
