@@ -1,13 +1,5 @@
 *::-webkit-scrollbar {
-    padding: 0.2em;
     width: 0.5em;
-    border-radius: 1em;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-*::-webkit-scrollbar-track {
-    width: 0.4em;
-    border-radius: 1em;
 }
 
 *::-webkit-scrollbar-thumb {
