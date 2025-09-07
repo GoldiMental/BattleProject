@@ -1,3 +1,7 @@
+html {
+  scrollbar-color: rgb(200, 200, 200) rgb(50, 50, 50);
+}
+
 body {
     font-family: 'Courier New', Courier, monospace;
     background: radial-gradient(rgb(0, 0, 50), rgb(0, 0, 25));

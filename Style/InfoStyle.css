@@ -1,3 +1,7 @@
+html {
+  scrollbar-color: rgb(200, 200, 0) rgb(0, 0, 50);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,103 +12,106 @@ body {
   font-size: 14px;
 }
 
-.hidethis{
-    display: none !important;
+.hidethis {
+  display: none !important;
 }
 
 .background-lines {
   position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -10;
 }
 
 .lineRed {
-    position: absolute;
-    height: 2px;
-    width: 50%;
-    background: linear-gradient(90deg, transparent, red, transparent);
-    animation: moveLine 10s linear infinite;
+  position: absolute;
+  height: 2px;
+  width: 50%;
+  background: linear-gradient(90deg, transparent, red, transparent);
+  animation: moveLine 10s linear infinite;
 }
 
 .lineGold {
-    position: absolute;
-    height: 2px;
-    width: 50%;
-    background: linear-gradient(90deg, transparent, gold, transparent);
-    animation: moveLine 10s linear infinite;
+  position: absolute;
+  height: 2px;
+  width: 50%;
+  background: linear-gradient(90deg, transparent, gold, transparent);
+  animation: moveLine 10s linear infinite;
 }
 
 .line-1 {
-    top: 5%;
-    animation-duration: 10s;
+  top: 5%;
+  animation-duration: 10s;
 }
 
 .line-2 {
-    top: 15%;
-    animation-duration: 15s;
+  top: 15%;
+  animation-duration: 15s;
 }
 
 .line-3 {
-    top: 25%;
-    animation-duration: 20s;
+  top: 25%;
+  animation-duration: 20s;
 }
 
 .line-4 {
-    top: 35%;
-    animation-duration: 15s;
+  top: 35%;
+  animation-duration: 15s;
 }
 
 .line-5 {
-    top: 45%;
-    animation-duration: 20s;
+  top: 45%;
+  animation-duration: 20s;
 }
 
 .line-6 {
-    top: 55%;
-    animation-duration: 11s;
+  top: 55%;
+  animation-duration: 11s;
 }
 
 .line-7 {
-    top: 65%;
-    animation-duration: 15s;
+  top: 65%;
+  animation-duration: 15s;
 }
 
 .line-8 {
-    top: 75%;
-    animation-duration: 13s;
+  top: 75%;
+  animation-duration: 13s;
 }
 
 .line-9 {
-    top: 85%;
-    animation-duration: 18s;
+  top: 85%;
+  animation-duration: 18s;
 }
 
 .line-10 {
-    top: 95%;
-    animation-duration: 16s;
+  top: 95%;
+  animation-duration: 16s;
 }
 
 @keyframes moveLine {
-    0% {
-        transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(-100%);
+  }
 
-    100% {
-        transform: translateX(200%);
-    }
+  100% {
+    transform: translateX(200%);
+  }
 }
 
 .menu-toggle {
-  display: none; /* Standardmäßig auf Desktop ausblenden */
-  position: fixed; /* Bleibt beim Scrollen sichtbar */
+  display: none;
+  /* Standardmäßig auf Desktop ausblenden */
+  position: fixed;
+  /* Bleibt beim Scrollen sichtbar */
   top: 20px;
   right: 20px;
-  z-index: 1000; /* Stellt sicher, dass der Button über allem liegt */
+  z-index: 1000;
+  /* Stellt sicher, dass der Button über allem liegt */
   background: gold;
   color: black;
   border: 2px outset #f2c94c;
@@ -159,7 +166,9 @@ body {
   text-shadow: 0 0 10px gold;
 }
 
-h1,h2,h3 {
+h1,
+h2,
+h3 {
   font-weight: normal;
   text-align: center;
   margin: 20px 0;
