@@ -1,7 +1,5 @@
 * {
     box-sizing: border-box;
-    scrollbar-color: rgb(100, 0, 0) rgb(0, 0, 50);
-    scrollbar-width: thin;
 }
 
 body {
