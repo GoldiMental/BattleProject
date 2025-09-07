@@ -476,6 +476,7 @@ a:hover {
     height: 370px;
     width: 450px;
     overflow: auto;
+    scrollbar-width: none;
 }
 
 .description {
@@ -543,7 +544,8 @@ a:hover {
 
 #Item_List {
     max-height: 370px;
-    overflow-x: auto;
+    overflow: auto;
+    scrollbar-width: none;
     text-align: left;
 }
 
@@ -845,6 +847,7 @@ a:hover {
     max-height: 380px;
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: none;
 }
 
 .LP_Bar {
@@ -969,6 +972,7 @@ a:hover {
     width: 300px;
     max-height: 350px;
     overflow-y: auto;
+    scrollbar-width: none;
     text-align: center;
 }
 
