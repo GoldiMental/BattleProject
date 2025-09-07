@@ -302,6 +302,10 @@ app.get('/', (req, res) => {
     res.render('index', { gameServerIP: `http://${OpenIP}:3000` });
 });
 
+app.get('/index.html', (req, res) => {
+    res.render('index', { gameServerIP: `http://${OpenIP}:3000` });
+});
+
 app.get('/game.html', (req, res) => {
     res.render('game', { gameServerIP: `http://${OpenIP}:3000` });
 });

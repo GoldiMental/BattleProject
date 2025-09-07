@@ -5,7 +5,7 @@ http://20.79.178.244:3000/index.html
 Support-Mail:<br>
 goldimental@gmx.de <br>
 Discord-Server:<br>
-https://discord.gg/nnxdhPxs<br>
+https://discord.gg/qNqz3AUuN7
 
 # Last Update ⬇️ 06.09.2025
 
