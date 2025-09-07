@@ -5,12 +5,12 @@
 }
 
 *::-webkit-scrollbar-track {
+    width: 0.4em;
     border-radius: 1em;
 }
 
 *::-webkit-scrollbar-thumb {
-    width: 0.3em;
-    margin: 0.2em;
+    width: 0.4em;
     border-radius: 1em;
 }
 
