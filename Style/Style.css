@@ -610,6 +610,8 @@ a:hover {
     right: 10px;
     bottom: 95px;
     border-radius: 1em;
+    overflow: auto;
+    scrollbar-width: none;
     font-family: 'Courier New', Courier, monospace;
 }
 
