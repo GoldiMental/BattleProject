@@ -1,3 +1,11 @@
+*::-webkit-scrollbar-track {
+    background: linear-gradient(rgb(125, 0, 0), rgb(160, 0, 0));
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(192, 100, 100);
+}
+
 body {
     background: linear-gradient(rgb(160, 0, 0), rgb(125, 0, 0));
     color: rgb(192, 192, 192);
