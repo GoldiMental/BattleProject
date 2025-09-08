@@ -190,29 +190,6 @@ function moveMap() {
                 if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ArenaBtnOut', false); }
                 else { toggleClassElement('ArenaBtnOut', true); }
             }
-            for (let i = 0; i < maps.ArenaField.ArenaTrainer1.length; i++) {
-                const a = maps.ArenaField.ArenaTrainer1[i];
-                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
-                    trainername = a.name; var Fight = true;
-                    for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
-                    if (Fight) {
-                        if (a.name == "Trainer003") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
-                        battle("Trainer003")
-                        else { clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername); }
-                    }
-                }
-            }
-            for (let i = 0; i < maps.ArenaField.ArenaTrainer2.length; i++) {
-                const a = maps.ArenaField.ArenaTrainer2[i];
-                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
-                    trainername = a.name; var Fight = true;
-                    for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
-                    if (Fight) {
-                        if (a.name == "Trainer004") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
-                        else { clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername); }
-                    }
-                }
-            }
             break;
         case "MAP":
             for (let i = 0; i < maps.MAP.shopHome.length; i++) {
