@@ -272,7 +272,7 @@ var maps = {
             { minX: -75, maxX: 225, minY: -225, maxY: -125 },
             { minX: -75, maxX: 25, minY: -75, maxY: -75 },
             { minX: -425, maxX: -325, minY: -425, maxY: -375 },
-            //{ minX: , maxX: , minY: , maxY:  },
+            { minX: -25, maxX: -25, minY: 225, maxY: 225 },
             //{ minX: , maxX: , minY: , maxY:  },
         ],
         //ArenaField. 
