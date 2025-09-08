@@ -55,6 +55,9 @@ async function changeMap(mapname) {
             document.getElementById("karte").disabled = true;
             document.getElementById("ArenaButtonIn").classList.toggle("hidethis", true);
             document.getElementById("ArenaButtonOut").classList.toggle("hidethis", false);
+            toggleClassElement("ArenaLeiter1", false)
+            toggleClassElement("ArenaTrainer1", false)
+            toggleClassElement("ArenaTrainer2", false)
             break;
     }
     activeMap = maps[mapname].name;
