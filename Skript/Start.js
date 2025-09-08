@@ -7,7 +7,7 @@ function toggleClassElement(name, value) {
 }
 
 function toggleIDElement(name, value) {
-    document.getElementByID(name).classList.toggle("hidethis", value);
+    document.getElementById(name).classList.toggle("hidethis", value);
 }
 
 let Player = {};
