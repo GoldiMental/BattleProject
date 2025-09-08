@@ -649,8 +649,8 @@ a:hover {
     background-size: 175%;
     background-position: 50%;
     position: absolute;
-    top: 150px;
-    left: 150px;
+    top: 50px;
+    left: 50px;
     height: 50px;
     width: 50px;
 }
@@ -667,7 +667,7 @@ a:hover {
 }
 
 .ArenaTrainer2 {
-    background-image: url(../img/textures/tR1.png);
+    background-image: url(../img/textures/tR1_B.png);
     background-size: 175%;
     background-position: 50%;
     position: absolute;
