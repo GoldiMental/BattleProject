@@ -23,8 +23,8 @@ async function changeMap(mapname) {
             document.getElementById("tuerShopIn").classList.toggle("hidethis", false);
             document.getElementById("Haendler").classList.toggle("hidethis", true);
             document.getElementById("tuerShopOut").classList.toggle("hidethis", true);
-            document.getElementById("ArenaBtnIn").classList.toggle("hidethis", false);
-            document.getElementById("ArenaBtnOut").classList.toggle("hidethis", true);
+            document.getElementById("ArenaButtonIn").classList.toggle("hidethis", false);
+            document.getElementById("ArenaButtonOut").classList.toggle("hidethis", true);
             break;
         case "MeinHaus":
             document.getElementById("karte").disabled = true;
@@ -50,8 +50,8 @@ async function changeMap(mapname) {
             break;
         case "ArenaField":
             document.getElementById("karte").disabled = true;
-            document.getElementById("ArenaBtnIn").classList.toggle("hidethis", true);
-            document.getElementById("ArenaBtnOut").classList.toggle("hidethis", false);
+            document.getElementById("ArenaButtonIn").classList.toggle("hidethis", true);
+            document.getElementById("ArenaButtonOut").classList.toggle("hidethis", false);
             break;
     }
     activeMap = maps[mapname].name;
