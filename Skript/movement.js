@@ -25,6 +25,9 @@ async function changeMap(mapname) {
             document.getElementById("tuerShopOut").classList.toggle("hidethis", true);
             document.getElementById("ArenaButtonIn").classList.toggle("hidethis", false);
             document.getElementById("ArenaButtonOut").classList.toggle("hidethis", true);
+            toggleClassElement("ArenaLeiter1", true)
+            toggleClassElement("ArenaTrainer1", true)
+            toggleClassElement("ArenaTrainer2", true)
             break;
         case "MeinHaus":
             document.getElementById("karte").disabled = true;
