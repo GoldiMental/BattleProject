@@ -196,8 +196,7 @@ function moveMap() {
                     trainername = a.name; var Fight = true;
                     for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
                     if (Fight) {
-                        if (a.name == "Trainer003") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
-                        battle("Trainer003")
+                        if (a.name == "Trainer003") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]);battle("Trainer003"); } }
                         else { clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername); }
                     }
                 }
@@ -208,8 +207,7 @@ function moveMap() {
                     trainername = a.name; var Fight = true;
                     for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
                     if (Fight) {
-                        if (a.name == "Trainer004") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
-                        battle("Trainer004")
+                        if (a.name == "Trainer004") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]);battle("Trainer004"); } }
                         else { clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername); }
                     }
                 }

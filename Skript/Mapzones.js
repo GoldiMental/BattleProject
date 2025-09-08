@@ -1,3 +1,5 @@
+const { name } = require("ejs");
+
 var maps = {
     MAP: {
         name: "MAP",
@@ -279,14 +281,10 @@ var maps = {
         ArenaHGInnen: [
             { minX: -75, maxX: -75, minY: -375, maxY: -375 },
         ],
-        ArenaLeiter: [
-            { minX: -25, maxX: -25, minY: 175, maxY: 175 },
-        ],
-        ArenaTrainer1: [
-            { minX: 125, maxX: 125, minY: 25, maxY: 25 },
-        ],
-        ArenaTrainer2: [
-            { minX: -375, maxX: -375, minY: -325, maxY: -325 },
+        Trainerbattle: [
+            { minX: -25, maxX: -25, minY: 175, maxY: 175, name: "ArenaLeiter001" },
+            { minX: 125, maxX: 125, minY: 25, maxY: 25, name: "Trainer003" },
+            { minX: -375, maxX: -375, minY: -325, maxY: -325, name: "Trainer004" },
         ],
     },
 }
