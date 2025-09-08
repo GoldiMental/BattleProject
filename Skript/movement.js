@@ -190,6 +190,30 @@ function moveMap() {
                 if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { toggleClassElement('ArenaBtnOut', false); }
                 else { toggleClassElement('ArenaBtnOut', true); }
             }
+            for (let i = 0; i < maps.ArenaField.Trainerbattle.length; i++) {
+                const a = maps.ArenaField.Trainerbattle[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
+                    trainername = a.name; var Fight = true;
+                    for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
+                    if (Fight) {
+                        if (a.name == "Trainer003") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
+                        battle("Trainer003")
+                        else { clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername); }
+                    }
+                }
+            }
+            for (let i = 0; i < maps.ArenaField.Trainerbattle.length; i++) {
+                const a = maps.ArenaField.Trainerbattle[i];
+                if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
+                    trainername = a.name; var Fight = true;
+                    for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
+                    if (Fight) {
+                        if (a.name == "Trainer004") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
+                        battle("Trainer004")
+                        else { clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername); }
+                    }
+                }
+            }
             break;
         case "MAP":
             for (let i = 0; i < maps.MAP.shopHome.length; i++) {
