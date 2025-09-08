@@ -16,48 +16,48 @@ async function changeMap(mapname) {
     switch (mapname) {
         case "MAP":
             document.getElementById("karte").disabled = false;
-            document.getElementById("tuerSelfOut").classList.toggle("hidethis", true);
-            document.getElementById("tuerSelfIn").classList.toggle("hidethis", false);
-            document.getElementById("tuerTroyOut").classList.toggle("hidethis", true);
-            document.getElementById("Professor").classList.toggle("hidethis", true);
-            document.getElementById("tuerShopIn").classList.toggle("hidethis", false);
-            document.getElementById("Haendler").classList.toggle("hidethis", true);
-            document.getElementById("tuerShopOut").classList.toggle("hidethis", true);
-            document.getElementById("ArenaButtonIn").classList.toggle("hidethis", false);
-            document.getElementById("ArenaButtonOut").classList.toggle("hidethis", true);
-            toggleClassElement("ArenaLeiter1", true)
-            toggleClassElement("ArenaTrainer1", true)
-            toggleClassElement("ArenaTrainer2", true)
+            toggleIDElement("tuerSelfOut", true);
+            toggleIDElement("tuerSelfIn", false);
+            toggleIDElement("tuerTroyOut", true);
+            toggleIDElement("Professor", true);
+            toggleIDElement("tuerShopIn", false);
+            toggleIDElement("Haendler", true);
+            toggleIDElement("tuerShopOut", true);
+            toggleIDElement("ArenaButtonIn", false);
+            toggleIDElement("ArenaButtonOut", true);
+            toggleClassElement("ArenaLeiter1", true);
+            toggleClassElement("ArenaTrainer1", true);
+            toggleClassElement("ArenaTrainer2", true);
             break;
         case "MeinHaus":
             document.getElementById("karte").disabled = true;
-            document.getElementById("tuerSelfIn").classList.toggle("hidethis", true);
-            document.getElementById("tuerSelfOut").classList.toggle("hidethis", false);
+            toggleIDElement("tuerSelfIn", true);
+            toggleIDElement("tuerSelfOut", false);
             break;
         case "TroysHaus":
             document.getElementById("karte").disabled = true;
-            document.getElementById("tuerTroyOut").classList.toggle("hidethis", false);
-            document.getElementById("Professor").classList.toggle("hidethis", false);
+            toggleIDElement("tuerTroyOut", false);
+            toggleIDElement("Professor", false);
             break;
         case "ShopHaus":
             document.getElementById("karte").disabled = true;
-            document.getElementById("tuerShopIn").classList.toggle("hidethis", true);
-            document.getElementById("Haendler").classList.toggle("hidethis", false);
-            document.getElementById("tuerShopOut").classList.toggle("hidethis", false);
+            toggleIDElement("tuerShopIn", true)
+            toggleIDElement("Haendler", false)
+            toggleIDElement("tuerShopOut", false)
             break;
         case "ShopHausHG":
             document.getElementById("karte").disabled = true;
-            document.getElementById("tuerShopHgIn").classList.toggle("hidethis", true);
-            document.getElementById("Haendler").classList.toggle("hidethis", false);
-            document.getElementById("tuerShopHgOut").classList.toggle("hidethis", false);
+            toggleIDElement("tuerShopHgIn", true)
+            toggleIDElement("Haendler", false)
+            toggleIDElement("tuerShopHgOut", false)
             break;
         case "ArenaField":
             document.getElementById("karte").disabled = true;
-            document.getElementById("ArenaButtonIn").classList.toggle("hidethis", true);
-            document.getElementById("ArenaButtonOut").classList.toggle("hidethis", false);
-            toggleClassElement("ArenaLeiter1", false)
-            toggleClassElement("ArenaTrainer1", false)
-            toggleClassElement("ArenaTrainer2", false)
+            toggleIDElement("ArenaButtonIn", true);
+            toggleIDElement("ArenaButtonOut", false);
+            toggleClassElement("ArenaLeiter1", false);
+            toggleClassElement("ArenaTrainer1", false);
+            toggleClassElement("ArenaTrainer2", false);
             break;
     }
     activeMap = maps[mapname].name;
