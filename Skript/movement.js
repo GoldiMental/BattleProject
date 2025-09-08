@@ -41,15 +41,15 @@ async function changeMap(mapname) {
             break;
         case "ShopHaus":
             document.getElementById("karte").disabled = true;
-            toggleIDElement("tuerShopIn", true)
-            toggleIDElement("Haendler", false)
-            toggleIDElement("tuerShopOut", false)
+            toggleIDElement("tuerShopIn", true);
+            toggleIDElement("Haendler", false);
+            toggleIDElement("tuerShopOut", false);
             break;
         case "ShopHausHG":
             document.getElementById("karte").disabled = true;
-            toggleIDElement("tuerShopHgIn", true)
-            toggleIDElement("Haendler", false)
-            toggleIDElement("tuerShopHgOut", false)
+            toggleIDElement("tuerShopHgIn", true);
+            toggleIDElement("Haendler", false);
+            toggleIDElement("tuerShopHgOut", false);
             break;
         case "ArenaField":
             document.getElementById("karte").disabled = true;
