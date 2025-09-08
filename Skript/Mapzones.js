@@ -1,5 +1,3 @@
-const { name } = require("ejs");
-
 var maps = {
     MAP: {
         name: "MAP",
