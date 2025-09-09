@@ -454,9 +454,9 @@ a:hover {
 
 #standort-marker {
     background-size: 14%;
-    position: absolute;
-    left: -2px;
-    top: 20%;
+    position: relative;
+    left: 0;
+    top: 0;
     font-weight: bold;
     font-size: 20px;
     transform: translate(-50%, -50%);

@@ -179,15 +179,10 @@ function close_Info() { document.getElementById('Info').classList.toggle("hideth
 function Karte() {
     document.getElementById('Karte').classList.toggle("hidethis", false);
     const standortMarker = document.getElementById('standort-marker');
-    const karteInfo = document.getElementById('Karte_info');
-    const karteInfoOffset = karteInfo.getBoundingClientRect().top - document.getElementById('Karte').getBoundingClientRect().top;
     const displayWidth = 450;
-    const displayHeight = 350;
+    const displayHeight = 300;
     let markerX = -Player.MapX * (displayWidth / parseInt(maps[activeMap].Width));
     let markerY = -Player.MmapY * (displayHeight / parseInt(maps[activeMap].Height));
-    markerY -= karteInfoOffset;
-    markerX += 25;
-    markerY += 160;
     standortMarker.style.left = `${markerX}px`;
     standortMarker.style.top = `${markerY}px`;
     standortMarker.classList.toggle("hidethis", false);
