@@ -446,7 +446,7 @@ a:hover {
     background-size: 100%;
     background-repeat: no-repeat;
     width: 450px;
-    height: 300px;
+    height: 100%;
 }
 
 #standort-marker {

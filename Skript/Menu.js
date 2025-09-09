@@ -181,8 +181,8 @@ function Karte() {
     const standortMarker = document.getElementById('standort-marker');
     const displayWidth = 450;
     const displayHeight = (2500 / 4750) * displayWidth;
-    let markerX = -Player.MapX * (displayWidth / (parseInt(maps[activeMap].Width - 225)));
-    let markerY = -Player.MapY * (displayHeight / (parseInt(maps[activeMap].Height - 225)));
+    let markerX = -(Player.MapX - 225) * (displayWidth / (parseInt(maps[activeMap].Width)));
+    let markerY = -(Player.MapY - 225) * (displayHeight / (parseInt(maps[activeMap].Height)));
     standortMarker.style.left = `${markerX}px`;
     standortMarker.style.top = `${markerY}px`;
     standortMarker.classList.toggle("hidethis", false);
