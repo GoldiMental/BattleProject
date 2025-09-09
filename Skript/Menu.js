@@ -189,8 +189,8 @@ function Karte() {
     const displayHeight = 350; // Höhe des #Karte-Containers
 
     // Spieler-Position (mapX/mapY sind negativ, da die Karte verschoben wird)
-    const playerX = -mapX;  // Umkehr der Richtung
-    const playerY = -mapY;  // Umkehr der Richtung
+    //const playerX = -mapX;  // Umkehr der Richtung
+    //const playerY = -mapY;  // Umkehr der Richtung
 
     // Verhältnis zwischen Originalkarte und Anzeige berechnen
     const scaleX = displayWidth / mapWidth;
