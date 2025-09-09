@@ -178,8 +178,8 @@ function close_Info() { document.getElementById('Info').classList.toggle("hideth
 
 function Karte() {
     document.getElementById('Karte').classList.toggle("hidethis", false);
-    const standortMarker = document.getElementById('standort-marker');
-    standortMarker.classList.toggle("hidethis", false);
+//    const standortMarker = document.getElementById('standort-marker');
+//    standortMarker.classList.toggle("hidethis", false);
 //
 //    // Karten- und Anzeigedimensionen
 //    const mapWidth = parseInt(maps[activeMap].Width);   // Original-Kartenbreite (z. B. 3250)
