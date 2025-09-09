@@ -178,47 +178,24 @@ function close_Info() { document.getElementById('Info').classList.toggle("hideth
 
 function Karte() {
     document.getElementById('Karte').classList.toggle("hidethis", false);
-//    const standortMarker = document.getElementById('standort-marker');
-//    standortMarker.classList.toggle("hidethis", false);
-//
-//    // Karten- und Anzeigedimensionen
-//    const mapWidth = parseInt(maps[activeMap].Width);   // Original-Kartenbreite (z. B. 3250)
-//    const mapHeight = parseInt(maps[activeMap].Height); // Original-Kartenhöhe (z. B. 1250)
-//
-//    const displayWidth = 450;  // Breite des #Karte-Containers
-//    const displayHeight = 350; // Höhe des #Karte-Containers
-//
-//    // Spieler-Position (mapX/mapY sind negativ, da die Karte verschoben wird)
-//    const playerX = -mapX;  // Umkehr der Richtung
-//    const playerY = -mapY;  // Umkehr der Richtung
-//
-//    // Verhältnis zwischen Originalkarte und Anzeige berechnen
-//    const scaleX = displayWidth / mapWidth;
-//    const scaleY = displayHeight / mapHeight;
-//    //console.log(scaleX);
-//    //console.log(scaleY);
-//    // Marker-Position (skaliert & zentriert)
-//    let markerX = playerX * scaleX;
-//    let markerY = playerY * scaleY;
-//
-//    const karteInfo = document.getElementById('Karte_info');
-//    const karteInfoOffset = karteInfo.getBoundingClientRect().top - document.getElementById('Karte').getBoundingClientRect().top;
-//    markerY -= karteInfoOffset;
-//
-//    markerX += 25; // Nach rechts 
-//    markerY += 160;  // Nach unten
-//
-//    // Marker setzen (mit Korrektur für die Mitte des Markers)
-//    standortMarker.style.left = `${markerX}px`;
-//    standortMarker.style.top = `${markerY}px`;
-//
-//    //console.log("Spieler-Position (Original):", playerX, playerY);
-//    //console.log("Marker-Position (Skaliert):", markerX, markerY);
+    const standortMarker = document.getElementById('standort-marker');
+    const karteInfo = document.getElementById('Karte_info');
+    const karteInfoOffset = karteInfo.getBoundingClientRect().top - document.getElementById('Karte').getBoundingClientRect().top;
+    const displayWidth = 450;
+    const displayHeight = 350;
+    let markerX = -Player.MapX * (displayWidth / parseInt(maps[activeMap].Width));
+    let markerY = -Player.MmapY * (displayHeight / parseInt(maps[activeMap].Height));
+    markerY -= karteInfoOffset;
+    markerX += 25;
+    markerY += 160;
+    standortMarker.style.left = `${markerX}px`;
+    standortMarker.style.top = `${markerY}px`;
+    standortMarker.classList.toggle("hidethis", false);
 }
 
 function close_Karte() {
     document.getElementById('Karte').classList.toggle("hidethis", true);
-//    document.getElementById('standort-marker').classList.toggle("hidethis", true);
+    document.getElementById('standort-marker').classList.toggle("hidethis", true);
 }
 
 function Items() {
