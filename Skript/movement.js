@@ -197,7 +197,7 @@ function moveMap() {
                     for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
                     if (trainername == "ArenaLeiter001"){
                         let ArenaList = ["Trainer003", "Trainer004", ];
-                        if(!ArenaList.every(element=>Player.defeatedTrainer.includes(element))){Fight = false}}
+                        if(!ArenaList.every(element=>Player.defeatedTrainer.includes(element))){Fight = false; ArenaMonolog(Trainerlist.ArenaLeiter001) }}
                     if (Fight) {
                     clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername);
                     }

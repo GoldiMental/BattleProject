@@ -55,7 +55,7 @@ const TrainerList = {
     },
     Trainer004: {
         name: "Piekso",
-        text1: "Halt Stop !!",
+        text1: "Wen haben wir denn da....!!",
         text2: "Ich habe schon lange auf einen starken Gegner gewartet.",
         text3: "Du kannst so lange nicht gegen Rachel Kämpfen bevor du nicht mich und Rocky Besiegt hast",
         text4: "Deshalb lass uns nicht lange Quatschen und direkt zum Wesentlichen kommen.!",
@@ -70,12 +70,16 @@ const TrainerList = {
     },
     ArenaLeiter001: {
         name: "Rachel",
-        text1: "Halt Stop !!",
+        text1: "Okay Okay... wie ich sehe hast du meine Arena Trainer besiegt.!",
         text2: "Ich bin Rachel, ",
         text3: "Arena Leiterin von der Hohen Wiese!!",
         text4: "In meiner Arena zählt Mut mehr als Stärke!",
         text5: "Wenn du meine/n .... willst , dann zeig mir, was du kannst.!",
         text6: "Mach dich bereit.! ",
+        btext: "Haha, Du schwächling, willst dich mit mir Messen?",
+        btext1:"Besiege erstmal meine Arena Trainer Rocky und Piekso.",
+        btext2:"Danach können wir weiter Reden. Tschau...!",
+        direction: "d",
         gold: 250,
         Tulpa1: { name: "Wachhund", Lv: 12, HP: 90, HP_Total: 90 },
         Tulpa2: { name: "Schutzhund", Lv: 15, HP: 105, HP_Total: 105 },
@@ -97,5 +101,17 @@ async function Trainer000monolog(Trainer) {
     TrainerDialogBox.classList.toggle("hidethis", true);
     moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
     activeDirection = "a"; moveMap(); await Delay(100);
+    activeDirection = null; stopMovement();
+}
+
+async function ArenaMonolog(arenaName) {
+    TrainerDialogBox = document.getElementsByClassName("TrainerDialogBox")[0];
+    TrainerDialogBox.innerHTML = arenaName.btext; clearInterval(moveIntervalID);
+    TrainerDialogBox.classList.toggle("hidethis", false);  await Click();
+    TrainerDialogBox.innerHTML = arenaName.btext1; await Click();
+    TrainerDialogBox.innerHTML = arenaName.btext2; await Click();
+    TrainerDialogBox.classList.toggle("hidethis", true);
+    moveIntervalID = setInterval(() => { if (activeDirection) { moveMap() }; }, moveInterval);
+    activeDirection = arenaName.direction; moveMap(); await Delay(100);
     activeDirection = null; stopMovement();
 }
