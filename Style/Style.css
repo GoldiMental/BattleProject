@@ -442,7 +442,11 @@ a:hover {
 }
 
 #Karte_info {
+    background-image: url(../img/textures/MAP_Update.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
     width: 450px;
+    height: 100%;
 }
 
 #standort-marker {
