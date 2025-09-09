@@ -182,7 +182,7 @@ function Karte() {
     const displayWidth = 450;
     const displayHeight = 300;
     let markerX = -Player.MapX * (displayWidth / parseInt(maps[activeMap].Width));
-    let markerY = -Player.MmapY * (displayHeight / parseInt(maps[activeMap].Height));
+    let markerY = -Player.MapY * (displayHeight / parseInt(maps[activeMap].Height));
     standortMarker.style.left = `${markerX}px`;
     standortMarker.style.top = `${markerY}px`;
     standortMarker.classList.toggle("hidethis", false);
