@@ -199,8 +199,7 @@ function moveMap() {
                         let ArenaList = ["Trainer003", "Trainer004", ];
                         if(!ArenaList.every(element=>Player.defeatedTrainer.includes(element))){Fight = false}}
                     if (Fight) {
-                        if (a.name == "Trainer003") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
-                        else { clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername); }
+                    clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername);
                     }
                 }
             }
