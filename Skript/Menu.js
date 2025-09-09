@@ -176,10 +176,10 @@ function Info() {
 
 function close_Info() { document.getElementById('Info').classList.toggle("hidethis", true); }
 
-//function Karte() {
-//    document.getElementById('Karte').classList.toggle("hidethis", false);
-//    const standortMarker = document.getElementById('standort-marker');
-//    standortMarker.classList.toggle("hidethis", false);
+function Karte() {
+    document.getElementById('Karte').classList.toggle("hidethis", false);
+    const standortMarker = document.getElementById('standort-marker');
+    standortMarker.classList.toggle("hidethis", false);
 //
 //    // Karten- und Anzeigedimensionen
 //    const mapWidth = parseInt(maps[activeMap].Width);   // Original-Kartenbreite (z. B. 3250)
@@ -214,7 +214,7 @@ function close_Info() { document.getElementById('Info').classList.toggle("hideth
 //
 //    //console.log("Spieler-Position (Original):", playerX, playerY);
 //    //console.log("Marker-Position (Skaliert):", markerX, markerY);
-//}
+}
 
 function close_Karte() {
     document.getElementById('Karte').classList.toggle("hidethis", true);
