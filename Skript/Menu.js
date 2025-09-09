@@ -186,7 +186,7 @@ function Karte() {
     const mapHeight = parseInt(maps[activeMap].Height); // Original-Kartenhöhe (z. B. 1250)
 
     const displayWidth = 450;  // Breite des #Karte-Containers
-    const displayHeight = 125; // Höhe des #Karte-Containers
+    const displayHeight = 350; // Höhe des #Karte-Containers
 
     // Spieler-Position (mapX/mapY sind negativ, da die Karte verschoben wird)
     const playerX = -mapX;  // Umkehr der Richtung
