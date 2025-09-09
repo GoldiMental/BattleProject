@@ -218,7 +218,7 @@ function Karte() {
 
 function close_Karte() {
     document.getElementById('Karte').classList.toggle("hidethis", true);
-    document.getElementById('standort-marker').classList.toggle("hidethis", true);
+//    document.getElementById('standort-marker').classList.toggle("hidethis", true);
 }
 
 function Items() {
