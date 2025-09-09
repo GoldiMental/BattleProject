@@ -180,7 +180,7 @@ function Karte() {
     document.getElementById('Karte').classList.toggle("hidethis", false);
     const standortMarker = document.getElementById('standort-marker');
     const displayWidth = 450;
-    const displayHeight = document.getElementById(Karte_info).style.height;
+    const displayHeight = document.getElementById("Karte_info").style.height;
     let markerX = -Player.MapX * (displayWidth / parseInt(maps[activeMap].Width));
     let markerY = -Player.MapY * (displayHeight / parseInt(maps[activeMap].Height));
     standortMarker.style.left = `${markerX}px`;
