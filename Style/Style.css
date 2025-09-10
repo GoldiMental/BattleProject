@@ -24,9 +24,9 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 15px;
-    height: 15px;
-    background-color: rgb(50, 50, 50);
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 50, 50);
     border: 1px solid rgb(0, 255, 255);
     border-radius: 50%;
     pointer-events: none;
