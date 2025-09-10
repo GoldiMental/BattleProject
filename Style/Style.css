@@ -546,6 +546,31 @@ a:hover {
     border-radius: 10px;
 }
 
+#Tulpa_List {
+    text-align: left;
+    max-height: 380px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#TulpaPC {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 450px;
+    width: 450px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10px;
+}
+
+#TulpaPC_List {
+    text-align: left;
+    max-height: 380px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 #Karte {
     position: absolute;
     top: 10px;
@@ -768,26 +793,6 @@ a:hover {
     opacity: 1;
 }
 
-#TulpaPC {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    height: 450px;
-    width: 450px;
-    padding: 10px;
-    font-family: 'Courier New', Courier, monospace;
-    border-radius: 10px;
-}
-
-#TulpaPC_List {
-    height: 400px;
-    width: 450px;
-    text-align: left;
-    float: inline;
-    position: absolute;
-    overflow-x: hidden;
-}
-
 .MeinHaus_B {
     top: 250px;
     left: 350px;
@@ -904,13 +909,6 @@ a:hover {
     box-shadow: none !important;
     border: none !important;
     opacity: 1;
-}
-
-#Tulpa_List {
-    text-align: left;
-    max-height: 380px;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
 .LP_Bar {
