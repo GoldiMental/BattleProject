@@ -27,4 +27,19 @@ document.getElementById("FullscreenOption").addEventListener('click', () => {
             .catch(err => { console.warn("FullscreenOption()-ERROR:", err.message) });
         document.getElementById("ScreenOption").src = "img/fullscreen.svg";
     }
-})
+});
+
+document.getElementById("LogoOption").addEventListener('click', () => {
+    document.getElementById("TulpaGameLogo").classList.toggle("hidethis");
+});
+
+let currentScale = 1;
+document.getElementById("ZoomInOption").addEventListener('click', () => {
+    currentScale += 0.05;
+    document.getElementById('Playground').style.transform = 'scale(${currentScale})';
+});
+
+document.getElementById("ZoomOutOption").addEventListener('click', () => {
+    currentScale -= 0.05;
+    document.getElementById('Playground').style.transform = 'scale(${currentScale})';
+});

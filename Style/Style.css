@@ -48,6 +48,27 @@ input {
     transition: all 0.3s ease;
 }
 
+#LogoOption {
+    position: fixed;
+    top: 0.5em;
+    left: 2.5em;
+    transition: all 0.3s ease;
+}
+
+#ZoomOutOption {
+    position: fixed;
+    top: 0.5em;
+    left: 4.5em;
+    transition: all 0.3s ease;
+}
+
+#ZoomInOption {
+    position: fixed;
+    top: 0.5em;
+    left: 6.5em;
+    transition: all 0.3s ease;
+}
+
 #ColorSettings {
     position: fixed;
     top: 0.5em;
