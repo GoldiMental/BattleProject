@@ -11,7 +11,7 @@ function toggleIDElement(name, value) {
 }
 
 let Player = {};
-
+navigator.getGamepads();
 document.addEventListener('DOMContentLoaded', async () => {
     console.log("Starte Spiel...");
     const storedUsername = localStorage.getItem('loggedInUsername');
