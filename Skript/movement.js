@@ -327,9 +327,6 @@ function updateGamepad() {
         const leftStickX = gamepad.axes[0]; // Werte von -1 (links) bis 1 (rechts)
         const leftStickY = gamepad.axes[1]; // Werte von -1 (oben) bis 1 (unten)
 
-        currentX += leftStickX * speed;
-        currentY += leftStickY * speed;
-
         console.log(leftStickX, leftStickY);
     }
     window.requestAnimationFrame(updateGamepad);
