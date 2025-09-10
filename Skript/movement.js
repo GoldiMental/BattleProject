@@ -323,11 +323,17 @@ function updateGamepad() {
 
     // Nur fortfahren, wenn ein Controller verbunden ist
     if (gamepad) {
-        // Liest die Position des linken Analog-Sticks (Axes 0 und 1)
-        const leftStickX = gamepad.axes[0]; // Werte von -1 (links) bis 1 (rechts)
-        const leftStickY = gamepad.axes[1]; // Werte von -1 (oben) bis 1 (unten)
-
-        console.log(leftStickX, leftStickY);
+        const leftDir = gamepad.buttons[14];
+        const upDir = gamepad.buttons[15];
+        const rightDir = gamepad.buttons[12];
+        const downDir = gamepad.buttons[13];
+        const Xbtn = gamepad.buttons[0];
+        const Obtn = ganepad.buttons[1];
+        const leftStickX = Math.round(gamepad.axes[0]); // Werte von -1 (links) bis 1 (rechts)
+        const leftStickY = Math.round(gamepad.axes[1]); // Werte von -1 (oben) bis 1 (unten)
+        const rightStickX = Math.round(gamepad.axes[2]); // Werte von -1 (oben) bis 1 (unten)
+        const rightStickY = Math.round(gamepad.axes[3]); // Werte von -1 (oben) bis 1 (unten)
+        console.log("<",leftDir,"^",upDir,">",rightDir,"v",downDir,"X",Xbtn,"O",Obtn,"LeftStick",leftStickX,leftStickY,"RightStick",rightStickX,rightStickY);
     }
     window.requestAnimationFrame(updateGamepad);
 }
