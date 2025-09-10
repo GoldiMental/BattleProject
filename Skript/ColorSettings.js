@@ -1,5 +1,4 @@
 function setcolor() {
-    console.log("Führe setcolor() aus...");
     let color = Player.color;
     switch (color) {
         case "Dark": document.getElementById('stil').setAttribute('href', 'Style/Dark.css'); break;
@@ -15,5 +14,15 @@ function setcolor() {
         case undefined: Player.color = "Darkblue"; break;
     }
     console.log("Farbe:", Player.color);
-    console.log("setcolor() ✅");
 }
+
+document.getElementById("FullscreenOption").addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen()
+            .catch(err => { console.warn("FullscreenOption()-ERROR:", err.message) })
+    }
+    else {
+        document.exitFullscreen()
+            .catch(err => { console.warn("FullscreenOption()-ERROR:", err.message) })
+    }
+})
