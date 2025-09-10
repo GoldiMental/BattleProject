@@ -319,6 +319,8 @@ let cursorX = window.innerWidth;
 let cursorY = window.innerHeight;
 const speed = 10;
 const deadZone = 0.1;
+let hoveredElement = null;
+
 function updateGamepad() {
     const gamepads = navigator.getGamepads();
     const gamepad = gamepads[0];
@@ -327,7 +329,7 @@ function updateGamepad() {
         const upDir = gamepad.buttons[12].value;
         const rightDir = gamepad.buttons[15].value;
         const downDir = gamepad.buttons[13].value;
-        const Xbtn = gamepad.buttons[0].value;
+        const Xbtn = gamepad.buttons[0];
         const Obtn = gamepad.buttons[1].value;
         const leftStickX = Math.round(gamepad.axes[0]); // Werte von -1 (links) bis 1 (rechts)
         const leftStickY = Math.round(gamepad.axes[1]); // Werte von -1 (oben) bis 1 (unten)
@@ -360,6 +362,27 @@ function updateGamepad() {
         cursorY = Math.max(0, Math.min(window.innerHeight, cursorY));
 
         cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+
+        //Hover-Effekt
+        const currentElement = document.elementFromPoint(cursorX, cursorY);
+
+        if (currentElement !== hoveredElement) {
+            if (hoveredElement) {
+                hoveredElement.classList.remove('is-hovered');
+            }
+
+            if (currentElement && currentElement.classList.contains('interactive-element')) {
+                currentElement.classList.add('.is-hovered');
+                hoveredElement = currentElement;
+            } else {
+                hoveredElement = null;
+            }
+        }
+
+        //X/A-Button
+        if (Xbtn.pressed && hoveredElement) {
+            hoveredElement.click(); // Klick-Ereignis auslösen
+        }
     }
     window.requestAnimationFrame(updateGamepad);
 }

@@ -33,6 +33,10 @@ body {
     z-index: 5000;
 }
 
+.is-hovered {
+    transform: translateY(10px);
+}
+
 .hidethis {
     display: none !important;
 }
