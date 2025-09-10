@@ -19,10 +19,12 @@ function setcolor() {
 document.getElementById("FullscreenOption").addEventListener('click', () => {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen()
-            .catch(err => { console.warn("FullscreenOption()-ERROR:", err.message) })
+            .catch(err => { console.warn("FullscreenOption()-ERROR:", err.message) });
+        document.getElementById("ScreenOption").src = "img/tabscreen.svg";
     }
     else {
         document.exitFullscreen()
-            .catch(err => { console.warn("FullscreenOption()-ERROR:", err.message) })
+            .catch(err => { console.warn("FullscreenOption()-ERROR:", err.message) });
+        document.getElementById("ScreenOption").src = "img/fullscreen.svg";
     }
 })
