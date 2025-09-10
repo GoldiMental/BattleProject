@@ -195,11 +195,12 @@ function moveMap() {
                 if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
                     trainername = a.name; var Fight = true;
                     for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
-                    if (trainername == "ArenaLeiter001"){
-                        let ArenaList = ["Trainer003", "Trainer004", ];
-                        if(!ArenaList.every(element=>Player.defeatedTrainer.includes(element))){Fight = false; ArenaMonolog(TrainerList.ArenaLeiter001) }}
+                    if (trainername == "ArenaLeiter001") {
+                        let ArenaList = ["Trainer003", "Trainer004",];
+                        if (!ArenaList.every(element => Player.defeatedTrainer.includes(element))) { Fight = false; ArenaMonolog(TrainerList.ArenaLeiter001) }
+                    }
                     if (Fight) {
-                    clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername);
+                        clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername);
                     }
                 }
             }
@@ -310,3 +311,26 @@ document.getElementById("D_Click").addEventListener("pointerup", () => SimulateK
 
 function SimulateKeyDown(key) { document.dispatchEvent(new KeyboardEvent("keydown", { key: key })); }
 function SimulateKeyUp(key) { document.dispatchEvent(new KeyboardEvent("keyup", { key: key })); }
+
+//DEV
+
+function updateGamepad() {
+    // Greift auf das Gamepad-Array zu
+    const gamepads = navigator.getGamepads();
+
+    // Wählt den ersten gefundenen Controller (Index 0)
+    const gamepad = gamepads[0];
+
+    // Nur fortfahren, wenn ein Controller verbunden ist
+    if (gamepad) {
+        // Liest die Position des linken Analog-Sticks (Axes 0 und 1)
+        const leftStickX = gamepad.axes[0]; // Werte von -1 (links) bis 1 (rechts)
+        const leftStickY = gamepad.axes[1]; // Werte von -1 (oben) bis 1 (unten)
+
+        currentX += leftStickX * speed;
+        currentY += leftStickY * speed;
+
+        console.log(leftStickX, leftStickY);
+    }
+    window.requestAnimationFrame(updateGamepad);
+}
