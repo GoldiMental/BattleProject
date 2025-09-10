@@ -36,10 +36,10 @@ document.getElementById("LogoOption").addEventListener('click', () => {
 let currentScale = 1;
 document.getElementById("ZoomInOption").addEventListener('click', () => {
     currentScale += 0.05;
-    document.getElementById('Playground').style.transform = 'scale(${currentScale})';
+    document.getElementsByClassName('Playground')[0].style.transform = 'scale(${currentScale})';
 });
 
 document.getElementById("ZoomOutOption").addEventListener('click', () => {
     currentScale -= 0.05;
-    document.getElementById('Playground').style.transform = 'scale(${currentScale})';
+    document.getElementsByClassName('Playground')[0].style.transform = 'scale(${currentScale})';
 });
