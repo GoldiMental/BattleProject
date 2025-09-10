@@ -51,21 +51,21 @@ input {
 #LogoOption {
     position: fixed;
     top: 0.5em;
-    left: 4.5em;
+    left: 5.5em;
     transition: all 0.3s ease;
 }
 
 #ZoomOutOption {
     position: fixed;
     top: 0.5em;
-    left: 8.5em;
+    left: 10.5em;
     transition: all 0.3s ease;
 }
 
 #ZoomInOption {
     position: fixed;
     top: 0.5em;
-    left: 12.5em;
+    left: 15.5em;
     transition: all 0.3s ease;
 }
 
