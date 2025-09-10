@@ -320,6 +320,7 @@ let cursorY = window.innerHeight;
 const speed = 10;
 const deadZone = 0.1;
 let hoveredElement = null;
+const lastButtonStates = {};
 
 function updateGamepad() {
     const gamepads = navigator.getGamepads();
@@ -380,9 +381,14 @@ function updateGamepad() {
         }
 
         //X/A-Button
-        if (Xbtn.pressed && hoveredElement) {
-            hoveredElement.click(); // Klick-Ereignis auslösen
+        const wasPressedLastFrame = lastButtonStates[0];
+        const isPressedNow = button.pressed;
+
+        if (isPressedNow && !wasPressedLastFrame && hoveredElement) {
+            hoveredElement.click();
         }
+
+        lastButtonStates[0] = isPressedNow;
     }
     window.requestAnimationFrame(updateGamepad);
 }
