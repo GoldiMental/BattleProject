@@ -328,7 +328,7 @@ function updateGamepad() {
         const rightDir = gamepad.buttons[12];
         const downDir = gamepad.buttons[13];
         const Xbtn = gamepad.buttons[0];
-        const Obtn = ganepad.buttons[1];
+        const Obtn = gamepad.buttons[1];
         const leftStickX = Math.round(gamepad.axes[0]); // Werte von -1 (links) bis 1 (rechts)
         const leftStickY = Math.round(gamepad.axes[1]); // Werte von -1 (oben) bis 1 (unten)
         const rightStickX = Math.round(gamepad.axes[2]); // Werte von -1 (oben) bis 1 (unten)
