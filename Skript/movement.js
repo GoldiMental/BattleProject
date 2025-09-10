@@ -314,7 +314,11 @@ function SimulateKeyUp(key) { document.dispatchEvent(new KeyboardEvent("keyup", 
 
 
 //DEVELOPMENT_MAKE_GAMEPAD_USABLE//DEVELOPMENT_MAKE_GAMEPAD_USABLE//DEVELOPMENT_MAKE_GAMEPAD_USABLE//DEVELOPMENT_MAKE_GAMEPAD_USABLE//DEVELOPMENT_MAKE_GAMEPAD_USABLE
-
+const cursor = document.getElementById('cursor');
+let cursorX = window.innerWidth / 2;
+let cursorY = window.innerHeight / 2;
+const speed = 10;
+const deadZone = 0.1;
 function updateGamepad() {
     const gamepads = navigator.getGamepads();
     const gamepad = gamepads[0];
@@ -346,6 +350,16 @@ function updateGamepad() {
             case 0: SimulateKeyUp("w"); SimulateKeyUp("s");
                 break;
         }
+        //Right-Stick = "cursor"
+        const stickMagnitude = Math.sqrt(rightStickX * rightStickX + rightStickY * rightStickY);
+        if (stickMagnitude > deadZone) {
+            cursorX += rightStickX * speed;
+            cursorY += rightStickY * speed;
+        }
+        cursorX = Math.max(0, Math.min(window.innerWidth, cursorX));
+        cursorY = Math.max(0, Math.min(window.innerHeight, cursorY));
+
+        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
     }
     window.requestAnimationFrame(updateGamepad);
 }
