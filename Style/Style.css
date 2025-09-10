@@ -342,6 +342,7 @@ a:hover {
     height: 500px;
     border-radius: 15px 15px 30px 30px;
     overflow: hidden;
+    z-index: 1;
 }
 
 #Menu {
