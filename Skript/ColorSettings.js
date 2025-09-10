@@ -36,11 +36,16 @@ document.getElementById("LogoOption").addEventListener('click', () => {
 let currentScale = 1;
 document.getElementById("ZoomInOption").addEventListener('click', () => {
     currentScale += 0.1;
-    document.querySelector('.Playground').style.transform = 'scale('+currentScale+')';
+    document.querySelector('.Playground').style.transform = 'scale(' + currentScale + ')';
 
 });
 
 document.getElementById("ZoomOutOption").addEventListener('click', () => {
     currentScale -= 0.1;
-    document.querySelector('.Playground').style.transform = 'scale('+currentScale+')';
+    document.querySelector('.Playground').style.transform = 'scale(' + currentScale + ')';
+});
+
+document.getElementById("GamepadOption").addEventListener('click', () => {
+    if (navigator.getGamepads()[0] != null) { updateGamepad(); }
+    else { showCustomAlert("Kein Controller erkannt! <br><br> Bitte prüfe die Verbindung und betätige kurz Deinen Controller hier in diesem Fenster und versuche es noch einmal!") }
 });

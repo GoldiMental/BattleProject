@@ -72,6 +72,13 @@ input {
     transition: all 0.3s ease;
     z-index: 100;
 }
+#GamepadOption {
+    position: fixed;
+    top: 0.5em;
+    left: 20.5em;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
 
 #ColorSettings {
     position: fixed;
