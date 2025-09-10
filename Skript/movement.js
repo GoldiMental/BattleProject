@@ -312,16 +312,17 @@ document.getElementById("D_Click").addEventListener("pointerup", () => SimulateK
 function SimulateKeyDown(key) { document.dispatchEvent(new KeyboardEvent("keydown", { key: key })); }
 function SimulateKeyUp(key) { document.dispatchEvent(new KeyboardEvent("keyup", { key: key })); }
 
-//DEV
+
+//DEVELOPMENT_MAKE_GAMEPAD_USABLE//DEVELOPMENT_MAKE_GAMEPAD_USABLE//DEVELOPMENT_MAKE_GAMEPAD_USABLE//DEVELOPMENT_MAKE_GAMEPAD_USABLE//DEVELOPMENT_MAKE_GAMEPAD_USABLE
+const cursor = document.getElementById('cursor');
+let cursorX = window.innerWidth / 2;
+let cursorY = window.innerHeight / 2;
+const speed = 10;
+const deadZone = 0.1;
 
 function updateGamepad() {
-    // Greift auf das Gamepad-Array zu
     const gamepads = navigator.getGamepads();
-
-    // Wählt den ersten gefundenen Controller (Index 0)
     const gamepad = gamepads[0];
-
-    // Nur fortfahren, wenn ein Controller verbunden ist
     if (gamepad) {
         const leftDir = gamepad.buttons[14].value;
         const upDir = gamepad.buttons[12].value;
@@ -331,7 +332,9 @@ function updateGamepad() {
         const Obtn = gamepad.buttons[1].value;
         const leftStickX = Math.round(gamepad.axes[0]); // Werte von -1 (links) bis 1 (rechts)
         const leftStickY = Math.round(gamepad.axes[1]); // Werte von -1 (oben) bis 1 (unten)
-        console.log("leftStickX:",leftStickX," leftStickY:",leftStickY);
+        const rightStickX = gamepad.axes[2];
+        const rightStickY = gamepad.axes[3];
+        //Left-Stick = "WASD"
         switch (leftStickX) {
             case -1: SimulateKeyDown("a");
                 break;
@@ -348,6 +351,16 @@ function updateGamepad() {
             case 0: SimulateKeyUp("w"); SimulateKeyUp("s");
                 break;
         }
+        //Right-Stick = "Cursor"
+        const stickMagnitude = Math.sqrt(rightStickX * rightStickX + rightStickY * rightStickY);
+        if (stickMagnitude > deadZone) {
+            cursorX += rightStickX * speed;
+            cursorY += rightStickY * speed;
+        }
+        cursorX = Math.max(0, Math.min(window.innerWidth, cursorX));
+        cursorY = Math.max(0, Math.min(window.innerHeight, cursorY));
+        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
     }
     window.requestAnimationFrame(updateGamepad);
 }
+window.requestAnimationFrame(updateGamepad);
