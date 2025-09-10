@@ -331,6 +331,7 @@ function updateGamepad() {
         const Obtn = gamepad.buttons[1].value;
         const leftStickX = Math.round(gamepad.axes[0]); // Werte von -1 (links) bis 1 (rechts)
         const leftStickY = Math.round(gamepad.axes[1]); // Werte von -1 (oben) bis 1 (unten)
+        console.log("leftStickX:",leftStickX," leftStickY:",leftStickY);
         switch (leftStickX) {
             case '-1': SimulateKeyDown("a");
                 break;
