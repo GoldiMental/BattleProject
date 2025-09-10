@@ -323,12 +323,12 @@ function updateGamepad() {
 
     // Nur fortfahren, wenn ein Controller verbunden ist
     if (gamepad) {
-        const leftDir = gamepad.buttons[14];
-        const upDir = gamepad.buttons[15];
-        const rightDir = gamepad.buttons[12];
-        const downDir = gamepad.buttons[13];
-        const Xbtn = gamepad.buttons[0];
-        const Obtn = gamepad.buttons[1];
+        const leftDir = gamepad.buttons[14].value;
+        const upDir = gamepad.buttons[15].value;
+        const rightDir = gamepad.buttons[12].value;
+        const downDir = gamepad.buttons[13].value;
+        const Xbtn = gamepad.buttons[0].value;
+        const Obtn = gamepad.buttons[1].value;
         const leftStickX = Math.round(gamepad.axes[0]); // Werte von -1 (links) bis 1 (rechts)
         const leftStickY = Math.round(gamepad.axes[1]); // Werte von -1 (oben) bis 1 (unten)
         const rightStickX = Math.round(gamepad.axes[2]); // Werte von -1 (oben) bis 1 (unten)
