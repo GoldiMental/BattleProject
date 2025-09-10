@@ -54,11 +54,11 @@ input:focus {
 }
 
 .lineRed {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(255, 0, 0), rgba(0, 0, 0, 0));
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(0, 255, 255), rgba(0, 0, 0, 0));
 }
 
 .lineGold {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(255, 215, 0), rgba(0, 0, 0, 0));
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(0, 255, 0), rgba(0, 0, 0, 0));
 }
 
 #battle_game {
