@@ -333,19 +333,19 @@ function updateGamepad() {
         const leftStickY = Math.round(gamepad.axes[1]); // Werte von -1 (oben) bis 1 (unten)
         console.log("leftStickX:",leftStickX," leftStickY:",leftStickY);
         switch (leftStickX) {
-            case '-1': SimulateKeyDown("a");
+            case -1: SimulateKeyDown("a");
                 break;
-            case '1': SimulateKeyDown("d");
+            case 1: SimulateKeyDown("d");
                 break;
-            case '0': SimulateKeyUp("a"); SimulateKeyUp("d");
+            case 0: SimulateKeyUp("a"); SimulateKeyUp("d");
                 break;
         }
         switch (leftStickY) {
-            case '-1': SimulateKeyDown("w");
+            case -1: SimulateKeyDown("w");
                 break;
-            case '1': SimulateKeyDown("s");
+            case 1: SimulateKeyDown("s");
                 break;
-            case '0': SimulateKeyUp("w"); SimulateKeyUp("s");
+            case 0: SimulateKeyUp("w"); SimulateKeyUp("s");
                 break;
         }
     }
