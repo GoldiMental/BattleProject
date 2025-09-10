@@ -324,16 +324,29 @@ function updateGamepad() {
     // Nur fortfahren, wenn ein Controller verbunden ist
     if (gamepad) {
         const leftDir = gamepad.buttons[14].value;
-        const upDir = gamepad.buttons[15].value;
-        const rightDir = gamepad.buttons[12].value;
+        const upDir = gamepad.buttons[12].value;
+        const rightDir = gamepad.buttons[15].value;
         const downDir = gamepad.buttons[13].value;
         const Xbtn = gamepad.buttons[0].value;
         const Obtn = gamepad.buttons[1].value;
         const leftStickX = Math.round(gamepad.axes[0]); // Werte von -1 (links) bis 1 (rechts)
         const leftStickY = Math.round(gamepad.axes[1]); // Werte von -1 (oben) bis 1 (unten)
-        const rightStickX = Math.round(gamepad.axes[2]); // Werte von -1 (oben) bis 1 (unten)
-        const rightStickY = Math.round(gamepad.axes[3]); // Werte von -1 (oben) bis 1 (unten)
-        console.log("<",leftDir,"^",upDir,">",rightDir,"v",downDir,"X",Xbtn,"O",Obtn,"LeftStick",leftStickX,leftStickY,"RightStick",rightStickX,rightStickY);
+        switch (leftStickX) {
+            case '-1': SimulateKeyDown("a");
+                break;
+            case '1': SimulateKeyDown("d");
+                break;
+            case '0': SimulateKeyUp("a"); SimulateKeyUp("d");
+                break;
+        }
+        switch (leftStickY) {
+            case '-1': SimulateKeyDown("w");
+                break;
+            case '1': SimulateKeyDown("s");
+                break;
+            case '0': SimulateKeyUp("w"); SimulateKeyUp("s");
+                break;
+        }
     }
     window.requestAnimationFrame(updateGamepad);
 }
