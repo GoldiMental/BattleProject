@@ -351,15 +351,6 @@ function updateGamepad() {
             case 0: SimulateKeyUp("w"); SimulateKeyUp("s");
                 break;
         }
-        //Right-Stick = "Cursor"
-        const stickMagnitude = Math.sqrt(rightStickX * rightStickX + rightStickY * rightStickY);
-        if (stickMagnitude > deadZone) {
-            cursorX += rightStickX * speed;
-            cursorY += rightStickY * speed;
-        }
-        cursorX = Math.max(0, Math.min(window.innerWidth, cursorX));
-        cursorY = Math.max(0, Math.min(window.innerHeight, cursorY));
-        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
     }
     window.requestAnimationFrame(updateGamepad);
 }
