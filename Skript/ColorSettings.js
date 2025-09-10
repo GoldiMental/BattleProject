@@ -45,7 +45,7 @@ document.getElementById("ZoomOutOption").addEventListener('click', () => {
     document.querySelector('.Playground').style.transform = 'scale(' + currentScale + ')';
 });
 
-document.getElementById("GamepadOption").addEventListener('click', () => {
+document.getElementById("GamePadOption").addEventListener('click', () => {
     if (navigator.getGamepads()[0] != null) { updateGamepad(); }
     else { showCustomAlert("Kein Controller erkannt! <br><br> Bitte prüfe die Verbindung und betätige kurz Deinen Controller hier in diesem Fenster und versuche es noch einmal!") }
 });
