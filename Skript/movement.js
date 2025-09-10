@@ -385,7 +385,11 @@ function updateGamepad() {
         const isPressedNow = Xbtn.pressed;
 
         if (isPressedNow && !wasPressedLastFrame && hoveredElement) {
-            hoveredElement.click();
+            const clickEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true
+            });
+            hoveredElement.dispatchEvent(clickEvent);
         }
 
         lastButtonStates[0] = isPressedNow;
