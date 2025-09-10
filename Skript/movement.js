@@ -394,5 +394,6 @@ function updateGamepad() {
 
         lastButtonStates[0] = isPressedNow;
     }
+    console.log(hoveredElement);
     window.requestAnimationFrame(updateGamepad);
 }
