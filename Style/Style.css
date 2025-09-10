@@ -42,7 +42,7 @@ input {
 }
 
 #FullscreenOption {
-    position: absolute;
+    position: fixed;
     top: 0.5em;
     left: 0.5em;
     transition: all 0.3s ease;
