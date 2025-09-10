@@ -72,7 +72,7 @@ input {
     transition: all 0.3s ease;
     z-index: 100;
 }
-#GamepadOption {
+#GamePadOption {
     position: fixed;
     top: 0.5em;
     left: 20.5em;
