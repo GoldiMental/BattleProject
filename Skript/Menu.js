@@ -97,8 +97,8 @@ function Tulpas_List() {
                 html += '<div style="display:block;margin-bottom:5px;"><div class="' + tulpa.name + '"></div><br>' +
                     '<div style="position:relative;left:30px;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + '</div>' +
                     '<div class="LP_Bar"><div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div></div>' +
-                    '<button class="Change_Tulpa" onclick="swapTulpa(\'' + Slot + '\');Click()">🔄️</button>' +
-                    '<button class="Delete_Tulpa" onclick="removeTulpa(\'' + Slot + '\');Click()">🗑️</button></div>';
+                    '<button class="Change_Tulpa interactive-element" onclick="swapTulpa(\'' + Slot + '\');Click()">🔄️</button>' +
+                    '<button class="Delete_Tulpa interactive-element" onclick="removeTulpa(\'' + Slot + '\');Click()">🗑️</button></div>';
             }
         }
     };
@@ -200,10 +200,10 @@ function Items() {
         html += '<div><button title="Kann nur im Kampf eingesetzt werden." class="Item_list" disabled>' + Item_List[ball].name + ': ' + Player.inventory.balls[ball] + '</button><br>';
     }; html += "<br><div id='Tränke' class='Item_Title'>Tränke: </div><br>";
     for (drink in Player.inventory.drinks) {
-        html += '<div><button title="' + Item_List[drink].des + '" class="Item_list" onclick="Use(\'' + drink + '\',\'' + Player.inventory.drinks[drink] + '\')">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</button><br>';
+        html += '<div><button title="' + Item_List[drink].des + '" class="Item_list interactive-element" onclick="Use(\'' + drink + '\',\'' + Player.inventory.drinks[drink] + '\')">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</button><br>';
     }; html += "<br><div id='Bonbons' class='Item_Title'>Bonbons: </div><br>";
     for (bonbon in Player.inventory.bonbons) {
-        html += '<div><button title="' + Item_List[bonbon].des + '" class="Item_list" onclick="Use(\'' + bonbon + '\',\'' + Player.inventory.bonbons[bonbon] + '\')">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</button><br>';
+        html += '<div><button title="' + Item_List[bonbon].des + '" class="Item_list interactive-element" onclick="Use(\'' + bonbon + '\',\'' + Player.inventory.bonbons[bonbon] + '\')">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</button><br>';
     }
     document.getElementById('Item_List').innerHTML = html;
 }

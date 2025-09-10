@@ -39,11 +39,11 @@ function buyItems() {
   ShopBuyList.classList.toggle("hidethis", false);
   for (itm in Shops[activeShop]) {
     html += '<div style="height:50px;"><div class="producttitle">' + Item_List[Shops[activeShop][itm]].name + '</div>' +
-      '<input id="qty_' + itm + '" class="number_input" type="number" min="1" onchange="calculate(this.value ,\'product_' + itm + '\' ,' + Item_List[Shops[activeShop][itm]].price + ')" value="1">' +
+      '<input id="qty_' + itm + '" class="number_input interactive-element" type="number" min="1" onchange="calculate(this.value ,\'product_' + itm + '\' ,' + Item_List[Shops[activeShop][itm]].price + ')" value="1">' +
       '<div class="productcost" id="product_' + itm + '">' + Item_List[Shops[activeShop][itm]].price + ' Gold</div>' +
-      '<button class="BuyButton" onclick="BuyThis(' + itm + ');Click()">Buy</button></div>';
+      '<button class="BuyButton interactive-element" onclick="BuyThis(' + itm + ');Click()">Buy</button></div>';
   }
-  html += '<button class="ExitBuyButton" onclick="close_BuyList();Click()">Exit</button>';
+  html += '<button class="ExitBuyButton interactive-element" onclick="close_BuyList();Click()">Exit</button>';
   ShopBuyList.innerHTML = html;
   console.log("buyItems() ✅");
 }
@@ -108,12 +108,12 @@ function sellItems() {
     let itemPrice = Item_List[itemId].price_sell; let playerQty = getPlayerItemQty(itemName);
     if (playerQty > 0) {
       html += '<div style="height:50px;"><div class="producttitle">' + itemName + ' (x' + playerQty + ')</div>' +
-        '<input id="sellqty_' + itm + '" class="number_input" type="number" min="1" max="' + playerQty + '" onchange="calculateSell(this.value ,\'sellproduct_' + itm + '\' ,' + itemPrice + ')" value="1">' +
+        '<input id="sellqty_' + itm + '" class="number_input interactive-element" type="number" min="1" max="' + playerQty + '" onchange="calculateSell(this.value ,\'sellproduct_' + itm + '\' ,' + itemPrice + ')" value="1">' +
         '<div class="productcost" id="sellproduct_' + itm + '">' + itemPrice + ' Gold</div>' +
-        '<button class="SellButton" onclick="SellThis(' + itm + ');Click()">Sell</button></div>';
+        '<button class="SellButton interactive-element" onclick="SellThis(' + itm + ');Click()">Sell</button></div>';
     }
   }
-  html += '<button class="ExitSellButton" onclick="close_SellList();Click()">Exit</button>'; ShopSellList.innerHTML = html;
+  html += '<button class="ExitSellButton interactive-element" onclick="close_SellList();Click()">Exit</button>'; ShopSellList.innerHTML = html;
 }
 
 function calculateSell(qty, Product, Price) { let output = document.getElementById(Product); output.innerHTML = qty * Price + " Gold"; }

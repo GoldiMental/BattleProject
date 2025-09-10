@@ -384,7 +384,7 @@ function changeTulpa() {
                 let tulpa = Player.Tulpas[Slot];
                 if (tulpa.name != "") {
                     if (tulpa.HP > 0) {
-                        html += '<button class="change_tulpa_button" onclick="selectTulpa(\'' + Slot + '\')">' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button>';
+                        html += '<button class="change_tulpa_button interactive-element" onclick="selectTulpa(\'' + Slot + '\')">' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button>';
                     } else {
                         html += '<button class="change_tulpa_button" disabled>' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button>';
                     }
@@ -443,12 +443,12 @@ function useItem() {
         let html = '';
         for (ball in Player.inventory.balls) {
             if (Player.inventory.balls[ball] > 0) {
-                html += '<button class="change_tulpa_button" onclick="UseBall(\'' + ball + '\')">' + Player.inventory.balls[ball] + 'x ' + Item_List[ball].name + '</button>';
+                html += '<button class="change_tulpa_button interactive-element" onclick="UseBall(\'' + ball + '\')">' + Player.inventory.balls[ball] + 'x ' + Item_List[ball].name + '</button>';
             }
         }
         for (drink in Player.inventory.drinks) {
             if (Player.inventory.drinks[drink] > 0) {
-                html += '<button class="change_tulpa_button" onclick="UseDrink(\'' + drink + '\')">' + Player.inventory.drinks[drink] + 'x ' + Item_List[drink].name + '</button>';
+                html += '<button class="change_tulpa_button interactive-element" onclick="UseDrink(\'' + drink + '\')">' + Player.inventory.drinks[drink] + 'x ' + Item_List[drink].name + '</button>';
             }
         }
         document.getElementById('use_item').innerHTML = html;
