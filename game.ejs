@@ -77,7 +77,7 @@
             <button class="WASD" id="A_Click">⬅️</button>
             <button class="WASD" id="S_Click">⬇️</button>
             <button class="WASD" id="D_Click">➡️</button>
-            <button id="Menu" onclick="MenuList();Click()">≡</button>
+            <button id="Menu" class="interactive-element" onclick="MenuList();Click()">≡</button>
             <div id="MenuList" class="interactive-element hidethis">
                 <button class="MenuList interactive-element" onclick="Tulpa_Dex();Click()">Tulpa-Dex<sup>®</sup></button>
                 <button class="MenuList interactive-element" onclick="Tulpas_List();Click()">Tulpa's</button>
@@ -193,7 +193,7 @@
             </div>
         </div>
     </div>
-    <a id="ToInfo" onclick="OpenInfo()">TulpaKing<sup>&reg;</sup> Info & Impressum</a>
+    <a id="ToInfo" class="interactive-element" onclick="OpenInfo()">TulpaKing<sup>&reg;</sup> Info & Impressum</a>
     <div id="ColorSettings">
         <button id="toggleColorSettings" type="button" class="interactive-element"
             onclick='document.getElementById("ColorList").classList.toggle("hidethis");'>⚙️</button>
