@@ -27,7 +27,7 @@ body {
     background-color: rgb(50,50,50);
     border: 1px solid rgb(0,255,255);
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(50%, 50%);
     pointer-events: none;
     z-index: 5000;
   }
