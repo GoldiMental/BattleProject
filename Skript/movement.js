@@ -347,6 +347,5 @@ function updateGamepad() {
                 break;
         }
     }
-    window.requestAnimationFrame(updateGamepad);
 }
 window.requestAnimationFrame(updateGamepad);
