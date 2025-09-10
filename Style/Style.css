@@ -34,7 +34,7 @@ body {
 }
 
 .is-hovered {
-    transform: translateY(10px);
+    transform: scale(1.1);
 }
 
 .hidethis {
