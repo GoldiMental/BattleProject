@@ -244,7 +244,7 @@ function moveMap() {
                     trainername = a.name; var Fight = true;
                     for (i = 0; i <= Player.defeatedTrainer.length; i++) { if (Player.defeatedTrainer[i] == a.name) { Fight = false; } }
                     if (Fight) {
-                        if (a.name == "Trainer000") { if (!Player.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
+                        if (a.name == "Trainer000") { if (!Player.questLine.tulpaGegeben) { clearInterval(moveIntervalID); Trainer000monolog(TrainerList[trainername]); } }
                         else { clearInterval(moveIntervalID); traineranimation(TrainerList[trainername], trainername); }
                     }
                 }
