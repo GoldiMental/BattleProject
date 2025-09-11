@@ -18,7 +18,6 @@ body {
     font-family: 'Courier New', Courier, monospace;
     -webkit-user-select: none;
     user-select: none;
-    pointer-events: none;
 }
 
 div,

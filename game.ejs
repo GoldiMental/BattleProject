@@ -36,102 +36,107 @@
                 <div class="ArenaTrainer1"></div>
                 <div class="ArenaTrainer2"></div>
                 <div id="Haendler" class="hidethis"></div>
-                <div id="Professor" class="hidethis"><button id="ProfessorButton" class=""
+                <div id="Professor" class="hidethis"><button id="ProfessorButton" class="interactive-element"
                         onclick="Professor001monolog()">
                     </button></div>
-                <button id="tuerSelfIn" title="Mein Haus" class="Inside MeinHaus_B  hidethis"
+                <button id="tuerSelfIn" title="Mein Haus" class="Inside MeinHaus_B interactive-element hidethis"
                     onclick="meinEingang()"></button>
-                <button id="tuerSelfOut" title="MeinStadt" class="Outside MeinHausOut_B  hidethis"
+                <button id="tuerSelfOut" title="MeinStadt" class="Outside MeinHausOut_B interactive-element hidethis"
                     onclick="meinAusgang()"></button>
-                <button id="tuerTroyIn" title="Troys Haus" class="Inside TroysHaus_B  hidethis"
+                <button id="tuerTroyIn" title="Troys Haus" class="Inside TroysHaus_B interactive-element hidethis"
                     onclick="troysEingang()"></button>
-                <button id="tuerTroyOut" title="TroyStadt" class="Outside TroysHausOut_B  hidethis"
+                <button id="tuerTroyOut" title="TroyStadt" class="Outside TroysHausOut_B interactive-element hidethis"
                     onclick="troysAusgang()"></button>
-                <button id="tuerShopIn" title="Shop Haus" class="Inside ShopHaus_B  hidethis"
+                <button id="tuerShopIn" title="Shop Haus" class="Inside ShopHaus_B interactive-element hidethis"
                     onclick="shopEingang()"></button>
-                <button id="tuerShopHgIn" title="Shop Hohes Gras" class="Inside ShopHausHohesGrasIn  hidethis"
-                    onclick="shopEingangHG()"></button>
-                <button id="tuerShopOut" title="ShopStadt" class="Outside ShopHausOut_B  hidethis"
+                <button id="tuerShopHgIn" title="Shop Hohes Gras"
+                    class="Inside ShopHausHohesGrasIn interactive-element hidethis" onclick="shopEingangHG()"></button>
+                <button id="tuerShopOut" title="ShopStadt" class="Outside ShopHausOut_B interactive-element hidethis"
                     onclick="shopAusgang()"></button>
-                <button id="tuerShopHgOut" title="Shop Hohes Gras" class="Outside ShopHausHohesGrasOut  hidethis"
+                <button id="tuerShopHgOut" title="Shop Hohes Gras"
+                    class="Outside ShopHausHohesGrasOut interactive-element hidethis"
                     onclick="shopAusgangHG()"></button>
-                <button id="ShopHandel" title="Händler" class="Handler ShopHandel_B  hidethis"
+                <button id="ShopHandel" title="Händler" class="Handler ShopHandel_B interactive-element hidethis"
                     onclick="shopHandel('Shop_1')"></button>
-                <button id="ShopHandelHG" title="Händler Hohes Gras" class="Handler ShopHandelHohesGras  hidethis"
+                <button id="ShopHandelHG" title="Händler Hohes Gras"
+                    class="Handler ShopHandelHohesGras interactive-element hidethis"
                     onclick="shopHandel('Shop_2')"></button>
-                <button id="TulpaPC-Button" title="TulpaComputer" class="Tulpa-PC  hidethis"
+                <button id="TulpaPC-Button" title="TulpaComputer" class="Tulpa-PC interactive-element hidethis"
                     onclick="TulpaPC();Click()"></button>
-                <button id="ArenaButtonIn" title="Arena" class="Inside ArenaBtnIn  hidethis" onclick="Click()"></button>
-                <button id="ArenaButtonOut" title="Arena" class="Outside ArenaBtnOut  hidethis"
+                <button id="ArenaButtonIn" title="Arena" class="Inside ArenaBtnIn interactive-element hidethis"
+                    onclick="Click()"></button>
+                <button id="ArenaButtonOut" title="Arena" class="Outside ArenaBtnOut interactive-element hidethis"
                     onclick="Click()"></button>
             </div>
-            <div id="audio-controls" class="">
-                <label for="volumeSlider" class=""></label>
-                <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.1" class="">
-                <button id="muteBtn" class="">🔊</button>
+            <div id="audio-controls" class="interactive-element">
+                <label for="volumeSlider" class="interactive-element"></label>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.1"
+                    class="interactive-element">
+                <button id="muteBtn" class="interactive-element">🔊</button>
             </div>
             <div id="user" class="Player down"></div>
             <button class="WASD" id="W_Click">⬆️</button>
             <button class="WASD" id="A_Click">⬅️</button>
             <button class="WASD" id="S_Click">⬇️</button>
             <button class="WASD" id="D_Click">➡️</button>
-            <button id="Menu" class="" onclick="MenuList();Click()">≡</button>
-            <div id="MenuList" class=" hidethis">
-                <button class="MenuList " onclick="Tulpa_Dex();Click()">Tulpa-Dex<sup>®</sup></button>
-                <button class="MenuList " onclick="Tulpas_List();Click()">Tulpa's</button>
-                <button class="MenuList " onclick="Info();Click()">Info</button>
-                <button id="karte" class="MenuList " onclick="Karte();Click()">Karte</button>
-                <button class="MenuList " onclick="Items();Click()">Item's</button>
-                <button class="MenuList " onclick="Click();Cheat()">Cheat's</button>
-                <button class="MenuList " onclick="Click();SaveGame()">Spiel speichern</button>
-                <button class="MenuList " onclick="Exit_Game();Click()">Spiel verlassen</button>
+            <button id="Menu" class="interactive-element" onclick="MenuList();Click()">≡</button>
+            <div id="MenuList" class="interactive-element hidethis">
+                <button class="MenuList interactive-element"
+                    onclick="Tulpa_Dex();Click()">Tulpa-Dex<sup>®</sup></button>
+                <button class="MenuList interactive-element" onclick="Tulpas_List();Click()">Tulpa's</button>
+                <button class="MenuList interactive-element" onclick="Info();Click()">Info</button>
+                <button id="karte" class="MenuList interactive-element" onclick="Karte();Click()">Karte</button>
+                <button class="MenuList interactive-element" onclick="Items();Click()">Item's</button>
+                <button class="MenuList interactive-element" onclick="Click();Cheat()">Cheat's</button>
+                <button class="MenuList interactive-element" onclick="Click();SaveGame()">Spiel speichern</button>
+                <button class="MenuList interactive-element" onclick="Exit_Game();Click()">Spiel verlassen</button>
             </div>
             <div id="TulpaPC" class="hidethis">
                 <div>TulpaPC</div>
                 <div class="TulpaPC_01"></div>
-                <div id="TulpaPC_List" class=""></div>
-                <button class="Exit_Button " onclick="close_Tulpa_PC();Click()">Exit</button>
+                <div id="TulpaPC_List" class="interactive-element"></div>
+                <button class="Exit_Button interactive-element" onclick="close_Tulpa_PC();Click()">Exit</button>
             </div>
             <div id="Tulpa_Dex" class="hidethis">
                 <div>Tulpa-Dex<sup>®</sup></div>
-                <div id="Tulpa_Dex_List" class=""></div>
-                <button class="Exit_Button " onclick="close_Tulpa_Dex();Click()">Exit</button>
+                <div id="Tulpa_Dex_List" class="interactive-element"></div>
+                <button class="Exit_Button interactive-element" onclick="close_Tulpa_Dex();Click()">Exit</button>
             </div>
             <div id="Tulpas" class="hidethis">
                 <div>Tulpa's</div><br>
-                <div id="Tulpa_List" class=""></div>
-                <button class="Exit_Button " onclick="close_Tulpas();Click()">Exit</button>
+                <div id="Tulpa_List" class="interactive-element"></div>
+                <button class="Exit_Button interactive-element" onclick="close_Tulpas();Click()">Exit</button>
             </div>
             <div id="Info" class="hidethis">
                 <div style="text-align:center;">Info</div><br>
-                <div id="Info_List" class=""></div>
-                <button class="Exit_Button " onclick="close_Info();Click()">Exit</button>
+                <div id="Info_List" class="interactive-element"></div>
+                <button class="Exit_Button interactive-element" onclick="close_Info();Click()">Exit</button>
             </div>
             <div id="Karte" class="hidethis">
                 <div>Karte</div><br>
-                <div id="Karte_info" class="">
+                <div id="Karte_info" class="interactive-element">
                     <div id="standort-marker">💠</div>
                 </div>
 
-                <button class="Exit_Button " onclick="close_Karte();Click()">Exit</button>
+                <button class="Exit_Button interactive-element" onclick="close_Karte();Click()">Exit</button>
             </div>
             <div id="Items" class="hidethis">
                 <div>Item's</div><br>
-                <div id="Item_List" class=""></div>
-                <button class="Exit_Button " onclick="close_Items();Click()">Exit</button>
+                <div id="Item_List" class="interactive-element"></div>
+                <button class="Exit_Button interactive-element" onclick="close_Items();Click()">Exit</button>
             </div>
 
             <div id="shopMenu" class="hidethis">
                 <h2>Shop Menü</h2>
-                <button class="menu-button " onclick="buyItems();Click()">Kaufen</button>
-                <button class="menu-button " onclick="sellItems();Click()">Verkaufen</button>
-                <button class="menu-button " onclick="healTulpas();Click()">Tulpas Heilen</button>
-                <button class="menu-button " onclick="closeShop();Click()">Verlassen</button>
+                <button class="menu-button interactive-element" onclick="buyItems();Click()">Kaufen</button>
+                <button class="menu-button interactive-element" onclick="sellItems();Click()">Verkaufen</button>
+                <button class="menu-button interactive-element" onclick="healTulpas();Click()">Tulpas Heilen</button>
+                <button class="menu-button interactive-element" onclick="closeShop();Click()">Verlassen</button>
             </div>
-            <div id="ShopBuyList" class=" hidethis"></div>
-            <div id="ShopSellList" class=" hidethis"></div>
+            <div id="ShopBuyList" class="interactive-element hidethis"></div>
+            <div id="ShopSellList" class="interactive-element hidethis"></div>
 
-            <div class="TrainerDialogBox  hidethis" onclick="Click()"></div>
+            <div class="TrainerDialogBox interactive-element hidethis" onclick="Click()"></div>
         </div>
         <div id="battle_game" class="hidethis">
             <div id="opponent">
@@ -149,23 +154,29 @@
                 <div id="Tulpa-self"></div>
             </div>
             <div id="battle_game_menu" class="hidethis">
-                <div id="change_tulpa" class=" hidethis"></div>
-                <div id="use_item" class=" hidethis"></div>
+                <div id="change_tulpa" class="interactive-element hidethis"></div>
+                <div id="use_item" class="interactive-element hidethis"></div>
             </div>
             <div id="battle-info">
                 <div id="battle_text"></div>
                 <div id="battle_box">
                     <div id="battle_menu" class="hidethis">
-                        <button class="battle_Button " id="fight" onclick="fight()">Kämpfen</button>
-                        <button class="battle_Button " id="use_Items" onclick="useItem()">Item's</button>
-                        <button class="battle_Button " id="change_Tulpa" onclick="changeTulpa()">Tulpa's</button>
-                        <button class="battle_Button " id="escape" onclick="escape()">Flucht</button>
+                        <button class="battle_Button interactive-element" id="fight" onclick="fight()">Kämpfen</button>
+                        <button class="battle_Button interactive-element" id="use_Items"
+                            onclick="useItem()">Item's</button>
+                        <button class="battle_Button interactive-element" id="change_Tulpa"
+                            onclick="changeTulpa()">Tulpa's</button>
+                        <button class="battle_Button interactive-element" id="escape" onclick="escape()">Flucht</button>
                     </div>
                     <div id="attack_menu" class="hidethis">
-                        <button class="battle_Button " id="Attack_1" onclick="self_attack(this.innerHTML)">.</button>
-                        <button class="battle_Button " id="Attack_2" onclick="self_attack(this.innerHTML)">.</button>
-                        <button class="battle_Button " id="Attack_3" onclick="self_attack(this.innerHTML)">.</button>
-                        <button class="battle_Button " id="Attack_4" onclick="self_attack(this.innerHTML)">.</button>
+                        <button class="battle_Button interactive-element" id="Attack_1"
+                            onclick="self_attack(this.innerHTML)">.</button>
+                        <button class="battle_Button interactive-element" id="Attack_2"
+                            onclick="self_attack(this.innerHTML)">.</button>
+                        <button class="battle_Button interactive-element" id="Attack_3"
+                            onclick="self_attack(this.innerHTML)">.</button>
+                        <button class="battle_Button interactive-element" id="Attack_4"
+                            onclick="self_attack(this.innerHTML)">.</button>
                     </div>
                 </div>
             </div>
@@ -175,44 +186,53 @@
                 <h3 id="customModalTitle" class="custom-modal-title"></h3>
                 <p id="customModalMessage" class="custom-modal-message"></p>
                 <div id="customModalButtonsContainer"></div>
-                <input type="text" id="customModalInput" class="custom-modal-input  hidethis"
+                <input type="text" id="customModalInput" class="custom-modal-input interactive-element hidethis"
                     title="Eingabe erforderlich...">
-                <div class=" custom-modal-buttons">
-                    <button id="customModalOkButton" class="custom-modal-button ">Ok</button>
-                    <button id="customModalCancelButton" class="custom-modal-button  hidethis">Abbrechen</button>
+                <div class="interactive-element custom-modal-buttons">
+                    <button id="customModalOkButton" class="custom-modal-button interactive-element">Ok</button>
+                    <button id="customModalCancelButton"
+                        class="custom-modal-button interactive-element hidethis">Abbrechen</button>
                 </div>
             </div>
         </div>
     </div>
-    <a id="ToInfo" class="" onclick="OpenInfo()">TulpaKing<sup>&reg;</sup> Info & Impressum</a>
+    <a id="ToInfo" class="interactive-element" onclick="OpenInfo()">TulpaKing<sup>&reg;</sup> Info & Impressum</a>
     <div id="ColorSettings">
-        <button id="toggleColorSettings" type="button" class=""
+        <button id="toggleColorSettings" type="button" class="interactive-element"
             onclick='document.getElementById("ColorList").classList.toggle("hidethis");'>⚙️</button>
         <div id="ColorList" class="hidethis">
-            <button id="Dark" class="" type="button" onclick='Player.color="Dark";setcolor();'>Dunkel</button>
-            <button id="Darkblue" class="" type="button"
+            <button id="Dark" class="interactive-element" type="button"
+                onclick='Player.color="Dark";setcolor();'>Dunkel</button>
+            <button id="Darkblue" class="interactive-element" type="button"
                 onclick='Player.color="Darkblue";setcolor();'>Dunkelblau</button>
-            <button id="Darkgreen" class="" type="button"
+            <button id="Darkgreen" class="interactive-element" type="button"
                 onclick='Player.color="Darkgreen";setcolor();'>Dunkelgrün</button>
-            <button id="Darkred" class="" type="button" onclick='Player.color="Darkred";setcolor();'>Dunkelrot</button>
-            <button id="Darkviolett" class="" type="button"
+            <button id="Darkred" class="interactive-element" type="button"
+                onclick='Player.color="Darkred";setcolor();'>Dunkelrot</button>
+            <button id="Darkviolett" class="interactive-element" type="button"
                 onclick='Player.color="Darkviolett";setcolor();'>Dunkelviolett</button>
-            <button id="Lightblue" class="" type="button"
+            <button id="Lightblue" class="interactive-element" type="button"
                 onclick='Player.color="Lightblue";setcolor();'>Hellblau</button>
-            <button id="Lightgreen" class="" type="button"
+            <button id="Lightgreen" class="interactive-element" type="button"
                 onclick='Player.color="Lightgreen";setcolor();'>Hellgrün</button>
-            <button id="Lightred" class="" type="button" onclick='Player.color="Lightred";setcolor();'>Hellrot</button>
-            <button id="Lightviolett" class="" type="button"
+            <button id="Lightred" class="interactive-element" type="button"
+                onclick='Player.color="Lightred";setcolor();'>Hellrot</button>
+            <button id="Lightviolett" class="interactive-element" type="button"
                 onclick='Player.color="Lightviolett";setcolor();'>Hellviolett</button>
-            <button id="Light" class="" type="button" onclick='Player.color="Light";setcolor();'>Hell</button>
+            <button id="Light" class="interactive-element" type="button"
+                onclick='Player.color="Light";setcolor();'>Hell</button>
         </div>
     </div>
-    <button id="FullscreenOption" class=""><img id="ScreenOption" src="img/fullscreen.svg" alt="Fullscreen_SVG"
+    <button id="FullscreenOption" class="interactive-element"><img id="ScreenOption" src="img/fullscreen.svg"
+            alt="Fullscreen_SVG" height="28em"></button>
+    <button id="LogoOption" class="interactive-element"><img src="img/picture.svg" alt="Logo_SVG"
             height="28em"></button>
-    <button id="LogoOption" class=""><img src="img/picture.svg" alt="Logo_SVG" height="28em"></button>
-    <button id="ZoomOutOption" class=""><img src="img/zoom-out.svg" alt="ZoomOut_SVG" height="28em"></button>
-    <button id="ZoomInOption" class=""><img src="img/zoom-in.svg" alt="ZoomIn_SVG" height="28em"></button>
-    <button id="GamePadOption" class=""><img src="img/controller.svg" alt="Gamepad_SVG" height="28em"></button>
+    <button id="ZoomOutOption" class="interactive-element"><img src="img/zoom-out.svg" alt="ZoomOut_SVG"
+            height="28em"></button>
+    <button id="ZoomInOption" class="interactive-element"><img src="img/zoom-in.svg" alt="ZoomIn_SVG"
+            height="28em"></button>
+    <button id="GamePadOption" class="interactive-element"><img src="img/controller.svg" alt="Gamepad_SVG"
+            height="28em"></button>
 
     <div id="cursor"></div>
 
