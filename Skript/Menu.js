@@ -197,13 +197,13 @@ function Items() {
     document.getElementById('Items').classList.toggle("hidethis", false);
     let html = "<div id='Bälle' class='Item_Title'>Bälle: </div><br>";
     for (ball in Player.inventory.balls) {
-        html += '<div><button title="Kann nur im Kampf eingesetzt werden." class="Item_list" disabled>' + Item_List[ball].name + ': ' + Player.inventory.balls[ball] + '</button><br></div>';
+        html += '<button title="Kann nur im Kampf eingesetzt werden." class="Item_list" disabled>' + Item_List[ball].name + ': ' + Player.inventory.balls[ball] + '</button><br>';
     }; html += "<br><div id='Tränke' class='Item_Title'>Tränke: </div><br>";
     for (drink in Player.inventory.drinks) {
-        html += '<div><button title="' + Item_List[drink].des + '" class="Item_list interactive-element" onclick="Use(\'' + drink + '\',\'' + Player.inventory.drinks[drink] + '\')">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</button><br></div>';
+        html += '<button title="' + Item_List[drink].des + '" class="Item_list interactive-element" onclick="Use(\'' + drink + '\',\'' + Player.inventory.drinks[drink] + '\')">' + Item_List[drink].name + ': ' + Player.inventory.drinks[drink] + '</button><br>';
     }; html += "<br><div id='Bonbons' class='Item_Title'>Bonbons: </div><br>";
     for (bonbon in Player.inventory.bonbons) {
-        html += '<div><button title="' + Item_List[bonbon].des + '" class="Item_list interactive-element" onclick="Use(\'' + bonbon + '\',\'' + Player.inventory.bonbons[bonbon] + '\')">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</button><br></div>';
+        html += '<button title="' + Item_List[bonbon].des + '" class="Item_list interactive-element" onclick="Use(\'' + bonbon + '\',\'' + Player.inventory.bonbons[bonbon] + '\')">' + Item_List[bonbon].name + ': ' + Player.inventory.bonbons[bonbon] + '</button><br>';
     }
     document.getElementById('Item_List').innerHTML = html;
 }
