@@ -403,6 +403,6 @@ function updateGamepad() {
 
         lastButtonStates[0] = isPressedNow;
     }
-    console.log(hoveredElement);
+    //console.log(hoveredElement); //Steht der Cursor auf einem interaktivem Element
     window.requestAnimationFrame(updateGamepad);
 }
