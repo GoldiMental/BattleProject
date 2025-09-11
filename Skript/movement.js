@@ -372,7 +372,7 @@ function updateGamepad() {
                 hoveredElement.classList.remove('is-hovered');
             }
 
-            if (currentElement && hoveredElement.classList.contains("interactive-element")) {
+            if (currentElement && currentElement.classList.contains('interactive-element')) {
                 currentElement.classList.add('.is-hovered');
                 hoveredElement = currentElement;
             } else {
