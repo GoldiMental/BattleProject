@@ -506,3 +506,33 @@ forgot-password-link {
         height: 30px;
     }
 }
+
+.hidden-checkbox {
+  display: none; /* Die Standard-Checkbox ausblenden */
+}
+
+.button-checkbox {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.button-checkbox:hover {
+  background-color: #e0e0e0;
+}
+
+/* Styling für den ausgewählten Zustand */
+.hidden-checkbox:checked + span {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Wichtig: Das Label, nicht die Checkbox selbst stylen! */
+.hidden-checkbox:checked + span {
+  display: block;
+}
