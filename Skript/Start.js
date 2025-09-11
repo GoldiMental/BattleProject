@@ -100,7 +100,7 @@ async function InitializeGameWorld() {
         console.log("MapX:", Player.MapX, " MapY:", Player.MapY);
         console.warn("Speichern nicht vergessen!!!");
     } else if ((Player.MapX == 0 && Player.MapY == 0) || (!Player.MapX && !Player.MapX && !Player.tulpaGegeben)) {
-        await Delay(200); starteTutorial();
+        await Delay(200); loadStory(); starteTutorial();
     }
 }
 
@@ -209,7 +209,7 @@ async function Exit_Game() {
 const Story = document.getElementsByClassName("TrainerText");
 
 function loadStory() {
-    if (Player.Tulpas.Slot_1.name == " ") {
+    if (Player.Tulpas.Slot_1.name == "") {
         toggleClassElement("TrainerText", false);
         //Story.classList.toggle("hidethis", false);
         document.getElementsByClassName("TrainerText").hidethis = false;
