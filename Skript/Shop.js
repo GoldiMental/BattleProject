@@ -11,7 +11,7 @@ let activeShop = "";
 
 async function shopHandel(SHOP) {
   console.log("Führe shopHandel(", SHOP, ") aus...");
-  if (!monologBox.classList.contains("hidethis")) {
+  if (monologBox.classList.contains("hidethis")) {
     clearInterval(moveIntervalID);
     activeShop = SHOP;
     let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
