@@ -36,4 +36,5 @@ async function Professor001monolog() {
     box.classList.toggle("hidethis", true);
     moveIntervalID = setInterval(() => activeDirection && moveMap(), moveInterval);
     document.getElementById("ProfessorButton").classList.toggle("hidethis", false);
+    toggleClassElement("TrainerText", true);
 }
