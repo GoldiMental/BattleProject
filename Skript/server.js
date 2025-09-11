@@ -198,7 +198,7 @@ function authenticateToken(req, res, next) {
 
 app.post('/register', async (req, res) => {
     try {
-        const { username, email, password, agreedToAGB, agreedToDSB } = req.body;
+        const { username, email, password, agreedToAGB, agreedToDSB, agreedAt } = req.body;
 
         if(!agreedToAGB || !agreedToDSB){
             return res.status(400).json({error:"Bitte stimmen sie den AGB und der Datenschutzerklärung zu!"})
