@@ -46,6 +46,6 @@ document.getElementById("ZoomOutOption").addEventListener('click', () => {
 });
 
 document.getElementById("GamePadOption").addEventListener('click', () => {
-    if (navigator.getGamepads()[0] != null) { updateGamepad(); }
+    if (navigator.getGamepads()[0] != null) { showCustomAlert("Controller erkannt!<br><br>Linker Stick: Bewegung<br>Rechter Stick: Cursor<br>Steuerkreuz: Scrollen<br> X/A-Knopf: Mausklick<br><br>Aus Performancegründen wird die Tastatursteuerung eingeschränkt. Speichern und neuladen des Spiels trennt Ihren Controller und setzt die Steuerung zurück.");updateGamepad(); }
     else { showCustomAlert("Kein Controller erkannt! <br><br> Bitte prüfe die Verbindung und betätige kurz Deinen Controller hier in diesem Fenster und versuche es noch einmal!") }
 });
