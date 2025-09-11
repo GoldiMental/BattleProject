@@ -37,6 +37,10 @@ body {
     transform: scale(1.1);
 }
 
+img{
+    pointer-events: none;
+}
+
 .hidethis {
     display: none !important;
 }
