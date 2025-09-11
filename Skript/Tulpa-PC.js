@@ -6,7 +6,7 @@ function TulpaPC() {
     for (Tulpa in pcTulpas) {
         let tulpa = pcTulpas[Tulpa];
         if (tulpa.name != "") {
-            html += '<div  style="display:block;margin-bottom:5px;"><div class="' + tulpa.name + '"></div><br>' +
+            html += '<div  style="display:block;margin-bottom:5px;pointer-events:none"><div class="' + tulpa.name + '"></div><br>' +
                 '<div style="position:relative;left:30px;" class="TulpaPC_01">' + pcTulpas[Tulpa].name + " " + "Lv." + pcTulpas[Tulpa].Lv + ' HP:' + pcTulpas[Tulpa].HP + '/' + pcTulpas[Tulpa].HP_Total + '</div>' +
                 '<div class="LP_Bar">' +
                 '<div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div>' +
