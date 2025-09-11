@@ -79,7 +79,7 @@ async function Cheat() {
 function Tulpa_Dex() {
     document.getElementById('Tulpa_Dex').classList.toggle("hidethis", false); let html = '';
     for (Tulpa in Tulpas) {
-        html += '<div style="float:left;margin:5px;"><div class="Tulpa_Name">' + Tulpas[Tulpa].name + '</div>' +
+        html += '<div style="float:left;margin:5px;pointer-events:none"><div class="Tulpa_Name">' + Tulpas[Tulpa].name + '</div>' +
             '<div class="' + Tulpas[Tulpa].className + '"></div>' +
             '<div class="description">' + Tulpas[Tulpa].des + '</div></div>';
     }
@@ -95,7 +95,7 @@ function Tulpas_List() {
             let tulpa = Player.Tulpas[Slot];
             if (tulpa.name != "") {
                 html += '<div style="display:block;margin-bottom:5px;"><div class="' + tulpa.name + '"></div><br>' +
-                    '<div style="position:relative;left:30px;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + '</div>' +
+                    '<div style="position:relative;left:30px;pointer-events: none;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + '</div>' +
                     '<div class="LP_Bar"><div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div></div>' +
                     '<button class="Change_Tulpa interactive-element" onclick="swapTulpa(\'' + Slot + '\');Click()">🔄️</button>' +
                     '<button class="Delete_Tulpa interactive-element" onclick="removeTulpa(\'' + Slot + '\');Click()">🗑️</button></div>';

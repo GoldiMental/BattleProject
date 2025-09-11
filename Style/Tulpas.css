@@ -6,6 +6,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Mäuschen_Front {
@@ -14,7 +15,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-
+    pointer-events: none;
 }
 
 .Mäuschen_Back {
@@ -23,6 +24,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Maus {
@@ -33,6 +35,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Maus_Front {
@@ -41,6 +44,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Maus_Back {
@@ -49,6 +53,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Kampfmaus {
@@ -59,6 +64,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Kampfmaus_Front {
@@ -67,6 +73,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Kampfmaus_Back {
@@ -75,6 +82,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Kaninchen {
@@ -85,6 +93,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Kaninchen_Front {
@@ -93,6 +102,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Kaninchen_Back {
@@ -101,6 +111,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Hase {
@@ -111,6 +122,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Hase_Front {
@@ -119,6 +131,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Hase_Back {
@@ -127,6 +140,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Kaninchen_des_Todes {
@@ -137,6 +151,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Kaninchen_des_Todes_Front {
@@ -145,6 +160,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Kaninchen_des_Todes_Back {
@@ -153,6 +169,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Streuner {
@@ -163,6 +180,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Streuner_Front {
@@ -171,6 +189,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Streuner_Back {
@@ -179,6 +198,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Wachhund {
@@ -189,6 +209,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Wachhund_Front {
@@ -197,6 +218,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Wachhund_Back {
@@ -205,6 +227,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Schutzhund {
@@ -215,6 +238,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Schutzhund_Front {
@@ -223,6 +247,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Schutzhund_Back {
@@ -231,6 +256,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Kleiner_Wolf {
@@ -241,6 +267,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Kleiner_Wolf_Front {
@@ -249,6 +276,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Kleiner_Wolf_Back {
@@ -257,6 +285,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Wolf {
@@ -267,6 +296,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Wolf_Front {
@@ -275,6 +305,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Wolf_Back {
@@ -283,6 +314,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Böser_Wolf {
@@ -293,6 +325,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Böser_Wolf_Front {
@@ -301,6 +334,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Böser_Wolf_Back {
@@ -309,6 +343,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Zosse {
@@ -319,6 +354,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Zosse_Front {
@@ -327,6 +363,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Zosse_Back {
@@ -335,6 +372,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Treues_Ross {
@@ -345,6 +383,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Treues_Ross_Front {
@@ -353,6 +392,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Treues_Ross_Back {
@@ -361,6 +401,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Streitross {
@@ -371,6 +412,7 @@
     height: 80px;
     width: 80px;
     float: left;
+    pointer-events: none;
 }
 
 .Streitross_Front {
@@ -379,6 +421,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Streitross_Back {
@@ -387,6 +430,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .Trainer_02 {
@@ -395,4 +439,5 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
