@@ -209,7 +209,7 @@ async function Exit_Game() {
 const Story = document.getElementsByClassName("TrainerText");
 
 function loadStory() {
-    if (Player.Tulpas[Slot] == 0)
+    if (Player.Tulpas.Slot_1 == "")
         Story.classList.toggle("hidethis", false);
     else 
         Story.classList.toggle("hidethis", true);
