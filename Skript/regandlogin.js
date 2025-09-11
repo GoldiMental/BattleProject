@@ -58,6 +58,8 @@ document.getElementById("registerForm").addEventListener('submit', async (e) => 
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirm_password.value;
+    const agreedToAGB = e.target.agreedToAGB.value;
+    const agreedToDSB = e.target.agreedToDSB.value;
     clearMessagesAndValidation();
     if (password !== confirmPassword) {
         showMessage(passwordMatchErrorElement, 'Passwörter stimmen nicht überein.', 'error');
@@ -70,7 +72,7 @@ document.getElementById("registerForm").addEventListener('submit', async (e) => 
         const res = await fetch(link, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, email, password }),
+            body: JSON.stringify({ username, email, password, agreedToAGB, agreedToDSB }),
         });
         const data = await res.json();
         if (res.ok) {
