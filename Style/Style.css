@@ -20,12 +20,6 @@ body {
     user-select: none;
 }
 
-div,
-p,
-h3 {
-    pointer-events: none;
-}
-
 #cursor {
     position: fixed;
     top: 0;
