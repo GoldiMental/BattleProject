@@ -30,7 +30,7 @@ var maps = {
             { minX: -425, maxX: -425, minY: -525, maxY: -475 },
             { minX: -775, maxX: -775, minY: -475, maxY: -425 },
             //TrainerTextChar
-            { minX: -1075, maxX: -1075, minY: -225, maxY: -225 },
+            { minX: -1075, maxX: -1075, minY: -225, maxY: -225, story: true },
             //Map(Hohes Gras). 
             { minX: -1475, maxX: -1475, minY: -250, maxY: 250 },
             { minX: -1575, maxX: -1525, minY: -125, maxY: 250 },

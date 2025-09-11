@@ -138,7 +138,12 @@ function moveMap() {
     }
     for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
         const a = maps[activeMap].blockedArea[i];
-        if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) { return; }
+        if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
+            if (a.story && a.story != undefined){
+                if ()
+            }
+            else{return;};
+        }
     }
     switch (activeMap) {
         case "ShopHaus":
@@ -393,7 +398,7 @@ function updateGamepad() {
             hoveredElement.dispatchEvent(clickEvent);
         }
         //UP/DOWN-Buttons
-        if (isScrollable){
+        if (isScrollable) {
             const scrollSpeed = 10;
             hoveredElement.scrollTop += downDir * scrollSpeed;
             hoveredElement.scrollTop -= upDir * scrollSpeed;
