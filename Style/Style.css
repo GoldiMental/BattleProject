@@ -20,6 +20,10 @@ body {
     user-select: none;
 }
 
+div {
+    pointer-events: none;
+}
+
 #cursor {
     position: fixed;
     top: 0;
