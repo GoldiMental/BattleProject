@@ -82,6 +82,7 @@ async function InitializeGameWorld() {
     console.log("Führe InitializeGameWorld() aus...");
     const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
+    if (Player.tulpaGegeben) { Player.questLine = { tulpaGegeben: true, } };
     setcolor();
     if (Player.MapX != 0 && Player.MapY != 0 && Player.MapX != undefined && Player.MapY != undefined) {
         console.log("Karte:", Player.actualMap);
@@ -94,7 +95,6 @@ async function InitializeGameWorld() {
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
     } else if (!Player.MapX && !Player.MapY && Player.tulpaGegeben) {
         Player.MapX = maps.MAP.startX; Player.MapY = maps.MAP.startY;
-        if (Player.tulpaGegeben) { Player.questLine = { tulpaGegeben: true, } }
         window.location.reload();
     } else if ((Player.MapX == 0 && Player.MapY == 0) || (!Player.MapX && !Player.MapX && !Player.tulpaGegeben)) {
         await Delay(200); loadStory(); starteTutorial();
