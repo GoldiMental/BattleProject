@@ -634,7 +634,6 @@ a:hover {
     left: 15px;
     font-family: 'Courier New', Courier, monospace;
     text-decoration: underline;
-    pointer-events: none;
 }
 
 #Item_List {
