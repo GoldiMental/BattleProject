@@ -11,15 +11,17 @@ let activeShop = "";
 
 async function shopHandel(SHOP) {
   console.log("Führe shopHandel(", SHOP, ") aus...");
-  clearInterval(moveIntervalID);
-  activeShop = SHOP;
-  let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
-  let shopMenu = document.getElementById("shopMenu");
-  monologBox.classList.toggle("hidethis", false);
-  monologBox.innerHTML = "Herzlich Willkommen im Shop "+ Shops.Names[SHOP]; await Delay(300); await Click();
-  monologBox.innerHTML = "Wie kann ich Ihnen weiterhelfen?"; await Delay(300);
-  shopMenu.classList.toggle("hidethis", false);
-  console.log("shopHandel(", SHOP, ") ✅");
+  if (!monologBox.classList.contains("hidethis")) {
+    clearInterval(moveIntervalID);
+    activeShop = SHOP;
+    let monologBox = document.getElementsByClassName("TrainerDialogBox")[0];
+    let shopMenu = document.getElementById("shopMenu");
+    monologBox.classList.toggle("hidethis", false);
+    monologBox.innerHTML = "Herzlich Willkommen im Shop " + Shops.Names[SHOP]; await Delay(300); await Click();
+    monologBox.innerHTML = "Wie kann ich Ihnen weiterhelfen?"; await Delay(300);
+    shopMenu.classList.toggle("hidethis", false);
+    console.log("shopHandel(", SHOP, ") ✅");
+  }
 };
 
 function closeShop() {
