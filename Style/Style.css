@@ -20,7 +20,9 @@ body {
     user-select: none;
 }
 
-div {
+div,
+p,
+h3 {
     pointer-events: none;
 }
 
