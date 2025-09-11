@@ -714,6 +714,7 @@ a:hover {
     bottom: 95px;
     border-radius: 1em;
     overflow: auto;
+    overflow-x: hidden;
     font-family: 'Courier New', Courier, monospace;
 }
 
