@@ -54,12 +54,14 @@ document.getElementById("loginForm").addEventListener('submit', async (e) => {
 
 document.getElementById("registerForm").addEventListener('submit', async (e) => {
     e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
     const username = e.target.username.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirm_password.value;
-    const agreedToAGB = e.target.agreedToAGB.value;
-    const agreedToDSB = e.target.agreedToDSB.value;
+    const agreedToAGB = formData.has('agreedToAGB');
+    const agreedToDSB = formData.has('agreedToDSB');
     clearMessagesAndValidation();
     if (password !== confirmPassword) {
         showMessage(passwordMatchErrorElement, 'Passwörter stimmen nicht überein.', 'error');
