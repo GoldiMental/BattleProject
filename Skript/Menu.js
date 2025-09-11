@@ -94,7 +94,7 @@ function Tulpas_List() {
         if (Slot.startsWith('Slot')) {
             let tulpa = Player.Tulpas[Slot];
             if (tulpa.name != "") {
-                html += '<div style="display:block;margin-bottom:5px;"><div class="' + tulpa.name + '"></div><br>' +
+                html += '<div style="display:block;margin-bottom:5px;pointer-events: none;"><div class="' + tulpa.name + '"></div><br>' +
                     '<div style="position:relative;left:30px;pointer-events: none;">' + Tulpas[tulpa.name].name + ' Lv.' + tulpa.Lv + ' HP:' + tulpa.HP + '/' + tulpa.HP_Total + '</div>' +
                     '<div class="LP_Bar"><div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div></div>' +
                     '<button class="Change_Tulpa interactive-element" onclick="swapTulpa(\'' + Slot + '\');Click()">🔄️</button>' +
