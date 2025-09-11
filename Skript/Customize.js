@@ -39,7 +39,7 @@ function showCustomModal(title, message, options = {}) {
             options.buttons.forEach(buttonConfig => {
                 const newButton = document.createElement('button');
                 newButton.textContent = buttonConfig.text;
-                newButton.className = 'modal-button';
+                newButton.className = 'modal-button interactive-element';
                 newButton.onclick = () => { closeModal(buttonConfig.value); };
                 customModalButtonsContainer.appendChild(newButton);
             });

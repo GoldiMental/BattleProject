@@ -36,7 +36,8 @@
                 <div class="ArenaTrainer1"></div>
                 <div class="ArenaTrainer2"></div>
                 <div id="Haendler" class="hidethis"></div>
-                <div id="Professor" class="hidethis"><button id="ProfessorButton" class="interactive-element" onclick="Professor001monolog()">
+                <div id="Professor" class="hidethis"><button id="ProfessorButton" class="interactive-element"
+                        onclick="Professor001monolog()">
                     </button></div>
                 <button id="tuerSelfIn" title="Mein Haus" class="Inside MeinHaus_B interactive-element hidethis"
                     onclick="meinEingang()"></button>
@@ -69,7 +70,8 @@
             </div>
             <div id="audio-controls" class="interactive-element">
                 <label for="volumeSlider" class="interactive-element"></label>
-                <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.1" class="interactive-element">
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.1"
+                    class="interactive-element">
                 <button id="muteBtn" class="interactive-element">🔊</button>
             </div>
             <div id="user" class="Player down"></div>
@@ -79,7 +81,8 @@
             <button class="WASD" id="D_Click">➡️</button>
             <button id="Menu" class="interactive-element" onclick="MenuList();Click()">≡</button>
             <div id="MenuList" class="interactive-element hidethis">
-                <button class="MenuList interactive-element" onclick="Tulpa_Dex();Click()">Tulpa-Dex<sup>®</sup></button>
+                <button class="MenuList interactive-element"
+                    onclick="Tulpa_Dex();Click()">Tulpa-Dex<sup>®</sup></button>
                 <button class="MenuList interactive-element" onclick="Tulpas_List();Click()">Tulpa's</button>
                 <button class="MenuList interactive-element" onclick="Info();Click()">Info</button>
                 <button id="karte" class="MenuList interactive-element" onclick="Karte();Click()">Karte</button>
@@ -91,27 +94,27 @@
             <div id="TulpaPC" class="hidethis">
                 <div>TulpaPC</div>
                 <div class="TulpaPC_01"></div>
-                <div id="TulpaPC_List"></div>
+                <div id="TulpaPC_List" class="interactive-element"></div>
                 <button class="Exit_Button interactive-element" onclick="close_Tulpa_PC();Click()">Exit</button>
             </div>
             <div id="Tulpa_Dex" class="hidethis">
                 <div>Tulpa-Dex<sup>®</sup></div>
-                <div id="Tulpa_Dex_List"></div>
+                <div id="Tulpa_Dex_List" class="interactive-element"></div>
                 <button class="Exit_Button interactive-element" onclick="close_Tulpa_Dex();Click()">Exit</button>
             </div>
             <div id="Tulpas" class="hidethis">
                 <div>Tulpa's</div><br>
-                <div id="Tulpa_List"></div>
+                <div id="Tulpa_List" class="interactive-element"></div>
                 <button class="Exit_Button interactive-element" onclick="close_Tulpas();Click()">Exit</button>
             </div>
             <div id="Info" class="hidethis">
                 <div style="text-align:center;">Info</div><br>
-                <div id="Info_List"></div>
+                <div id="Info_List" class="interactive-element"></div>
                 <button class="Exit_Button interactive-element" onclick="close_Info();Click()">Exit</button>
             </div>
             <div id="Karte" class="hidethis">
                 <div>Karte</div><br>
-                <div id="Karte_info">
+                <div id="Karte_info" class="interactive-element">
                     <div id="standort-marker">💠</div>
                 </div>
 
@@ -119,7 +122,7 @@
             </div>
             <div id="Items" class="hidethis">
                 <div>Item's</div><br>
-                <div id="Item_List"></div>
+                <div id="Item_List" class="interactive-element"></div>
                 <button class="Exit_Button interactive-element" onclick="close_Items();Click()">Exit</button>
             </div>
 
@@ -130,8 +133,8 @@
                 <button class="menu-button interactive-element" onclick="healTulpas();Click()">Tulpas Heilen</button>
                 <button class="menu-button interactive-element" onclick="closeShop();Click()">Verlassen</button>
             </div>
-            <div id="ShopBuyList" class="hidethis"></div>
-            <div id="ShopSellList" class="hidethis"></div>
+            <div id="ShopBuyList" class="interactive-element hidethis"></div>
+            <div id="ShopSellList" class="interactive-element hidethis"></div>
 
             <div class="TrainerDialogBox interactive-element hidethis" onclick="Click()"></div>
         </div>
@@ -185,7 +188,7 @@
                 <div id="customModalButtonsContainer"></div>
                 <input type="text" id="customModalInput" class="custom-modal-input interactive-element hidethis"
                     title="Eingabe erforderlich...">
-                <div class="custom-modal-buttons">
+                <div class="interactive-element custom-modal-buttons">
                     <button id="customModalOkButton" class="custom-modal-button interactive-element">Ok</button>
                     <button id="customModalCancelButton"
                         class="custom-modal-button interactive-element hidethis">Abbrechen</button>
@@ -268,4 +271,5 @@
         const GAME_SERVER_IP = '<%= gameServerIP %>';
     </script>
 </body>
+
 </html>
