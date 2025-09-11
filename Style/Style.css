@@ -544,6 +544,7 @@ a:hover {
 
 .description {
     text-align: left;
+    pointer-events: none;
 }
 
 .Exit_Button {
