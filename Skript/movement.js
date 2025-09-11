@@ -139,10 +139,12 @@ function moveMap() {
     for (let i = 0; i < maps[activeMap].blockedArea.length; i++) {
         const a = maps[activeMap].blockedArea[i];
         if (newMapX >= a.minX && newMapX <= a.maxX && newMapY >= a.minY && newMapY <= a.maxY) {
-            if (a.story && a.story != undefined){
-                if ()
+            if (a.story && a.story != undefined) {
+                if (!Player.questLine[a.storyID]) {
+                    return;
+                }
             }
-            else{return;};
+            else { return; };
         }
     }
     switch (activeMap) {

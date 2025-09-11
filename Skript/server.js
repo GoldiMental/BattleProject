@@ -83,7 +83,10 @@ const User = mongoose.model('User', new mongoose.Schema({
                 drinks: { Heiltrank: 5, Super_Heiltrank: 0, Manatrank: 0, Super_Manatrank: 0, },
                 bonbons: { Bonbon: 0, Super_Bonbon: 0, Hyper_Bonbon: 0, }
             },
-            defeatedTrainer: [], tulpaGegeben: false,
+            questLine: {
+                tulpaGegeben: false,
+            },
+            defeatedTrainer: [],
         }
     }
 }));
