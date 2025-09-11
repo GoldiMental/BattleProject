@@ -11,7 +11,6 @@ function toggleIDElement(name, value) {
 }
 
 let Player = {};
-if (Player.tulpaGegeben) { Player.questLine = { tulpaGegeben: true, } }
 
 navigator.getGamepads();
 document.addEventListener('DOMContentLoaded', async () => {
@@ -95,12 +94,8 @@ async function InitializeGameWorld() {
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
     } else if (!Player.MapX && !Player.MapY && Player.tulpaGegeben) {
         Player.MapX = maps.MAP.startX; Player.MapY = maps.MAP.startY;
-        changeMap('MAP');
-        await Delay(300);
-        movementGame.classList.toggle("hidethis", false);
-        console.log(`Spieler auf Startposition (Update!) gesetzt. Folgende Koordinaten werden in Player gesetzt.`);
-        console.log("MapX:", Player.MapX, " MapY:", Player.MapY);
-        console.warn("Speichern nicht vergessen!!!");
+        if (Player.tulpaGegeben) { Player.questLine = { tulpaGegeben: true, } }
+        window.location.reload();
     } else if ((Player.MapX == 0 && Player.MapY == 0) || (!Player.MapX && !Player.MapX && !Player.tulpaGegeben)) {
         await Delay(200); loadStory(); starteTutorial();
     }
