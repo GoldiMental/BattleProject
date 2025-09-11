@@ -209,12 +209,12 @@ async function Exit_Game() {
 const Story = document.getElementsByClassName("TrainerText");
 
 function loadStory() {
-    if (Player.Tulpas.Slot_1 == "") {
-        toggleClassElement("TrainerText", false);
-        //Story.classList.toggle("hidethis", false);
+    if (Player.Tulpas.Slot_1.name == "") {
+        //toggleClassElement("TrainerText", false);
+        Story.classList.toggle("hidethis", false);
     }
     else {
-        toggleClassElement("TrainerText", false);
-        //Story.classList.toggle("hidethis", true);
+        //toggleClassElement("TrainerText", false);
+        Story.classList.toggle("hidethis", true);
     }
 }
