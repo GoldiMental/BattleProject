@@ -241,7 +241,7 @@ app.post('/login', async (req, res) => {
         const token = jwt.sign(
             { id: user._id, username: user.username, playerdata: user.playerdata },
             jwt_Key,
-            { expiresIn: '1h' }
+            { expiresIn: '6h' }
         );
 
         res.status(200).json({
