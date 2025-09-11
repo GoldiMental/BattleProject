@@ -82,7 +82,7 @@ async function InitializeGameWorld() {
     console.log("Führe InitializeGameWorld() aus...");
     const movementGame = document.getElementById("movement_game");
     movementGame.classList.toggle("hidethis", true);
-    if (Player.tulpaGegeben) { Player.questLine = { tulpaGegeben: true, } };
+    if (Player.tulpaGegeben) { Player.questLine = { tulpaGegeben: true, } }else{Player.questLine = { tulpaGegeben: false, }};
     setcolor();
     if (Player.MapX != 0 && Player.MapY != 0 && Player.MapX != undefined && Player.MapY != undefined) {
         console.log("Karte:", Player.actualMap);
