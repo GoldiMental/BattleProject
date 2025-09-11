@@ -86,6 +86,8 @@ async function InitializeGameWorld() {
         console.log("Karte:", Player.actualMap);
         changeMap(Player.actualMap);
         console.log("MapX:", Player.MapX, " MapY:", Player.MapY);
+        //Function LoadStory()
+        loadStory()
         await Delay(300);
         movementGame.classList.toggle("hidethis", false);
         console.log(`Spieler auf letzte bekannte Position gesetzt.`);
@@ -202,4 +204,13 @@ async function Exit_Game() {
     if (antwort) {
         window.location.href = GAME_SERVER_IP;
     }
+}
+
+const Story = document.getElementsByClassName("TrainerText");
+
+function loadStory() {
+    if (Player.Tulpas[Slot] == 0)
+        toggleClassElement("TrainerText", false);
+    else 
+        toggleClassElement("TrainerText", true);
 }
