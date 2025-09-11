@@ -17,7 +17,7 @@ async function Professor001monolog() {
     document.getElementById("ProfessorButton").classList.toggle("hidethis", true);
     clearInterval(moveIntervalID);
     box.classList.toggle("hidethis", false);
-    if (!Player.tulpaGegeben) {
+    if (!Player.questLine.tulpaGegeben) {
         box.innerHTML = Professor.Dialog1.text1; await Delay(300); await Click();
         box.innerHTML = Professor.Dialog1.text2; await Delay(300); await Click();
         box.innerHTML = Professor.Dialog1.text3; await Delay(300); await Click();
