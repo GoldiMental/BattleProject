@@ -206,17 +206,12 @@ async function Exit_Game() {
     }
 }
 
-const Story = document.getElementsByClassName("TrainerText");
 
 function loadStory() {
     if (Player.Tulpas.Slot_1.name == "") {
         toggleClassElement("TrainerText", false);
-        //Story.classList.toggle("hidethis", false);
-        document.getElementsByClassName("TrainerText").hidethis = false;
     }
     else {
         toggleClassElement("TrainerText", true);
-        //Story.classList.toggle("hidethis", true);
-        document.getElementsByClassName("TrainerText").hidethis = true;
     }
 }
