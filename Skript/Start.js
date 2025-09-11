@@ -210,7 +210,7 @@ const Story = document.getElementsByClassName("TrainerText");
 
 function loadStory() {
     if (Player.Tulpas[Slot] == 0)
-        toggleClassElement("TrainerText", false);
+        Story.classList.toggle("hidethis", false);
     else 
-        toggleClassElement("TrainerText", true);
+        Story.classList.toggle("hidethis", true);
 }
