@@ -44,7 +44,7 @@ body {
 button:disabled {
     border: none;
     cursor: default;
-    pointer-events: none;
+    pointer-events: none !important;
 }
 
 button {
