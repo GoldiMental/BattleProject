@@ -1006,7 +1006,6 @@ a:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    pointer-events: none;
 }
 
 #use_item {

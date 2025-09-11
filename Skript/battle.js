@@ -386,7 +386,7 @@ function changeTulpa() {
                     if (tulpa.HP > 0) {
                         html += '<button class="change_tulpa_button interactive-element" onclick="selectTulpa(\'' + Slot + '\')">' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button>';
                     } else {
-                        html += '<button class="change_tulpa_button" disabled>' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button>';
+                        html += '<button class="change_tulpa_button interactive-element" disabled>' + tulpa.name + ' Lv. ' + tulpa.Lv + ' HP: ' + tulpa.HP + '/' + tulpa.HP_Total + '</button>';
                     }
                 }
             }
