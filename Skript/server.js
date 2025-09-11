@@ -68,6 +68,9 @@ const User = mongoose.model('User', new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    agreedToAGB: { type: Boolean, required: true },
+    agreedToDSB: { type: Boolean, required: true },
+    agreedAt: { type: Date, required: true },
     playerdata: {
         type: Object,
         default: {
@@ -195,7 +198,11 @@ function authenticateToken(req, res, next) {
 
 app.post('/register', async (req, res) => {
     try {
-        const { username, email, password } = req.body;
+        const { username, email, password, agreedToAGB, agreedToDSB } = req.body;
+
+        if(!agreedToAGB || !agreedToDSB){
+            return res.status(400).json({error:"Bitte stimmen sie den AGB und der Datenschutzerklärung zu!"})
+        }
 
         if (!username || !email || !password) {
             return res.status(400).json({ message: 'Alle Felder sind erforderlich.' });
@@ -212,7 +219,7 @@ app.post('/register', async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ username, email, password: hashedPassword });
+        const newUser = new User({ username, email, password: hashedPassword, agreedToAGB, agreedToDSB, agreedAt: new Date()});
         await newUser.save();
         res.status(201).json({ message: 'Registrierung erfolgreich!' });
 

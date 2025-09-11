@@ -3,16 +3,16 @@
 }
 
 *::-webkit-scrollbar {
-  width: 0.3em;
+    width: 0.3em;
 }
 
 *::-webkit-scrollbar-track {
-  background: linear-gradient(rgb(0, 0, 25), rgb(0, 0, 60));
+    background: linear-gradient(rgb(0, 0, 25), rgb(0, 0, 60));
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 2em;
-  background-color: rgb(255, 0, 0);
+    border-radius: 2em;
+    background-color: rgb(255, 0, 0);
 }
 
 body {
@@ -22,9 +22,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    min-height: 700px;
+    min-height: 1000px;
     margin: 0;
     overflow: auto;
+    overflow-x: hidden;
     -webkit-user-select: none;
     user-select: none;
 }
@@ -303,25 +304,27 @@ forgot-password-link {
     height: auto;
     padding: 5px 10px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1em;
     border: none;
     background: transparent;
-    color: silver;
+    color: rgb(192, 192, 192);
     transition: all 0.5s ease;
     text-decoration: none;
 }
 
 #LinkInfo:hover {
-    color: gold;
+    color: rgb(255, 215, 0);
     text-decoration: underline;
-    font-size: 1.1rem;
-    text-shadow: 0.3rem 0.2rem 0.25rem silver;
+    font-size: 1.1em;
+    text-shadow: 0.3em 0.2em 0.25em rgb(192, 192, 192);
 }
 
 .impressum {
-    position: absolute;
+    position: fixed;
     bottom: 0.75rem;
-    color: silver;
+    color: rgb(192, 192, 192);
+    text-shadow: 0 0 0.15em rgb(0, 0, 0);
+    z-index: 10;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     transition: color 0.5s ease, font-size 0.5s ease;
@@ -448,6 +451,61 @@ forgot-password-link {
     color: rgb(255, 0, 0) !important;
 }
 
+.agb-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.agb-container label {
+    align-items: center;
+    cursor: pointer;
+}
+
+.agb-container a {
+    color: rgb(192, 192, 192);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.agb-container a:hover {
+    color: rgb(255, 215, 0);
+    font-size: 1.05em;
+    text-decoration: underline;
+}
+
+.agb-container input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.25em outset rgb(255, 215, 0);
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    margin-right: 0.5em;
+    border-radius: 0.4em;
+    transition: all 0.3s ease;
+}
+
+.agb-container input[type="checkbox"]:hover {
+    border-color: rgb(155, 0, 0);
+}
+
+.agb-container input[type="checkbox"]:checked {
+    background-color: rgb(155, 115, 0);
+    border-color: rgb(100, 70, 0);
+}
+
+.agb-container input[type="checkbox"]:checked::before {
+    content: '\2713';
+    font-size: 1em;
+    color: rgb(192, 192, 192);
+    display: block;
+    text-align: center;
+    line-height: 1.35em;
+}
+
 @media (max-width: 830px) {
     #TulpaIcon {
         top: 20px;
@@ -505,34 +563,4 @@ forgot-password-link {
         top: 850px;
         height: 30px;
     }
-}
-
-.hidden-checkbox {
-  display: none; /* Die Standard-Checkbox ausblenden */
-}
-
-.button-checkbox {
-  display: inline-block;
-  padding: 10px 20px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.button-checkbox:hover {
-  background-color: #e0e0e0;
-}
-
-/* Styling für den ausgewählten Zustand */
-.hidden-checkbox:checked + span {
-  background-color: #007bff;
-  color: #fff;
-  border-color: #007bff;
-}
-
-/* Wichtig: Das Label, nicht die Checkbox selbst stylen! */
-.hidden-checkbox:checked + span {
-  display: block;
 }
