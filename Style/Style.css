@@ -44,6 +44,7 @@ body {
 button:disabled {
     border: none;
     cursor: default;
+    pointer-events: none;
 }
 
 button {
@@ -636,6 +637,7 @@ a:hover {
     left: 15px;
     font-family: 'Courier New', Courier, monospace;
     text-decoration: underline;
+    pointer-events: none;
 }
 
 #Item_List {
