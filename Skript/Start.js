@@ -11,9 +11,8 @@ function toggleIDElement(name, value) {
 }
 
 let Player = {};
-if (!Player.questLine) {
-    if (Player.tulpaGegeben) { Player.questLine = { tulpaGegeben: true, } }
-}
+if (Player.tulpaGegeben) { Player.questLine = { tulpaGegeben: true, } }
+
 navigator.getGamepads();
 document.addEventListener('DOMContentLoaded', async () => {
     console.log("Starte Spiel...");
