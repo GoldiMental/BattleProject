@@ -326,9 +326,9 @@ function updateGamepad() {
     const gamepads = navigator.getGamepads();
     const gamepad = gamepads[0];
     if (gamepad) {
-        const leftDir = gamepad.buttons[14].value;
+        const leftDir = gamepad.buttons[14];
         const upDir = gamepad.buttons[12].value;
-        const rightDir = gamepad.buttons[15].value;
+        const rightDir = gamepad.buttons[15];
         const downDir = gamepad.buttons[13].value;
         const Xbtn = gamepad.buttons[0];
         const Obtn = gamepad.buttons[1].value;
@@ -383,6 +383,7 @@ function updateGamepad() {
         //X/A-Button
         const wasPressedLastFrame = lastButtonStates[0];
         const isPressedNow = Xbtn.pressed;
+        const isScrollable = hoveredElement && hoveredElement.scrollHeight > hoveredElement.clientHeight;
 
         if (isPressedNow && !wasPressedLastFrame && hoveredElement) {
             const clickEvent = new MouseEvent('click', {
@@ -390,6 +391,14 @@ function updateGamepad() {
                 cancelable: true
             });
             hoveredElement.dispatchEvent(clickEvent);
+        }
+        //UP/DOWN-Buttons
+        if (isScrollable){
+            const scrollSpeed = 10;
+            hoveredElement.scrollTop += downDir * scrollSpeed;
+            hoveredElement.scrollTop -= upDir * scrollSpeed;
+            hoveredElement.scrollLeft += leftDir * scrollSpeed;
+            hoveredElement.scrollLeft -= rightDir * scrollSpeed;
         }
 
         lastButtonStates[0] = isPressedNow;
