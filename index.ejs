@@ -66,8 +66,14 @@
                     required />
                 <span id="passwordMatchError" class="message-area error"></span>
             </div>
-            <label for="AGB_ACCEPT"><input type="checkbox" required>Ich habe die <a href="agb.html">AGB von GoldiMental Entertainment</a> gelesen und akzeptiere Sie.</label>
-            <label for="DS_ACCEPT"><input type="checkbox" required>Ich habe die <a href="datenschutz.html">Datenschutzbestimmungen TulpaKing®</a> gelesen und akzeptiere Sie.</label>
+            <div class="agb-container">
+                <label for="accept-agb"><input type="checkbox" name="agreedToAGB" required>Ich habe die <a
+                        href="agb.html" target="_blank">AGB von GoldiMental Entertainment</a> gelesen und akzeptiere
+                    Sie.</label>
+                <label for="accept-datenschutz"><input type="checkbox" name="agreedToDSB" required>Ich habe die <a
+                        href="datenschutz.html" target="_blank">Datenschutzerklärung von TulpaKing®</a> gelesen und
+                    akzeptiere Sie.</label>
+            </div>
             <a id="LinkInfo" target="_self" href="Info.html">Was erwartet mich?</a>
             <button class="btn" type="submit">Registrieren</button>
             <div id="registerMessage" class="message-area"></div>
