@@ -11,8 +11,8 @@ function TulpaPC() {
                 '<div class="LP_Bar">' +
                 '<div class="LP_Fill" style="width:' + Math.round((tulpa.HP / tulpa.HP_Total) * 100) + '%"></div>' +
                 '</div>' +
-                '<button class="Change_Tulpa" onclick="promptSwapWithTeam(' + Tulpa + ')">🔄️</button>' +
-                '<button class="Delete_Tulpa" onclick="removeTulpaFromPC(' + Tulpa + ');Click()">🗑️</button></div>';
+                '<button class="Change_Tulpa interactive-element" onclick="promptSwapWithTeam(' + Tulpa + ')">🔄️</button>' +
+                '<button class="Delete_Tulpa  interactive-element" onclick="removeTulpaFromPC(' + Tulpa + ');Click()">🗑️</button></div>';
         }
     }
     document.getElementById('TulpaPC_List').innerHTML = html;
